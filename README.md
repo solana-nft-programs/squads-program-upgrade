@@ -15,7 +15,7 @@ Use this github action to automate Solana program deployments straight from Gith
 You can now consume the action by referencing the v1 branch
 
 ```yaml
-uses: actions/squads-program-upgrade@v0.1.1
+uses: actions/squads-program-upgrade@v0.1.3
 with:
   network-url: 'https://api.devnet.solana.com'
   program-multisig: '8QC4Lv3YNAHUmacepqxBKCJY5zx7yrDtQLo9sNFsNnqB'
@@ -25,7 +25,7 @@ with:
   spill-address: 'depThGTDB9Krh5wd3u23Fbr7gtNVn43X5VLr7c2jbew'
   authority: '7CLWzQ3pGwk9TCBnNFVq2p79NGQ8WyhSrrjfXiPN4L9m'
   name: 'TEST'
-  keypair: process.env.DEPLOYER_KEYPAIR
+  keypair: ${{ env.DEPLOYER_KEYPAIR }}
 ```
 
 ## Development
