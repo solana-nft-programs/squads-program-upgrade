@@ -5,7 +5,7 @@ branding:
   icon: 'upload'
   color: 'red'
 inputs:
-  network:
+  network-url:
     description: 'The Solana network'
     required: true
     default: 'devnet'
