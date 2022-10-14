@@ -13,7 +13,7 @@ You can now consume the action by referencing the v1 branch
 ```yaml
 uses: actions/squads-program-upgrade@v1
 with:
-  network: 'https://api.devnet.solana.com'
+  network-url: 'https://api.devnet.solana.com'
   program-multisig: '8QC4Lv3YNAHUmacepqxBKCJY5zx7yrDtQLo9sNFsNnqB'
   program-id: 'prgCo6HJ2bP8xPJ3zwVnfVbqhBbBgY8t7moykr7wzCx'
   program-index: '1'
