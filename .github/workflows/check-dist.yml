@@ -30,6 +30,8 @@ jobs:
 
       - name: Install dependencies
         run: yarn
+      - name: Build the lib/ directory
+        run: yarn build
 
       - name: Rebuild the dist/ directory
         run: yarn package
