@@ -25,14 +25,14 @@ async function run(): Promise<void> {
     core.debug(`keypair: **********`)
 
     await createProgramUpgrade({
-      multisig: publicKeyFrom(programMultisig),
-      programId: publicKeyFrom(programId),
+      multisig: publicKeyFrom(programMultisig, 'programMultisig'),
+      programId: publicKeyFrom(programId, 'programId'),
       programIndex: parseInt(programIndex) ?? 1,
-      buffer: publicKeyFrom(buffer),
-      spill: publicKeyFrom(spillAddress),
-      authority: publicKeyFrom(authority),
+      buffer: publicKeyFrom(buffer, 'buffer'),
+      spill: publicKeyFrom(spillAddress, 'spillAddress'),
+      authority: publicKeyFrom(authority, 'authority'),
       name: name,
-      wallet: keypairFrom(keypair),
+      wallet: keypairFrom(keypair, 'keypair'),
       networkUrl: networkUrl
     })
   } catch (error) {

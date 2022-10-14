@@ -80246,14 +80246,14 @@ async function run() {
         core.debug(`name: ${name}`);
         core.debug(`keypair: **********`);
         await (0, createProgramUpgrade_1.createProgramUpgrade)({
-            multisig: (0, utils_1.publicKeyFrom)(programMultisig),
-            programId: (0, utils_1.publicKeyFrom)(programId),
+            multisig: (0, utils_1.publicKeyFrom)(programMultisig, 'programMultisig'),
+            programId: (0, utils_1.publicKeyFrom)(programId, 'programId'),
             programIndex: (_a = parseInt(programIndex)) !== null && _a !== void 0 ? _a : 1,
-            buffer: (0, utils_1.publicKeyFrom)(buffer),
-            spill: (0, utils_1.publicKeyFrom)(spillAddress),
-            authority: (0, utils_1.publicKeyFrom)(authority),
+            buffer: (0, utils_1.publicKeyFrom)(buffer, 'buffer'),
+            spill: (0, utils_1.publicKeyFrom)(spillAddress, 'spillAddress'),
+            authority: (0, utils_1.publicKeyFrom)(authority, 'authority'),
             name: name,
-            wallet: (0, utils_1.keypairFrom)(keypair),
+            wallet: (0, utils_1.keypairFrom)(keypair, 'keypair'),
             networkUrl: networkUrl
         });
     }
