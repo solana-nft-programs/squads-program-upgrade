@@ -12,7 +12,19 @@ export const publicKeyFrom = (s: string, n?: string): PublicKey => {
 
 export const keypairFrom = (s: string, n?: string): Keypair => {
   try {
-    return Keypair.fromSecretKey(utils.bytes.bs58.decode(s))
+    if (s.includes('[')) {
+      return Keypair.fromSecretKey(
+        Buffer.from(
+          s
+            .replace('[', '')
+            .replace(']', '')
+            .split(',')
+            .map(c => parseInt(c))
+        )
+      )
+    } else {
+      return Keypair.fromSecretKey(utils.bytes.bs58.decode(s))
+    }
   } catch (e) {
     try {
       return Keypair.fromSecretKey(
