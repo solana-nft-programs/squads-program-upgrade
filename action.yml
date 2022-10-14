@@ -1,8 +1,9 @@
 name: 'Squads program upgrade'
 description: 'Github action to deploy a squads program upgrade on Solana'
 author: 'Cardinal Labs'
-icon: 'upload'
-color: 'red'
+branding:
+  icon: 'upload'
+  color: 'red'
 inputs:
   network:
     description: 'The Solana network'
