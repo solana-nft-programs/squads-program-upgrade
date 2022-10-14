@@ -1,18 +1,17 @@
 {
-    "env": {
-        "commonjs": true,
-        "es6": true,
-        "jest": true,
-        "node": true
-    },
-    "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+    "plugins": ["jest", "@typescript-eslint"],
+    "extends": ["plugin:github/recommended"],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2018
+      "ecmaVersion": 9,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
     },
     "rules": {
+    },
+    "env": {
+      "node": true,
+      "es6": true,
+      "jest/globals": true
     }
-}
+  }

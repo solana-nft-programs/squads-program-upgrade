@@ -1,13 +1,35 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Squads program upgrade'
+description: 'Github action to deploy a squads program upgrade on Solana'
+author: 'Cardinal Labs'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  network:
+    description: 'The Solana network'
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The current time after waiting'
+    default: 'devnet'
+  program-multisig:
+    description: 'The program multisig authority'
+    required: true
+  program-id:
+    description: 'The program id to upgrade'
+    required: true
+  program-index:
+    description: 'The program index to upgrade'
+    required: true
+  buffer:
+    description: 'The buffer where the program is uploaded to'
+    required: true
+  spill-address:
+    description: 'The program multisig authority'
+    required: true
+  authority:
+    description: 'The upgrade authority'
+    required: true
+  name:
+    description: 'The name of this upgrade'
+    required: true
+  keypair:
+    description: 'The keypair to use for deploys'
+    required: true
 runs:
   using: 'node16'
   main: 'dist/index.js'
