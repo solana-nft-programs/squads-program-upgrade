@@ -50,9 +50,9 @@ $ yar test
 
 ## Package for distribution
 
-GitHub Actions will run the entry point from the action.yml. Packaging assembles the code into one file that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
+GitHub Actions will run the entry point from the action.yml.
 
-Actions are run from GitHub repos. Packaging the action will create a packaged action in the dist folder.
+Packaging assembles the code into one file in the dist folder that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
 
 Run prepare
 
