@@ -1,4 +1,4 @@
-# Cardinal X Squads Program Upgrade
+# Cardinal X Squads Program Upgrade Github Action
 
 <p align="center">
   <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
