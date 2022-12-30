@@ -27,7 +27,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@project-serum/anchor": "^0.24.2",
-    "@solana/web3.js": "1.53.0"
+    "@solana/web3.js": "1.73.0"
   },
   "devDependencies": {
     "@types/node": "^16.10.5",
