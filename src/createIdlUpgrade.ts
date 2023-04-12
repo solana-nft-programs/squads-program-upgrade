@@ -56,7 +56,7 @@ export const createIdlUpgrade = async ({
     msProgramId
   )
   if (authorityPDA.toString() !== authority.toString()) {
-    throw 'Invalid authority index'
+    throw `Invalid authority index ${authorityIndex} for authority ${authority.toString()}`
   }
   const createTransactionIx = await program.methods
     .createTransaction(authorityIndex)

@@ -49,7 +49,10 @@ async function run(): Promise<void> {
         authority: publicKeyFrom(authority, 'authority'),
         wallet: keypairFrom(keypair, 'keypair'),
         networkUrl: networkUrl,
-        authorityIndex: parseInt(authorityIndex) ?? 1
+        authorityIndex:
+          authorityIndex && authorityIndex.length > 0
+            ? parseInt(authorityIndex)
+            : 1
       })
     }
   } catch (error) {

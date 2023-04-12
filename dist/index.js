@@ -59,7 +59,7 @@ const createIdlUpgrade = async ({ multisig, programId, buffer, authority, wallet
     const [transactionPDA] = (0, pda_1.getTxPDA)(multisig, transactionIndex, constants_1.msProgramId);
     const [authorityPDA] = (0, pda_1.getAuthorityPDA)(multisig, new anchor_1.BN(authorityIndex), constants_1.msProgramId);
     if (authorityPDA.toString() !== authority.toString()) {
-        throw 'Invalid authority index';
+        throw `Invalid authority index ${authorityIndex} for authority ${authority.toString()}`;
     }
     const createTransactionIx = await program.methods
         .createTransaction(authorityIndex)
@@ -92101,7 +92101,7 @@ const createProgramUpgrade_1 = __nccwpck_require__(5300);
 const utils_1 = __nccwpck_require__(918);
 const createIdlUpgrade_1 = __nccwpck_require__(9333);
 async function run() {
-    var _a, _b;
+    var _a;
     try {
         const networkUrl = core.getInput('network-url');
         const programMultisig = core.getInput('program-multisig');
@@ -92145,7 +92145,9 @@ async function run() {
                 authority: (0, utils_1.publicKeyFrom)(authority, 'authority'),
                 wallet: (0, utils_1.keypairFrom)(keypair, 'keypair'),
                 networkUrl: networkUrl,
-                authorityIndex: (_b = parseInt(authorityIndex)) !== null && _b !== void 0 ? _b : 1
+                authorityIndex: authorityIndex && authorityIndex.length > 0
+                    ? parseInt(authorityIndex)
+                    : 1
             });
         }
     }
