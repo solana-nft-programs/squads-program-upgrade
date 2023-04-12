@@ -10,7 +10,6 @@ import {
 import {msProgramId} from './constants'
 import {SquadsMpl} from './idl/squads_mpl'
 import {getAuthorityPDA, getIDLPDA, getIxPDA, getTxPDA} from './pda'
-import {keypairFrom} from './utils'
 
 const SET_IDL_BUFFER_IX_DISCRIMINATOR = '40f4bc78a7e9690a03'
 export const createIdlUpgrade = async ({
