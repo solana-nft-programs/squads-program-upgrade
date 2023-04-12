@@ -1,317 +1,317 @@
 export declare type ProgramManager = {
-  version: "0.1.0";
-  name: "program_manager";
+  version: '0.1.0'
+  name: 'program_manager'
   instructions: [
     {
-      name: "createProgramManager";
+      name: 'createProgramManager'
       accounts: [
         {
-          name: "multisig";
-          isMut: false;
-          isSigner: false;
+          name: 'multisig'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "programManager";
-          isMut: true;
-          isSigner: false;
+          name: 'programManager'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
+          name: 'creator'
+          isMut: true
+          isSigner: true
         },
         {
-          name: "systemProgram";
-          isMut: false;
-          isSigner: false;
+          name: 'systemProgram'
+          isMut: false
+          isSigner: false
         }
-      ];
-      args: [];
+      ]
+      args: []
     },
     {
-      name: "createManagedProgram";
+      name: 'createManagedProgram'
       accounts: [
         {
-          name: "multisig";
-          isMut: false;
-          isSigner: false;
+          name: 'multisig'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "programManager";
-          isMut: true;
-          isSigner: false;
+          name: 'programManager'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "managedProgram";
-          isMut: true;
-          isSigner: false;
+          name: 'managedProgram'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
+          name: 'creator'
+          isMut: true
+          isSigner: true
         },
         {
-          name: "systemProgram";
-          isMut: false;
-          isSigner: false;
+          name: 'systemProgram'
+          isMut: false
+          isSigner: false
         }
-      ];
+      ]
       args: [
         {
-          name: "programAddress";
-          type: "publicKey";
+          name: 'programAddress'
+          type: 'publicKey'
         },
         {
-          name: "name";
-          type: "string";
+          name: 'name'
+          type: 'string'
         }
-      ];
+      ]
     },
     {
-      name: "createProgramUpgrade";
+      name: 'createProgramUpgrade'
       accounts: [
         {
-          name: "multisig";
-          isMut: false;
-          isSigner: false;
+          name: 'multisig'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "programManager";
-          isMut: false;
-          isSigner: false;
+          name: 'programManager'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "managedProgram";
-          isMut: true;
-          isSigner: false;
+          name: 'managedProgram'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "programUpgrade";
-          isMut: true;
-          isSigner: false;
+          name: 'programUpgrade'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "creator";
-          isMut: true;
-          isSigner: true;
+          name: 'creator'
+          isMut: true
+          isSigner: true
         },
         {
-          name: "systemProgram";
-          isMut: false;
-          isSigner: false;
+          name: 'systemProgram'
+          isMut: false
+          isSigner: false
         }
-      ];
+      ]
       args: [
         {
-          name: "buffer";
-          type: "publicKey";
+          name: 'buffer'
+          type: 'publicKey'
         },
         {
-          name: "spill";
-          type: "publicKey";
+          name: 'spill'
+          type: 'publicKey'
         },
         {
-          name: "authority";
-          type: "publicKey";
+          name: 'authority'
+          type: 'publicKey'
         },
         {
-          name: "name";
-          type: "string";
+          name: 'name'
+          type: 'string'
         }
-      ];
+      ]
     },
     {
-      name: "setAsExecuted";
+      name: 'setAsExecuted'
       accounts: [
         {
-          name: "multisig";
-          isMut: false;
-          isSigner: false;
+          name: 'multisig'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "programManager";
-          isMut: false;
-          isSigner: false;
+          name: 'programManager'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "managedProgram";
-          isMut: true;
-          isSigner: false;
+          name: 'managedProgram'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "programUpgrade";
-          isMut: true;
-          isSigner: false;
+          name: 'programUpgrade'
+          isMut: true
+          isSigner: false
         },
         {
-          name: "transaction";
-          isMut: false;
-          isSigner: false;
+          name: 'transaction'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "instruction";
-          isMut: false;
-          isSigner: false;
+          name: 'instruction'
+          isMut: false
+          isSigner: false
         },
         {
-          name: "authority";
-          isMut: false;
-          isSigner: true;
+          name: 'authority'
+          isMut: false
+          isSigner: true
         }
-      ];
-      args: [];
+      ]
+      args: []
     }
-  ];
+  ]
   accounts: [
     {
-      name: "programManager";
+      name: 'programManager'
       type: {
-        kind: "struct";
+        kind: 'struct'
         fields: [
           {
-            name: "multisig";
-            type: "publicKey";
+            name: 'multisig'
+            type: 'publicKey'
           },
           {
-            name: "managedProgramIndex";
-            type: "u32";
+            name: 'managedProgramIndex'
+            type: 'u32'
           },
           {
-            name: "bump";
-            type: "u8";
+            name: 'bump'
+            type: 'u8'
           }
-        ];
-      };
+        ]
+      }
     },
     {
-      name: "managedProgram";
+      name: 'managedProgram'
       type: {
-        kind: "struct";
+        kind: 'struct'
         fields: [
           {
-            name: "managedProgramIndex";
-            type: "u32";
+            name: 'managedProgramIndex'
+            type: 'u32'
           },
           {
-            name: "programAddress";
-            type: "publicKey";
+            name: 'programAddress'
+            type: 'publicKey'
           },
           {
-            name: "multisig";
-            type: "publicKey";
+            name: 'multisig'
+            type: 'publicKey'
           },
           {
-            name: "upgradeIndex";
-            type: "u32";
+            name: 'upgradeIndex'
+            type: 'u32'
           },
           {
-            name: "lastUpgrade";
-            type: "i64";
+            name: 'lastUpgrade'
+            type: 'i64'
           },
           {
-            name: "lastUpgradeIndex";
-            type: "u32";
+            name: 'lastUpgradeIndex'
+            type: 'u32'
           },
           {
-            name: "bump";
-            type: "u8";
+            name: 'bump'
+            type: 'u8'
           },
           {
-            name: "name";
-            type: "string";
+            name: 'name'
+            type: 'string'
           }
-        ];
-      };
+        ]
+      }
     },
     {
-      name: "programUpgrade";
+      name: 'programUpgrade'
       type: {
-        kind: "struct";
+        kind: 'struct'
         fields: [
           {
-            name: "managedProgramAddress";
-            type: "publicKey";
+            name: 'managedProgramAddress'
+            type: 'publicKey'
           },
           {
-            name: "upgradeIndex";
-            type: "u32";
+            name: 'upgradeIndex'
+            type: 'u32'
           },
           {
-            name: "createdOn";
-            type: "i64";
+            name: 'createdOn'
+            type: 'i64'
           },
           {
-            name: "upgradedOn";
-            type: "i64";
+            name: 'upgradedOn'
+            type: 'i64'
           },
           {
-            name: "executed";
-            type: "bool";
+            name: 'executed'
+            type: 'bool'
           },
           {
-            name: "bump";
-            type: "u8";
+            name: 'bump'
+            type: 'u8'
           },
           {
-            name: "upgradeIx";
+            name: 'upgradeIx'
             type: {
-              defined: "UpgradeInstruction";
-            };
+              defined: 'UpgradeInstruction'
+            }
           },
           {
-            name: "name";
-            type: "string";
+            name: 'name'
+            type: 'string'
           }
-        ];
-      };
+        ]
+      }
     }
-  ];
+  ]
   types: [
     {
-      name: "UpgradeInstruction";
+      name: 'UpgradeInstruction'
       type: {
-        kind: "struct";
+        kind: 'struct'
         fields: [
           {
-            name: "programId";
-            type: "publicKey";
+            name: 'programId'
+            type: 'publicKey'
           },
           {
-            name: "accounts";
+            name: 'accounts'
             type: {
               vec: {
-                defined: "UpgradeAccountMeta";
-              };
-            };
+                defined: 'UpgradeAccountMeta'
+              }
+            }
           },
           {
-            name: "upgradeInstructionData";
-            type: "bytes";
+            name: 'upgradeInstructionData'
+            type: 'bytes'
           }
-        ];
-      };
+        ]
+      }
     },
     {
-      name: "UpgradeAccountMeta";
+      name: 'UpgradeAccountMeta'
       type: {
-        kind: "struct";
+        kind: 'struct'
         fields: [
           {
-            name: "pubkey";
-            type: "publicKey";
+            name: 'pubkey'
+            type: 'publicKey'
           },
           {
-            name: "isSigner";
-            type: "bool";
+            name: 'isSigner'
+            type: 'bool'
           },
           {
-            name: "isWritable";
-            type: "bool";
+            name: 'isWritable'
+            type: 'bool'
           }
-        ];
-      };
+        ]
+      }
     }
-  ];
-};
-export declare const IDL: ProgramManager;
+  ]
+}
+export declare const IDL: ProgramManager

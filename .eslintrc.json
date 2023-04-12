@@ -7,7 +7,11 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "rules": {},
+  "rules": {
+    "filenames/match-regex": 1,
+    "filenames/match-exported": 1,
+    "filenames/no-index": 1
+  },
   "env": {
     "node": true,
     "es6": true,
