@@ -30,6 +30,12 @@ inputs:
   name:
     description: 'The name of this upgrade'
     required: true
+  idl-buffer:
+    description: 'The IDL buffer to upgrade for the corresponding program'
+    required: false
+  authority-index:
+    description: 'The index that the authority key is in this multisig (defaults to 1)'
+    required: false
   keypair:
     description: 'The keypair to use for deploys'
     required: true
