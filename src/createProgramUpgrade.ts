@@ -1,7 +1,7 @@
 import {AnchorProvider, BN, Program, Wallet} from '@project-serum/anchor'
 import {ProgramManager} from './idl/program_manager'
 import programManager from './idl/program_manager.json'
-import {Connection, Keypair, PublicKey} from '@solana/web3.js'
+import {Connection, Keypair, PublicKey, SystemProgram} from '@solana/web3.js'
 import {
   getManagedProgramPDA,
   getProgramManagerPDA,
@@ -68,11 +68,13 @@ export const createProgramUpgrade = async ({
   `)
   const methods = program.methods
     .createProgramUpgrade(buffer, spill, authority, name)
-    .accounts({
+    .accountsStrict({
+      creator: wallet.publicKey,
       multisig: multisig,
       programManager: programManagerPDA,
       managedProgram: managedProgramPDA,
-      programUpgrade: programUpgradePDA
+      programUpgrade: programUpgradePDA,
+      systemProgram: SystemProgram.programId
     })
   const txid = await methods.rpc()
   console.log(

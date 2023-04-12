@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 import {createProgramUpgrade} from './createProgramUpgrade'
 import {keypairFrom, publicKeyFrom} from './utils'
+import {createIdlUpgrade} from './createIdlUpgrade'
 
 async function run(): Promise<void> {
   try {
@@ -13,6 +14,7 @@ async function run(): Promise<void> {
     const authority: string = core.getInput('authority')
     const name: string = core.getInput('name')
     const keypair: string = core.getInput('keypair')
+    const idlBuffer: string = core.getInput('idl-buffer')
     core.debug(`start: ${new Date().toLocaleString()}`)
     core.debug(`networkUrl: ${networkUrl}`)
     core.debug(`programMultisig: ${programMultisig}`)
@@ -22,6 +24,7 @@ async function run(): Promise<void> {
     core.debug(`spillAddress: ${spillAddress}`)
     core.debug(`authority: ${authority}`)
     core.debug(`name: ${name}`)
+    core.debug(`idlBuffer: ${idlBuffer}`)
     core.debug(`keypair: **********`)
 
     await createProgramUpgrade({
@@ -35,6 +38,17 @@ async function run(): Promise<void> {
       wallet: keypairFrom(keypair, 'keypair'),
       networkUrl: networkUrl
     })
+
+    if (idlBuffer) {
+      await createIdlUpgrade({
+        multisig: publicKeyFrom(programMultisig, 'programMultisig'),
+        programId: publicKeyFrom(programId, 'programId'),
+        buffer: publicKeyFrom(buffer, 'buffer'),
+        authority: publicKeyFrom(authority, 'authority'),
+        wallet: keypairFrom(keypair, 'keypair'),
+        networkUrl: networkUrl
+      })
+    }
   } catch (error) {
     console.log(error)
     core.debug(`error: ${error}`)
