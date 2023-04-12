@@ -80,3 +80,8 @@ export const getIxPDA = (
     ],
     programId
   )
+
+export const getIDLPDA = async (programId: PublicKey) => {
+  const [base] = PublicKey.findProgramAddressSync([], programId)
+  return PublicKey.createWithSeed(base, 'anchor:idl', programId)
+}

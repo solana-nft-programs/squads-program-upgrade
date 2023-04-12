@@ -9,9 +9,9 @@ import {
 } from '@solana/web3.js'
 import {msProgramId} from './constants'
 import {SquadsMpl} from './idl/squads_mpl'
-import {getIxPDA, getTxPDA} from './pda'
+import {getIDLPDA, getIxPDA, getTxPDA} from './pda'
 
-const SET_AUTHORITY_IX_DISCRIMINATOR = '40f4bc78a7e9690a04'
+const SET_IDL_BUFFER_IX_DISCRIMINATOR = '40f4bc78a7e9690a03'
 export const createIdlUpgrade = async ({
   multisig,
   programId,
@@ -68,6 +68,7 @@ export const createIdlUpgrade = async ({
     new BN(instructionIndex, 10),
     msProgramId
   )
+
   const addInstructionIx = await program.methods
     .addInstruction({
       programId,
@@ -78,16 +79,17 @@ export const createIdlUpgrade = async ({
           isWritable: true
         },
         {
-          pubkey: wallet.publicKey,
+          pubkey: await getIDLPDA(programId),
           isSigner: false,
+          isWritable: true
+        },
+        {
+          pubkey: authority,
+          isSigner: true,
           isWritable: true
         }
       ],
-      data: utils.bytes.hex.decode(
-        `${SET_AUTHORITY_IX_DISCRIMINATOR}${utils.bytes.hex
-          .encode(authority.toBuffer())
-          .slice(2)}`
-      )
+      data: utils.bytes.hex.decode(`${SET_IDL_BUFFER_IX_DISCRIMINATOR}`)
     })
     .accountsStrict({
       multisig,
