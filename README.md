@@ -58,10 +58,10 @@ GitHub Actions will run the entry point from the action.yml.
 
 Packaging assembles the code into one file in the dist folder that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules.
 
-Run prepare
+Run package
 
 ```bash
-yarn prepare
+yarn package
 ```
 
 Since the packaged index.js is run from the dist folder.

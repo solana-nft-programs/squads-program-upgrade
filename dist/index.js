@@ -9,6 +9,14 @@ module.exports = JSON.parse('{"version":"0.1.0","name":"program_manager","instru
 
 /***/ }),
 
+/***/ 1705:
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"version":"0.1.1","name":"squads_mpl","instructions":[{"name":"create","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"creator","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[{"name":"threshold","type":"u16"},{"name":"createKey","type":"publicKey"},{"name":"members","type":{"vec":"publicKey"}}]},{"name":"addMember","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true},{"name":"member","isMut":true,"isSigner":true},{"name":"rent","isMut":false,"isSigner":false},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[{"name":"newMember","type":"publicKey"}]},{"name":"removeMember","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true}],"args":[{"name":"oldMember","type":"publicKey"}]},{"name":"removeMemberAndChangeThreshold","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true}],"args":[{"name":"oldMember","type":"publicKey"},{"name":"newThreshold","type":"u16"}]},{"name":"addMemberAndChangeThreshold","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true},{"name":"member","isMut":true,"isSigner":true},{"name":"rent","isMut":false,"isSigner":false},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[{"name":"newMember","type":"publicKey"},{"name":"newThreshold","type":"u16"}]},{"name":"changeThreshold","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true}],"args":[{"name":"newThreshold","type":"u16"}]},{"name":"addAuthority","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true}],"args":[]},{"name":"setExternalExecute","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"multisigAuth","isMut":true,"isSigner":true}],"args":[{"name":"setting","type":"bool"}]},{"name":"createTransaction","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"creator","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[{"name":"authorityIndex","type":"u32"}]},{"name":"activateTransaction","accounts":[{"name":"multisig","isMut":false,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"creator","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[]},{"name":"addInstruction","accounts":[{"name":"multisig","isMut":false,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"instruction","isMut":true,"isSigner":false},{"name":"creator","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[{"name":"incomingInstruction","type":{"defined":"IncomingInstruction"}}]},{"name":"approveTransaction","accounts":[{"name":"multisig","isMut":false,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"member","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[]},{"name":"rejectTransaction","accounts":[{"name":"multisig","isMut":false,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"member","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[]},{"name":"cancelTransaction","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"member","isMut":true,"isSigner":true},{"name":"systemProgram","isMut":false,"isSigner":false}],"args":[]},{"name":"executeTransaction","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"member","isMut":true,"isSigner":true}],"args":[{"name":"accountList","type":"bytes"}]},{"name":"executeInstruction","accounts":[{"name":"multisig","isMut":true,"isSigner":false},{"name":"transaction","isMut":true,"isSigner":false},{"name":"instruction","isMut":true,"isSigner":false},{"name":"member","isMut":true,"isSigner":true}],"args":[]}],"accounts":[{"name":"Ms","type":{"kind":"struct","fields":[{"name":"threshold","type":"u16"},{"name":"authorityIndex","type":"u16"},{"name":"transactionIndex","type":"u32"},{"name":"msChangeIndex","type":"u32"},{"name":"bump","type":"u8"},{"name":"createKey","type":"publicKey"},{"name":"allowExternalExecute","type":"bool"},{"name":"keys","type":{"vec":"publicKey"}}]}},{"name":"MsTransaction","type":{"kind":"struct","fields":[{"name":"creator","type":"publicKey"},{"name":"ms","type":"publicKey"},{"name":"transactionIndex","type":"u32"},{"name":"authorityIndex","type":"u32"},{"name":"authorityBump","type":"u8"},{"name":"status","type":{"defined":"MsTransactionStatus"}},{"name":"instructionIndex","type":"u8"},{"name":"bump","type":"u8"},{"name":"approved","type":{"vec":"publicKey"}},{"name":"rejected","type":{"vec":"publicKey"}},{"name":"cancelled","type":{"vec":"publicKey"}},{"name":"executedIndex","type":"u8"}]}},{"name":"MsInstruction","type":{"kind":"struct","fields":[{"name":"programId","type":"publicKey"},{"name":"keys","type":{"vec":{"defined":"MsAccountMeta"}}},{"name":"data","type":"bytes"},{"name":"instructionIndex","type":"u8"},{"name":"bump","type":"u8"},{"name":"executed","type":"bool"}]}}],"types":[{"name":"MsAccountMeta","type":{"kind":"struct","fields":[{"name":"pubkey","type":"publicKey"},{"name":"isSigner","type":"bool"},{"name":"isWritable","type":"bool"}]}},{"name":"IncomingInstruction","type":{"kind":"struct","fields":[{"name":"programId","type":"publicKey"},{"name":"keys","type":{"vec":{"defined":"MsAccountMeta"}}},{"name":"data","type":"bytes"}]}},{"name":"MsTransactionStatus","type":{"kind":"enum","variants":[{"name":"Draft"},{"name":"Active"},{"name":"ExecuteReady"},{"name":"Executed"},{"name":"Rejected"},{"name":"Cancelled"}]}}],"errors":[{"code":6000,"name":"KeyNotInMultisig"},{"code":6001,"name":"InvalidTransactionState"},{"code":6002,"name":"InvalidNumberOfAccounts"},{"code":6003,"name":"InvalidInstructionAccount"},{"code":6004,"name":"InvalidAuthorityIndex"},{"code":6005,"name":"TransactionAlreadyExecuted"},{"code":6006,"name":"CannotRemoveSoloMember"},{"code":6007,"name":"InvalidThreshold"},{"code":6008,"name":"DeprecatedTransaction"},{"code":6009,"name":"InstructionFailed"},{"code":6010,"name":"MaxMembersReached"},{"code":6011,"name":"EmptyMembers"},{"code":6012,"name":"PartialExecution"}]}');
+
+/***/ }),
+
 /***/ 1036:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
@@ -20,6 +28,110 @@ const web3_js_1 = __nccwpck_require__(6785);
 exports.msProgramId = new web3_js_1.PublicKey('SMPLecH534NA9acpos4G6x7uf3LWbCAwZQE9e8ZekMu');
 exports.programManagerProgramId = new web3_js_1.PublicKey('SMPLKTQhrgo22hFCVq2VGX1KAktTWjeizkhrdB1eauK');
 //# sourceMappingURL=constants.js.map
+
+/***/ }),
+
+/***/ 9333:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createIdlUpgrade = void 0;
+const tslib_1 = __nccwpck_require__(4351);
+const anchor_1 = __nccwpck_require__(1966);
+const squads_mpl_json_1 = tslib_1.__importDefault(__nccwpck_require__(1705));
+const web3_js_1 = __nccwpck_require__(6785);
+const constants_1 = __nccwpck_require__(1036);
+const pda_1 = __nccwpck_require__(3688);
+const SET_IDL_BUFFER_IX_DISCRIMINATOR = '40f4bc78a7e9690a03';
+const createIdlUpgrade = async ({ multisig, programId, buffer, authority, wallet, networkUrl, authorityIndex = 1 }) => {
+    const connection = new web3_js_1.Connection(networkUrl);
+    const program = new anchor_1.Program(squads_mpl_json_1.default, constants_1.msProgramId, new anchor_1.AnchorProvider(connection, new anchor_1.Wallet(wallet), anchor_1.AnchorProvider.defaultOptions()));
+    const multisigData = await program.account.ms.fetch(multisig);
+    console.log(`Creating idl upgrade with
+    buffer: ${buffer.toString()},
+    multisig: ${multisig.toString()},
+    authority: ${authority.toString()},
+  `);
+    const tx = new web3_js_1.Transaction();
+    const transactionIndex = new anchor_1.BN(multisigData.transactionIndex + 1, 10);
+    const [transactionPDA] = (0, pda_1.getTxPDA)(multisig, transactionIndex, constants_1.msProgramId);
+    const [authorityPDA] = (0, pda_1.getAuthorityPDA)(multisig, new anchor_1.BN(authorityIndex), constants_1.msProgramId);
+    if (authorityPDA.toString() !== authority.toString()) {
+        throw 'Invalid authority index';
+    }
+    const createTransactionIx = await program.methods
+        .createTransaction(authorityIndex)
+        .accountsStrict({
+        multisig,
+        transaction: transactionPDA,
+        creator: wallet.publicKey,
+        systemProgram: web3_js_1.SystemProgram.programId
+    })
+        .instruction();
+    tx.add(createTransactionIx);
+    // first instruction
+    const instructionIndex = 1;
+    const [instructionPDA] = (0, pda_1.getIxPDA)(transactionPDA, new anchor_1.BN(instructionIndex, 10), constants_1.msProgramId);
+    const addInstructionIx = await program.methods
+        .addInstruction({
+        programId,
+        keys: [
+            {
+                pubkey: buffer,
+                isSigner: false,
+                isWritable: true
+            },
+            {
+                pubkey: await (0, pda_1.getIDLPDA)(programId),
+                isSigner: false,
+                isWritable: true
+            },
+            {
+                pubkey: authority,
+                isSigner: true,
+                isWritable: true
+            }
+        ],
+        data: anchor_1.utils.bytes.hex.decode(`${SET_IDL_BUFFER_IX_DISCRIMINATOR}`)
+    })
+        .accountsStrict({
+        multisig,
+        creator: wallet.publicKey,
+        transaction: transactionPDA,
+        instruction: instructionPDA,
+        systemProgram: web3_js_1.SystemProgram.programId
+    })
+        .instruction();
+    tx.add(addInstructionIx);
+    const activateTransactionIx = await program.methods
+        .activateTransaction()
+        .accountsStrict({
+        multisig,
+        transaction: transactionPDA,
+        creator: wallet.publicKey,
+        systemProgram: web3_js_1.SystemProgram.programId
+    })
+        .instruction();
+    tx.add(activateTransactionIx);
+    const approveTransactionIx = await program.methods
+        .approveTransaction()
+        .accountsStrict({
+        multisig,
+        member: wallet.publicKey,
+        transaction: transactionPDA,
+        systemProgram: web3_js_1.SystemProgram.programId
+    })
+        .instruction();
+    tx.add(approveTransactionIx);
+    const txid = program.provider.sendAndConfirm &&
+        (await program.provider.sendAndConfirm(tx));
+    console.log(`Successfully created idl upgrade for authority ${authority.toString()} https://explorer.solana.com/tx/${txid}`);
+    return txid;
+};
+exports.createIdlUpgrade = createIdlUpgrade;
+//# sourceMappingURL=createIdlUpgrade.js.map
 
 /***/ }),
 
@@ -54,11 +166,13 @@ const createProgramUpgrade = async ({ multisig, programId, programIndex, buffer,
   `);
     const methods = program.methods
         .createProgramUpgrade(buffer, spill, authority, name)
-        .accounts({
+        .accountsStrict({
+        creator: wallet.publicKey,
         multisig: multisig,
         programManager: programManagerPDA,
         managedProgram: managedProgramPDA,
-        programUpgrade: programUpgradePDA
+        programUpgrade: programUpgradePDA,
+        systemProgram: web3_js_1.SystemProgram.programId
     });
     const txid = await methods.rpc();
     console.log(`Successfully created program upgrade for MS_PDA ${multisig.toString()} https://explorer.solana.com/tx/${txid}`);
@@ -75,7 +189,7 @@ exports.createProgramUpgrade = createProgramUpgrade;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getManagedProgramPDA = exports.getProgramManagerPDA = exports.getProgramUpgradePDA = exports.getMsPDA = void 0;
+exports.getIDLPDA = exports.getIxPDA = exports.getTxPDA = exports.getManagedProgramPDA = exports.getProgramManagerPDA = exports.getProgramUpgradePDA = exports.getAuthorityPDA = exports.getMsPDA = void 0;
 const anchor_1 = __nccwpck_require__(1966);
 const web3_js_1 = __nccwpck_require__(6785);
 const getMsPDA = (create_key, programId) => web3_js_1.PublicKey.findProgramAddressSync([
@@ -84,6 +198,13 @@ const getMsPDA = (create_key, programId) => web3_js_1.PublicKey.findProgramAddre
     anchor_1.utils.bytes.utf8.encode('multisig')
 ], programId);
 exports.getMsPDA = getMsPDA;
+const getAuthorityPDA = (msPDA, authorityIndexBN, programId) => web3_js_1.PublicKey.findProgramAddressSync([
+    anchor_1.utils.bytes.utf8.encode('squad'),
+    msPDA.toBuffer(),
+    authorityIndexBN.toArrayLike(Buffer, 'le', 4),
+    anchor_1.utils.bytes.utf8.encode('authority')
+], programId);
+exports.getAuthorityPDA = getAuthorityPDA;
 const getProgramUpgradePDA = (managedProgramPDA, upgradeIndexBN, programId) => web3_js_1.PublicKey.findProgramAddressSync([
     anchor_1.utils.bytes.utf8.encode('squad'),
     managedProgramPDA.toBuffer(),
@@ -104,6 +225,25 @@ const getManagedProgramPDA = (programManagerPDA, managedProgramIndexBN, programI
     anchor_1.utils.bytes.utf8.encode('program')
 ], programId);
 exports.getManagedProgramPDA = getManagedProgramPDA;
+const getTxPDA = (msPDA, txIndexBN, programId) => web3_js_1.PublicKey.findProgramAddressSync([
+    anchor_1.utils.bytes.utf8.encode('squad'),
+    msPDA.toBuffer(),
+    txIndexBN.toArrayLike(Buffer, 'le', 4),
+    anchor_1.utils.bytes.utf8.encode('transaction')
+], programId);
+exports.getTxPDA = getTxPDA;
+const getIxPDA = (txPDA, iXIndexBN, programId) => web3_js_1.PublicKey.findProgramAddressSync([
+    anchor_1.utils.bytes.utf8.encode('squad'),
+    txPDA.toBuffer(),
+    iXIndexBN.toArrayLike(Buffer, 'le', 1),
+    anchor_1.utils.bytes.utf8.encode('instruction')
+], programId);
+exports.getIxPDA = getIxPDA;
+const getIDLPDA = async (programId) => {
+    const [base] = web3_js_1.PublicKey.findProgramAddressSync([], programId);
+    return web3_js_1.PublicKey.createWithSeed(base, 'anchor:idl', programId);
+};
+exports.getIDLPDA = getIDLPDA;
 //# sourceMappingURL=pda.js.map
 
 /***/ }),
@@ -2005,7 +2145,7 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 2158:
+/***/ 8755:
 /***/ ((module) => {
 
 function _defineProperties(target, props) {
@@ -5746,6 +5886,14 @@ class BorshAccountsCoder {
         }
         return this.decodeUnchecked(accountName, data);
     }
+    decodeAny(data) {
+        const accountDescriminator = data.slice(0, 8);
+        const accountName = Array.from(this.accountLayouts.keys()).find((key) => BorshAccountsCoder.accountDiscriminator(key).equals(accountDescriminator));
+        if (!accountName) {
+            throw new Error("Account descriminator not found");
+        }
+        return this.decodeUnchecked(accountName, data);
+    }
     decodeUnchecked(accountName, ix) {
         // Chop off the discriminator before decoding.
         const data = ix.slice(exports.ACCOUNT_DISCRIMINATOR_SIZE);
@@ -5772,7 +5920,10 @@ class BorshAccountsCoder {
      * @param name The name of the account to calculate the discriminator.
      */
     static accountDiscriminator(name) {
-        return buffer_1.Buffer.from(js_sha256_1.sha256.digest(`account:${(0, camelcase_1.default)(name, { pascalCase: true })}`)).slice(0, exports.ACCOUNT_DISCRIMINATOR_SIZE);
+        return buffer_1.Buffer.from(js_sha256_1.sha256.digest(`account:${(0, camelcase_1.default)(name, {
+            pascalCase: true,
+            preserveConsecutiveUppercase: true,
+        })}`)).slice(0, exports.ACCOUNT_DISCRIMINATOR_SIZE);
     }
 }
 exports.BorshAccountsCoder = BorshAccountsCoder;
@@ -5906,7 +6057,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.IdlCoder = void 0;
 const camelcase_1 = __importDefault(__nccwpck_require__(1362));
-const borsh = __importStar(__nccwpck_require__(5496));
+const borsh = __importStar(__nccwpck_require__(6050));
 const error_js_1 = __nccwpck_require__(1831);
 class IdlCoder {
     static fieldLayout(field, types) {
@@ -5950,6 +6101,12 @@ class IdlCoder {
             }
             case "i128": {
                 return borsh.i128(fieldName);
+            }
+            case "u256": {
+                return borsh.u256(fieldName);
+            }
+            case "i256": {
+                return borsh.i256(fieldName);
             }
             case "bytes": {
                 return borsh.vecU8(fieldName);
@@ -6014,9 +6171,9 @@ class IdlCoder {
                 if (variant.fields === undefined) {
                     return borsh.struct([], name);
                 }
-                const fieldLayouts = variant.fields.map((f) => {
+                const fieldLayouts = variant.fields.map((f, i) => {
                     if (!f.hasOwnProperty("name")) {
-                        throw new Error("Tuple enum variants not yet implemented.");
+                        return IdlCoder.fieldLayout({ type: f, name: i.toString() }, types);
                     }
                     // this typescript conversion is ok
                     // because if f were of type IdlType
@@ -6050,11 +6207,12 @@ exports.IdlCoder = IdlCoder;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.BorshCoder = exports.stateDiscriminator = exports.BorshStateCoder = exports.eventDiscriminator = exports.BorshEventCoder = exports.ACCOUNT_DISCRIMINATOR_SIZE = exports.BorshAccountsCoder = exports.BorshInstructionCoder = void 0;
-const instruction_js_1 = __nccwpck_require__(9625);
+const instruction_js_1 = __nccwpck_require__(8262);
 const accounts_js_1 = __nccwpck_require__(5850);
 const event_js_1 = __nccwpck_require__(2824);
 const state_js_1 = __nccwpck_require__(4281);
-var instruction_js_2 = __nccwpck_require__(9625);
+const types_js_1 = __nccwpck_require__(1121);
+var instruction_js_2 = __nccwpck_require__(8262);
 Object.defineProperty(exports, "BorshInstructionCoder", ({ enumerable: true, get: function () { return instruction_js_2.BorshInstructionCoder; } }));
 var accounts_js_2 = __nccwpck_require__(5850);
 Object.defineProperty(exports, "BorshAccountsCoder", ({ enumerable: true, get: function () { return accounts_js_2.BorshAccountsCoder; } }));
@@ -6077,6 +6235,7 @@ class BorshCoder {
         if (idl.state) {
             this.state = new state_js_1.BorshStateCoder(idl);
         }
+        this.types = new types_js_1.BorshTypesCoder(idl);
     }
 }
 exports.BorshCoder = BorshCoder;
@@ -6084,7 +6243,7 @@ exports.BorshCoder = BorshCoder;
 
 /***/ }),
 
-/***/ 9625:
+/***/ 8262:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -6122,7 +6281,7 @@ const buffer_1 = __nccwpck_require__(4293);
 const camelcase_1 = __importDefault(__nccwpck_require__(1362));
 const snake_case_1 = __nccwpck_require__(6213);
 const js_sha256_1 = __nccwpck_require__(3125);
-const borsh = __importStar(__nccwpck_require__(5496));
+const borsh = __importStar(__nccwpck_require__(6050));
 const idl_js_1 = __nccwpck_require__(2492);
 /**
  * Namespace for state method function signatures.
@@ -6204,7 +6363,7 @@ class BorshInstructionCoder {
         return new Map(ixLayouts);
     }
     /**
-     * Dewcodes a program instruction.
+     * Decodes a program instruction.
      */
     decode(ix, encoding = "hex") {
         if (typeof ix === "string") {
@@ -6457,6 +6616,52 @@ exports.stateDiscriminator = stateDiscriminator;
 
 /***/ }),
 
+/***/ 1121:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.BorshTypesCoder = void 0;
+const buffer_1 = __nccwpck_require__(4293);
+const idl_js_1 = __nccwpck_require__(2492);
+/**
+ * Encodes and decodes user-defined types.
+ */
+class BorshTypesCoder {
+    constructor(idl) {
+        if (idl.types === undefined) {
+            this.typeLayouts = new Map();
+            return;
+        }
+        const layouts = idl.types.map((acc) => {
+            return [acc.name, idl_js_1.IdlCoder.typeDefLayout(acc, idl.types)];
+        });
+        this.typeLayouts = new Map(layouts);
+        this.idl = idl;
+    }
+    encode(typeName, type) {
+        const buffer = buffer_1.Buffer.alloc(1000); // TODO: use a tighter buffer.
+        const layout = this.typeLayouts.get(typeName);
+        if (!layout) {
+            throw new Error(`Unknown type: ${typeName}`);
+        }
+        const len = layout.encode(type, buffer);
+        return buffer.slice(0, len);
+    }
+    decode(typeName, typeData) {
+        const layout = this.typeLayouts.get(typeName);
+        if (!layout) {
+            throw new Error(`Unknown type: ${typeName}`);
+        }
+        return layout.decode(typeData);
+    }
+}
+exports.BorshTypesCoder = BorshTypesCoder;
+//# sourceMappingURL=types.js.map
+
+/***/ }),
+
 /***/ 6642:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
@@ -6521,6 +6726,10 @@ function typeSize(idl, ty) {
             return 16;
         case "i128":
             return 16;
+        case "u256":
+            return 32;
+        case "i256":
+            return 32;
         case "bytes":
             return 1;
         case "string":
@@ -6578,12 +6787,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 __exportStar(__nccwpck_require__(311), exports);
-__exportStar(__nccwpck_require__(6369), exports);
+__exportStar(__nccwpck_require__(4296), exports);
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 1519:
+/***/ 8396:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -6612,24 +6821,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SplTokenAccountsCoder = void 0;
+exports.SystemAccountsCoder = void 0;
 const BufferLayout = __importStar(__nccwpck_require__(4957));
-const buffer_layout_js_1 = __nccwpck_require__(7387);
-const common_1 = __nccwpck_require__(6642);
-class SplTokenAccountsCoder {
+const web3_js_1 = __nccwpck_require__(157);
+const common_js_1 = __nccwpck_require__(6642);
+class SystemAccountsCoder {
     constructor(idl) {
         this.idl = idl;
     }
     async encode(accountName, account) {
         switch (accountName) {
-            case "token": {
-                const buffer = Buffer.alloc(165);
-                const len = TOKEN_ACCOUNT_LAYOUT.encode(account, buffer);
-                return buffer.slice(0, len);
-            }
-            case "mint": {
-                const buffer = Buffer.alloc(82);
-                const len = MINT_ACCOUNT_LAYOUT.encode(account, buffer);
+            case "nonce": {
+                const buffer = Buffer.alloc(web3_js_1.NONCE_ACCOUNT_LENGTH);
+                const len = NONCE_ACCOUNT_LAYOUT.encode(account, buffer);
                 return buffer.slice(0, len);
             }
             default: {
@@ -6642,11 +6846,8 @@ class SplTokenAccountsCoder {
     }
     decodeUnchecked(accountName, ix) {
         switch (accountName) {
-            case "token": {
-                return decodeTokenAccount(ix);
-            }
-            case "mint": {
-                return decodeMintAccount(ix);
+            case "nonce": {
+                return decodeNonceAccount(ix);
             }
             default: {
                 throw new Error(`Invalid account name: ${accountName}`);
@@ -6656,14 +6857,9 @@ class SplTokenAccountsCoder {
     // TODO: this won't use the appendData.
     memcmp(accountName, _appendData) {
         switch (accountName) {
-            case "token": {
+            case "nonce": {
                 return {
-                    dataSize: 165,
-                };
-            }
-            case "mint": {
-                return {
-                    dataSize: 82,
+                    dataSize: web3_js_1.NONCE_ACCOUNT_LENGTH,
                 };
             }
             default: {
@@ -6673,91 +6869,14 @@ class SplTokenAccountsCoder {
     }
     size(idlAccount) {
         var _a;
-        return (_a = (0, common_1.accountSize)(this.idl, idlAccount)) !== null && _a !== void 0 ? _a : 0;
+        return (_a = (0, common_js_1.accountSize)(this.idl, idlAccount)) !== null && _a !== void 0 ? _a : 0;
     }
 }
-exports.SplTokenAccountsCoder = SplTokenAccountsCoder;
-function decodeMintAccount(ix) {
-    return MINT_ACCOUNT_LAYOUT.decode(ix);
+exports.SystemAccountsCoder = SystemAccountsCoder;
+function decodeNonceAccount(ix) {
+    return NONCE_ACCOUNT_LAYOUT.decode(ix);
 }
-function decodeTokenAccount(ix) {
-    return TOKEN_ACCOUNT_LAYOUT.decode(ix);
-}
-const MINT_ACCOUNT_LAYOUT = BufferLayout.struct([
-    (0, buffer_layout_js_1.coption)((0, buffer_layout_js_1.publicKey)(), "mintAuthority"),
-    (0, buffer_layout_js_1.uint64)("supply"),
-    BufferLayout.u8("decimals"),
-    (0, buffer_layout_js_1.bool)("isInitialized"),
-    (0, buffer_layout_js_1.coption)((0, buffer_layout_js_1.publicKey)(), "freezeAuthority"),
-]);
-const TOKEN_ACCOUNT_LAYOUT = BufferLayout.struct([
-    (0, buffer_layout_js_1.publicKey)("mint"),
-    (0, buffer_layout_js_1.publicKey)("authority"),
-    (0, buffer_layout_js_1.uint64)("amount"),
-    (0, buffer_layout_js_1.coption)((0, buffer_layout_js_1.publicKey)(), "delegate"),
-    BufferLayout.u8("state"),
-    (0, buffer_layout_js_1.coption)((0, buffer_layout_js_1.uint64)(), "isNative"),
-    (0, buffer_layout_js_1.uint64)("delegatedAmount"),
-    (0, buffer_layout_js_1.coption)((0, buffer_layout_js_1.publicKey)(), "closeAuthority"),
-]);
-//# sourceMappingURL=accounts.js.map
-
-/***/ }),
-
-/***/ 7387:
-/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.u64 = exports.COptionLayout = exports.coption = exports.publicKey = exports.bool = exports.uint64 = void 0;
-const bn_js_1 = __importDefault(__nccwpck_require__(6641));
-const BufferLayout = __importStar(__nccwpck_require__(4957));
-const buffer_layout_1 = __nccwpck_require__(4957);
-const web3_js_1 = __nccwpck_require__(157);
-function uint64(property) {
-    return new WrappedLayout(BufferLayout.blob(8), (b) => u64.fromBuffer(b), (n) => n.toBuffer(), property);
-}
-exports.uint64 = uint64;
-function bool(property) {
-    return new WrappedLayout(BufferLayout.u8(), decodeBool, encodeBool, property);
-}
-exports.bool = bool;
-function publicKey(property) {
-    return new WrappedLayout(BufferLayout.blob(32), (b) => new web3_js_1.PublicKey(b), (key) => key.toBuffer(), property);
-}
-exports.publicKey = publicKey;
-function coption(layout, property) {
-    return new COptionLayout(layout, property);
-}
-exports.coption = coption;
-class WrappedLayout extends buffer_layout_1.Layout {
+class WrappedLayout extends BufferLayout.Layout {
     constructor(layout, decoder, encoder, property) {
         super(layout.span, property);
         this.layout = layout;
@@ -6774,127 +6893,68 @@ class WrappedLayout extends buffer_layout_1.Layout {
         return this.layout.getSpan(b, offset);
     }
 }
-class COptionLayout extends buffer_layout_1.Layout {
-    constructor(layout, property) {
-        super(-1, property);
-        this.layout = layout;
-        this.discriminator = BufferLayout.u32();
-    }
-    encode(src, b, offset = 0) {
-        if (src === null || src === undefined) {
-            return this.layout.span + this.discriminator.encode(0, b, offset);
-        }
-        this.discriminator.encode(1, b, offset);
-        return this.layout.encode(src, b, offset + 4) + 4;
-    }
-    decode(b, offset = 0) {
-        const discriminator = this.discriminator.decode(b, offset);
-        if (discriminator === 0) {
-            return null;
-        }
-        else if (discriminator === 1) {
-            return this.layout.decode(b, offset + 4);
-        }
-        throw new Error("Invalid coption " + this.layout.property);
-    }
-    getSpan(b, offset = 0) {
-        return this.layout.getSpan(b, offset + 4) + 4;
-    }
+function publicKey(property) {
+    return new WrappedLayout(BufferLayout.blob(32), (b) => new web3_js_1.PublicKey(b), (key) => key.toBuffer(), property);
 }
-exports.COptionLayout = COptionLayout;
-function decodeBool(value) {
-    if (value === 0) {
-        return false;
-    }
-    else if (value === 1) {
-        return true;
-    }
-    throw new Error("Invalid bool: " + value);
-}
-function encodeBool(value) {
-    return value ? 1 : 0;
-}
-class u64 extends bn_js_1.default {
-    /**
-     * Convert to Buffer representation
-     */
-    toBuffer() {
-        const a = super.toArray().reverse();
-        const b = Buffer.from(a);
-        if (b.length === 8) {
-            return b;
-        }
-        if (b.length >= 8) {
-            throw new Error("u64 too large");
-        }
-        const zeroPad = Buffer.alloc(8);
-        b.copy(zeroPad);
-        return zeroPad;
-    }
-    /**
-     * Construct a u64 from Buffer representation
-     */
-    static fromBuffer(buffer) {
-        if (buffer.length !== 8) {
-            throw new Error(`Invalid buffer length: ${buffer.length}`);
-        }
-        return new u64([...buffer]
-            .reverse()
-            .map((i) => `00${i.toString(16)}`.slice(-2))
-            .join(""), 16);
-    }
-}
-exports.u64 = u64;
-//# sourceMappingURL=buffer-layout.js.map
+const NONCE_ACCOUNT_LAYOUT = BufferLayout.struct([
+    BufferLayout.u32("version"),
+    BufferLayout.u32("state"),
+    publicKey("authorizedPubkey"),
+    publicKey("nonce"),
+    BufferLayout.struct([BufferLayout.nu64("lamportsPerSignature")], "feeCalculator"),
+]);
+//# sourceMappingURL=accounts.js.map
 
 /***/ }),
 
-/***/ 2986:
+/***/ 841:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SplTokenEventsCoder = void 0;
-class SplTokenEventsCoder {
+exports.SystemEventsCoder = void 0;
+class SystemEventsCoder {
     constructor(_idl) { }
     decode(_log) {
-        throw new Error("SPL token program does not have events");
+        throw new Error("System program does not have events");
     }
 }
-exports.SplTokenEventsCoder = SplTokenEventsCoder;
+exports.SystemEventsCoder = SystemEventsCoder;
 //# sourceMappingURL=events.js.map
 
 /***/ }),
 
-/***/ 6369:
+/***/ 4296:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SplTokenCoder = void 0;
-const instruction_js_1 = __nccwpck_require__(565);
-const state_js_1 = __nccwpck_require__(1429);
-const accounts_js_1 = __nccwpck_require__(1519);
-const events_js_1 = __nccwpck_require__(2986);
+exports.SystemCoder = void 0;
+const instruction_js_1 = __nccwpck_require__(4654);
+const state_js_1 = __nccwpck_require__(9227);
+const accounts_js_1 = __nccwpck_require__(8396);
+const events_js_1 = __nccwpck_require__(841);
+const types_js_1 = __nccwpck_require__(5128);
 /**
- * Coder for the SPL token program.
+ * Coder for the System program.
  */
-class SplTokenCoder {
+class SystemCoder {
     constructor(idl) {
-        this.instruction = new instruction_js_1.SplTokenInstructionCoder(idl);
-        this.accounts = new accounts_js_1.SplTokenAccountsCoder(idl);
-        this.events = new events_js_1.SplTokenEventsCoder(idl);
-        this.state = new state_js_1.SplTokenStateCoder(idl);
+        this.instruction = new instruction_js_1.SystemInstructionCoder(idl);
+        this.accounts = new accounts_js_1.SystemAccountsCoder(idl);
+        this.events = new events_js_1.SystemEventsCoder(idl);
+        this.state = new state_js_1.SystemStateCoder(idl);
+        this.types = new types_js_1.SystemTypesCoder(idl);
     }
 }
-exports.SplTokenCoder = SplTokenCoder;
+exports.SystemCoder = SystemCoder;
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 565:
+/***/ 4654:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -6926,76 +6986,50 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SplTokenInstructionCoder = void 0;
+exports.SystemInstructionCoder = void 0;
+const bn_js_1 = __importDefault(__nccwpck_require__(6641));
 const BufferLayout = __importStar(__nccwpck_require__(4957));
 const camelcase_1 = __importDefault(__nccwpck_require__(1362));
-const web3_js_1 = __nccwpck_require__(157);
-class SplTokenInstructionCoder {
+class SystemInstructionCoder {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor(_) { }
     encode(ixName, ix) {
         switch ((0, camelcase_1.default)(ixName)) {
-            case "initializeMint": {
-                return encodeInitializeMint(ix);
+            case "createAccount": {
+                return encodeCreateAccount(ix);
             }
-            case "initializeAccount": {
-                return encodeInitializeAccount(ix);
-            }
-            case "initializeMultisig": {
-                return encodeInitializeMultisig(ix);
+            case "assign": {
+                return encodeAssign(ix);
             }
             case "transfer": {
                 return encodeTransfer(ix);
             }
-            case "approve": {
-                return encodeApprove(ix);
+            case "createAccountWithSeed": {
+                return encodeCreateAccountWithSeed(ix);
             }
-            case "revoke": {
-                return encodeRevoke(ix);
+            case "advanceNonceAccount": {
+                return encodeAdvanceNonceAccount(ix);
             }
-            case "setAuthority": {
-                return encodeSetAuthority(ix);
+            case "withdrawNonceAccount": {
+                return encodeWithdrawNonceAccount(ix);
             }
-            case "mintTo": {
-                return encodeMintTo(ix);
+            case "initializeNonceAccount": {
+                return encodeInitializeNonceAccount(ix);
             }
-            case "burn": {
-                return encodeBurn(ix);
+            case "authorizeNonceAccount": {
+                return encodeAuthorizeNonceAccount(ix);
             }
-            case "closeAccount": {
-                return encodeCloseAccount(ix);
+            case "allocate": {
+                return encodeAllocate(ix);
             }
-            case "freezeAccount": {
-                return encodeFreezeAccount(ix);
+            case "allocateWithSeed": {
+                return encodeAllocateWithSeed(ix);
             }
-            case "thawAccount": {
-                return encodeThawAccount(ix);
+            case "assignWithSeed": {
+                return encodeAssignWithSeed(ix);
             }
-            case "transferChecked": {
-                return encodeTransferChecked(ix);
-            }
-            case "approvedChecked": {
-                return encodeApproveChecked(ix);
-            }
-            case "mintToChecked": {
-                return encodeMintToChecked(ix);
-            }
-            case "burnChecked": {
-                return encodeBurnChecked(ix);
-            }
-            case "intializeAccount2": {
-                return encodeInitializeAccount2(ix);
-            }
-            case "syncNative": {
-                return encodeSyncNative(ix);
-            }
-            case "initializeAccount3": {
-                return encodeInitializeAccount3(ix);
-            }
-            case "initializeMultisig2": {
-                return encodeInitializeMultisig2(ix);
-            }
-            case "initializeMint2": {
-                return encodeInitializeMint2(ix);
+            case "transferWithSeed": {
+                return encodeTransferWithSeed(ix);
             }
             default: {
                 throw new Error(`Invalid instruction: ${ixName}`);
@@ -7003,203 +7037,213 @@ class SplTokenInstructionCoder {
         }
     }
     encodeState(_ixName, _ix) {
-        throw new Error("SPL token does not have state");
+        throw new Error("System does not have state");
     }
 }
-exports.SplTokenInstructionCoder = SplTokenInstructionCoder;
-function encodeInitializeMint({ decimals, mintAuthority, freezeAuthority, }) {
-    return encodeData({
-        initializeMint: {
-            decimals,
-            mintAuthority: mintAuthority.toBuffer(),
-            freezeAuthorityOption: !!freezeAuthority,
-            freezeAuthority: (freezeAuthority || web3_js_1.PublicKey.default).toBuffer(),
-        },
-    });
+exports.SystemInstructionCoder = SystemInstructionCoder;
+class RustStringLayout extends BufferLayout.Layout {
+    constructor(property) {
+        super(-1, property);
+        this.property = property;
+        this.layout = BufferLayout.struct([
+            BufferLayout.u32("length"),
+            BufferLayout.u32("lengthPadding"),
+            BufferLayout.blob(BufferLayout.offset(BufferLayout.u32(), -8), "chars"),
+        ], this.property);
+    }
+    encode(src, b, offset = 0) {
+        if (src === null || src === undefined) {
+            return this.layout.span;
+        }
+        const data = {
+            chars: Buffer.from(src, "utf8"),
+        };
+        return this.layout.encode(data, b, offset);
+    }
+    decode(b, offset = 0) {
+        const data = this.layout.decode(b, offset);
+        return data["chars"].toString();
+    }
+    getSpan(b, offset = 0) {
+        return (BufferLayout.u32().span +
+            BufferLayout.u32().span +
+            new bn_js_1.default(new Uint8Array(b).slice(offset, offset + 4), 10, "le").toNumber());
+    }
 }
-function encodeInitializeAccount(_ix) {
-    return encodeData({
-        initializeAccount: {},
-    });
+function rustStringLayout(property) {
+    return new RustStringLayout(property);
 }
-function encodeInitializeMultisig({ m }) {
-    return encodeData({
-        initializeMultisig: {
-            m,
-        },
-    });
-}
-function encodeTransfer({ amount }) {
-    return encodeData({
-        transfer: { amount },
-    });
-}
-function encodeApprove({ amount }) {
-    return encodeData({
-        approve: { amount },
-    });
-}
-function encodeRevoke(_ix) {
-    return encodeData({
-        revoke: {},
-    });
-}
-function encodeSetAuthority({ authorityType, newAuthority }) {
-    return encodeData({
-        setAuthority: { authorityType, newAuthority },
-    });
-}
-function encodeMintTo({ amount }) {
-    return encodeData({
-        mintTo: { amount },
-    });
-}
-function encodeBurn({ amount }) {
-    return encodeData({
-        burn: { amount },
-    });
-}
-function encodeCloseAccount(_) {
-    return encodeData({
-        closeAccount: {},
-    });
-}
-function encodeFreezeAccount(_) {
-    return encodeData({
-        freezeAccount: {},
-    });
-}
-function encodeThawAccount(_) {
-    return encodeData({
-        thawAccount: {},
-    });
-}
-function encodeTransferChecked({ amount, decimals }) {
-    return encodeData({
-        transferChecked: { amount, decimals },
-    });
-}
-function encodeApproveChecked({ amount, decimals }) {
-    return encodeData({
-        approveChecked: { amount, decimals },
-    });
-}
-function encodeMintToChecked({ amount, decimals }) {
-    return encodeData({
-        mintToChecked: { amount, decimals },
-    });
-}
-function encodeBurnChecked({ amount, decimals }) {
-    return encodeData({
-        burnChecked: { amount, decimals },
-    });
-}
-function encodeInitializeAccount2({ authority }) {
-    return encodeData({
-        initilaizeAccount2: { authority },
-    });
-}
-function encodeSyncNative(_) {
-    return encodeData({
-        syncNative: {},
-    });
-}
-function encodeInitializeAccount3({ authority }) {
-    return encodeData({
-        initializeAccount3: { authority },
-    });
-}
-function encodeInitializeMultisig2({ m }) {
-    return encodeData({
-        initializeMultisig2: { m },
-    });
-}
-function encodeInitializeMint2({ decimals, mintAuthority, freezeAuthority, }) {
-    return encodeData({
-        encodeInitializeMint2: { decimals, mintAuthority, freezeAuthority },
-    });
-}
-const LAYOUT = BufferLayout.union(BufferLayout.u8("instruction"));
-LAYOUT.addVariant(0, BufferLayout.struct([
-    BufferLayout.u8("decimals"),
-    BufferLayout.blob(32, "mintAuthority"),
-    BufferLayout.u8("freezeAuthorityOption"),
-    publicKey("freezeAuthority"),
-]), "initializeMint");
-LAYOUT.addVariant(1, BufferLayout.struct([]), "initializeAccount");
-LAYOUT.addVariant(2, BufferLayout.struct([BufferLayout.u8("m")]), "initializeMultisig");
-LAYOUT.addVariant(3, BufferLayout.struct([BufferLayout.nu64("amount")]), "transfer");
-LAYOUT.addVariant(4, BufferLayout.struct([BufferLayout.nu64("amount")]), "approve");
-LAYOUT.addVariant(5, BufferLayout.struct([]), "revoke");
-LAYOUT.addVariant(6, BufferLayout.struct([
-    BufferLayout.u8("authorityType"),
-    BufferLayout.u8("newAuthorityOption"),
-    publicKey("newAuthority"),
-]), "setAuthority");
-LAYOUT.addVariant(7, BufferLayout.struct([BufferLayout.nu64("amount")]), "mintTo");
-LAYOUT.addVariant(8, BufferLayout.struct([BufferLayout.nu64("amount")]), "burn");
-LAYOUT.addVariant(9, BufferLayout.struct([]), "closeAccount");
-LAYOUT.addVariant(10, BufferLayout.struct([]), "freezeAccount");
-LAYOUT.addVariant(11, BufferLayout.struct([]), "thawAccount");
-LAYOUT.addVariant(12, BufferLayout.struct([
-    BufferLayout.nu64("amount"),
-    BufferLayout.u8("decimals"),
-]), "transferChecked");
-LAYOUT.addVariant(13, BufferLayout.struct([
-    BufferLayout.nu64("amount"),
-    BufferLayout.u8("decimals"),
-]), "approvedChecked");
-LAYOUT.addVariant(14, BufferLayout.struct([
-    BufferLayout.nu64("amount"),
-    BufferLayout.u8("decimals"),
-]), "mintToChecked");
-LAYOUT.addVariant(15, BufferLayout.struct([
-    BufferLayout.nu64("amount"),
-    BufferLayout.u8("decimals"),
-]), "burnedChecked");
-LAYOUT.addVariant(16, BufferLayout.struct([publicKey("authority")]), "InitializeAccount2");
-LAYOUT.addVariant(17, BufferLayout.struct([]), "syncNative");
-LAYOUT.addVariant(18, BufferLayout.struct([publicKey("authority")]), "initializeAccount3");
-LAYOUT.addVariant(19, BufferLayout.struct([BufferLayout.u8("m")]), "initializeMultisig2");
-LAYOUT.addVariant(20, BufferLayout.struct([
-    BufferLayout.u8("decimals"),
-    publicKey("mintAuthority"),
-    BufferLayout.u8("freezeAuthorityOption"),
-    publicKey("freezeAuthority"),
-]), "initializeMint2");
 function publicKey(property) {
     return BufferLayout.blob(32, property);
 }
-function encodeData(instruction) {
-    let b = Buffer.alloc(instructionMaxSpan);
-    let span = LAYOUT.encode(instruction, b);
-    return b.slice(0, span);
+function encodeCreateAccount({ lamports, space, owner }) {
+    return encodeData({
+        createAccount: { lamports, space, owner: owner.toBuffer() },
+    });
 }
-const instructionMaxSpan = Math.max(
-// @ts-ignore
-...Object.values(LAYOUT.registry).map((r) => r.span));
+function encodeAssign({ owner }) {
+    return encodeData({
+        assign: { owner: owner.toBuffer() },
+    });
+}
+function encodeTransfer({ lamports }) {
+    return encodeData({
+        transfer: { lamports },
+    });
+}
+function encodeCreateAccountWithSeed({ base, seed, lamports, space, owner, }) {
+    return encodeData({
+        createAccountWithSeed: {
+            base: base.toBuffer(),
+            seed,
+            lamports,
+            space,
+            owner: owner.toBuffer(),
+        },
+    }, LAYOUT.getVariant(3).span + seed.length);
+}
+function encodeInitializeNonceAccount({ authorized }) {
+    return encodeData({
+        initializeNonceAccount: { authorized: authorized.toBuffer() },
+    });
+}
+function encodeAdvanceNonceAccount({ authorized }) {
+    return encodeData({
+        advanceNonceAccount: { authorized: authorized.toBuffer() },
+    });
+}
+function encodeWithdrawNonceAccount({ lamports }) {
+    return encodeData({
+        withdrawNonceAccount: { lamports },
+    });
+}
+function encodeAuthorizeNonceAccount({ authorized }) {
+    return encodeData({
+        authorizeNonceAccount: { authorized: authorized.toBuffer() },
+    });
+}
+function encodeAllocate({ space }) {
+    return encodeData({
+        allocate: { space },
+    });
+}
+function encodeAllocateWithSeed({ base, seed, space, owner }) {
+    return encodeData({
+        allocateWithSeed: {
+            base: base.toBuffer(),
+            seed,
+            space,
+            owner: owner.toBuffer(),
+        },
+    }, LAYOUT.getVariant(9).span + seed.length);
+}
+function encodeAssignWithSeed({ base, seed, owner }) {
+    return encodeData({
+        assignWithSeed: {
+            base: base.toBuffer(),
+            seed,
+            owner: owner.toBuffer(),
+        },
+    }, LAYOUT.getVariant(10).span + seed.length);
+}
+function encodeTransferWithSeed({ lamports, seed, owner }) {
+    return encodeData({
+        transferWithSeed: {
+            lamports,
+            seed,
+            owner: owner.toBuffer(),
+        },
+    }, LAYOUT.getVariant(11).span + seed.length);
+}
+const LAYOUT = BufferLayout.union(BufferLayout.u32("instruction"));
+LAYOUT.addVariant(0, BufferLayout.struct([
+    BufferLayout.ns64("lamports"),
+    BufferLayout.ns64("space"),
+    publicKey("owner"),
+]), "createAccount");
+LAYOUT.addVariant(1, BufferLayout.struct([publicKey("owner")]), "assign");
+LAYOUT.addVariant(2, BufferLayout.struct([BufferLayout.ns64("lamports")]), "transfer");
+LAYOUT.addVariant(3, BufferLayout.struct([
+    publicKey("base"),
+    rustStringLayout("seed"),
+    BufferLayout.ns64("lamports"),
+    BufferLayout.ns64("space"),
+    publicKey("owner"),
+]), "createAccountWithSeed");
+LAYOUT.addVariant(4, BufferLayout.struct([publicKey("authorized")]), "advanceNonceAccount");
+LAYOUT.addVariant(5, BufferLayout.struct([BufferLayout.ns64("lamports")]), "withdrawNonceAccount");
+LAYOUT.addVariant(6, BufferLayout.struct([publicKey("authorized")]), "initializeNonceAccount");
+LAYOUT.addVariant(7, BufferLayout.struct([publicKey("authorized")]), "authorizeNonceAccount");
+LAYOUT.addVariant(8, BufferLayout.struct([BufferLayout.ns64("space")]), "allocate");
+LAYOUT.addVariant(9, BufferLayout.struct([
+    publicKey("base"),
+    rustStringLayout("seed"),
+    BufferLayout.ns64("space"),
+    publicKey("owner"),
+]), "allocateWithSeed");
+LAYOUT.addVariant(10, BufferLayout.struct([
+    publicKey("base"),
+    rustStringLayout("seed"),
+    publicKey("owner"),
+]), "assignWithSeed");
+LAYOUT.addVariant(11, BufferLayout.struct([
+    BufferLayout.ns64("lamports"),
+    rustStringLayout("seed"),
+    publicKey("owner"),
+]), "transferWithSeed");
+function encodeData(instruction, maxSpan) {
+    const b = Buffer.alloc(maxSpan !== null && maxSpan !== void 0 ? maxSpan : instructionMaxSpan);
+    const span = LAYOUT.encode(instruction, b);
+    if (maxSpan === undefined) {
+        return b.slice(0, span);
+    }
+    return b;
+}
+const instructionMaxSpan = Math.max(...Object.values(LAYOUT.registry).map((r) => r.span));
 //# sourceMappingURL=instruction.js.map
 
 /***/ }),
 
-/***/ 1429:
+/***/ 9227:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SplTokenStateCoder = void 0;
-class SplTokenStateCoder {
+exports.SystemStateCoder = void 0;
+class SystemStateCoder {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     constructor(_idl) { }
     encode(_name, _account) {
-        throw new Error("SPL token does not have state");
+        throw new Error("System does not have state");
     }
     decode(_ix) {
-        throw new Error("SPL token does not have state");
+        throw new Error("System does not have state");
     }
 }
-exports.SplTokenStateCoder = SplTokenStateCoder;
+exports.SystemStateCoder = SystemStateCoder;
 //# sourceMappingURL=state.js.map
+
+/***/ }),
+
+/***/ 5128:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SystemTypesCoder = void 0;
+class SystemTypesCoder {
+    constructor(_idl) { }
+    encode(_name, _type) {
+        throw new Error("System does not have user-defined types");
+    }
+    decode(_name, _typeData) {
+        throw new Error("System does not have user-defined types");
+    }
+}
+exports.SystemTypesCoder = SystemTypesCoder;
+//# sourceMappingURL=types.js.map
 
 /***/ }),
 
@@ -7491,6 +7535,7 @@ exports.LangErrorCode = {
     ConstraintMintFreezeAuthority: 2017,
     ConstraintMintDecimals: 2018,
     ConstraintSpace: 2019,
+    ConstraintAccountIsNone: 2020,
     // Require.
     RequireViolated: 2500,
     RequireEqViolated: 2501,
@@ -7516,6 +7561,8 @@ exports.LangErrorCode = {
     AccountNotProgramData: 3013,
     AccountNotAssociatedTokenAccount: 3014,
     AccountSysvarMismatch: 3015,
+    AccountReallocExceedsLimit: 3016,
+    AccountDuplicateReallocs: 3017,
     // State.
     StateInvalidAddress: 4000,
     // Miscellaneous
@@ -7552,7 +7599,7 @@ exports.LangErrorMessage = new Map([
     ],
     // Constraints.
     [exports.LangErrorCode.ConstraintMut, "A mut constraint was violated"],
-    [exports.LangErrorCode.ConstraintHasOne, "A has_one constraint was violated"],
+    [exports.LangErrorCode.ConstraintHasOne, "A has one constraint was violated"],
     [exports.LangErrorCode.ConstraintSigner, "A signer constraint was violated"],
     [exports.LangErrorCode.ConstraintRaw, "A raw constraint was violated"],
     [exports.LangErrorCode.ConstraintOwner, "An owner constraint was violated"],
@@ -7586,6 +7633,10 @@ exports.LangErrorMessage = new Map([
         "A mint decimals constraint was violated",
     ],
     [exports.LangErrorCode.ConstraintSpace, "A space constraint was violated"],
+    [
+        exports.LangErrorCode.ConstraintAccountIsNone,
+        "A required account for the constraint is None",
+    ],
     // Require.
     [exports.LangErrorCode.RequireViolated, "A require expression was violated"],
     [exports.LangErrorCode.RequireEqViolated, "A require_eq expression was violated"],
@@ -7647,6 +7698,14 @@ exports.LangErrorMessage = new Map([
         exports.LangErrorCode.AccountSysvarMismatch,
         "The given public key does not match the required sysvar",
     ],
+    [
+        exports.LangErrorCode.AccountReallocExceedsLimit,
+        "The account reallocation exceeds the MAX_PERMITTED_DATA_INCREASE limit",
+    ],
+    [
+        exports.LangErrorCode.AccountDuplicateReallocs,
+        "The account was duplicated for more than one reallocation",
+    ],
     // State.
     [
         exports.LangErrorCode.StateInvalidAddress,
@@ -7696,10 +7755,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.encodeIdlAccount = exports.decodeIdlAccount = exports.seed = exports.idlAddress = void 0;
+exports.encodeIdlAccount = exports.decodeIdlAccount = exports.seed = exports.idlAddress = exports.isIdlAccounts = void 0;
 const buffer_1 = __nccwpck_require__(4293);
 const web3_js_1 = __nccwpck_require__(157);
-const borsh = __importStar(__nccwpck_require__(5496));
+const borsh = __importStar(__nccwpck_require__(6050));
+function isIdlAccounts(accountItem) {
+    return "accounts" in accountItem;
+}
+exports.isIdlAccounts = isIdlAccounts;
 // Deterministic IDL address as a function of the program id.
 async function idlAddress(programId) {
     const base = (await web3_js_1.PublicKey.findProgramAddress([], programId))[0];
@@ -7778,12 +7841,434 @@ __exportStar(__nccwpck_require__(1831), exports);
 __exportStar(__nccwpck_require__(9671), exports);
 exports.utils = __importStar(__nccwpck_require__(8738));
 __exportStar(__nccwpck_require__(5783), exports);
-__exportStar(__nccwpck_require__(8263), exports);
+__exportStar(__nccwpck_require__(6752), exports);
 if (!common_js_1.isBrowser) {
     exports.workspace = __nccwpck_require__(1922).default;
     exports.Wallet = __nccwpck_require__(2751).default;
 }
 //# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 6752:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Native = void 0;
+const system_js_1 = __nccwpck_require__(7896);
+class Native {
+    static system(provider) {
+        return (0, system_js_1.program)(provider);
+    }
+}
+exports.Native = Native;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 7896:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.IDL = exports.coder = exports.program = void 0;
+const web3_js_1 = __nccwpck_require__(157);
+const index_js_1 = __nccwpck_require__(5783);
+const index_js_2 = __nccwpck_require__(4296);
+const SYSTEM_PROGRAM_ID = new web3_js_1.PublicKey("11111111111111111111111111111111");
+function program(provider) {
+    return new index_js_1.Program(exports.IDL, SYSTEM_PROGRAM_ID, provider, coder());
+}
+exports.program = program;
+function coder() {
+    return new index_js_2.SystemCoder(exports.IDL);
+}
+exports.coder = coder;
+exports.IDL = {
+    version: "0.1.0",
+    name: "system_program",
+    instructions: [
+        {
+            name: "createAccount",
+            accounts: [
+                {
+                    name: "from",
+                    isMut: true,
+                    isSigner: true,
+                },
+                {
+                    name: "to",
+                    isMut: true,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "lamports",
+                    type: "u64",
+                },
+                {
+                    name: "space",
+                    type: "u64",
+                },
+                {
+                    name: "owner",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "assign",
+            accounts: [
+                {
+                    name: "pubkey",
+                    isMut: true,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "owner",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "transfer",
+            accounts: [
+                {
+                    name: "from",
+                    isMut: true,
+                    isSigner: true,
+                },
+                {
+                    name: "to",
+                    isMut: true,
+                    isSigner: false,
+                },
+            ],
+            args: [
+                {
+                    name: "lamports",
+                    type: "u64",
+                },
+            ],
+        },
+        {
+            name: "createAccountWithSeed",
+            accounts: [
+                {
+                    name: "from",
+                    isMut: true,
+                    isSigner: true,
+                },
+                {
+                    name: "to",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "base",
+                    isMut: false,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "base",
+                    type: "publicKey",
+                },
+                {
+                    name: "seed",
+                    type: "string",
+                },
+                {
+                    name: "lamports",
+                    type: "u64",
+                },
+                {
+                    name: "space",
+                    type: "u64",
+                },
+                {
+                    name: "owner",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "advanceNonceAccount",
+            accounts: [
+                {
+                    name: "nonce",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "recentBlockhashes",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "authorized",
+                    isMut: false,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "authorized",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "withdrawNonceAccount",
+            accounts: [
+                {
+                    name: "nonce",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "to",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "recentBlockhashes",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "rent",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "authorized",
+                    isMut: false,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "lamports",
+                    type: "u64",
+                },
+            ],
+        },
+        {
+            name: "initializeNonceAccount",
+            accounts: [
+                {
+                    name: "nonce",
+                    isMut: true,
+                    isSigner: true,
+                },
+                {
+                    name: "recentBlockhashes",
+                    isMut: false,
+                    isSigner: false,
+                },
+                {
+                    name: "rent",
+                    isMut: false,
+                    isSigner: false,
+                },
+            ],
+            args: [
+                {
+                    name: "authorized",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "authorizeNonceAccount",
+            accounts: [
+                {
+                    name: "nonce",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "authorized",
+                    isMut: false,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "authorized",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "allocate",
+            accounts: [
+                {
+                    name: "pubkey",
+                    isMut: true,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "space",
+                    type: "u64",
+                },
+            ],
+        },
+        {
+            name: "allocateWithSeed",
+            accounts: [
+                {
+                    name: "account",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "base",
+                    isMut: false,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "base",
+                    type: "publicKey",
+                },
+                {
+                    name: "seed",
+                    type: "string",
+                },
+                {
+                    name: "space",
+                    type: "u64",
+                },
+                {
+                    name: "owner",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "assignWithSeed",
+            accounts: [
+                {
+                    name: "account",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "base",
+                    isMut: false,
+                    isSigner: true,
+                },
+            ],
+            args: [
+                {
+                    name: "base",
+                    type: "publicKey",
+                },
+                {
+                    name: "seed",
+                    type: "string",
+                },
+                {
+                    name: "owner",
+                    type: "publicKey",
+                },
+            ],
+        },
+        {
+            name: "transferWithSeed",
+            accounts: [
+                {
+                    name: "from",
+                    isMut: true,
+                    isSigner: false,
+                },
+                {
+                    name: "base",
+                    isMut: false,
+                    isSigner: true,
+                },
+                {
+                    name: "to",
+                    isMut: true,
+                    isSigner: false,
+                },
+            ],
+            args: [
+                {
+                    name: "lamports",
+                    type: "u64",
+                },
+                {
+                    name: "seed",
+                    type: "string",
+                },
+                {
+                    name: "owner",
+                    type: "publicKey",
+                },
+            ],
+        },
+    ],
+    accounts: [
+        {
+            name: "nonce",
+            type: {
+                kind: "struct",
+                fields: [
+                    {
+                        name: "version",
+                        type: "u32",
+                    },
+                    {
+                        name: "state",
+                        type: "u32",
+                    },
+                    {
+                        name: "authorizedPubkey",
+                        type: "publicKey",
+                    },
+                    {
+                        name: "nonce",
+                        type: "publicKey",
+                    },
+                    {
+                        name: "feeCalculator",
+                        type: {
+                            defined: "FeeCalculator",
+                        },
+                    },
+                ],
+            },
+        },
+    ],
+    types: [
+        {
+            name: "FeeCalculator",
+            type: {
+                kind: "struct",
+                fields: [
+                    {
+                        name: "lamportsPerSignature",
+                        type: "u64",
+                    },
+                ],
+            },
+        },
+    ],
+};
+//# sourceMappingURL=system.js.map
 
 /***/ }),
 
@@ -7804,6 +8289,9 @@ class NodeWallet {
     }
     static local() {
         const process = __nccwpck_require__(1765);
+        if (!process.env.ANCHOR_WALLET || process.env.ANCHOR_WALLET === "") {
+            throw new Error("expected environment variable `ANCHOR_WALLET` is not set.");
+        }
         const payer = web3_js_1.Keypair.fromSecretKey(buffer_1.Buffer.from(JSON.parse(__nccwpck_require__(5747).readFileSync(process.env.ANCHOR_WALLET, {
             encoding: "utf-8",
         }))));
@@ -7860,71 +8348,212 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AccountStore = exports.AccountsResolver = void 0;
+exports.AccountStore = exports.AccountsResolver = exports.isAccountsGeneric = void 0;
 const camelcase_1 = __importDefault(__nccwpck_require__(1362));
 const web3_js_1 = __nccwpck_require__(157);
+const idl_js_1 = __nccwpck_require__(1252);
 const utf8 = __importStar(__nccwpck_require__(8406));
 const token_js_1 = __nccwpck_require__(8749);
-const token_1 = __nccwpck_require__(8105);
+const token_account_layout_1 = __nccwpck_require__(1169);
+const index_js_1 = __nccwpck_require__(5783);
+const methods_1 = __nccwpck_require__(1183);
+function isAccountsGeneric(accounts) {
+    return !(accounts instanceof web3_js_1.PublicKey);
+}
+exports.isAccountsGeneric = isAccountsGeneric;
 // Populates a given accounts context with PDAs and common missing accounts.
 class AccountsResolver {
-    constructor(_args, _accounts, _provider, _programId, _idlIx, _accountNamespace) {
-        this._args = _args;
+    constructor(_args, _accounts, _provider, _programId, _idlIx, _accountNamespace, _idlTypes, _customResolver) {
         this._accounts = _accounts;
         this._provider = _provider;
         this._programId = _programId;
         this._idlIx = _idlIx;
-        this._accountStore = new AccountStore(_provider, _accountNamespace);
+        this._idlTypes = _idlTypes;
+        this._customResolver = _customResolver;
+        this._args = _args;
+        this._accountStore = new AccountStore(_provider, _accountNamespace, this._programId);
+    }
+    args(_args) {
+        this._args = _args;
     }
     // Note: We serially resolve PDAs one by one rather than doing them
     //       in parallel because there can be dependencies between
     //       addresses. That is, one PDA can be used as a seed in another.
-    //
-    // TODO: PDAs need to be resolved in topological order. For now, we
-    //       require the developer to simply list the accounts in the
-    //       correct order. But in future work, we should create the
-    //       dependency graph and resolve automatically.
-    //
     async resolve() {
-        for (let k = 0; k < this._idlIx.accounts.length; k += 1) {
-            // Cast is ok because only a non-nested IdlAccount can have a seeds
-            // cosntraint.
-            const accountDesc = this._idlIx.accounts[k];
-            const accountDescName = (0, camelcase_1.default)(accountDesc.name);
-            // PDA derived from IDL seeds.
-            if (accountDesc.pda &&
-                accountDesc.pda.seeds.length > 0 &&
-                !this._accounts[accountDescName]) {
-                await this.autoPopulatePda(accountDesc);
+        await this.resolveConst(this._idlIx.accounts);
+        // Auto populate pdas and relations until we stop finding new accounts
+        while ((await this.resolvePdas(this._idlIx.accounts)) +
+            (await this.resolveRelations(this._idlIx.accounts)) +
+            (await this.resolveCustom()) >
+            0) { }
+    }
+    async resolveCustom() {
+        if (this._customResolver) {
+            const { accounts, resolved } = await this._customResolver({
+                args: this._args,
+                accounts: this._accounts,
+                provider: this._provider,
+                programId: this._programId,
+                idlIx: this._idlIx,
+            });
+            this._accounts = accounts;
+            return resolved;
+        }
+        return 0;
+    }
+    resolveOptionalsHelper(partialAccounts, accountItems) {
+        const nestedAccountsGeneric = {};
+        // Looping through accountItem array instead of on partialAccounts, so
+        // we only traverse array once
+        for (const accountItem of accountItems) {
+            const accountName = accountItem.name;
+            const partialAccount = partialAccounts[accountName];
+            // Skip if the account isn't included (thus would be undefined)
+            if (partialAccount === undefined)
                 continue;
+            if ((0, methods_1.isPartialAccounts)(partialAccount)) {
+                // is compound accounts, recurse one level deeper
+                if ((0, idl_js_1.isIdlAccounts)(accountItem)) {
+                    nestedAccountsGeneric[accountName] = this.resolveOptionalsHelper(partialAccount, accountItem["accounts"]);
+                }
+                else {
+                    // Here we try our best to recover gracefully. If there are optionals we can't check, we will fail then.
+                    nestedAccountsGeneric[accountName] = (0, methods_1.flattenPartialAccounts)(partialAccount, true);
+                }
             }
+            else {
+                // if not compound accounts, do null/optional check and proceed
+                if (partialAccount !== null) {
+                    nestedAccountsGeneric[accountName] = (0, index_js_1.translateAddress)(partialAccount);
+                }
+                else if (accountItem["isOptional"]) {
+                    nestedAccountsGeneric[accountName] = this._programId;
+                }
+            }
+        }
+        return nestedAccountsGeneric;
+    }
+    resolveOptionals(accounts) {
+        Object.assign(this._accounts, this.resolveOptionalsHelper(accounts, this._idlIx.accounts));
+    }
+    get(path) {
+        // Only return if pubkey
+        const ret = path.reduce((acc, subPath) => acc && acc[subPath], this._accounts);
+        if (ret && ret.toBase58) {
+            return ret;
+        }
+    }
+    set(path, value) {
+        let curr = this._accounts;
+        path.forEach((p, idx) => {
+            const isLast = idx == path.length - 1;
+            if (isLast) {
+                curr[p] = value;
+            }
+            curr[p] = curr[p] || {};
+            curr = curr[p];
+        });
+    }
+    async resolveConst(accounts, path = []) {
+        for (let k = 0; k < accounts.length; k += 1) {
+            const accountDescOrAccounts = accounts[k];
+            const subAccounts = accountDescOrAccounts.accounts;
+            if (subAccounts) {
+                await this.resolveConst(subAccounts, [
+                    ...path,
+                    (0, camelcase_1.default)(accountDescOrAccounts.name),
+                ]);
+            }
+            const accountDesc = accountDescOrAccounts;
+            const accountDescName = (0, camelcase_1.default)(accountDescOrAccounts.name);
             // Signers default to the provider.
-            if (accountDesc.isSigner && !this._accounts[accountDescName]) {
+            if (accountDesc.isSigner && !this.get([...path, accountDescName])) {
                 // @ts-expect-error
                 if (this._provider.wallet === undefined) {
                     throw new Error("This function requires the Provider interface implementor to have a 'wallet' field.");
                 }
                 // @ts-expect-error
-                this._accounts[accountDescName] = this._provider.wallet.publicKey;
-                continue;
+                this.set([...path, accountDescName], this._provider.wallet.publicKey);
             }
             // Common accounts are auto populated with magic names by convention.
             if (Reflect.has(AccountsResolver.CONST_ACCOUNTS, accountDescName) &&
-                !this._accounts[accountDescName]) {
-                this._accounts[accountDescName] =
-                    AccountsResolver.CONST_ACCOUNTS[accountDescName];
+                !this.get([...path, accountDescName])) {
+                this.set([...path, accountDescName], AccountsResolver.CONST_ACCOUNTS[accountDescName]);
             }
         }
     }
-    async autoPopulatePda(accountDesc) {
+    async resolvePdas(accounts, path = []) {
+        let found = 0;
+        for (let k = 0; k < accounts.length; k += 1) {
+            const accountDesc = accounts[k];
+            const subAccounts = accountDesc.accounts;
+            if (subAccounts) {
+                found += await this.resolvePdas(subAccounts, [
+                    ...path,
+                    (0, camelcase_1.default)(accountDesc.name),
+                ]);
+            }
+            const accountDescCasted = accountDesc;
+            const accountDescName = (0, camelcase_1.default)(accountDesc.name);
+            // PDA derived from IDL seeds.
+            if (accountDescCasted.pda &&
+                accountDescCasted.pda.seeds.length > 0 &&
+                !this.get([...path, accountDescName])) {
+                if (Boolean(await this.autoPopulatePda(accountDescCasted, path))) {
+                    found += 1;
+                }
+            }
+        }
+        return found;
+    }
+    async resolveRelations(accounts, path = []) {
+        let found = 0;
+        for (let k = 0; k < accounts.length; k += 1) {
+            const accountDesc = accounts[k];
+            const subAccounts = accountDesc.accounts;
+            if (subAccounts) {
+                found += await this.resolveRelations(subAccounts, [
+                    ...path,
+                    (0, camelcase_1.default)(accountDesc.name),
+                ]);
+            }
+            const relations = accountDesc.relations || [];
+            const accountDescName = (0, camelcase_1.default)(accountDesc.name);
+            const newPath = [...path, accountDescName];
+            // If we have this account and there's some missing accounts that are relations to this account, fetch them
+            const accountKey = this.get(newPath);
+            if (accountKey) {
+                const matching = relations.filter((rel) => !this.get([...path, (0, camelcase_1.default)(rel)]));
+                found += matching.length;
+                if (matching.length > 0) {
+                    const account = await this._accountStore.fetchAccount({
+                        publicKey: accountKey,
+                    });
+                    await Promise.all(matching.map(async (rel) => {
+                        const relName = (0, camelcase_1.default)(rel);
+                        this.set([...path, relName], account[relName]);
+                        return account[relName];
+                    }));
+                }
+            }
+        }
+        return found;
+    }
+    async autoPopulatePda(accountDesc, path = []) {
         if (!accountDesc.pda || !accountDesc.pda.seeds)
             throw new Error("Must have seeds");
-        const seeds = await Promise.all(accountDesc.pda.seeds.map((seedDesc) => this.toBuffer(seedDesc)));
-        const programId = await this.parseProgramId(accountDesc);
+        const seeds = await Promise.all(accountDesc.pda.seeds.map((seedDesc) => this.toBuffer(seedDesc, path)));
+        if (seeds.some((seed) => typeof seed == "undefined")) {
+            return;
+        }
+        const programId = await this.parseProgramId(accountDesc, path);
+        if (!programId) {
+            return;
+        }
         const [pubkey] = await web3_js_1.PublicKey.findProgramAddress(seeds, programId);
-        this._accounts[(0, camelcase_1.default)(accountDesc.name)] = pubkey;
+        this.set([...path, (0, camelcase_1.default)(accountDesc.name)], pubkey);
     }
-    async parseProgramId(accountDesc) {
+    async parseProgramId(accountDesc, path = []) {
         var _a;
         if (!((_a = accountDesc.pda) === null || _a === void 0 ? void 0 : _a.programId)) {
             return this._programId;
@@ -7935,46 +8564,73 @@ class AccountsResolver {
             case "arg":
                 return this.argValue(accountDesc.pda.programId);
             case "account":
-                return await this.accountValue(accountDesc.pda.programId);
+                return await this.accountValue(accountDesc.pda.programId, path);
             default:
                 throw new Error(`Unexpected program seed kind: ${accountDesc.pda.programId.kind}`);
         }
     }
-    async toBuffer(seedDesc) {
+    async toBuffer(seedDesc, path = []) {
         switch (seedDesc.kind) {
             case "const":
                 return this.toBufferConst(seedDesc);
             case "arg":
                 return await this.toBufferArg(seedDesc);
             case "account":
-                return await this.toBufferAccount(seedDesc);
+                return await this.toBufferAccount(seedDesc, path);
             default:
                 throw new Error(`Unexpected seed kind: ${seedDesc.kind}`);
         }
     }
+    /**
+     * Recursively get the type at some path of either a primitive or a user defined struct.
+     */
+    getType(type, path = []) {
+        if (path.length > 0 && type.defined) {
+            const subType = this._idlTypes.find((t) => t.name === type.defined);
+            if (!subType) {
+                throw new Error(`Cannot find type ${type.defined}`);
+            }
+            const structType = subType.type; // enum not supported yet
+            const field = structType.fields.find((field) => field.name === path[0]);
+            return this.getType(field.type, path.slice(1));
+        }
+        return type;
+    }
     toBufferConst(seedDesc) {
-        return this.toBufferValue(seedDesc.type, seedDesc.value);
+        return this.toBufferValue(this.getType(seedDesc.type, (seedDesc.path || "").split(".").slice(1)), seedDesc.value);
     }
     async toBufferArg(seedDesc) {
         const argValue = this.argValue(seedDesc);
-        return this.toBufferValue(seedDesc.type, argValue);
+        if (typeof argValue === "undefined") {
+            return;
+        }
+        return this.toBufferValue(this.getType(seedDesc.type, (seedDesc.path || "").split(".").slice(1)), argValue);
     }
     argValue(seedDesc) {
-        const seedArgName = (0, camelcase_1.default)(seedDesc.path.split(".")[0]);
+        const split = seedDesc.path.split(".");
+        const seedArgName = (0, camelcase_1.default)(split[0]);
         const idlArgPosition = this._idlIx.args.findIndex((argDesc) => argDesc.name === seedArgName);
         if (idlArgPosition === -1) {
             throw new Error(`Unable to find argument for seed: ${seedArgName}`);
         }
-        return this._args[idlArgPosition];
+        return split
+            .slice(1)
+            .reduce((curr, path) => (curr || {})[path], this._args[idlArgPosition]);
     }
-    async toBufferAccount(seedDesc) {
-        const accountValue = await this.accountValue(seedDesc);
+    async toBufferAccount(seedDesc, path = []) {
+        const accountValue = await this.accountValue(seedDesc, path);
+        if (!accountValue) {
+            return;
+        }
         return this.toBufferValue(seedDesc.type, accountValue);
     }
-    async accountValue(seedDesc) {
+    async accountValue(seedDesc, path = []) {
         const pathComponents = seedDesc.path.split(".");
         const fieldName = pathComponents[0];
-        const fieldPubkey = this._accounts[(0, camelcase_1.default)(fieldName)];
+        const fieldPubkey = this.get([...path, (0, camelcase_1.default)(fieldName)]);
+        if (fieldPubkey === null) {
+            throw new Error(`fieldPubkey is null`);
+        }
         // The seed is a pubkey of the account.
         if (pathComponents.length === 1) {
             return fieldPubkey;
@@ -7982,7 +8638,10 @@ class AccountsResolver {
         // The key is account data.
         //
         // Fetch and deserialize it.
-        const account = await this._accountStore.fetchAccount(seedDesc.account, fieldPubkey);
+        const account = await this._accountStore.fetchAccount({
+            publicKey: fieldPubkey,
+            name: seedDesc.account,
+        });
         // Dereference all fields in the path to get the field value
         // used in the seed.
         const fieldValue = this.parseAccountValue(account, pathComponents.slice(1));
@@ -8030,20 +8689,33 @@ class AccountsResolver {
 }
 exports.AccountsResolver = AccountsResolver;
 AccountsResolver.CONST_ACCOUNTS = {
-    systemProgram: web3_js_1.SystemProgram.programId,
-    tokenProgram: token_js_1.TOKEN_PROGRAM_ID,
     associatedTokenProgram: token_js_1.ASSOCIATED_PROGRAM_ID,
     rent: web3_js_1.SYSVAR_RENT_PUBKEY,
+    systemProgram: web3_js_1.SystemProgram.programId,
+    tokenProgram: token_js_1.TOKEN_PROGRAM_ID,
+    clock: web3_js_1.SYSVAR_CLOCK_PUBKEY,
 };
 // TODO: this should be configureable to avoid unnecessary requests.
 class AccountStore {
     // todo: don't use the progrma use the account namespace.
-    constructor(_provider, _accounts) {
+    constructor(_provider, _accounts, _programId) {
         this._provider = _provider;
-        this._accounts = _accounts;
+        this._programId = _programId;
         this._cache = new Map();
+        this._idls = {};
+        this._idls[_programId.toBase58()] = _accounts;
     }
-    async fetchAccount(name, publicKey) {
+    async ensureIdl(programId) {
+        if (!this._idls[programId.toBase58()]) {
+            const idl = await index_js_1.Program.fetchIdl(programId, this._provider);
+            if (idl) {
+                const program = new index_js_1.Program(idl, programId, this._provider);
+                this._idls[programId.toBase58()] = program.account;
+            }
+        }
+        return this._idls[programId.toBase58()];
+    }
+    async fetchAccount({ publicKey, name, programId = this._programId, }) {
         const address = publicKey.toString();
         if (!this._cache.has(address)) {
             if (name === "TokenAccount") {
@@ -8051,12 +8723,34 @@ class AccountStore {
                 if (accountInfo === null) {
                     throw new Error(`invalid account info for ${address}`);
                 }
-                const data = (0, token_1.coder)().accounts.decode("token", accountInfo.data);
+                const data = (0, token_account_layout_1.decodeTokenAccount)(accountInfo.data);
                 this._cache.set(address, data);
             }
+            else if (name) {
+                const accounts = await this.ensureIdl(programId);
+                if (accounts) {
+                    const accountFetcher = accounts[(0, camelcase_1.default)(name)];
+                    if (accountFetcher) {
+                        const account = await accountFetcher.fetch(publicKey);
+                        this._cache.set(address, account);
+                    }
+                }
+            }
             else {
-                const account = this._accounts[(0, camelcase_1.default)(name)].fetch(publicKey);
-                this._cache.set(address, account);
+                const account = await this._provider.connection.getAccountInfo(publicKey);
+                if (account === null) {
+                    throw new Error(`invalid account info for ${address}`);
+                }
+                const data = account.data;
+                const accounts = await this.ensureIdl(account.owner);
+                if (accounts) {
+                    const firstAccountLayout = Object.values(accounts)[0];
+                    if (!firstAccountLayout) {
+                        throw new Error("No accounts for this program");
+                    }
+                    const result = firstAccountLayout.coder.accounts.decodeAny(data);
+                    this._cache.set(address, result);
+                }
             }
         }
         return this._cache.get(address);
@@ -8197,7 +8891,7 @@ class EventManager {
         let listener = this._listenerIdCount;
         this._listenerIdCount += 1;
         // Store the listener into the event map.
-        if (!(eventName in this._eventCallbacks)) {
+        if (!this._eventListeners.has(eventName)) {
             this._eventListeners.set(eventName, []);
         }
         this._eventListeners.set(eventName, ((_a = this._eventListeners.get(eventName)) !== null && _a !== void 0 ? _a : []).concat(listener));
@@ -8211,18 +8905,18 @@ class EventManager {
             if (logs.err) {
                 return;
             }
-            this._eventParser.parseLogs(logs.logs, (event) => {
+            for (const event of this._eventParser.parseLogs(logs.logs)) {
                 const allListeners = this._eventListeners.get(event.name);
                 if (allListeners) {
                     allListeners.forEach((listener) => {
                         const listenerCb = this._eventCallbacks.get(listener);
                         if (listenerCb) {
                             const [, callback] = listenerCb;
-                            callback(event.data, ctx.slot);
+                            callback(event.data, ctx.slot, logs.signature);
                         }
                     });
                 }
-            });
+            }
         });
         return listener;
     }
@@ -8241,6 +8935,7 @@ class EventManager {
         // Update both maps.
         this._eventCallbacks.delete(listener);
         listeners = listeners.filter((l) => l !== listener);
+        this._eventListeners.set(eventName, listeners);
         if (listeners.length === 0) {
             this._eventListeners.delete(eventName);
         }
@@ -8271,14 +8966,14 @@ class EventParser {
     // its emission, thereby allowing us to know if a given log event was
     // emitted by *this* program. If it was, then we parse the raw string and
     // emit the event if the string matches the event being subscribed to.
-    parseLogs(logs, callback) {
+    *parseLogs(logs, errorOnDecodeFailure = false) {
         const logScanner = new LogScanner(logs);
         const execution = new ExecutionContext();
         let log = logScanner.next();
         while (log !== null) {
-            let [event, newProgram, didPop] = this.handleLog(execution, log);
+            let [event, newProgram, didPop] = this.handleLog(execution, log, errorOnDecodeFailure);
             if (event) {
-                callback(event);
+                yield event;
             }
             if (newProgram) {
                 execution.push(newProgram);
@@ -8293,11 +8988,11 @@ class EventParser {
     // next program that was invoked for CPI, and a boolean indicating if
     // a program has completed execution (and thus should be popped off the
     // execution stack).
-    handleLog(execution, log) {
+    handleLog(execution, log, errorOnDecodeFailure) {
         // Executing program is this program.
         if (execution.stack.length > 0 &&
             execution.program() === this.programId.toString()) {
-            return this.handleProgramLog(log);
+            return this.handleProgramLog(log, errorOnDecodeFailure);
         }
         // Executing program is not this program.
         else {
@@ -8305,13 +9000,16 @@ class EventParser {
         }
     }
     // Handles logs from *this* program.
-    handleProgramLog(log) {
+    handleProgramLog(log, errorOnDecodeFailure) {
         // This is a `msg!` log or a `sol_log_data` log.
         if (log.startsWith(PROGRAM_LOG) || log.startsWith(PROGRAM_DATA)) {
             const logStr = log.startsWith(PROGRAM_LOG)
                 ? log.slice(PROGRAM_LOG_START_INDEX)
                 : log.slice(PROGRAM_DATA_START_INDEX);
             const event = this.coder.events.decode(logStr);
+            if (errorOnDecodeFailure && event === null) {
+                throw new Error(`Unable to decode event ${logStr}`);
+            }
             return [event, null, false];
         }
         // System log.
@@ -8436,37 +9134,9 @@ __exportStar(__nccwpck_require__(6995), exports);
  *
  * API specifics are namespace dependent. The examples used in the documentation
  * below will refer to the two counter examples found
- * [here](https://github.com/project-serum/anchor#examples).
+ * [here](https://github.com/coral-xyz/anchor#examples).
  */
 class Program {
-    /**
-     * @param idl       The interface definition.
-     * @param programId The on-chain address of the program.
-     * @param provider  The network and wallet context to use. If not provided
-     *                  then uses [[getProvider]].
-     */
-    constructor(idl, programId, provider, coder) {
-        programId = (0, common_js_1.translateAddress)(programId);
-        if (!provider) {
-            provider = (0, provider_js_1.getProvider)();
-        }
-        // Fields.
-        this._idl = idl;
-        this._provider = provider;
-        this._programId = programId;
-        this._coder = coder !== null && coder !== void 0 ? coder : new index_js_1.BorshCoder(idl);
-        this._events = new event_js_1.EventManager(this._programId, provider, this._coder);
-        // Dynamic namespaces.
-        const [rpc, instruction, transaction, account, simulate, methods, state, views,] = index_js_2.default.build(idl, this._coder, programId, provider);
-        this.rpc = rpc;
-        this.instruction = instruction;
-        this.transaction = transaction;
-        this.account = account;
-        this.simulate = simulate;
-        this.methods = methods;
-        this.state = state;
-        this.views = views;
-    }
     /**
      * Address of the program.
      */
@@ -8490,6 +9160,37 @@ class Program {
      */
     get provider() {
         return this._provider;
+    }
+    /**
+     * @param idl       The interface definition.
+     * @param programId The on-chain address of the program.
+     * @param provider  The network and wallet context to use. If not provided
+     *                  then uses [[getProvider]].
+     * @param getCustomResolver A function that returns a custom account resolver
+     *                          for the given instruction. This is useful for resolving
+     *                          public keys of missing accounts when building instructions
+     */
+    constructor(idl, programId, provider, coder, getCustomResolver) {
+        programId = (0, common_js_1.translateAddress)(programId);
+        if (!provider) {
+            provider = (0, provider_js_1.getProvider)();
+        }
+        // Fields.
+        this._idl = idl;
+        this._provider = provider;
+        this._programId = programId;
+        this._coder = coder !== null && coder !== void 0 ? coder : new index_js_1.BorshCoder(idl);
+        this._events = new event_js_1.EventManager(this._programId, provider, this._coder);
+        // Dynamic namespaces.
+        const [rpc, instruction, transaction, account, simulate, methods, state, views,] = index_js_2.default.build(idl, this._coder, programId, provider, getCustomResolver !== null && getCustomResolver !== void 0 ? getCustomResolver : (() => undefined));
+        this.rpc = rpc;
+        this.instruction = instruction;
+        this.transaction = transaction;
+        this.account = account;
+        this.simulate = simulate;
+        this.methods = methods;
+        this.state = state;
+        this.views = views;
     }
     /**
      * Generates a Program client by fetching the IDL from the network.
@@ -8606,13 +9307,6 @@ class AccountFactory {
 }
 exports.default = AccountFactory;
 class AccountClient {
-    constructor(idl, idlAccount, programId, provider, coder) {
-        this._idlAccount = idlAccount;
-        this._programId = programId;
-        this._provider = provider !== null && provider !== void 0 ? provider : (0, provider_js_1.getProvider)();
-        this._coder = coder !== null && coder !== void 0 ? coder : new index_js_1.BorshCoder(idl);
-        this._size = this._coder.accounts.size(idlAccount);
-    }
     /**
      * Returns the number of bytes in this account.
      */
@@ -8637,17 +9331,36 @@ class AccountClient {
     get coder() {
         return this._coder;
     }
+    constructor(idl, idlAccount, programId, provider, coder) {
+        this._idlAccount = idlAccount;
+        this._programId = programId;
+        this._provider = provider !== null && provider !== void 0 ? provider : (0, provider_js_1.getProvider)();
+        this._coder = coder !== null && coder !== void 0 ? coder : new index_js_1.BorshCoder(idl);
+        this._size = this._coder.accounts.size(idlAccount);
+    }
     /**
      * Returns a deserialized account, returning null if it doesn't exist.
      *
      * @param address The address of the account to fetch.
      */
     async fetchNullable(address, commitment) {
-        const accountInfo = await this.getAccountInfo(address, commitment);
-        if (accountInfo === null) {
-            return null;
-        }
-        return this._coder.accounts.decode(this._idlAccount.name, accountInfo.data);
+        const { data } = await this.fetchNullableAndContext(address, commitment);
+        return data;
+    }
+    /**
+     * Returns a deserialized account along with the associated rpc response context, returning null if it doesn't exist.
+     *
+     * @param address The address of the account to fetch.
+     */
+    async fetchNullableAndContext(address, commitment) {
+        const accountInfo = await this.getAccountInfoAndContext(address, commitment);
+        const { value, context } = accountInfo;
+        return {
+            data: value && value.data.length !== 0
+                ? this._coder.accounts.decode(this._idlAccount.name, value.data)
+                : null,
+            context,
+        };
     }
     /**
      * Returns a deserialized account.
@@ -8655,11 +9368,23 @@ class AccountClient {
      * @param address The address of the account to fetch.
      */
     async fetch(address, commitment) {
-        const data = await this.fetchNullable(address, commitment);
+        const { data } = await this.fetchNullableAndContext(address, commitment);
+        if (data === null) {
+            throw new Error(`Account does not exist or has no data ${address.toString()}`);
+        }
+        return data;
+    }
+    /**
+     * Returns a deserialized account along with the associated rpc response context.
+     *
+     * @param address The address of the account to fetch.
+     */
+    async fetchAndContext(address, commitment) {
+        const { data, context } = await this.fetchNullableAndContext(address, commitment);
         if (data === null) {
             throw new Error(`Account does not exist ${address.toString()}`);
         }
-        return data;
+        return { data, context };
     }
     /**
      * Returns multiple deserialized accounts.
@@ -8668,13 +9393,27 @@ class AccountClient {
      * @param addresses The addresses of the accounts to fetch.
      */
     async fetchMultiple(addresses, commitment) {
-        const accounts = await rpcUtil.getMultipleAccounts(this._provider.connection, addresses.map((address) => (0, common_js_1.translateAddress)(address)), commitment);
+        const accounts = await this.fetchMultipleAndContext(addresses, commitment);
+        return accounts.map((account) => (account ? account.data : null));
+    }
+    /**
+     * Returns multiple deserialized accounts.
+     * Accounts not found or with wrong discriminator are returned as null.
+     *
+     * @param addresses The addresses of the accounts to fetch.
+     */
+    async fetchMultipleAndContext(addresses, commitment) {
+        const accounts = await rpcUtil.getMultipleAccountsAndContext(this._provider.connection, addresses.map((address) => (0, common_js_1.translateAddress)(address)), commitment);
         // Decode accounts where discriminator is correct, null otherwise
-        return accounts.map((account) => {
-            if (account == null) {
+        return accounts.map((result) => {
+            if (result == null) {
                 return null;
             }
-            return this._coder.accounts.decode(this._idlAccount.name, account === null || account === void 0 ? void 0 : account.account.data);
+            const { account, context } = result;
+            return {
+                data: this._coder.accounts.decode(this._idlAccount.name, account.data),
+                context,
+            };
         });
     }
     /**
@@ -8692,14 +9431,19 @@ class AccountClient {
      *                filters are appended after the discriminator filter.
      */
     async all(filters) {
+        const filter = this.coder.accounts.memcmp(this._idlAccount.name, filters instanceof Buffer ? filters : undefined);
+        const coderFilters = [];
+        if ((filter === null || filter === void 0 ? void 0 : filter.offset) != undefined && (filter === null || filter === void 0 ? void 0 : filter.bytes) != undefined) {
+            coderFilters.push({
+                memcmp: { offset: filter.offset, bytes: filter.bytes },
+            });
+        }
+        if ((filter === null || filter === void 0 ? void 0 : filter.dataSize) != undefined) {
+            coderFilters.push({ dataSize: filter.dataSize });
+        }
         let resp = await this._provider.connection.getProgramAccounts(this._programId, {
             commitment: this._provider.connection.commitment,
-            filters: [
-                {
-                    memcmp: this.coder.accounts.memcmp(this._idlAccount.name, filters instanceof Buffer ? filters : undefined),
-                },
-                ...(Array.isArray(filters) ? filters : []),
-            ],
+            filters: [...coderFilters, ...(Array.isArray(filters) ? filters : [])],
         });
         return resp.map(({ pubkey, account }) => {
             return {
@@ -8752,13 +9496,11 @@ class AccountClient {
      */
     async createInstruction(signer, sizeOverride) {
         const size = this.size;
-        // @ts-expect-error
-        if (this._provider.wallet === undefined) {
-            throw new Error("This function requires the Provider interface implementor to have a 'wallet' field.");
+        if (this._provider.publicKey === undefined) {
+            throw new Error("This function requires the Provider interface implementor to have a 'publicKey' field.");
         }
         return web3_js_1.SystemProgram.createAccount({
-            // @ts-expect-error
-            fromPubkey: this._provider.wallet.publicKey,
+            fromPubkey: this._provider.publicKey,
             newAccountPubkey: signer.publicKey,
             space: sizeOverride !== null && sizeOverride !== void 0 ? sizeOverride : size,
             lamports: await this._provider.connection.getMinimumBalanceForRentExemption(sizeOverride !== null && sizeOverride !== void 0 ? sizeOverride : size),
@@ -8786,6 +9528,9 @@ class AccountClient {
     }
     async getAccountInfo(address, commitment) {
         return await this._provider.connection.getAccountInfo((0, common_js_1.translateAddress)(address), commitment);
+    }
+    async getAccountInfoAndContext(address, commitment) {
+        return await this._provider.connection.getAccountInfoAndContext((0, common_js_1.translateAddress)(address), commitment);
     }
 }
 exports.AccountClient = AccountClient;
@@ -8826,7 +9571,7 @@ class NamespaceFactory {
     /**
      * Generates all namespaces for a given program.
      */
-    static build(idl, coder, programId, provider) {
+    static build(idl, coder, programId, provider, getCustomResolver) {
         const rpc = {};
         const instruction = {};
         const transaction = {};
@@ -8844,7 +9589,7 @@ class NamespaceFactory {
             const rpcItem = rpc_js_1.default.build(idlIx, txItem, idlErrors, provider);
             const simulateItem = simulate_js_1.default.build(idlIx, txItem, idlErrors, provider, coder, programId, idl);
             const viewItem = views_1.default.build(programId, idlIx, simulateItem, idl);
-            const methodItem = methods_1.MethodsBuilderFactory.build(provider, programId, idlIx, ixItem, txItem, rpcItem, simulateItem, viewItem, account);
+            const methodItem = methods_1.MethodsBuilderFactory.build(provider, programId, idlIx, ixItem, txItem, rpcItem, simulateItem, viewItem, account, idl.types || [], getCustomResolver && getCustomResolver(idlIx));
             const name = (0, camelcase_1.default)(idlIx.name);
             instruction[name] = ixItem;
             transaction[name] = txItem;
@@ -8930,11 +9675,11 @@ class InstructionNamespaceFactory {
         };
         // Utility fn for ordering the accounts for this instruction.
         ix["accounts"] = (accs) => {
-            return InstructionNamespaceFactory.accountsArray(accs, idlIx.accounts, idlIx.name);
+            return InstructionNamespaceFactory.accountsArray(accs, idlIx.accounts, programId, idlIx.name);
         };
         return ix;
     }
-    static accountsArray(ctx, accounts, ixName) {
+    static accountsArray(ctx, accounts, programId, ixName) {
         if (!ctx) {
             return [];
         }
@@ -8944,7 +9689,7 @@ class InstructionNamespaceFactory {
             const nestedAccounts = "accounts" in acc ? acc.accounts : undefined;
             if (nestedAccounts !== undefined) {
                 const rpcAccs = ctx[acc.name];
-                return InstructionNamespaceFactory.accountsArray(rpcAccs, acc.accounts, ixName).flat();
+                return InstructionNamespaceFactory.accountsArray(rpcAccs, acc.accounts, programId, ixName).flat();
             }
             else {
                 const account = acc;
@@ -8955,10 +9700,13 @@ class InstructionNamespaceFactory {
                 catch (err) {
                     throw new Error(`Wrong input type for account "${acc.name}" in the instruction accounts object${ixName !== undefined ? ' for instruction "' + ixName + '"' : ""}. Expected PublicKey or string.`);
                 }
+                const optional = account.isOptional && pubkey.equals(programId);
+                const isWritable = account.isMut && !optional;
+                const isSigner = account.isSigner && !optional;
                 return {
                     pubkey,
-                    isWritable: account.isMut,
-                    isSigner: account.isSigner,
+                    isWritable,
+                    isSigner,
                 };
             }
         })
@@ -8980,35 +9728,73 @@ function validateInstruction(ix, ...args) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MethodsBuilder = exports.MethodsBuilderFactory = void 0;
+exports.MethodsBuilder = exports.flattenPartialAccounts = exports.isPartialAccounts = exports.MethodsBuilderFactory = void 0;
 const accounts_resolver_js_1 = __nccwpck_require__(7647);
+const common_js_1 = __nccwpck_require__(2893);
 class MethodsBuilderFactory {
-    static build(provider, programId, idlIx, ixFn, txFn, rpcFn, simulateFn, viewFn, accountNamespace) {
-        return (...args) => new MethodsBuilder(args, ixFn, txFn, rpcFn, simulateFn, viewFn, provider, programId, idlIx, accountNamespace);
+    static build(provider, programId, idlIx, ixFn, txFn, rpcFn, simulateFn, viewFn, accountNamespace, idlTypes, customResolver) {
+        return (...args) => new MethodsBuilder(args, ixFn, txFn, rpcFn, simulateFn, viewFn, provider, programId, idlIx, accountNamespace, idlTypes, customResolver);
     }
 }
 exports.MethodsBuilderFactory = MethodsBuilderFactory;
+function isPartialAccounts(partialAccount) {
+    return (typeof partialAccount === "object" &&
+        partialAccount !== null &&
+        !("_bn" in partialAccount) // Ensures not a pubkey
+    );
+}
+exports.isPartialAccounts = isPartialAccounts;
+function flattenPartialAccounts(partialAccounts, throwOnNull) {
+    const toReturn = {};
+    for (const accountName in partialAccounts) {
+        const account = partialAccounts[accountName];
+        if (account === null) {
+            if (throwOnNull)
+                throw new Error("Failed to resolve optionals due to IDL type mismatch with input accounts!");
+            continue;
+        }
+        toReturn[accountName] = isPartialAccounts(account)
+            ? flattenPartialAccounts(account, true)
+            : (0, common_js_1.translateAddress)(account);
+    }
+    return toReturn;
+}
+exports.flattenPartialAccounts = flattenPartialAccounts;
 class MethodsBuilder {
-    constructor(_args, _ixFn, _txFn, _rpcFn, _simulateFn, _viewFn, _provider, _programId, _idlIx, _accountNamespace) {
-        this._args = _args;
+    constructor(_args, _ixFn, _txFn, _rpcFn, _simulateFn, _viewFn, _provider, _programId, _idlIx, _accountNamespace, _idlTypes, _customResolver) {
         this._ixFn = _ixFn;
         this._txFn = _txFn;
         this._rpcFn = _rpcFn;
         this._simulateFn = _simulateFn;
         this._viewFn = _viewFn;
+        this._programId = _programId;
         this._accounts = {};
         this._remainingAccounts = [];
         this._signers = [];
         this._preInstructions = [];
         this._postInstructions = [];
-        this._accountsResolver = new accounts_resolver_js_1.AccountsResolver(_args, this._accounts, _provider, _programId, _idlIx, _accountNamespace);
+        this._autoResolveAccounts = true;
+        this._args = _args;
+        this._accountsResolver = new accounts_resolver_js_1.AccountsResolver(_args, this._accounts, _provider, _programId, _idlIx, _accountNamespace, _idlTypes, _customResolver);
+    }
+    args(_args) {
+        this._args = _args;
+        this._accountsResolver.args(_args);
     }
     async pubkeys() {
-        await this._accountsResolver.resolve();
+        if (this._autoResolveAccounts) {
+            await this._accountsResolver.resolve();
+        }
         return this._accounts;
     }
     accounts(accounts) {
-        Object.assign(this._accounts, accounts);
+        this._autoResolveAccounts = true;
+        this._accountsResolver.resolveOptionals(accounts);
+        return this;
+    }
+    accountsStrict(accounts) {
+        this._autoResolveAccounts = false;
+        this._accountsResolver.resolveOptionals(accounts);
         return this;
     }
     signers(signers) {
@@ -9028,7 +9814,9 @@ class MethodsBuilder {
         return this;
     }
     async rpc(options) {
-        await this._accountsResolver.resolve();
+        if (this._autoResolveAccounts) {
+            await this._accountsResolver.resolve();
+        }
         // @ts-ignore
         return this._rpcFn(...this._args, {
             accounts: this._accounts,
@@ -9039,8 +9827,17 @@ class MethodsBuilder {
             options: options,
         });
     }
+    async rpcAndKeys(options) {
+        const pubkeys = await this.pubkeys();
+        return {
+            pubkeys,
+            signature: await this.rpc(options),
+        };
+    }
     async view(options) {
-        await this._accountsResolver.resolve();
+        if (this._autoResolveAccounts) {
+            await this._accountsResolver.resolve();
+        }
         if (!this._viewFn) {
             throw new Error("Method does not support views");
         }
@@ -9055,7 +9852,9 @@ class MethodsBuilder {
         });
     }
     async simulate(options) {
-        await this._accountsResolver.resolve();
+        if (this._autoResolveAccounts) {
+            await this._accountsResolver.resolve();
+        }
         // @ts-ignore
         return this._simulateFn(...this._args, {
             accounts: this._accounts,
@@ -9067,7 +9866,9 @@ class MethodsBuilder {
         });
     }
     async instruction() {
-        await this._accountsResolver.resolve();
+        if (this._autoResolveAccounts) {
+            await this._accountsResolver.resolve();
+        }
         // @ts-ignore
         return this._ixFn(...this._args, {
             accounts: this._accounts,
@@ -9077,8 +9878,21 @@ class MethodsBuilder {
             postInstructions: this._postInstructions,
         });
     }
+    /**
+     * Convenient shortcut to get instructions and pubkeys via
+     * const { pubkeys, instructions } = await prepare();
+     */
+    async prepare() {
+        return {
+            instruction: await this.instruction(),
+            pubkeys: await this.pubkeys(),
+            signers: await this._signers,
+        };
+    }
     async transaction() {
-        await this._accountsResolver.resolve();
+        if (this._autoResolveAccounts) {
+            await this._accountsResolver.resolve();
+        }
         // @ts-ignore
         return this._txFn(...this._args, {
             accounts: this._accounts,
@@ -9161,9 +9975,9 @@ class SimulateFactory {
             const events = [];
             if (idl.events) {
                 let parser = new event_js_1.EventParser(programId, coder);
-                parser.parseLogs(logs, (event) => {
+                for (const event of parser.parseLogs(logs)) {
                     events.push(event);
-                });
+                }
             }
             return { events, raw: logs };
         };
@@ -9210,6 +10024,12 @@ exports.default = StateFactory;
  * abstraction.
  */
 class StateClient {
+    /**
+     * Returns the program ID owning the state.
+     */
+    get programId() {
+        return this._programId;
+    }
     constructor(idl, programId, 
     /**
      * Returns the client's wallet and network provider.
@@ -9236,7 +10056,7 @@ class StateClient {
                 const ixItem = instruction_js_1.default.build(m, (ixName, ix) => coder.instruction.encodeState(ixName, ix), programId);
                 ixItem["accounts"] = (accounts) => {
                     const keys = stateInstructionKeys(programId, provider, m, accounts);
-                    return keys.concat(instruction_js_1.default.accountsArray(accounts, m.accounts, m.name));
+                    return keys.concat(instruction_js_1.default.accountsArray(accounts, m.accounts, programId, m.name));
                 };
                 // Build transaction method.
                 const txItem = transaction_js_1.default.build(m, ixItem);
@@ -9257,12 +10077,6 @@ class StateClient {
         this.instruction = instruction;
         this.transaction = transaction;
         this.rpc = rpc;
-    }
-    /**
-     * Returns the program ID owning the state.
-     */
-    get programId() {
-        return this._programId;
     }
     /**
      * Returns the deserialized state account.
@@ -9444,6 +10258,150 @@ exports.default = ViewFactory;
 
 /***/ }),
 
+/***/ 1169:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.decodeTokenAccount = void 0;
+const bn_js_1 = __importDefault(__nccwpck_require__(6641));
+const BufferLayout = __importStar(__nccwpck_require__(4957));
+const buffer_layout_1 = __nccwpck_require__(4957);
+const web3_js_1 = __nccwpck_require__(157);
+function uint64(property) {
+    return new WrappedLayout(BufferLayout.blob(8), (b) => u64.fromBuffer(b), (n) => n.toBuffer(), property);
+}
+function publicKey(property) {
+    return new WrappedLayout(BufferLayout.blob(32), (b) => new web3_js_1.PublicKey(b), (key) => key.toBuffer(), property);
+}
+function coption(layout, property) {
+    return new COptionLayout(layout, property);
+}
+class WrappedLayout extends buffer_layout_1.Layout {
+    constructor(layout, decoder, encoder, property) {
+        super(layout.span, property);
+        this.layout = layout;
+        this.decoder = decoder;
+        this.encoder = encoder;
+    }
+    decode(b, offset) {
+        return this.decoder(this.layout.decode(b, offset));
+    }
+    encode(src, b, offset) {
+        return this.layout.encode(this.encoder(src), b, offset);
+    }
+    getSpan(b, offset) {
+        return this.layout.getSpan(b, offset);
+    }
+}
+class COptionLayout extends buffer_layout_1.Layout {
+    constructor(layout, property) {
+        super(-1, property);
+        this.layout = layout;
+        this.discriminator = BufferLayout.u32();
+    }
+    encode(src, b, offset = 0) {
+        if (src === null || src === undefined) {
+            return this.layout.span + this.discriminator.encode(0, b, offset);
+        }
+        this.discriminator.encode(1, b, offset);
+        return this.layout.encode(src, b, offset + 4) + 4;
+    }
+    decode(b, offset = 0) {
+        const discriminator = this.discriminator.decode(b, offset);
+        if (discriminator === 0) {
+            return null;
+        }
+        else if (discriminator === 1) {
+            return this.layout.decode(b, offset + 4);
+        }
+        throw new Error("Invalid coption " + this.layout.property);
+    }
+    getSpan(b, offset = 0) {
+        return this.layout.getSpan(b, offset + 4) + 4;
+    }
+}
+class u64 extends bn_js_1.default {
+    /**
+     * Convert to Buffer representation
+     */
+    toBuffer() {
+        const a = super.toArray().reverse();
+        const b = Buffer.from(a);
+        if (b.length === 8) {
+            return b;
+        }
+        if (b.length >= 8) {
+            throw new Error("u64 too large");
+        }
+        const zeroPad = Buffer.alloc(8);
+        b.copy(zeroPad);
+        return zeroPad;
+    }
+    /**
+     * Construct a u64 from Buffer representation
+     */
+    static fromBuffer(buffer) {
+        if (buffer.length !== 8) {
+            throw new Error(`Invalid buffer length: ${buffer.length}`);
+        }
+        return new u64([...buffer]
+            .reverse()
+            .map((i) => `00${i.toString(16)}`.slice(-2))
+            .join(""), 16);
+    }
+}
+const TOKEN_ACCOUNT_LAYOUT = BufferLayout.struct([
+    publicKey("mint"),
+    publicKey("owner"),
+    uint64("amount"),
+    coption(publicKey(), "delegate"),
+    ((p) => {
+        const U = BufferLayout.union(BufferLayout.u8("discriminator"), null, p);
+        U.addVariant(0, BufferLayout.struct([]), "uninitialized");
+        U.addVariant(1, BufferLayout.struct([]), "initialized");
+        U.addVariant(2, BufferLayout.struct([]), "frozen");
+        return U;
+    })("state"),
+    coption(uint64(), "isNative"),
+    uint64("delegatedAmount"),
+    coption(publicKey(), "closeAuthority"),
+]);
+function decodeTokenAccount(b) {
+    return TOKEN_ACCOUNT_LAYOUT.decode(b);
+}
+exports.decodeTokenAccount = decodeTokenAccount;
+//# sourceMappingURL=token-account-layout.js.map
+
+/***/ }),
+
 /***/ 2739:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
@@ -9469,6 +10427,7 @@ class AnchorProvider {
         this.connection = connection;
         this.wallet = wallet;
         this.opts = opts;
+        this.publicKey = wallet === null || wallet === void 0 ? void 0 : wallet.publicKey;
     }
     static defaultOptions() {
         return {
@@ -9527,8 +10486,8 @@ class AnchorProvider {
         if (opts === undefined) {
             opts = this.opts;
         }
-        tx.feePayer = this.wallet.publicKey;
-        tx.recentBlockhash = (await this.connection.getRecentBlockhash(opts.preflightCommitment)).blockhash;
+        tx.feePayer = tx.feePayer || this.wallet.publicKey;
+        tx.recentBlockhash = (await this.connection.getLatestBlockhash(opts.preflightCommitment)).blockhash;
         tx = await this.wallet.signTransaction(tx);
         (signers !== null && signers !== void 0 ? signers : []).forEach((kp) => {
             tx.partialSign(kp);
@@ -9561,17 +10520,21 @@ class AnchorProvider {
     }
     /**
      * Similar to `send`, but for an array of transactions and signers.
+     *
+     * @param txWithSigners Array of transactions and signers.
+     * @param opts          Transaction confirmation options.
      */
     async sendAll(txWithSigners, opts) {
+        var _a;
         if (opts === undefined) {
             opts = this.opts;
         }
-        const blockhash = await this.connection.getRecentBlockhash(opts.preflightCommitment);
+        const blockhash = await this.connection.getLatestBlockhash(opts.preflightCommitment);
         let txs = txWithSigners.map((r) => {
             var _a;
             let tx = r.tx;
             let signers = (_a = r.signers) !== null && _a !== void 0 ? _a : [];
-            tx.feePayer = this.wallet.publicKey;
+            tx.feePayer = tx.feePayer || this.wallet.publicKey;
             tx.recentBlockhash = blockhash.blockhash;
             signers.forEach((kp) => {
                 tx.partialSign(kp);
@@ -9583,7 +10546,30 @@ class AnchorProvider {
         for (let k = 0; k < txs.length; k += 1) {
             const tx = signedTxs[k];
             const rawTx = tx.serialize();
-            sigs.push(await sendAndConfirmRawTransaction(this.connection, rawTx, opts));
+            try {
+                sigs.push(await sendAndConfirmRawTransaction(this.connection, rawTx, opts));
+            }
+            catch (err) {
+                // thrown if the underlying 'confirmTransaction' encounters a failed tx
+                // the 'confirmTransaction' error does not return logs so we make another rpc call to get them
+                if (err instanceof ConfirmError) {
+                    // choose the shortest available commitment for 'getTransaction'
+                    // (the json RPC does not support any shorter than "confirmed" for 'getTransaction')
+                    // because that will see the tx sent with `sendAndConfirmRawTransaction` no matter which
+                    // commitment `sendAndConfirmRawTransaction` used
+                    const failedTx = await this.connection.getTransaction(index_js_1.bs58.encode(tx.signature), { commitment: "confirmed" });
+                    if (!failedTx) {
+                        throw err;
+                    }
+                    else {
+                        const logs = (_a = failedTx.meta) === null || _a === void 0 ? void 0 : _a.logMessages;
+                        throw !logs ? err : new web3_js_1.SendTransactionError(err.message, logs);
+                    }
+                }
+                else {
+                    throw err;
+                }
+            }
         }
         return sigs;
     }
@@ -9595,7 +10581,7 @@ class AnchorProvider {
      * @param opts    Transaction confirmation options.
      */
     async simulate(tx, signers, commitment, includeAccounts) {
-        tx.feePayer = this.wallet.publicKey;
+        tx.feePayer = tx.feePayer || this.wallet.publicKey;
         tx.recentBlockhash = (await this.connection.getLatestBlockhash(commitment !== null && commitment !== void 0 ? commitment : this.connection.commitment)).blockhash;
         tx = await this.wallet.signTransaction(tx);
         const result = await (0, rpc_js_1.simulateTransaction)(this.connection, tx, signers, commitment, includeAccounts);
@@ -9651,651 +10637,6 @@ exports.getProvider = getProvider;
 // Global provider used as the default when a provider is not given.
 let _provider = null;
 //# sourceMappingURL=provider.js.map
-
-/***/ }),
-
-/***/ 8263:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Spl = void 0;
-const token_js_1 = __nccwpck_require__(8105);
-class Spl {
-    static token(provider) {
-        return (0, token_js_1.program)(provider);
-    }
-}
-exports.Spl = Spl;
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ 8105:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.IDL = exports.coder = exports.program = void 0;
-const web3_js_1 = __nccwpck_require__(157);
-const index_js_1 = __nccwpck_require__(5783);
-const index_js_2 = __nccwpck_require__(6369);
-const TOKEN_PROGRAM_ID = new web3_js_1.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
-function program(provider) {
-    return new index_js_1.Program(exports.IDL, TOKEN_PROGRAM_ID, provider, coder());
-}
-exports.program = program;
-function coder() {
-    return new index_js_2.SplTokenCoder(exports.IDL);
-}
-exports.coder = coder;
-exports.IDL = {
-    version: "0.1.0",
-    name: "spl_token",
-    instructions: [
-        {
-            name: "initializeMint",
-            accounts: [
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "rent",
-                    isMut: false,
-                    isSigner: false,
-                },
-            ],
-            args: [
-                {
-                    name: "decimals",
-                    type: "u8",
-                },
-                {
-                    name: "mintAuthority",
-                    type: "publicKey",
-                },
-                {
-                    name: "freezeAuthority",
-                    type: {
-                        coption: "publicKey",
-                    },
-                },
-            ],
-        },
-        {
-            name: "initializeAccount",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "rent",
-                    isMut: false,
-                    isSigner: false,
-                },
-            ],
-            args: [],
-        },
-        {
-            name: "initializeMultisig",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "rent",
-                    isMut: false,
-                    isSigner: false,
-                },
-            ],
-            args: [
-                {
-                    name: "m",
-                    type: "u8",
-                },
-            ],
-        },
-        {
-            name: "transfer",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "destination",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-            ],
-        },
-        {
-            name: "approve",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "delegate",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-            ],
-        },
-        {
-            name: "revoke",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [],
-        },
-        {
-            name: "setAuthority",
-            accounts: [
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "authorityType",
-                    type: "u8",
-                },
-                {
-                    name: "newAuthority",
-                    type: {
-                        coption: "publicKey",
-                    },
-                },
-            ],
-        },
-        {
-            name: "mintTo",
-            accounts: [
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "to",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-            ],
-        },
-        {
-            name: "burn",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-            ],
-        },
-        {
-            name: "closeAccount",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "destination",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: false,
-                },
-            ],
-            args: [],
-        },
-        {
-            name: "freezeAccount",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [],
-        },
-        {
-            name: "thawAccount",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [],
-        },
-        {
-            name: "transferChecked",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "destination",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-                {
-                    name: "decimals",
-                    type: "u8",
-                },
-            ],
-        },
-        {
-            name: "approveChecked",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "delegate",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-                {
-                    name: "decimals",
-                    type: "u8",
-                },
-            ],
-        },
-        {
-            name: "mintToChecked",
-            accounts: [
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "to",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-                {
-                    name: "decimals",
-                    type: "u8",
-                },
-            ],
-        },
-        {
-            name: "burnChecked",
-            accounts: [
-                {
-                    name: "source",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "authority",
-                    isMut: false,
-                    isSigner: true,
-                },
-            ],
-            args: [
-                {
-                    name: "amount",
-                    type: "u64",
-                },
-                {
-                    name: "decimals",
-                    type: "u8",
-                },
-            ],
-        },
-        {
-            name: "initializeAccount2",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-                {
-                    name: "rent",
-                    isMut: false,
-                    isSigner: false,
-                },
-            ],
-            args: [
-                {
-                    name: "authority",
-                    type: "publicKey",
-                },
-            ],
-        },
-        {
-            name: "syncNative",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-            ],
-            args: [],
-        },
-        {
-            name: "initializeAccount3",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-                {
-                    name: "mint",
-                    isMut: false,
-                    isSigner: false,
-                },
-            ],
-            args: [
-                {
-                    name: "authority",
-                    type: "publicKey",
-                },
-            ],
-        },
-        {
-            name: "initializeMultisig2",
-            accounts: [
-                {
-                    name: "account",
-                    isMut: true,
-                    isSigner: false,
-                },
-            ],
-            args: [
-                {
-                    name: "m",
-                    type: "u8",
-                },
-            ],
-        },
-        {
-            name: "initializeMint2",
-            accounts: [
-                {
-                    name: "mint",
-                    isMut: true,
-                    isSigner: false,
-                },
-            ],
-            args: [
-                {
-                    name: "decimals",
-                    type: "u8",
-                },
-                {
-                    name: "mintAuthority",
-                    type: "publicKey",
-                },
-                {
-                    name: "freezeAuthority",
-                    type: {
-                        coption: "publicKey",
-                    },
-                },
-            ],
-        },
-    ],
-    accounts: [
-        {
-            name: "mint",
-            type: {
-                kind: "struct",
-                fields: [
-                    {
-                        name: "mintAuthority",
-                        type: {
-                            coption: "publicKey",
-                        },
-                    },
-                    {
-                        name: "supply",
-                        type: "u64",
-                    },
-                    {
-                        name: "decimals",
-                        type: "u8",
-                    },
-                    {
-                        name: "isInitialized",
-                        type: "bool",
-                    },
-                    {
-                        name: "freezeAuthority",
-                        type: {
-                            coption: "publicKey",
-                        },
-                    },
-                ],
-            },
-        },
-        {
-            name: "token",
-            type: {
-                kind: "struct",
-                fields: [
-                    {
-                        name: "mint",
-                        type: "publicKey",
-                    },
-                    {
-                        name: "authority",
-                        type: "publicKey",
-                    },
-                    {
-                        name: "amount",
-                        type: "u64",
-                    },
-                    {
-                        name: "delegate",
-                        type: {
-                            coption: "publicKey",
-                        },
-                    },
-                    {
-                        name: "state",
-                        type: "u8",
-                    },
-                    {
-                        name: "isNative",
-                        type: {
-                            coption: "u64",
-                        },
-                    },
-                    {
-                        name: "delegatedAmount",
-                        type: "u64",
-                    },
-                    {
-                        name: "closeAuthority",
-                        type: {
-                            coption: "publicKey",
-                        },
-                    },
-                ],
-            },
-        },
-    ],
-};
-//# sourceMappingURL=token.js.map
 
 /***/ }),
 
@@ -10472,7 +10813,7 @@ exports.chunks = exports.isBrowser = void 0;
  * Returns true if being run inside a web browser,
  * false if in a Node process or electron app.
  */
-exports.isBrowser = process.env.BROWSER ||
+exports.isBrowser = process.env.ANCHOR_BROWSER ||
     (typeof window !== "undefined" && !((_a = window.process) === null || _a === void 0 ? void 0 : _a.hasOwnProperty("type")));
 /**
  * Splits an array into chunks
@@ -10682,14 +11023,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.decodeUpgradeableLoaderState = exports.fetchData = exports.verifiedBuild = void 0;
 const cross_fetch_1 = __importDefault(__nccwpck_require__(9805));
-const borsh = __importStar(__nccwpck_require__(5496));
+const borsh = __importStar(__nccwpck_require__(6050));
 /**
  * Returns a verified build from the anchor registry. null if no such
  * verified build exists, e.g., if the program has been upgraded since the
  * last verified build.
  */
 async function verifiedBuild(connection, programId, limit = 5) {
-    const url = `https://anchor.projectserum.com/api/v0/program/${programId.toString()}/latest?limit=${limit}`;
+    const url = `https://api.apr.dev/api/v0/program/${programId.toString()}/latest?limit=${limit}`;
     const [programData, latestBuildsResp] = await Promise.all([
         fetchData(connection, programId),
         (0, cross_fetch_1.default)(url),
@@ -10750,12 +11091,12 @@ exports.decodeUpgradeableLoaderState = decodeUpgradeableLoaderState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.simulateTransaction = exports.getMultipleAccounts = exports.invoke = void 0;
+exports.simulateTransaction = exports.getMultipleAccountsAndContext = exports.getMultipleAccounts = exports.invoke = void 0;
 const web3_js_1 = __nccwpck_require__(157);
 const common_js_1 = __nccwpck_require__(2187);
 const common_js_2 = __nccwpck_require__(2893);
 const provider_js_1 = __nccwpck_require__(2739);
-const superstruct_1 = __nccwpck_require__(8643);
+const superstruct_1 = __nccwpck_require__(6188);
 /**
  * Sends a transaction to a program with the given accounts and instruction
  * data.
@@ -10779,28 +11120,39 @@ async function invoke(programId, accounts, data, provider) {
 exports.invoke = invoke;
 const GET_MULTIPLE_ACCOUNTS_LIMIT = 99;
 async function getMultipleAccounts(connection, publicKeys, commitment) {
+    const results = await getMultipleAccountsAndContext(connection, publicKeys, commitment);
+    return results.map((result) => {
+        return result
+            ? { publicKey: result.publicKey, account: result.account }
+            : null;
+    });
+}
+exports.getMultipleAccounts = getMultipleAccounts;
+async function getMultipleAccountsAndContext(connection, publicKeys, commitment) {
     if (publicKeys.length <= GET_MULTIPLE_ACCOUNTS_LIMIT) {
-        return await getMultipleAccountsCore(connection, publicKeys, commitment);
+        return await getMultipleAccountsAndContextCore(connection, publicKeys, commitment);
     }
     else {
         const batches = (0, common_js_1.chunks)(publicKeys, GET_MULTIPLE_ACCOUNTS_LIMIT);
-        const results = await Promise.all(batches.map((batch) => getMultipleAccountsCore(connection, batch, commitment)));
+        const results = await Promise.all(batches.map((batch) => getMultipleAccountsAndContextCore(connection, batch, commitment)));
         return results.flat();
     }
 }
-exports.getMultipleAccounts = getMultipleAccounts;
-async function getMultipleAccountsCore(connection, publicKeys, commitmentOverride) {
+exports.getMultipleAccountsAndContext = getMultipleAccountsAndContext;
+async function getMultipleAccountsAndContextCore(connection, publicKeys, commitmentOverride) {
     const commitment = commitmentOverride !== null && commitmentOverride !== void 0 ? commitmentOverride : connection.commitment;
-    const accounts = await connection.getMultipleAccountsInfo(publicKeys, commitment);
-    return accounts.map((account, idx) => {
+    const { value: accountInfos, context } = await connection.getMultipleAccountsInfoAndContext(publicKeys, commitment);
+    const accounts = accountInfos.map((account, idx) => {
         if (account === null) {
             return null;
         }
         return {
             publicKey: publicKeys[idx],
             account,
+            context,
         };
     });
+    return accounts;
 }
 // copy from @solana/web3.js that has a commitment param
 async function simulateTransaction(connection, transaction, signers, commitment, includeAccounts) {
@@ -11054,7 +11406,7 @@ exports.default = workspace;
 
 /***/ }),
 
-/***/ 5496:
+/***/ 6050:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -11063,7 +11415,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.map = exports.array = exports.rustEnum = exports.str = exports.vecU8 = exports.tagged = exports.vec = exports.bool = exports.option = exports.publicKey = exports.i128 = exports.u128 = exports.i64 = exports.u64 = exports.struct = exports.f64 = exports.f32 = exports.i32 = exports.u32 = exports.i16 = exports.u16 = exports.i8 = exports.u8 = void 0;
+exports.map = exports.array = exports.rustEnum = exports.str = exports.vecU8 = exports.tagged = exports.vec = exports.bool = exports.option = exports.publicKey = exports.i256 = exports.u256 = exports.i128 = exports.u128 = exports.i64 = exports.u64 = exports.struct = exports.f64 = exports.f32 = exports.i32 = exports.u32 = exports.i16 = exports.u16 = exports.i8 = exports.u8 = void 0;
 const buffer_layout_1 = __nccwpck_require__(4957);
 const web3_js_1 = __nccwpck_require__(157);
 const bn_js_1 = __importDefault(__nccwpck_require__(6641));
@@ -11080,11 +11432,11 @@ Object.defineProperty(exports, "struct", ({ enumerable: true, get: function () {
 class BNLayout extends buffer_layout_1.Layout {
     constructor(span, signed, property) {
         super(span, property);
-        this.blob = buffer_layout_1.blob(span);
+        this.blob = (0, buffer_layout_1.blob)(span);
         this.signed = signed;
     }
     decode(b, offset = 0) {
-        const num = new bn_js_1.default(this.blob.decode(b, offset), 10, 'le');
+        const num = new bn_js_1.default(this.blob.decode(b, offset), 10, "le");
         if (this.signed) {
             return num.fromTwos(this.span * 8).clone();
         }
@@ -11094,7 +11446,7 @@ class BNLayout extends buffer_layout_1.Layout {
         if (this.signed) {
             src = src.toTwos(this.span * 8);
         }
-        return this.blob.encode(src.toArrayLike(Buffer, 'le', this.span), b, offset);
+        return this.blob.encode(src.toArrayLike(Buffer, "le", this.span), b, offset);
     }
 }
 function u64(property) {
@@ -11113,6 +11465,14 @@ function i128(property) {
     return new BNLayout(16, true, property);
 }
 exports.i128 = i128;
+function u256(property) {
+    return new BNLayout(32, false, property);
+}
+exports.u256 = u256;
+function i256(property) {
+    return new BNLayout(32, true, property);
+}
+exports.i256 = i256;
 class WrappedLayout extends buffer_layout_1.Layout {
     constructor(layout, decoder, encoder, property) {
         super(layout.span, property);
@@ -11131,14 +11491,14 @@ class WrappedLayout extends buffer_layout_1.Layout {
     }
 }
 function publicKey(property) {
-    return new WrappedLayout(buffer_layout_1.blob(32), (b) => new web3_js_1.PublicKey(b), (key) => key.toBuffer(), property);
+    return new WrappedLayout((0, buffer_layout_1.blob)(32), (b) => new web3_js_1.PublicKey(b), (key) => key.toBuffer(), property);
 }
 exports.publicKey = publicKey;
 class OptionLayout extends buffer_layout_1.Layout {
     constructor(layout, property) {
         super(-1, property);
         this.layout = layout;
-        this.discriminator = buffer_layout_1.u8();
+        this.discriminator = (0, buffer_layout_1.u8)();
     }
     encode(src, b, offset = 0) {
         if (src === null || src === undefined) {
@@ -11155,7 +11515,7 @@ class OptionLayout extends buffer_layout_1.Layout {
         else if (discriminator === 1) {
             return this.layout.decode(b, offset + 1);
         }
-        throw new Error('Invalid option ' + this.property);
+        throw new Error("Invalid option " + this.property);
     }
     getSpan(b, offset = 0) {
         const discriminator = this.discriminator.decode(b, offset);
@@ -11165,7 +11525,7 @@ class OptionLayout extends buffer_layout_1.Layout {
         else if (discriminator === 1) {
             return this.layout.getSpan(b, offset + 1) + 1;
         }
-        throw new Error('Invalid option ' + this.property);
+        throw new Error("Invalid option " + this.property);
     }
 }
 function option(layout, property) {
@@ -11173,7 +11533,7 @@ function option(layout, property) {
 }
 exports.option = option;
 function bool(property) {
-    return new WrappedLayout(buffer_layout_1.u8(), decodeBool, encodeBool, property);
+    return new WrappedLayout((0, buffer_layout_1.u8)(), decodeBool, encodeBool, property);
 }
 exports.bool = bool;
 function decodeBool(value) {
@@ -11183,61 +11543,61 @@ function decodeBool(value) {
     else if (value === 1) {
         return true;
     }
-    throw new Error('Invalid bool: ' + value);
+    throw new Error("Invalid bool: " + value);
 }
 function encodeBool(value) {
     return value ? 1 : 0;
 }
 function vec(elementLayout, property) {
-    const length = buffer_layout_1.u32('length');
-    const layout = buffer_layout_1.struct([
+    const length = (0, buffer_layout_1.u32)("length");
+    const layout = (0, buffer_layout_1.struct)([
         length,
-        buffer_layout_1.seq(elementLayout, buffer_layout_1.offset(length, -length.span), 'values'),
+        (0, buffer_layout_1.seq)(elementLayout, (0, buffer_layout_1.offset)(length, -length.span), "values"),
     ]);
-    return new WrappedLayout(layout, ({ values }) => values, values => ({ values }), property);
+    return new WrappedLayout(layout, ({ values }) => values, (values) => ({ values }), property);
 }
 exports.vec = vec;
 function tagged(tag, layout, property) {
-    const wrappedLayout = buffer_layout_1.struct([
-        u64('tag'),
-        layout.replicate('data'),
+    const wrappedLayout = (0, buffer_layout_1.struct)([
+        u64("tag"),
+        layout.replicate("data"),
     ]);
     function decodeTag({ tag: receivedTag, data }) {
         if (!receivedTag.eq(tag)) {
-            throw new Error('Invalid tag, expected: ' +
-                tag.toString('hex') +
-                ', got: ' +
-                receivedTag.toString('hex'));
+            throw new Error("Invalid tag, expected: " +
+                tag.toString("hex") +
+                ", got: " +
+                receivedTag.toString("hex"));
         }
         return data;
     }
-    return new WrappedLayout(wrappedLayout, decodeTag, data => ({ tag, data }), property);
+    return new WrappedLayout(wrappedLayout, decodeTag, (data) => ({ tag, data }), property);
 }
 exports.tagged = tagged;
 function vecU8(property) {
-    const length = buffer_layout_1.u32('length');
-    const layout = buffer_layout_1.struct([
+    const length = (0, buffer_layout_1.u32)("length");
+    const layout = (0, buffer_layout_1.struct)([
         length,
-        buffer_layout_1.blob(buffer_layout_1.offset(length, -length.span), 'data'),
+        (0, buffer_layout_1.blob)((0, buffer_layout_1.offset)(length, -length.span), "data"),
     ]);
-    return new WrappedLayout(layout, ({ data }) => data, data => ({ data }), property);
+    return new WrappedLayout(layout, ({ data }) => data, (data) => ({ data }), property);
 }
 exports.vecU8 = vecU8;
 function str(property) {
-    return new WrappedLayout(vecU8(), data => data.toString('utf-8'), s => Buffer.from(s, 'utf-8'), property);
+    return new WrappedLayout(vecU8(), (data) => data.toString("utf-8"), (s) => Buffer.from(s, "utf-8"), property);
 }
 exports.str = str;
 function rustEnum(variants, property, discriminant) {
-    const unionLayout = buffer_layout_1.union(discriminant !== null && discriminant !== void 0 ? discriminant : buffer_layout_1.u8(), property);
+    const unionLayout = (0, buffer_layout_1.union)(discriminant !== null && discriminant !== void 0 ? discriminant : (0, buffer_layout_1.u8)(), property);
     variants.forEach((variant, index) => unionLayout.addVariant(index, variant, variant.property));
     return unionLayout;
 }
 exports.rustEnum = rustEnum;
 function array(elementLayout, length, property) {
-    const layout = buffer_layout_1.struct([
-        buffer_layout_1.seq(elementLayout, length, 'values'),
+    const layout = (0, buffer_layout_1.struct)([
+        (0, buffer_layout_1.seq)(elementLayout, length, "values"),
     ]);
-    return new WrappedLayout(layout, ({ values }) => values, values => ({ values }), property);
+    return new WrappedLayout(layout, ({ values }) => values, (values) => ({ values }), property);
 }
 exports.array = array;
 class MapEntryLayout extends buffer_layout_1.Layout {
@@ -11263,12 +11623,12 @@ class MapEntryLayout extends buffer_layout_1.Layout {
     }
 }
 function map(keyLayout, valueLayout, property) {
-    const length = buffer_layout_1.u32('length');
-    const layout = buffer_layout_1.struct([
+    const length = (0, buffer_layout_1.u32)("length");
+    const layout = (0, buffer_layout_1.struct)([
         length,
-        buffer_layout_1.seq(new MapEntryLayout(keyLayout, valueLayout), buffer_layout_1.offset(length, -length.span), 'values'),
+        (0, buffer_layout_1.seq)(new MapEntryLayout(keyLayout, valueLayout), (0, buffer_layout_1.offset)(length, -length.span), "values"),
     ]);
-    return new WrappedLayout(layout, ({ values }) => new Map(values), values => ({ values: Array.from(values.entries()) }), property);
+    return new WrappedLayout(layout, ({ values }) => new Map(values), (values) => ({ values: Array.from(values.entries()) }), property);
 }
 exports.map = map;
 //# sourceMappingURL=index.js.map
@@ -11292,12 +11652,17 @@ var sha256 = __nccwpck_require__(708);
 var borsh = __nccwpck_require__(6418);
 var BufferLayout = __nccwpck_require__(5628);
 var bigintBuffer = __nccwpck_require__(8142);
-var superstruct = __nccwpck_require__(8643);
-var rpcWebsockets = __nccwpck_require__(5999);
+var require$$0$1 = __nccwpck_require__(3867);
+var require$$0 = __nccwpck_require__(1669);
+var require$$0$2 = __nccwpck_require__(8614);
+var require$$1 = __nccwpck_require__(5622);
+var require$$0$3 = __nccwpck_require__(8605);
+var require$$0$4 = __nccwpck_require__(7211);
+var superstruct = __nccwpck_require__(2278);
 var RpcClient = __nccwpck_require__(3796);
-var http = __nccwpck_require__(8605);
-var https = __nccwpck_require__(7211);
-var nodeFetch = __nccwpck_require__(467);
+var nodeFetch = __nccwpck_require__(3059);
+var RpcWebSocketCommonClient = __nccwpck_require__(5834);
+var WebsocketFactory = __nccwpck_require__(8889);
 var sha3 = __nccwpck_require__(5404);
 var hmac = __nccwpck_require__(9149);
 var secp256k1 = __nccwpck_require__(451);
@@ -11326,10 +11691,16 @@ var ed25519__namespace = /*#__PURE__*/_interopNamespace(ed25519);
 var BN__default = /*#__PURE__*/_interopDefaultLegacy(BN);
 var bs58__default = /*#__PURE__*/_interopDefaultLegacy(bs58);
 var BufferLayout__namespace = /*#__PURE__*/_interopNamespace(BufferLayout);
+var require$$0__default$1 = /*#__PURE__*/_interopDefaultLegacy(require$$0$1);
+var require$$0__default = /*#__PURE__*/_interopDefaultLegacy(require$$0);
+var require$$0__default$2 = /*#__PURE__*/_interopDefaultLegacy(require$$0$2);
+var require$$1__default = /*#__PURE__*/_interopDefaultLegacy(require$$1);
+var require$$0__default$3 = /*#__PURE__*/_interopDefaultLegacy(require$$0$3);
+var require$$0__default$4 = /*#__PURE__*/_interopDefaultLegacy(require$$0$4);
 var RpcClient__default = /*#__PURE__*/_interopDefaultLegacy(RpcClient);
-var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
-var https__default = /*#__PURE__*/_interopDefaultLegacy(https);
 var nodeFetch__namespace = /*#__PURE__*/_interopNamespace(nodeFetch);
+var RpcWebSocketCommonClient__default = /*#__PURE__*/_interopDefaultLegacy(RpcWebSocketCommonClient);
+var WebsocketFactory__default = /*#__PURE__*/_interopDefaultLegacy(WebsocketFactory);
 var secp256k1__namespace = /*#__PURE__*/_interopNamespace(secp256k1);
 
 /**
@@ -11339,7 +11710,6 @@ var secp256k1__namespace = /*#__PURE__*/_interopNamespace(secp256k1);
  */
 
 ed25519__namespace.utils.sha512Sync = (...m) => sha512.sha512(ed25519__namespace.utils.concatBytes(...m));
-
 const generatePrivateKey = ed25519__namespace.utils.randomPrivateKey;
 const generateKeypair = () => {
   const privateScalar = ed25519__namespace.utils.randomPrivateKey();
@@ -11355,9 +11725,7 @@ const generateKeypair = () => {
 const getPublicKey = ed25519__namespace.sync.getPublicKey;
 function isOnCurve(publicKey) {
   try {
-    ed25519__namespace.Point.fromHex(publicKey, true
-    /* strict */
-    );
+    ed25519__namespace.Point.fromHex(publicKey, true /* strict */);
     return true;
   } catch {
     return false;
@@ -11376,67 +11744,65 @@ const toBuffer = arr => {
   }
 };
 
+// Class wrapping a plain object
 class Struct {
   constructor(properties) {
     Object.assign(this, properties);
   }
-
   encode() {
     return buffer.Buffer.from(borsh.serialize(SOLANA_SCHEMA, this));
   }
-
   static decode(data) {
     return borsh.deserialize(SOLANA_SCHEMA, this, data);
   }
-
   static decodeUnchecked(data) {
     return borsh.deserializeUnchecked(SOLANA_SCHEMA, this, data);
   }
+}
 
-} // Class representing a Rust-compatible enum, since enums are only strings or
+// Class representing a Rust-compatible enum, since enums are only strings or
 // numbers in pure JS
-
 class Enum extends Struct {
   constructor(properties) {
     super(properties);
     this.enum = '';
-
     if (Object.keys(properties).length !== 1) {
       throw new Error('Enum can only take single value');
     }
-
     Object.keys(properties).map(key => {
       this.enum = key;
     });
   }
-
 }
 const SOLANA_SCHEMA = new Map();
+
+let _Symbol$toStringTag;
 
 /**
  * Maximum length of derived pubkey seed
  */
-
 const MAX_SEED_LENGTH = 32;
+
 /**
  * Size of public key in bytes
  */
-
 const PUBLIC_KEY_LENGTH = 32;
+
 /**
  * Value to be converted into public key
  */
 
 function isPublicKeyData(value) {
   return value._bn !== undefined;
-} // local counter used by PublicKey.unique()
+}
 
-
+// local counter used by PublicKey.unique()
 let uniquePublicKeyCounter = 1;
+
 /**
  * A public key
  */
-
+_Symbol$toStringTag = Symbol.toStringTag;
 class PublicKey extends Struct {
   /** @internal */
 
@@ -11447,43 +11813,38 @@ class PublicKey extends Struct {
   constructor(value) {
     super({});
     this._bn = void 0;
-
     if (isPublicKeyData(value)) {
       this._bn = value._bn;
     } else {
       if (typeof value === 'string') {
         // assume base 58 encoding by default
         const decoded = bs58__default["default"].decode(value);
-
         if (decoded.length != PUBLIC_KEY_LENGTH) {
           throw new Error(`Invalid public key input`);
         }
-
         this._bn = new BN__default["default"](decoded);
       } else {
         this._bn = new BN__default["default"](value);
       }
-
-      if (this._bn.byteLength() > 32) {
+      if (this._bn.byteLength() > PUBLIC_KEY_LENGTH) {
         throw new Error(`Invalid public key input`);
       }
     }
   }
+
   /**
-   * Returns a unique PublicKey for tests and benchmarks using acounter
+   * Returns a unique PublicKey for tests and benchmarks using a counter
    */
-
-
   static unique() {
     const key = new PublicKey(uniquePublicKeyCounter);
     uniquePublicKeyCounter += 1;
     return new PublicKey(key.toBuffer());
   }
+
   /**
    * Default public key value. The base58-encoded string representation is all ones (as seen below)
    * The underlying BN number is 32 bytes that are all zeros
    */
-
 
   /**
    * Checks if two publicKeys are equal
@@ -11491,100 +11852,91 @@ class PublicKey extends Struct {
   equals(publicKey) {
     return this._bn.eq(publicKey._bn);
   }
+
   /**
    * Return the base-58 representation of the public key
    */
-
-
   toBase58() {
     return bs58__default["default"].encode(this.toBytes());
   }
-
   toJSON() {
     return this.toBase58();
   }
+
   /**
-   * Return the byte array representation of the public key
+   * Return the byte array representation of the public key in big endian
    */
-
-
   toBytes() {
-    return this.toBuffer();
+    const buf = this.toBuffer();
+    return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength);
   }
+
   /**
-   * Return the Buffer representation of the public key
+   * Return the Buffer representation of the public key in big endian
    */
-
-
   toBuffer() {
     const b = this._bn.toArrayLike(buffer.Buffer);
-
     if (b.length === PUBLIC_KEY_LENGTH) {
       return b;
     }
-
     const zeroPad = buffer.Buffer.alloc(32);
     b.copy(zeroPad, 32 - b.length);
     return zeroPad;
   }
+  get [_Symbol$toStringTag]() {
+    return `PublicKey(${this.toString()})`;
+  }
+
   /**
    * Return the base-58 representation of the public key
    */
-
-
   toString() {
     return this.toBase58();
   }
+
   /**
    * Derive a public key from another key, a seed, and a program ID.
    * The program ID will also serve as the owner of the public key, giving
    * it permission to write data to the account.
    */
-
   /* eslint-disable require-await */
-
-
   static async createWithSeed(fromPublicKey, seed, programId) {
     const buffer$1 = buffer.Buffer.concat([fromPublicKey.toBuffer(), buffer.Buffer.from(seed), programId.toBuffer()]);
     const publicKeyBytes = sha256.sha256(buffer$1);
     return new PublicKey(publicKeyBytes);
   }
+
   /**
    * Derive a program address from seeds and a program ID.
    */
-
   /* eslint-disable require-await */
-
-
   static createProgramAddressSync(seeds, programId) {
     let buffer$1 = buffer.Buffer.alloc(0);
     seeds.forEach(function (seed) {
       if (seed.length > MAX_SEED_LENGTH) {
         throw new TypeError(`Max seed length exceeded`);
       }
-
       buffer$1 = buffer.Buffer.concat([buffer$1, toBuffer(seed)]);
     });
     buffer$1 = buffer.Buffer.concat([buffer$1, programId.toBuffer(), buffer.Buffer.from('ProgramDerivedAddress')]);
     const publicKeyBytes = sha256.sha256(buffer$1);
-
     if (isOnCurve(publicKeyBytes)) {
       throw new Error(`Invalid seeds, address must fall off the curve`);
     }
-
     return new PublicKey(publicKeyBytes);
   }
+
   /**
    * Async version of createProgramAddressSync
    * For backwards compatibility
+   *
+   * @deprecated Use {@link createProgramAddressSync} instead
    */
-
   /* eslint-disable require-await */
-
-
   static async createProgramAddress(seeds, programId) {
     return this.createProgramAddressSync(seeds, programId);
   }
+
   /**
    * Find a valid program address
    *
@@ -11592,12 +11944,9 @@ class PublicKey extends Struct {
    * iterates a nonce until it finds one that when combined with the seeds
    * results in a valid program address.
    */
-
-
   static findProgramAddressSync(seeds, programId) {
     let nonce = 255;
     let address;
-
     while (nonce != 0) {
       try {
         const seedsWithNonce = seeds.concat(buffer.Buffer.from([nonce]));
@@ -11606,35 +11955,31 @@ class PublicKey extends Struct {
         if (err instanceof TypeError) {
           throw err;
         }
-
         nonce--;
         continue;
       }
-
       return [address, nonce];
     }
-
     throw new Error(`Unable to find a viable program address nonce`);
   }
+
   /**
    * Async version of findProgramAddressSync
    * For backwards compatibility
+   *
+   * @deprecated Use {@link findProgramAddressSync} instead
    */
-
-
   static async findProgramAddress(seeds, programId) {
     return this.findProgramAddressSync(seeds, programId);
   }
+
   /**
    * Check that a pubkey is on the ed25519 curve.
    */
-
-
   static isOnCurve(pubkeyData) {
     const pubkey = new PublicKey(pubkeyData);
     return isOnCurve(pubkey.toBytes());
   }
-
 }
 PublicKey.default = new PublicKey('11111111111111111111111111111111');
 SOLANA_SCHEMA.set(PublicKey, {
@@ -11647,7 +11992,6 @@ SOLANA_SCHEMA.set(PublicKey, {
  *
  * @deprecated since v1.10.0, please use {@link Keypair} instead.
  */
-
 class Account {
   /** @internal */
 
@@ -11664,14 +12008,11 @@ class Account {
   constructor(secretKey) {
     this._publicKey = void 0;
     this._secretKey = void 0;
-
     if (secretKey) {
       const secretKeyBuffer = toBuffer(secretKey);
-
       if (secretKey.length !== 64) {
         throw new Error('bad secret key size');
       }
-
       this._publicKey = secretKeyBuffer.slice(32, 64);
       this._secretKey = secretKeyBuffer.slice(0, 32);
     } else {
@@ -11679,25 +12020,22 @@ class Account {
       this._publicKey = toBuffer(getPublicKey(this._secretKey));
     }
   }
+
   /**
    * The public key for this account
    */
-
-
   get publicKey() {
     return new PublicKey(this._publicKey);
   }
+
   /**
    * The **unencrypted** secret key for this account. The first 32 bytes
    * is the private scalar and the last 32 bytes is the public key.
    * Read more: https://blog.mozilla.org/warner/2011/11/29/ed25519-keys/
    */
-
-
   get secretKey() {
     return buffer.Buffer.concat([this._secretKey, this._publicKey], 64);
   }
-
 }
 
 const BPF_LOADER_DEPRECATED_PROGRAM_ID = new PublicKey('BPFLoader1111111111111111111111111111111111');
@@ -11719,7 +12057,6 @@ class TransactionExpiredBlockheightExceededError extends Error {
     this.signature = void 0;
     this.signature = signature;
   }
-
 }
 Object.defineProperty(TransactionExpiredBlockheightExceededError.prototype, 'name', {
   value: 'TransactionExpiredBlockheightExceededError'
@@ -11730,10 +12067,19 @@ class TransactionExpiredTimeoutError extends Error {
     this.signature = void 0;
     this.signature = signature;
   }
-
 }
 Object.defineProperty(TransactionExpiredTimeoutError.prototype, 'name', {
   value: 'TransactionExpiredTimeoutError'
+});
+class TransactionExpiredNonceInvalidError extends Error {
+  constructor(signature) {
+    super(`Signature ${signature} has expired: the nonce is no longer valid.`);
+    this.signature = void 0;
+    this.signature = signature;
+  }
+}
+Object.defineProperty(TransactionExpiredNonceInvalidError.prototype, 'name', {
+  value: 'TransactionExpiredNonceInvalidError'
 });
 
 class MessageAccountKeys {
@@ -11743,18 +12089,14 @@ class MessageAccountKeys {
     this.staticAccountKeys = staticAccountKeys;
     this.accountKeysFromLookups = accountKeysFromLookups;
   }
-
   keySegments() {
     const keySegments = [this.staticAccountKeys];
-
     if (this.accountKeysFromLookups) {
       keySegments.push(this.accountKeysFromLookups.writable);
       keySegments.push(this.accountKeysFromLookups.readonly);
     }
-
     return keySegments;
   }
-
   get(index) {
     for (const keySegment of this.keySegments()) {
       if (index < keySegment.length) {
@@ -11763,33 +12105,26 @@ class MessageAccountKeys {
         index -= keySegment.length;
       }
     }
-
     return;
   }
-
   get length() {
     return this.keySegments().flat().length;
   }
-
   compileInstructions(instructions) {
     // Bail early if any account indexes would overflow a u8
     const U8_MAX = 255;
-
     if (this.length > U8_MAX + 1) {
       throw new Error('Account index overflow encountered during compilation');
     }
-
     const keyIndexMap = new Map();
     this.keySegments().flat().forEach((key, index) => {
       keyIndexMap.set(key.toBase58(), index);
     });
-
     const findKeyIndex = key => {
       const keyIndex = keyIndexMap.get(key.toBase58());
       if (keyIndex === undefined) throw new Error('Encountered an unknown instruction account key during compilation');
       return keyIndex;
     };
-
     return instructions.map(instruction => {
       return {
         programIdIndex: findKeyIndex(instruction.programId),
@@ -11798,7 +12133,6 @@ class MessageAccountKeys {
       };
     });
   }
-
 }
 
 /**
@@ -11807,70 +12141,61 @@ class MessageAccountKeys {
 const publicKey = (property = 'publicKey') => {
   return BufferLayout__namespace.blob(32, property);
 };
+
 /**
  * Layout for a signature
  */
-
 const signature = (property = 'signature') => {
   return BufferLayout__namespace.blob(64, property);
 };
-
 /**
  * Layout for a Rust String type
  */
 const rustString = (property = 'string') => {
   const rsl = BufferLayout__namespace.struct([BufferLayout__namespace.u32('length'), BufferLayout__namespace.u32('lengthPadding'), BufferLayout__namespace.blob(BufferLayout__namespace.offset(BufferLayout__namespace.u32(), -8), 'chars')], property);
-
   const _decode = rsl.decode.bind(rsl);
-
   const _encode = rsl.encode.bind(rsl);
-
   const rslShim = rsl;
-
   rslShim.decode = (b, offset) => {
     const data = _decode(b, offset);
-
     return data['chars'].toString();
   };
-
   rslShim.encode = (str, b, offset) => {
     const data = {
       chars: buffer.Buffer.from(str, 'utf8')
     };
     return _encode(data, b, offset);
   };
-
   rslShim.alloc = str => {
     return BufferLayout__namespace.u32().span + BufferLayout__namespace.u32().span + buffer.Buffer.from(str, 'utf8').length;
   };
-
   return rslShim;
 };
+
 /**
  * Layout for an Authorized object
  */
-
 const authorized = (property = 'authorized') => {
   return BufferLayout__namespace.struct([publicKey('staker'), publicKey('withdrawer')], property);
 };
+
 /**
  * Layout for a Lockup object
  */
-
 const lockup = (property = 'lockup') => {
   return BufferLayout__namespace.struct([BufferLayout__namespace.ns64('unixTimestamp'), BufferLayout__namespace.ns64('epoch'), publicKey('custodian')], property);
 };
+
 /**
  *  Layout for a VoteInit object
  */
-
 const voteInit = (property = 'voteInit') => {
   return BufferLayout__namespace.struct([publicKey('nodePubkey'), publicKey('authorizedVoter'), publicKey('authorizedWithdrawer'), BufferLayout__namespace.u8('commission')], property);
 };
+
 /**
  *  Layout for a VoteAuthorizeWithSeedArgs object
  */
-
 const voteAuthorizeWithSeedArgs = (property = 'voteAuthorizeWithSeedArgs') => {
   return BufferLayout__namespace.struct([BufferLayout__namespace.u32('voteAuthorizationType'), publicKey('currentAuthorityDerivedKeyOwnerPubkey'), rustString('currentAuthorityDerivedKeySeed'), publicKey('newAuthorized')], property);
 };
@@ -11882,7 +12207,6 @@ function getAlloc(type, fields) {
       return item.alloc(fields[item.property]);
     } else if ('count' in item && 'elementLayout' in item) {
       const field = fields[item.property];
-
       if (Array.isArray(field)) {
         return field.length * getItemAlloc(item.elementLayout);
       }
@@ -11891,12 +12215,10 @@ function getAlloc(type, fields) {
       return getAlloc({
         layout: item
       }, fields[item.property]);
-    } // Couldn't determine allocated size of layout
-
-
+    }
+    // Couldn't determine allocated size of layout
     return 0;
   };
-
   let alloc = 0;
   type.layout.fields.forEach(item => {
     alloc += getItemAlloc(item);
@@ -11907,26 +12229,21 @@ function getAlloc(type, fields) {
 function decodeLength(bytes) {
   let len = 0;
   let size = 0;
-
   for (;;) {
     let elem = bytes.shift();
     len |= (elem & 0x7f) << size * 7;
     size += 1;
-
     if ((elem & 0x80) === 0) {
       break;
     }
   }
-
   return len;
 }
 function encodeLength(bytes, len) {
   let rem_len = len;
-
   for (;;) {
     let elem = rem_len & 0x7f;
     rem_len >>= 7;
-
     if (rem_len == 0) {
       bytes.push(elem);
       break;
@@ -11950,14 +12267,11 @@ class CompiledKeys {
     this.payer = payer;
     this.keyMetaMap = keyMetaMap;
   }
-
   static compile(instructions, payer) {
     const keyMetaMap = new Map();
-
     const getOrInsertDefault = pubkey => {
       const address = pubkey.toBase58();
       let keyMeta = keyMetaMap.get(address);
-
       if (keyMeta === undefined) {
         keyMeta = {
           isSigner: false,
@@ -11966,27 +12280,21 @@ class CompiledKeys {
         };
         keyMetaMap.set(address, keyMeta);
       }
-
       return keyMeta;
     };
-
     const payerKeyMeta = getOrInsertDefault(payer);
     payerKeyMeta.isSigner = true;
     payerKeyMeta.isWritable = true;
-
     for (const ix of instructions) {
       getOrInsertDefault(ix.programId).isInvoked = true;
-
       for (const accountMeta of ix.keys) {
         const keyMeta = getOrInsertDefault(accountMeta.pubkey);
         keyMeta.isSigner || (keyMeta.isSigner = accountMeta.isSigner);
         keyMeta.isWritable || (keyMeta.isWritable = accountMeta.isWritable);
       }
     }
-
     return new CompiledKeys(payer, keyMetaMap);
   }
-
   getMessageComponents() {
     const mapEntries = [...this.keyMetaMap.entries()];
     assert(mapEntries.length <= 256, 'Max static account keys length exceeded');
@@ -11998,8 +12306,9 @@ class CompiledKeys {
       numRequiredSignatures: writableSigners.length + readonlySigners.length,
       numReadonlySignedAccounts: readonlySigners.length,
       numReadonlyUnsignedAccounts: readonlyNonSigners.length
-    }; // sanity checks
+    };
 
+    // sanity checks
     {
       assert(writableSigners.length > 0, 'Expected at least one writable signer key');
       const [payerAddress] = writableSigners[0];
@@ -12008,15 +12317,14 @@ class CompiledKeys {
     const staticAccountKeys = [...writableSigners.map(([address]) => new PublicKey(address)), ...readonlySigners.map(([address]) => new PublicKey(address)), ...writableNonSigners.map(([address]) => new PublicKey(address)), ...readonlyNonSigners.map(([address]) => new PublicKey(address))];
     return [header, staticAccountKeys];
   }
-
   extractTableLookup(lookupTable) {
     const [writableIndexes, drainedWritableKeys] = this.drainKeysFoundInLookupTable(lookupTable.state.addresses, keyMeta => !keyMeta.isSigner && !keyMeta.isInvoked && keyMeta.isWritable);
-    const [readonlyIndexes, drainedReadonlyKeys] = this.drainKeysFoundInLookupTable(lookupTable.state.addresses, keyMeta => !keyMeta.isSigner && !keyMeta.isInvoked && !keyMeta.isWritable); // Don't extract lookup if no keys were found
+    const [readonlyIndexes, drainedReadonlyKeys] = this.drainKeysFoundInLookupTable(lookupTable.state.addresses, keyMeta => !keyMeta.isSigner && !keyMeta.isInvoked && !keyMeta.isWritable);
 
+    // Don't extract lookup if no keys were found
     if (writableIndexes.length === 0 && readonlyIndexes.length === 0) {
       return;
     }
-
     return [{
       accountKey: lookupTable.key,
       writableIndexes,
@@ -12026,18 +12334,15 @@ class CompiledKeys {
       readonly: drainedReadonlyKeys
     }];
   }
+
   /** @internal */
-
-
   drainKeysFoundInLookupTable(lookupTableEntries, keyMetaFilter) {
     const lookupTableIndexes = new Array();
     const drainedKeys = new Array();
-
     for (const [address, keyMeta] of this.keyMetaMap.entries()) {
       if (keyMetaFilter(keyMeta)) {
         const key = new PublicKey(address);
         const lookupTableIndex = lookupTableEntries.findIndex(entry => entry.equals(key));
-
         if (lookupTableIndex >= 0) {
           assert(lookupTableIndex < 256, 'Max lookup table index exceeded');
           lookupTableIndexes.push(lookupTableIndex);
@@ -12046,10 +12351,8 @@ class CompiledKeys {
         }
       }
     }
-
     return [lookupTableIndexes, drainedKeys];
   }
-
 }
 
 /**
@@ -12076,15 +12379,12 @@ class Message {
     this.instructions = args.instructions;
     this.instructions.forEach(ix => this.indexToProgramIds.set(ix.programIdIndex, this.accountKeys[ix.programIdIndex]));
   }
-
   get version() {
     return 'legacy';
   }
-
   get staticAccountKeys() {
     return this.accountKeys;
   }
-
   get compiledInstructions() {
     return this.instructions.map(ix => ({
       programIdIndex: ix.programIdIndex,
@@ -12092,15 +12392,12 @@ class Message {
       data: bs58__default["default"].decode(ix.data)
     }));
   }
-
   get addressTableLookups() {
     return [];
   }
-
   getAccountKeys() {
     return new MessageAccountKeys(this.staticAccountKeys);
   }
-
   static compile(args) {
     const compiledKeys = CompiledKeys.compile(args.instructions, args.payerKey);
     const [header, staticAccountKeys] = compiledKeys.getMessageComponents();
@@ -12117,14 +12414,11 @@ class Message {
       instructions
     });
   }
-
   isAccountSigner(index) {
     return index < this.header.numRequiredSignatures;
   }
-
   isAccountWritable(index) {
     const numSignedAccounts = this.header.numRequiredSignatures;
-
     if (index >= this.header.numRequiredSignatures) {
       const unsignedAccountIndex = index - numSignedAccounts;
       const numUnsignedAccounts = this.accountKeys.length - numSignedAccounts;
@@ -12135,19 +12429,15 @@ class Message {
       return index < numWritableSignedAccounts;
     }
   }
-
   isProgramId(index) {
     return this.indexToProgramIds.has(index);
   }
-
   programIds() {
     return [...this.indexToProgramIds.values()];
   }
-
   nonProgramIds() {
     return this.accountKeys.filter((_, index) => !this.isProgramId(index));
   }
-
   serialize() {
     const numKeys = this.accountKeys.length;
     let keyCount = [];
@@ -12195,36 +12485,30 @@ class Message {
     instructionBuffer.copy(signData, length);
     return signData.slice(0, length + instructionBuffer.length);
   }
+
   /**
    * Decode a compiled message into a Message object.
    */
-
-
   static from(buffer$1) {
     // Slice up wire data
     let byteArray = [...buffer$1];
     const numRequiredSignatures = byteArray.shift();
-
     if (numRequiredSignatures !== (numRequiredSignatures & VERSION_PREFIX_MASK)) {
       throw new Error('Versioned messages must be deserialized with VersionedMessage.deserialize()');
     }
-
     const numReadonlySignedAccounts = byteArray.shift();
     const numReadonlyUnsignedAccounts = byteArray.shift();
     const accountCount = decodeLength(byteArray);
     let accountKeys = [];
-
     for (let i = 0; i < accountCount; i++) {
       const account = byteArray.slice(0, PUBLIC_KEY_LENGTH);
       byteArray = byteArray.slice(PUBLIC_KEY_LENGTH);
       accountKeys.push(new PublicKey(buffer.Buffer.from(account)));
     }
-
     const recentBlockhash = byteArray.slice(0, PUBLIC_KEY_LENGTH);
     byteArray = byteArray.slice(PUBLIC_KEY_LENGTH);
     const instructionCount = decodeLength(byteArray);
     let instructions = [];
-
     for (let i = 0; i < instructionCount; i++) {
       const programIdIndex = byteArray.shift();
       const accountCount = decodeLength(byteArray);
@@ -12240,7 +12524,6 @@ class Message {
         data
       });
     }
-
     const messageArgs = {
       header: {
         numRequiredSignatures,
@@ -12253,7 +12536,6 @@ class Message {
     };
     return new Message(messageArgs);
   }
-
 }
 
 /**
@@ -12273,47 +12555,36 @@ class MessageV0 {
     this.compiledInstructions = args.compiledInstructions;
     this.addressTableLookups = args.addressTableLookups;
   }
-
   get version() {
     return 0;
   }
-
   get numAccountKeysFromLookups() {
     let count = 0;
-
     for (const lookup of this.addressTableLookups) {
       count += lookup.readonlyIndexes.length + lookup.writableIndexes.length;
     }
-
     return count;
   }
-
   getAccountKeys(args) {
     let accountKeysFromLookups;
-
     if (args && 'accountKeysFromLookups' in args && args.accountKeysFromLookups) {
       if (this.numAccountKeysFromLookups != args.accountKeysFromLookups.writable.length + args.accountKeysFromLookups.readonly.length) {
         throw new Error('Failed to get account keys because of a mismatch in the number of account keys from lookups');
       }
-
       accountKeysFromLookups = args.accountKeysFromLookups;
     } else if (args && 'addressLookupTableAccounts' in args && args.addressLookupTableAccounts) {
       accountKeysFromLookups = this.resolveAddressTableLookups(args.addressLookupTableAccounts);
     } else if (this.addressTableLookups.length > 0) {
       throw new Error('Failed to get account keys because address table lookups were not resolved');
     }
-
     return new MessageAccountKeys(this.staticAccountKeys, accountKeysFromLookups);
   }
-
   isAccountSigner(index) {
     return index < this.header.numRequiredSignatures;
   }
-
   isAccountWritable(index) {
     const numSignedAccounts = this.header.numRequiredSignatures;
     const numStaticAccountKeys = this.staticAccountKeys.length;
-
     if (index >= numStaticAccountKeys) {
       const lookupAccountKeysIndex = index - numStaticAccountKeys;
       const numWritableLookupAccountKeys = this.addressTableLookups.reduce((count, lookup) => count + lookup.writableIndexes.length, 0);
@@ -12328,20 +12599,16 @@ class MessageV0 {
       return index < numWritableSignedAccounts;
     }
   }
-
   resolveAddressTableLookups(addressLookupTableAccounts) {
     const accountKeysFromLookups = {
       writable: [],
       readonly: []
     };
-
     for (const tableLookup of this.addressTableLookups) {
       const tableAccount = addressLookupTableAccounts.find(account => account.key.equals(tableLookup.accountKey));
-
       if (!tableAccount) {
         throw new Error(`Failed to find address lookup table account for table key ${tableLookup.accountKey.toBase58()}`);
       }
-
       for (const index of tableLookup.writableIndexes) {
         if (index < tableAccount.state.addresses.length) {
           accountKeysFromLookups.writable.push(tableAccount.state.addresses[index]);
@@ -12349,7 +12616,6 @@ class MessageV0 {
           throw new Error(`Failed to find address for index ${index} in address lookup table ${tableLookup.accountKey.toBase58()}`);
         }
       }
-
       for (const index of tableLookup.readonlyIndexes) {
         if (index < tableAccount.state.addresses.length) {
           accountKeysFromLookups.readonly.push(tableAccount.state.addresses[index]);
@@ -12358,10 +12624,8 @@ class MessageV0 {
         }
       }
     }
-
     return accountKeysFromLookups;
   }
-
   static compile(args) {
     const compiledKeys = CompiledKeys.compile(args.instructions, args.payerKey);
     const addressTableLookups = new Array();
@@ -12370,10 +12634,8 @@ class MessageV0 {
       readonly: new Array()
     };
     const lookupTableAccounts = args.addressLookupTableAccounts || [];
-
     for (const lookupTable of lookupTableAccounts) {
       const extractResult = compiledKeys.extractTableLookup(lookupTable);
-
       if (extractResult !== undefined) {
         const [addressTableLookup, {
           writable,
@@ -12384,7 +12646,6 @@ class MessageV0 {
         accountKeysFromLookups.readonly.push(...readonly);
       }
     }
-
     const [header, staticAccountKeys] = compiledKeys.getMessageComponents();
     const accountKeys = new MessageAccountKeys(staticAccountKeys, accountKeysFromLookups);
     const compiledInstructions = accountKeys.compileInstructions(args.instructions);
@@ -12396,7 +12657,6 @@ class MessageV0 {
       addressTableLookups
     });
   }
-
   serialize() {
     const encodedStaticAccountKeysLength = Array();
     encodeLength(encodedStaticAccountKeysLength, this.staticAccountKeys.length);
@@ -12422,11 +12682,9 @@ class MessageV0 {
     }, serializedMessage);
     return serializedMessage.slice(0, serializedMessageLength);
   }
-
   serializeInstructions() {
     let serializedLength = 0;
     const serializedInstructions = new Uint8Array(PACKET_DATA_SIZE);
-
     for (const instruction of this.compiledInstructions) {
       const encodedAccountKeyIndexesLength = Array();
       encodeLength(encodedAccountKeyIndexesLength, instruction.accountKeyIndexes.length);
@@ -12441,14 +12699,11 @@ class MessageV0 {
         data: instruction.data
       }, serializedInstructions, serializedLength);
     }
-
     return serializedInstructions.slice(0, serializedLength);
   }
-
   serializeAddressTableLookups() {
     let serializedLength = 0;
     const serializedAddressTableLookups = new Uint8Array(PACKET_DATA_SIZE);
-
     for (const lookup of this.addressTableLookups) {
       const encodedWritableIndexesLength = Array();
       encodeLength(encodedWritableIndexesLength, lookup.writableIndexes.length);
@@ -12463,10 +12718,8 @@ class MessageV0 {
         readonlyIndexes: lookup.readonlyIndexes
       }, serializedAddressTableLookups, serializedLength);
     }
-
     return serializedAddressTableLookups.slice(0, serializedLength);
   }
-
   static deserialize(serializedMessage) {
     let byteArray = [...serializedMessage];
     const prefix = byteArray.shift();
@@ -12481,15 +12734,12 @@ class MessageV0 {
     };
     const staticAccountKeys = [];
     const staticAccountKeysLength = decodeLength(byteArray);
-
     for (let i = 0; i < staticAccountKeysLength; i++) {
       staticAccountKeys.push(new PublicKey(byteArray.splice(0, PUBLIC_KEY_LENGTH)));
     }
-
     const recentBlockhash = bs58__default["default"].encode(byteArray.splice(0, PUBLIC_KEY_LENGTH));
     const instructionCount = decodeLength(byteArray);
     const compiledInstructions = [];
-
     for (let i = 0; i < instructionCount; i++) {
       const programIdIndex = byteArray.shift();
       const accountKeyIndexesLength = decodeLength(byteArray);
@@ -12502,10 +12752,8 @@ class MessageV0 {
         data
       });
     }
-
     const addressTableLookupsCount = decodeLength(byteArray);
     const addressTableLookups = [];
-
     for (let i = 0; i < addressTableLookupsCount; i++) {
       const accountKey = new PublicKey(byteArray.splice(0, PUBLIC_KEY_LENGTH));
       const writableIndexesLength = decodeLength(byteArray);
@@ -12518,7 +12766,6 @@ class MessageV0 {
         readonlyIndexes
       });
     }
-
     return new MessageV0({
       header,
       staticAccountKeys,
@@ -12527,30 +12774,27 @@ class MessageV0 {
       addressTableLookups
     });
   }
-
 }
 
 // eslint-disable-next-line no-redeclare
 const VersionedMessage = {
   deserializeMessageVersion(serializedMessage) {
     const prefix = serializedMessage[0];
-    const maskedPrefix = prefix & VERSION_PREFIX_MASK; // if the highest bit of the prefix is not set, the message is not versioned
+    const maskedPrefix = prefix & VERSION_PREFIX_MASK;
 
+    // if the highest bit of the prefix is not set, the message is not versioned
     if (maskedPrefix === prefix) {
       return 'legacy';
-    } // the lower 7 bits of the prefix indicate the message version
+    }
 
-
+    // the lower 7 bits of the prefix indicate the message version
     return maskedPrefix;
   },
-
   deserialize: serializedMessage => {
     const version = VersionedMessage.deserializeMessageVersion(serializedMessage);
-
     if (version === 'legacy') {
       return Message.from(serializedMessage);
     }
-
     if (version === 0) {
       return MessageV0.deserialize(serializedMessage);
     } else {
@@ -12564,17 +12808,18 @@ const VersionedMessage = {
  */
 
 exports.TransactionStatus = void 0;
+
 /**
  * Default (empty) signature
  */
-
 (function (TransactionStatus) {
   TransactionStatus[TransactionStatus["BLOCKHEIGHT_EXCEEDED"] = 0] = "BLOCKHEIGHT_EXCEEDED";
   TransactionStatus[TransactionStatus["PROCESSED"] = 1] = "PROCESSED";
   TransactionStatus[TransactionStatus["TIMED_OUT"] = 2] = "TIMED_OUT";
+  TransactionStatus[TransactionStatus["NONCE_INVALID"] = 3] = "NONCE_INVALID";
 })(exports.TransactionStatus || (exports.TransactionStatus = {}));
-
 const DEFAULT_SIGNATURE = buffer.Buffer.alloc(SIGNATURE_LENGTH_IN_BYTES).fill(0);
+
 /**
  * Account metadata used to define instructions
  */
@@ -12595,22 +12840,21 @@ class TransactionInstruction {
   /**
    * Program input
    */
+
   constructor(opts) {
     this.keys = void 0;
     this.programId = void 0;
     this.data = buffer.Buffer.alloc(0);
     this.programId = opts.programId;
     this.keys = opts.keys;
-
     if (opts.data) {
       this.data = opts.data;
     }
   }
+
   /**
    * @internal
    */
-
-
   toJSON() {
     return {
       keys: this.keys.map(({
@@ -12626,8 +12870,8 @@ class TransactionInstruction {
       data: [...this.data]
     };
   }
-
 }
+
 /**
  * Pair of signature and corresponding public key
  */
@@ -12648,13 +12892,12 @@ class Transaction {
     if (this.signatures.length > 0) {
       return this.signatures[0].signature;
     }
-
     return null;
   }
+
   /**
    * The transaction fee payer
    */
-
 
   /**
    * Construct an empty Transaction
@@ -12666,22 +12909,26 @@ class Transaction {
     this.recentBlockhash = void 0;
     this.lastValidBlockHeight = void 0;
     this.nonceInfo = void 0;
+    this.minNonceContextSlot = void 0;
     this._message = void 0;
     this._json = void 0;
-
     if (!opts) {
       return;
     }
-
     if (opts.feePayer) {
       this.feePayer = opts.feePayer;
     }
-
     if (opts.signatures) {
       this.signatures = opts.signatures;
     }
-
-    if (Object.prototype.hasOwnProperty.call(opts, 'lastValidBlockHeight')) {
+    if (Object.prototype.hasOwnProperty.call(opts, 'nonceInfo')) {
+      const {
+        minContextSlot,
+        nonceInfo
+      } = opts;
+      this.minNonceContextSlot = minContextSlot;
+      this.nonceInfo = nonceInfo;
+    } else if (Object.prototype.hasOwnProperty.call(opts, 'lastValidBlockHeight')) {
       const {
         blockhash,
         lastValidBlockHeight
@@ -12693,19 +12940,16 @@ class Transaction {
         recentBlockhash,
         nonceInfo
       } = opts;
-
       if (nonceInfo) {
         this.nonceInfo = nonceInfo;
       }
-
       this.recentBlockhash = recentBlockhash;
     }
   }
+
   /**
    * @internal
    */
-
-
   toJSON() {
     return {
       recentBlockhash: this.recentBlockhash || null,
@@ -12722,16 +12966,14 @@ class Transaction {
       })
     };
   }
+
   /**
    * Add one or more instructions to this Transaction
    */
-
-
   add(...items) {
     if (items.length === 0) {
       throw new Error('No instructions');
     }
-
     items.forEach(item => {
       if ('instructions' in item) {
         this.instructions = this.instructions.concat(item.instructions);
@@ -12743,22 +12985,18 @@ class Transaction {
     });
     return this;
   }
+
   /**
    * Compile transaction data
    */
-
-
   compileMessage() {
     if (this._message && JSON.stringify(this.toJSON()) === JSON.stringify(this._json)) {
       return this._message;
     }
-
     let recentBlockhash;
     let instructions;
-
     if (this.nonceInfo) {
       recentBlockhash = this.nonceInfo.nonce;
-
       if (this.instructions[0] != this.nonceInfo.nonceInstruction) {
         instructions = [this.nonceInfo.nonceInstruction, ...this.instructions];
       } else {
@@ -12768,17 +13006,13 @@ class Transaction {
       recentBlockhash = this.recentBlockhash;
       instructions = this.instructions;
     }
-
     if (!recentBlockhash) {
       throw new Error('Transaction recentBlockhash required');
     }
-
     if (instructions.length < 1) {
       console.warn('No instructions provided');
     }
-
     let feePayer;
-
     if (this.feePayer) {
       feePayer = this.feePayer;
     } else if (this.signatures.length > 0 && this.signatures[0].publicKey) {
@@ -12787,69 +13021,67 @@ class Transaction {
     } else {
       throw new Error('Transaction fee payer required');
     }
-
     for (let i = 0; i < instructions.length; i++) {
       if (instructions[i].programId === undefined) {
         throw new Error(`Transaction instruction index ${i} has undefined program id`);
       }
     }
-
     const programIds = [];
     const accountMetas = [];
     instructions.forEach(instruction => {
       instruction.keys.forEach(accountMeta => {
-        accountMetas.push({ ...accountMeta
+        accountMetas.push({
+          ...accountMeta
         });
       });
       const programId = instruction.programId.toString();
-
       if (!programIds.includes(programId)) {
         programIds.push(programId);
       }
-    }); // Append programID account metas
+    });
 
+    // Append programID account metas
     programIds.forEach(programId => {
       accountMetas.push({
         pubkey: new PublicKey(programId),
         isSigner: false,
         isWritable: false
       });
-    }); // Cull duplicate account metas
+    });
 
+    // Cull duplicate account metas
     const uniqueMetas = [];
     accountMetas.forEach(accountMeta => {
       const pubkeyString = accountMeta.pubkey.toString();
       const uniqueIndex = uniqueMetas.findIndex(x => {
         return x.pubkey.toString() === pubkeyString;
       });
-
       if (uniqueIndex > -1) {
         uniqueMetas[uniqueIndex].isWritable = uniqueMetas[uniqueIndex].isWritable || accountMeta.isWritable;
         uniqueMetas[uniqueIndex].isSigner = uniqueMetas[uniqueIndex].isSigner || accountMeta.isSigner;
       } else {
         uniqueMetas.push(accountMeta);
       }
-    }); // Sort. Prioritizing first by signer, then by writable
+    });
 
+    // Sort. Prioritizing first by signer, then by writable
     uniqueMetas.sort(function (x, y) {
       if (x.isSigner !== y.isSigner) {
         // Signers always come before non-signers
         return x.isSigner ? -1 : 1;
       }
-
       if (x.isWritable !== y.isWritable) {
         // Writable accounts always come before read-only accounts
         return x.isWritable ? -1 : 1;
-      } // Otherwise, sort by pubkey, stringwise.
-
-
+      }
+      // Otherwise, sort by pubkey, stringwise.
       return x.pubkey.toBase58().localeCompare(y.pubkey.toBase58());
-    }); // Move fee payer to the front
+    });
 
+    // Move fee payer to the front
     const feePayerIndex = uniqueMetas.findIndex(x => {
       return x.pubkey.equals(feePayer);
     });
-
     if (feePayerIndex > -1) {
       const [payerMeta] = uniqueMetas.splice(feePayerIndex, 1);
       payerMeta.isSigner = true;
@@ -12861,14 +13093,13 @@ class Transaction {
         isSigner: true,
         isWritable: true
       });
-    } // Disallow unknown signers
+    }
 
-
+    // Disallow unknown signers
     for (const signature of this.signatures) {
       const uniqueIndex = uniqueMetas.findIndex(x => {
         return x.pubkey.equals(signature.publicKey);
       });
-
       if (uniqueIndex > -1) {
         if (!uniqueMetas[uniqueIndex].isSigner) {
           uniqueMetas[uniqueIndex].isSigner = true;
@@ -12878,11 +13109,11 @@ class Transaction {
         throw new Error(`unknown signer: ${signature.publicKey.toString()}`);
       }
     }
-
     let numRequiredSignatures = 0;
     let numReadonlySignedAccounts = 0;
-    let numReadonlyUnsignedAccounts = 0; // Split out signing from non-signing keys and count header values
+    let numReadonlyUnsignedAccounts = 0;
 
+    // Split out signing from non-signing keys and count header values
     const signedKeys = [];
     const unsignedKeys = [];
     uniqueMetas.forEach(({
@@ -12893,13 +13124,11 @@ class Transaction {
       if (isSigner) {
         signedKeys.push(pubkey.toString());
         numRequiredSignatures += 1;
-
         if (!isWritable) {
           numReadonlySignedAccounts += 1;
         }
       } else {
         unsignedKeys.push(pubkey.toString());
-
         if (!isWritable) {
           numReadonlyUnsignedAccounts += 1;
         }
@@ -12932,44 +13161,40 @@ class Transaction {
       instructions: compiledInstructions
     });
   }
+
   /**
    * @internal
    */
-
-
   _compile() {
     const message = this.compileMessage();
     const signedKeys = message.accountKeys.slice(0, message.header.numRequiredSignatures);
-
     if (this.signatures.length === signedKeys.length) {
       const valid = this.signatures.every((pair, index) => {
         return signedKeys[index].equals(pair.publicKey);
       });
       if (valid) return message;
     }
-
     this.signatures = signedKeys.map(publicKey => ({
       signature: null,
       publicKey
     }));
     return message;
   }
+
   /**
    * Get a buffer of the Transaction data that need to be covered by signatures
    */
-
-
   serializeMessage() {
     return this._compile().serialize();
   }
+
   /**
    * Get the estimated fee associated with a transaction
    */
-
-
   async getEstimatedFee(connection) {
     return (await connection.getFeeForMessage(this.compileMessage())).value;
   }
+
   /**
    * Specify the public keys which will be used to sign the Transaction.
    * The first signer will be used as the transaction fee payer account.
@@ -12980,17 +13205,13 @@ class Transaction {
    * specified and it can be set in the Transaction constructor or with the
    * `feePayer` property.
    */
-
-
   setSigners(...signers) {
     if (signers.length === 0) {
       throw new Error('No signers');
     }
-
     const seen = new Set();
     this.signatures = signers.filter(publicKey => {
       const key = publicKey.toString();
-
       if (seen.has(key)) {
         return false;
       } else {
@@ -13002,6 +13223,7 @@ class Transaction {
       publicKey
     }));
   }
+
   /**
    * Sign the Transaction with the specified signers. Multiple signatures may
    * be applied to a Transaction. The first signature is considered "primary"
@@ -13016,20 +13238,16 @@ class Transaction {
    *
    * The Transaction must be assigned a valid `recentBlockhash` before invoking this method
    */
-
-
   sign(...signers) {
     if (signers.length === 0) {
       throw new Error('No signers');
-    } // Dedupe signers
+    }
 
-
+    // Dedupe signers
     const seen = new Set();
     const uniqueSigners = [];
-
     for (const signer of signers) {
       const key = signer.publicKey.toString();
-
       if (seen.has(key)) {
         continue;
       } else {
@@ -13037,16 +13255,14 @@ class Transaction {
         uniqueSigners.push(signer);
       }
     }
-
     this.signatures = uniqueSigners.map(signer => ({
       signature: null,
       publicKey: signer.publicKey
     }));
-
     const message = this._compile();
-
     this._partialSign(message, ...uniqueSigners);
   }
+
   /**
    * Partially sign a transaction with the specified accounts. All accounts must
    * correspond to either the fee payer or a signer account in the transaction
@@ -13054,20 +13270,16 @@ class Transaction {
    *
    * All the caveats from the `sign` method apply to `partialSign`
    */
-
-
   partialSign(...signers) {
     if (signers.length === 0) {
       throw new Error('No signers');
-    } // Dedupe signers
+    }
 
-
+    // Dedupe signers
     const seen = new Set();
     const uniqueSigners = [];
-
     for (const signer of signers) {
       const key = signer.publicKey.toString();
-
       if (seen.has(key)) {
         continue;
       } else {
@@ -13075,65 +13287,55 @@ class Transaction {
         uniqueSigners.push(signer);
       }
     }
-
     const message = this._compile();
-
     this._partialSign(message, ...uniqueSigners);
   }
+
   /**
    * @internal
    */
-
-
   _partialSign(message, ...signers) {
     const signData = message.serialize();
     signers.forEach(signer => {
       const signature = sign(signData, signer.secretKey);
-
       this._addSignature(signer.publicKey, toBuffer(signature));
     });
   }
+
   /**
    * Add an externally created signature to a transaction. The public key
    * must correspond to either the fee payer or a signer account in the transaction
    * instructions.
    */
-
-
   addSignature(pubkey, signature) {
     this._compile(); // Ensure signatures array is populated
-
-
     this._addSignature(pubkey, signature);
   }
+
   /**
    * @internal
    */
-
-
   _addSignature(pubkey, signature) {
     assert(signature.length === 64);
     const index = this.signatures.findIndex(sigpair => pubkey.equals(sigpair.publicKey));
-
     if (index < 0) {
       throw new Error(`unknown signer: ${pubkey.toString()}`);
     }
-
     this.signatures[index].signature = buffer.Buffer.from(signature);
   }
+
   /**
-   * Verify signatures of a complete, signed Transaction
+   * Verify signatures of a Transaction
+   * Optional parameter specifies if we're expecting a fully signed Transaction or a partially signed one.
+   * If no boolean is provided, we expect a fully signed Transaction by default.
    */
-
-
-  verifySignatures() {
-    return this._verifySignatures(this.serializeMessage(), true);
+  verifySignatures(requireAllSignatures) {
+    return this._verifySignatures(this.serializeMessage(), requireAllSignatures === undefined ? true : requireAllSignatures);
   }
+
   /**
    * @internal
    */
-
-
   _verifySignatures(signData, requireAllSignatures) {
     for (const {
       signature,
@@ -13144,19 +13346,17 @@ class Transaction {
           return false;
         }
       } else {
-        if (!verify(signature, signData, publicKey.toBuffer())) {
+        if (!verify(signature, signData, publicKey.toBytes())) {
           return false;
         }
       }
     }
-
     return true;
   }
+
   /**
    * Serialize the Transaction in the wire format.
    */
-
-
   serialize(config) {
     const {
       requireAllSignatures,
@@ -13166,18 +13366,15 @@ class Transaction {
       verifySignatures: true
     }, config);
     const signData = this.serializeMessage();
-
     if (verifySignatures && !this._verifySignatures(signData, requireAllSignatures)) {
       throw new Error('Signature verification failed');
     }
-
     return this._serialize(signData);
   }
+
   /**
    * @internal
    */
-
-
   _serialize(signData) {
     const {
       signatures
@@ -13200,68 +13397,59 @@ class Transaction {
     assert(wireTransaction.length <= PACKET_DATA_SIZE, `Transaction too large: ${wireTransaction.length} > ${PACKET_DATA_SIZE}`);
     return wireTransaction;
   }
+
   /**
    * Deprecated method
    * @internal
    */
-
-
   get keys() {
     assert(this.instructions.length === 1);
     return this.instructions[0].keys.map(keyObj => keyObj.pubkey);
   }
+
   /**
    * Deprecated method
    * @internal
    */
-
-
   get programId() {
     assert(this.instructions.length === 1);
     return this.instructions[0].programId;
   }
+
   /**
    * Deprecated method
    * @internal
    */
-
-
   get data() {
     assert(this.instructions.length === 1);
     return this.instructions[0].data;
   }
+
   /**
    * Parse a wire transaction into a Transaction object.
    */
-
-
   static from(buffer$1) {
     // Slice up wire data
     let byteArray = [...buffer$1];
     const signatureCount = decodeLength(byteArray);
     let signatures = [];
-
     for (let i = 0; i < signatureCount; i++) {
       const signature = byteArray.slice(0, SIGNATURE_LENGTH_IN_BYTES);
       byteArray = byteArray.slice(SIGNATURE_LENGTH_IN_BYTES);
       signatures.push(bs58__default["default"].encode(buffer.Buffer.from(signature)));
     }
-
     return Transaction.populate(Message.from(byteArray), signatures);
   }
+
   /**
    * Populate Transaction object from message and signatures
    */
-
-
   static populate(message, signatures = []) {
     const transaction = new Transaction();
     transaction.recentBlockhash = message.recentBlockhash;
-
     if (message.header.numRequiredSignatures > 0) {
       transaction.feePayer = message.accountKeys[0];
     }
-
     signatures.forEach((signature, index) => {
       const sigPubkeyPair = {
         signature: signature == bs58__default["default"].encode(DEFAULT_SIGNATURE) ? null : bs58__default["default"].decode(signature),
@@ -13288,7 +13476,6 @@ class Transaction {
     transaction._json = transaction.toJSON();
     return transaction;
   }
-
 }
 
 class TransactionMessage {
@@ -13300,7 +13487,6 @@ class TransactionMessage {
     this.instructions = args.instructions;
     this.recentBlockhash = args.recentBlockhash;
   }
-
   static decompile(message, args) {
     const {
       header,
@@ -13314,66 +13500,54 @@ class TransactionMessage {
     } = header;
     const numWritableSignedAccounts = numRequiredSignatures - numReadonlySignedAccounts;
     assert(numWritableSignedAccounts > 0, 'Message header is invalid');
-    const numWritableUnsignedAccounts = message.staticAccountKeys.length - numReadonlyUnsignedAccounts;
+    const numWritableUnsignedAccounts = message.staticAccountKeys.length - numRequiredSignatures - numReadonlyUnsignedAccounts;
     assert(numWritableUnsignedAccounts >= 0, 'Message header is invalid');
     const accountKeys = message.getAccountKeys(args);
     const payerKey = accountKeys.get(0);
-
     if (payerKey === undefined) {
       throw new Error('Failed to decompile message because no account keys were found');
     }
-
     const instructions = [];
-
     for (const compiledIx of compiledInstructions) {
       const keys = [];
-
       for (const keyIndex of compiledIx.accountKeyIndexes) {
         const pubkey = accountKeys.get(keyIndex);
-
         if (pubkey === undefined) {
           throw new Error(`Failed to find key for account key index ${keyIndex}`);
         }
-
         const isSigner = keyIndex < numRequiredSignatures;
         let isWritable;
-
         if (isSigner) {
           isWritable = keyIndex < numWritableSignedAccounts;
         } else if (keyIndex < accountKeys.staticAccountKeys.length) {
           isWritable = keyIndex - numRequiredSignatures < numWritableUnsignedAccounts;
         } else {
-          isWritable = keyIndex - accountKeys.staticAccountKeys.length < // accountKeysFromLookups cannot be undefined because we already found a pubkey for this index above
+          isWritable = keyIndex - accountKeys.staticAccountKeys.length <
+          // accountKeysFromLookups cannot be undefined because we already found a pubkey for this index above
           accountKeys.accountKeysFromLookups.writable.length;
         }
-
         keys.push({
           pubkey,
           isSigner: keyIndex < header.numRequiredSignatures,
           isWritable
         });
       }
-
       const programId = accountKeys.get(compiledIx.programIdIndex);
-
       if (programId === undefined) {
         throw new Error(`Failed to find program id for program id index ${compiledIx.programIdIndex}`);
       }
-
       instructions.push(new TransactionInstruction({
         programId,
         data: toBuffer(compiledIx.data),
         keys
       }));
     }
-
     return new TransactionMessage({
       payerKey,
       instructions,
       recentBlockhash
     });
   }
-
   compileToLegacyMessage() {
     return Message.compile({
       payerKey: this.payerKey,
@@ -13381,7 +13555,6 @@ class TransactionMessage {
       instructions: this.instructions
     });
   }
-
   compileToV0Message(addressLookupTableAccounts) {
     return MessageV0.compile({
       payerKey: this.payerKey,
@@ -13390,7 +13563,6 @@ class TransactionMessage {
       addressLookupTableAccounts
     });
   }
-
 }
 
 /**
@@ -13400,27 +13572,21 @@ class VersionedTransaction {
   get version() {
     return this.message.version;
   }
-
   constructor(message, signatures) {
     this.signatures = void 0;
     this.message = void 0;
-
     if (signatures !== undefined) {
       assert(signatures.length === message.header.numRequiredSignatures, 'Expected signatures length to be equal to the number of required signatures');
       this.signatures = signatures;
     } else {
       const defaultSignatures = [];
-
       for (let i = 0; i < message.header.numRequiredSignatures; i++) {
         defaultSignatures.push(new Uint8Array(SIGNATURE_LENGTH_IN_BYTES));
       }
-
       this.signatures = defaultSignatures;
     }
-
     this.message = message;
   }
-
   serialize() {
     const serializedMessage = this.message.serialize();
     const encodedSignaturesLength = Array();
@@ -13434,31 +13600,25 @@ class VersionedTransaction {
     }, serializedTransaction);
     return serializedTransaction.slice(0, serializedTransactionLength);
   }
-
   static deserialize(serializedTransaction) {
     let byteArray = [...serializedTransaction];
     const signatures = [];
     const signaturesLength = decodeLength(byteArray);
-
     for (let i = 0; i < signaturesLength; i++) {
       signatures.push(new Uint8Array(byteArray.splice(0, SIGNATURE_LENGTH_IN_BYTES)));
     }
-
     const message = VersionedMessage.deserialize(new Uint8Array(byteArray));
     return new VersionedTransaction(message, signatures);
   }
-
   sign(signers) {
     const messageData = this.message.serialize();
     const signerPubkeys = this.message.staticAccountKeys.slice(0, this.message.header.numRequiredSignatures);
-
     for (const signer of signers) {
       const signerIndex = signerPubkeys.findIndex(pubkey => pubkey.equals(signer.publicKey));
       assert(signerIndex >= 0, `Cannot sign with non signer key ${signer.publicKey.toBase58()}`);
       this.signatures[signerIndex] = sign(messageData, signer.secretKey);
     }
   }
-
   addSignature(publicKey, signature) {
     assert(signature.byteLength === 64, 'Signature must be 64 bytes long');
     const signerPubkeys = this.message.staticAccountKeys.slice(0, this.message.header.numRequiredSignatures);
@@ -13466,7 +13626,6 @@ class VersionedTransaction {
     assert(signerIndex >= 0, `Can not add signature; \`${publicKey.toBase58()}\` is not required to sign this transaction`);
     this.signatures[signerIndex] = signature;
   }
-
 }
 
 const SYSVAR_CLOCK_PUBKEY = new PublicKey('SysvarC1ock11111111111111111111111111111111');
@@ -13498,16 +13657,35 @@ async function sendAndConfirmTransaction(connection, transaction, signers, optio
     minContextSlot: options.minContextSlot
   };
   const signature = await connection.sendTransaction(transaction, signers, sendOptions);
-  const status = transaction.recentBlockhash != null && transaction.lastValidBlockHeight != null ? (await connection.confirmTransaction({
-    signature: signature,
-    blockhash: transaction.recentBlockhash,
-    lastValidBlockHeight: transaction.lastValidBlockHeight
-  }, options && options.commitment)).value : (await connection.confirmTransaction(signature, options && options.commitment)).value;
-
+  let status;
+  if (transaction.recentBlockhash != null && transaction.lastValidBlockHeight != null) {
+    status = (await connection.confirmTransaction({
+      abortSignal: options?.abortSignal,
+      signature: signature,
+      blockhash: transaction.recentBlockhash,
+      lastValidBlockHeight: transaction.lastValidBlockHeight
+    }, options && options.commitment)).value;
+  } else if (transaction.minNonceContextSlot != null && transaction.nonceInfo != null) {
+    const {
+      nonceInstruction
+    } = transaction.nonceInfo;
+    const nonceAccountPubkey = nonceInstruction.keys[0].pubkey;
+    status = (await connection.confirmTransaction({
+      abortSignal: options?.abortSignal,
+      minContextSlot: transaction.minNonceContextSlot,
+      nonceAccountPubkey,
+      nonceValue: transaction.nonceInfo.nonce,
+      signature
+    }, options && options.commitment)).value;
+  } else {
+    if (options?.abortSignal != null) {
+      console.warn('sendAndConfirmTransaction(): A transaction with a deprecated confirmation strategy was ' + 'supplied along with an `abortSignal`. Only transactions having `lastValidBlockHeight` ' + 'or a combination of `nonceInfo` and `minNonceContextSlot` are abortable.');
+    }
+    status = (await connection.confirmTransaction(signature, options && options.commitment)).value;
+  }
   if (status.err) {
     throw new Error(`Transaction ${signature} failed (${JSON.stringify(status)})`);
   }
-
   return signature;
 }
 
@@ -13529,24 +13707,21 @@ function encodeData(type, fields) {
   type.layout.encode(layoutFields, data);
   return data;
 }
+
 /**
  * Decode instruction data buffer using an InstructionType
  * @internal
  */
-
 function decodeData$1(type, buffer) {
   let data;
-
   try {
     data = type.layout.decode(buffer);
   } catch (err) {
     throw new Error('invalid instruction; ' + err);
   }
-
   if (data.instruction !== type.index) {
     throw new Error(`invalid instruction; instruction index mismatch ${data.instruction} != ${type.index}`);
   }
-
   return data;
 }
 
@@ -13555,8 +13730,8 @@ function decodeData$1(type, buffer) {
  *
  * @internal
  */
-
 const FeeCalculatorLayout = BufferLayout__namespace.nu64('lamportsPerSignature');
+
 /**
  * Calculator for transaction fees.
  *
@@ -13568,9 +13743,12 @@ const FeeCalculatorLayout = BufferLayout__namespace.nu64('lamportsPerSignature')
  *
  * @internal
  */
-
 const NonceAccountLayout = BufferLayout__namespace.struct([BufferLayout__namespace.u32('version'), BufferLayout__namespace.u32('state'), publicKey('authorizedPubkey'), publicKey('nonce'), BufferLayout__namespace.struct([FeeCalculatorLayout], 'feeCalculator')]);
 const NONCE_ACCOUNT_LENGTH = NonceAccountLayout.span;
+
+/**
+ * A durable nonce is a 32 byte value encoded as a base58 string.
+ */
 
 /**
  * NonceAccount class
@@ -13587,14 +13765,13 @@ class NonceAccount {
     this.nonce = args.nonce;
     this.feeCalculator = args.feeCalculator;
   }
+
   /**
    * Deserialize NonceAccount from the account data.
    *
    * @param buffer account data
    * @return NonceAccount
    */
-
-
   static fromAccountData(buffer) {
     const nonceAccount = NonceAccountLayout.decode(toBuffer(buffer), 0);
     return new NonceAccount({
@@ -13603,7 +13780,6 @@ class NonceAccount {
       feeCalculator: nonceAccount.feeCalculator
     });
   }
-
 }
 
 const encodeDecode = layout => {
@@ -13614,7 +13790,6 @@ const encodeDecode = layout => {
     encode
   };
 };
-
 const bigInt = length => property => {
   const layout = BufferLayout.blob(length, property);
   const {
@@ -13622,20 +13797,16 @@ const bigInt = length => property => {
     decode
   } = encodeDecode(layout);
   const bigIntLayout = layout;
-
   bigIntLayout.decode = (buffer$1, offset) => {
     const src = decode(buffer$1, offset);
     return bigintBuffer.toBigIntLE(buffer.Buffer.from(src));
   };
-
   bigIntLayout.encode = (bigInt, buffer, offset) => {
     const src = bigintBuffer.toBufferLE(bigInt, length);
     return encode(src, buffer, offset);
   };
-
   return bigIntLayout;
 };
-
 const u64 = bigInt(8);
 
 /**
@@ -13650,35 +13821,30 @@ class SystemInstruction {
    * @internal
    */
   constructor() {}
+
   /**
    * Decode a system instruction and retrieve the instruction type.
    */
-
-
   static decodeInstructionType(instruction) {
     this.checkProgramId(instruction.programId);
     const instructionTypeLayout = BufferLayout__namespace.u32('instruction');
     const typeIndex = instructionTypeLayout.decode(instruction.data);
     let type;
-
     for (const [ixType, layout] of Object.entries(SYSTEM_INSTRUCTION_LAYOUTS)) {
       if (layout.index == typeIndex) {
         type = ixType;
         break;
       }
     }
-
     if (!type) {
       throw new Error('Instruction type incorrect; not a SystemInstruction');
     }
-
     return type;
   }
+
   /**
    * Decode a create account system instruction and retrieve the instruction params.
    */
-
-
   static decodeCreateAccount(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 2);
@@ -13695,11 +13861,10 @@ class SystemInstruction {
       programId: new PublicKey(programId)
     };
   }
+
   /**
    * Decode a transfer system instruction and retrieve the instruction params.
    */
-
-
   static decodeTransfer(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 2);
@@ -13712,11 +13877,10 @@ class SystemInstruction {
       lamports
     };
   }
+
   /**
    * Decode a transfer with seed system instruction and retrieve the instruction params.
    */
-
-
   static decodeTransferWithSeed(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -13734,11 +13898,10 @@ class SystemInstruction {
       programId: new PublicKey(programId)
     };
   }
+
   /**
    * Decode an allocate system instruction and retrieve the instruction params.
    */
-
-
   static decodeAllocate(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 1);
@@ -13750,11 +13913,10 @@ class SystemInstruction {
       space
     };
   }
+
   /**
    * Decode an allocate with seed system instruction and retrieve the instruction params.
    */
-
-
   static decodeAllocateWithSeed(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 1);
@@ -13772,11 +13934,10 @@ class SystemInstruction {
       programId: new PublicKey(programId)
     };
   }
+
   /**
    * Decode an assign system instruction and retrieve the instruction params.
    */
-
-
   static decodeAssign(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 1);
@@ -13788,11 +13949,10 @@ class SystemInstruction {
       programId: new PublicKey(programId)
     };
   }
+
   /**
    * Decode an assign with seed system instruction and retrieve the instruction params.
    */
-
-
   static decodeAssignWithSeed(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 1);
@@ -13808,11 +13968,10 @@ class SystemInstruction {
       programId: new PublicKey(programId)
     };
   }
+
   /**
    * Decode a create account with seed system instruction and retrieve the instruction params.
    */
-
-
   static decodeCreateWithSeed(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 2);
@@ -13833,11 +13992,10 @@ class SystemInstruction {
       programId: new PublicKey(programId)
     };
   }
+
   /**
    * Decode a nonce initialize system instruction and retrieve the instruction params.
    */
-
-
   static decodeNonceInitialize(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -13849,11 +14007,10 @@ class SystemInstruction {
       authorizedPubkey: new PublicKey(authorized)
     };
   }
+
   /**
    * Decode a nonce advance system instruction and retrieve the instruction params.
    */
-
-
   static decodeNonceAdvance(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -13863,11 +14020,10 @@ class SystemInstruction {
       authorizedPubkey: instruction.keys[2].pubkey
     };
   }
+
   /**
    * Decode a nonce withdraw system instruction and retrieve the instruction params.
    */
-
-
   static decodeNonceWithdraw(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 5);
@@ -13881,11 +14037,10 @@ class SystemInstruction {
       lamports
     };
   }
+
   /**
    * Decode a nonce authorize system instruction and retrieve the instruction params.
    */
-
-
   static decodeNonceAuthorize(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 2);
@@ -13898,28 +14053,26 @@ class SystemInstruction {
       newAuthorizedPubkey: new PublicKey(authorized)
     };
   }
+
   /**
    * @internal
    */
-
-
   static checkProgramId(programId) {
     if (!programId.equals(SystemProgram.programId)) {
       throw new Error('invalid instruction; programId is not SystemProgram');
     }
   }
+
   /**
    * @internal
    */
-
-
   static checkKeyLength(keys, expectedLength) {
     if (keys.length < expectedLength) {
       throw new Error(`invalid instruction; found ${keys.length} keys, expected at least ${expectedLength}`);
     }
   }
-
 }
+
 /**
  * An enumeration of valid SystemInstructionType's
  */
@@ -13982,19 +14135,19 @@ const SYSTEM_INSTRUCTION_LAYOUTS = Object.freeze({
     layout: BufferLayout__namespace.struct([BufferLayout__namespace.u32('instruction')])
   }
 });
+
 /**
  * Factory class for transactions to interact with the System program
  */
-
 class SystemProgram {
   /**
    * @internal
    */
   constructor() {}
+
   /**
    * Public key that identifies the System program
    */
-
 
   /**
    * Generate a transaction instruction that creates a new account
@@ -14020,15 +14173,13 @@ class SystemProgram {
       data
     });
   }
+
   /**
    * Generate a transaction instruction that transfers lamports from one account to another
    */
-
-
   static transfer(params) {
     let data;
     let keys;
-
     if ('basePubkey' in params) {
       const type = SYSTEM_INSTRUCTION_LAYOUTS.TransferWithSeed;
       data = encodeData(type, {
@@ -14064,22 +14215,19 @@ class SystemProgram {
         isWritable: true
       }];
     }
-
     return new TransactionInstruction({
       keys,
       programId: this.programId,
       data
     });
   }
+
   /**
    * Generate a transaction instruction that assigns an account to a program
    */
-
-
   static assign(params) {
     let data;
     let keys;
-
     if ('basePubkey' in params) {
       const type = SYSTEM_INSTRUCTION_LAYOUTS.AssignWithSeed;
       data = encodeData(type, {
@@ -14107,19 +14255,17 @@ class SystemProgram {
         isWritable: true
       }];
     }
-
     return new TransactionInstruction({
       keys,
       programId: this.programId,
       data
     });
   }
+
   /**
    * Generate a transaction instruction that creates a new account at
    *   an address generated with `from`, a seed, and programId
    */
-
-
   static createAccountWithSeed(params) {
     const type = SYSTEM_INSTRUCTION_LAYOUTS.CreateWithSeed;
     const data = encodeData(type, {
@@ -14138,7 +14284,6 @@ class SystemProgram {
       isSigner: false,
       isWritable: true
     }];
-
     if (params.basePubkey != params.fromPubkey) {
       keys.push({
         pubkey: params.basePubkey,
@@ -14146,21 +14291,18 @@ class SystemProgram {
         isWritable: false
       });
     }
-
     return new TransactionInstruction({
       keys,
       programId: this.programId,
       data
     });
   }
+
   /**
    * Generate a transaction that creates a new Nonce account
    */
-
-
   static createNonceAccount(params) {
     const transaction = new Transaction();
-
     if ('basePubkey' in params && 'seed' in params) {
       transaction.add(SystemProgram.createAccountWithSeed({
         fromPubkey: params.fromPubkey,
@@ -14180,7 +14322,6 @@ class SystemProgram {
         programId: this.programId
       }));
     }
-
     const initParams = {
       noncePubkey: params.noncePubkey,
       authorizedPubkey: params.authorizedPubkey
@@ -14188,11 +14329,10 @@ class SystemProgram {
     transaction.add(this.nonceInitialize(initParams));
     return transaction;
   }
+
   /**
    * Generate an instruction to initialize a Nonce account
    */
-
-
   static nonceInitialize(params) {
     const type = SYSTEM_INSTRUCTION_LAYOUTS.InitializeNonceAccount;
     const data = encodeData(type, {
@@ -14217,11 +14357,10 @@ class SystemProgram {
     };
     return new TransactionInstruction(instructionData);
   }
+
   /**
    * Generate an instruction to advance the nonce in a Nonce account
    */
-
-
   static nonceAdvance(params) {
     const type = SYSTEM_INSTRUCTION_LAYOUTS.AdvanceNonceAccount;
     const data = encodeData(type);
@@ -14244,11 +14383,10 @@ class SystemProgram {
     };
     return new TransactionInstruction(instructionData);
   }
+
   /**
    * Generate a transaction instruction that withdraws lamports from a Nonce account
    */
-
-
   static nonceWithdraw(params) {
     const type = SYSTEM_INSTRUCTION_LAYOUTS.WithdrawNonceAccount;
     const data = encodeData(type, {
@@ -14280,12 +14418,11 @@ class SystemProgram {
       data
     });
   }
+
   /**
    * Generate a transaction instruction that authorizes a new PublicKey as the authority
    * on a Nonce account.
    */
-
-
   static nonceAuthorize(params) {
     const type = SYSTEM_INSTRUCTION_LAYOUTS.AuthorizeNonceAccount;
     const data = encodeData(type, {
@@ -14305,15 +14442,13 @@ class SystemProgram {
       data
     });
   }
+
   /**
    * Generate a transaction instruction that allocates space in an account without funding
    */
-
-
   static allocate(params) {
     let data;
     let keys;
-
     if ('basePubkey' in params) {
       const type = SYSTEM_INSTRUCTION_LAYOUTS.AllocateWithSeed;
       data = encodeData(type, {
@@ -14342,14 +14477,12 @@ class SystemProgram {
         isWritable: true
       }];
     }
-
     return new TransactionInstruction({
       keys,
       programId: this.programId,
       data
     });
   }
-
 }
 SystemProgram.programId = new PublicKey('11111111111111111111111111111111');
 
@@ -14359,19 +14492,19 @@ SystemProgram.programId = new PublicKey('11111111111111111111111111111111');
 // TODO: replace 300 with a proper constant for the size of the other
 // Transaction fields
 const CHUNK_SIZE = PACKET_DATA_SIZE - 300;
+
 /**
  * Program loader interface
  */
-
 class Loader {
   /**
    * @internal
    */
   constructor() {}
+
   /**
    * Amount of program data placed in each load Transaction
    */
-
 
   /**
    * Minimum number of signatures required to load a program not including
@@ -14380,11 +14513,14 @@ class Loader {
    * Can be used to calculate transaction fees
    */
   static getMinNumSignatures(dataLength) {
-    return 2 * ( // Every transaction requires two signatures (payer + program)
-    Math.ceil(dataLength / Loader.chunkSize) + 1 + // Add one for Create transaction
+    return 2 * (
+    // Every transaction requires two signatures (payer + program)
+    Math.ceil(dataLength / Loader.chunkSize) + 1 +
+    // Add one for Create transaction
     1) // Add one for Finalize transaction
     ;
   }
+
   /**
    * Loads a generic program
    *
@@ -14395,21 +14531,18 @@ class Loader {
    * @param data Program octets
    * @return true if program was loaded successfully, false if program was already loaded
    */
-
-
   static async load(connection, payer, program, programId, data) {
     {
-      const balanceNeeded = await connection.getMinimumBalanceForRentExemption(data.length); // Fetch program account info to check if it has already been created
+      const balanceNeeded = await connection.getMinimumBalanceForRentExemption(data.length);
 
+      // Fetch program account info to check if it has already been created
       const programInfo = await connection.getAccountInfo(program.publicKey, 'confirmed');
       let transaction = null;
-
       if (programInfo !== null) {
         if (programInfo.executable) {
           console.error('Program load failed, account is already executable');
           return false;
         }
-
         if (programInfo.data.length !== data.length) {
           transaction = transaction || new Transaction();
           transaction.add(SystemProgram.allocate({
@@ -14417,7 +14550,6 @@ class Loader {
             space: data.length
           }));
         }
-
         if (!programInfo.owner.equals(programId)) {
           transaction = transaction || new Transaction();
           transaction.add(SystemProgram.assign({
@@ -14425,7 +14557,6 @@ class Loader {
             programId
           }));
         }
-
         if (programInfo.lamports < balanceNeeded) {
           transaction = transaction || new Transaction();
           transaction.add(SystemProgram.transfer({
@@ -14442,10 +14573,10 @@ class Loader {
           space: data.length,
           programId
         }));
-      } // If the account is already created correctly, skip this step
+      }
+
+      // If the account is already created correctly, skip this step
       // and proceed directly to loading instructions
-
-
       if (transaction !== null) {
         await sendAndConfirmTransaction(connection, transaction, [payer, program], {
           commitment: 'confirmed'
@@ -14457,7 +14588,6 @@ class Loader {
     let offset = 0;
     let array = data;
     let transactions = [];
-
     while (array.length > 0) {
       const bytes = array.slice(0, chunkSize);
       const data = buffer.Buffer.alloc(chunkSize + 16);
@@ -14480,25 +14610,24 @@ class Loader {
       });
       transactions.push(sendAndConfirmTransaction(connection, transaction, [payer, program], {
         commitment: 'confirmed'
-      })); // Delay between sends in an attempt to reduce rate limit errors
+      }));
 
+      // Delay between sends in an attempt to reduce rate limit errors
       if (connection._rpcEndpoint.includes('solana.com')) {
         const REQUESTS_PER_SECOND = 4;
         await sleep(1000 / REQUESTS_PER_SECOND);
       }
-
       offset += chunkSize;
       array = array.slice(chunkSize);
     }
+    await Promise.all(transactions);
 
-    await Promise.all(transactions); // Finalize the account loaded with program data for execution
-
+    // Finalize the account loaded with program data for execution
     {
       const dataLayout = BufferLayout__namespace.struct([BufferLayout__namespace.u32('instruction')]);
       const data = buffer.Buffer.alloc(dataLayout.span);
       dataLayout.encode({
         instruction: 1 // Finalize instruction
-
       }, data);
       const transaction = new Transaction().add({
         keys: [{
@@ -14516,19 +14645,19 @@ class Loader {
       await sendAndConfirmTransaction(connection, transaction, [payer, program], {
         commitment: 'confirmed'
       });
-    } // success
+    }
 
+    // success
     return true;
   }
-
 }
 Loader.chunkSize = CHUNK_SIZE;
 
 const BPF_LOADER_PROGRAM_ID = new PublicKey('BPFLoader2111111111111111111111111111111111');
+
 /**
  * Factory class for transactions to interact with a program loader
  */
-
 class BpfLoader {
   /**
    * Minimum number of signatures required to load a program not including
@@ -14539,23 +14668,2505 @@ class BpfLoader {
   static getMinNumSignatures(dataLength) {
     return Loader.getMinNumSignatures(dataLength);
   }
+
   /**
-   * Load a BPF program
+   * Load a SBF program
    *
    * @param connection The connection to use
    * @param payer Account that will pay program loading fees
    * @param program Account to load the program into
-   * @param elf The entire ELF containing the BPF program
+   * @param elf The entire ELF containing the SBF program
    * @param loaderProgramId The program id of the BPF loader to use
    * @return true if program was loaded successfully, false if program was already loaded
    */
-
-
   static load(connection, payer, program, elf, loaderProgramId) {
     return Loader.load(connection, payer, program, loaderProgramId, elf);
   }
-
 }
+
+function getDefaultExportFromCjs (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+var agentkeepaliveExports = {};
+var agentkeepalive = {
+  get exports(){ return agentkeepaliveExports; },
+  set exports(v){ agentkeepaliveExports = v; },
+};
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var w = d * 7;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+var ms$3 = function (val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isFinite(val)) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (msAbs >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (msAbs >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (msAbs >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
+}
+
+/*!
+ * humanize-ms - index.js
+ * Copyright(c) 2014 dead_horse <dead_horse@qq.com>
+ * MIT Licensed
+ */
+
+/**
+ * Module dependencies.
+ */
+
+var util = require$$0__default["default"];
+var ms$2 = ms$3;
+
+var humanizeMs = function (t) {
+  if (typeof t === 'number') return t;
+  var r = ms$2(t);
+  if (r === undefined) {
+    var err = new Error(util.format('humanize-ms(%j) result undefined', t));
+    console.warn(err.stack);
+  }
+  return r;
+};
+
+var srcExports = {};
+var src = {
+  get exports(){ return srcExports; },
+  set exports(v){ srcExports = v; },
+};
+
+var browserExports = {};
+var browser$1 = {
+  get exports(){ return browserExports; },
+  set exports(v){ browserExports = v; },
+};
+
+/**
+ * Helpers.
+ */
+
+var ms$1;
+var hasRequiredMs;
+
+function requireMs () {
+	if (hasRequiredMs) return ms$1;
+	hasRequiredMs = 1;
+	var s = 1000;
+	var m = s * 60;
+	var h = m * 60;
+	var d = h * 24;
+	var w = d * 7;
+	var y = d * 365.25;
+
+	/**
+	 * Parse or format the given `val`.
+	 *
+	 * Options:
+	 *
+	 *  - `long` verbose formatting [false]
+	 *
+	 * @param {String|Number} val
+	 * @param {Object} [options]
+	 * @throws {Error} throw an error if val is not a non-empty string or a number
+	 * @return {String|Number}
+	 * @api public
+	 */
+
+	ms$1 = function(val, options) {
+	  options = options || {};
+	  var type = typeof val;
+	  if (type === 'string' && val.length > 0) {
+	    return parse(val);
+	  } else if (type === 'number' && isFinite(val)) {
+	    return options.long ? fmtLong(val) : fmtShort(val);
+	  }
+	  throw new Error(
+	    'val is not a non-empty string or a valid number. val=' +
+	      JSON.stringify(val)
+	  );
+	};
+
+	/**
+	 * Parse the given `str` and return milliseconds.
+	 *
+	 * @param {String} str
+	 * @return {Number}
+	 * @api private
+	 */
+
+	function parse(str) {
+	  str = String(str);
+	  if (str.length > 100) {
+	    return;
+	  }
+	  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+	    str
+	  );
+	  if (!match) {
+	    return;
+	  }
+	  var n = parseFloat(match[1]);
+	  var type = (match[2] || 'ms').toLowerCase();
+	  switch (type) {
+	    case 'years':
+	    case 'year':
+	    case 'yrs':
+	    case 'yr':
+	    case 'y':
+	      return n * y;
+	    case 'weeks':
+	    case 'week':
+	    case 'w':
+	      return n * w;
+	    case 'days':
+	    case 'day':
+	    case 'd':
+	      return n * d;
+	    case 'hours':
+	    case 'hour':
+	    case 'hrs':
+	    case 'hr':
+	    case 'h':
+	      return n * h;
+	    case 'minutes':
+	    case 'minute':
+	    case 'mins':
+	    case 'min':
+	    case 'm':
+	      return n * m;
+	    case 'seconds':
+	    case 'second':
+	    case 'secs':
+	    case 'sec':
+	    case 's':
+	      return n * s;
+	    case 'milliseconds':
+	    case 'millisecond':
+	    case 'msecs':
+	    case 'msec':
+	    case 'ms':
+	      return n;
+	    default:
+	      return undefined;
+	  }
+	}
+
+	/**
+	 * Short format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function fmtShort(ms) {
+	  var msAbs = Math.abs(ms);
+	  if (msAbs >= d) {
+	    return Math.round(ms / d) + 'd';
+	  }
+	  if (msAbs >= h) {
+	    return Math.round(ms / h) + 'h';
+	  }
+	  if (msAbs >= m) {
+	    return Math.round(ms / m) + 'm';
+	  }
+	  if (msAbs >= s) {
+	    return Math.round(ms / s) + 's';
+	  }
+	  return ms + 'ms';
+	}
+
+	/**
+	 * Long format for `ms`.
+	 *
+	 * @param {Number} ms
+	 * @return {String}
+	 * @api private
+	 */
+
+	function fmtLong(ms) {
+	  var msAbs = Math.abs(ms);
+	  if (msAbs >= d) {
+	    return plural(ms, msAbs, d, 'day');
+	  }
+	  if (msAbs >= h) {
+	    return plural(ms, msAbs, h, 'hour');
+	  }
+	  if (msAbs >= m) {
+	    return plural(ms, msAbs, m, 'minute');
+	  }
+	  if (msAbs >= s) {
+	    return plural(ms, msAbs, s, 'second');
+	  }
+	  return ms + ' ms';
+	}
+
+	/**
+	 * Pluralization helper.
+	 */
+
+	function plural(ms, msAbs, n, name) {
+	  var isPlural = msAbs >= n * 1.5;
+	  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
+	}
+	return ms$1;
+}
+
+var common;
+var hasRequiredCommon;
+
+function requireCommon () {
+	if (hasRequiredCommon) return common;
+	hasRequiredCommon = 1;
+	/**
+	 * This is the common logic for both the Node.js and web browser
+	 * implementations of `debug()`.
+	 */
+
+	function setup(env) {
+		createDebug.debug = createDebug;
+		createDebug.default = createDebug;
+		createDebug.coerce = coerce;
+		createDebug.disable = disable;
+		createDebug.enable = enable;
+		createDebug.enabled = enabled;
+		createDebug.humanize = requireMs();
+		createDebug.destroy = destroy;
+
+		Object.keys(env).forEach(key => {
+			createDebug[key] = env[key];
+		});
+
+		/**
+		* The currently active debug mode names, and names to skip.
+		*/
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		/**
+		* Map of special "%n" handling functions, for the debug "format" argument.
+		*
+		* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+		*/
+		createDebug.formatters = {};
+
+		/**
+		* Selects a color for a debug namespace
+		* @param {String} namespace The namespace string for the debug instance to be colored
+		* @return {Number|String} An ANSI color code for the given namespace
+		* @api private
+		*/
+		function selectColor(namespace) {
+			let hash = 0;
+
+			for (let i = 0; i < namespace.length; i++) {
+				hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+				hash |= 0; // Convert to 32bit integer
+			}
+
+			return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+		}
+		createDebug.selectColor = selectColor;
+
+		/**
+		* Create a debugger with the given `namespace`.
+		*
+		* @param {String} namespace
+		* @return {Function}
+		* @api public
+		*/
+		function createDebug(namespace) {
+			let prevTime;
+			let enableOverride = null;
+			let namespacesCache;
+			let enabledCache;
+
+			function debug(...args) {
+				// Disabled?
+				if (!debug.enabled) {
+					return;
+				}
+
+				const self = debug;
+
+				// Set `diff` timestamp
+				const curr = Number(new Date());
+				const ms = curr - (prevTime || curr);
+				self.diff = ms;
+				self.prev = prevTime;
+				self.curr = curr;
+				prevTime = curr;
+
+				args[0] = createDebug.coerce(args[0]);
+
+				if (typeof args[0] !== 'string') {
+					// Anything else let's inspect with %O
+					args.unshift('%O');
+				}
+
+				// Apply any `formatters` transformations
+				let index = 0;
+				args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+					// If we encounter an escaped % then don't increase the array index
+					if (match === '%%') {
+						return '%';
+					}
+					index++;
+					const formatter = createDebug.formatters[format];
+					if (typeof formatter === 'function') {
+						const val = args[index];
+						match = formatter.call(self, val);
+
+						// Now we need to remove `args[index]` since it's inlined in the `format`
+						args.splice(index, 1);
+						index--;
+					}
+					return match;
+				});
+
+				// Apply env-specific formatting (colors, etc.)
+				createDebug.formatArgs.call(self, args);
+
+				const logFn = self.log || createDebug.log;
+				logFn.apply(self, args);
+			}
+
+			debug.namespace = namespace;
+			debug.useColors = createDebug.useColors();
+			debug.color = createDebug.selectColor(namespace);
+			debug.extend = extend;
+			debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
+
+			Object.defineProperty(debug, 'enabled', {
+				enumerable: true,
+				configurable: false,
+				get: () => {
+					if (enableOverride !== null) {
+						return enableOverride;
+					}
+					if (namespacesCache !== createDebug.namespaces) {
+						namespacesCache = createDebug.namespaces;
+						enabledCache = createDebug.enabled(namespace);
+					}
+
+					return enabledCache;
+				},
+				set: v => {
+					enableOverride = v;
+				}
+			});
+
+			// Env-specific initialization logic for debug instances
+			if (typeof createDebug.init === 'function') {
+				createDebug.init(debug);
+			}
+
+			return debug;
+		}
+
+		function extend(namespace, delimiter) {
+			const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+			newDebug.log = this.log;
+			return newDebug;
+		}
+
+		/**
+		* Enables a debug mode by namespaces. This can include modes
+		* separated by a colon and wildcards.
+		*
+		* @param {String} namespaces
+		* @api public
+		*/
+		function enable(namespaces) {
+			createDebug.save(namespaces);
+			createDebug.namespaces = namespaces;
+
+			createDebug.names = [];
+			createDebug.skips = [];
+
+			let i;
+			const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+			const len = split.length;
+
+			for (i = 0; i < len; i++) {
+				if (!split[i]) {
+					// ignore empty strings
+					continue;
+				}
+
+				namespaces = split[i].replace(/\*/g, '.*?');
+
+				if (namespaces[0] === '-') {
+					createDebug.skips.push(new RegExp('^' + namespaces.slice(1) + '$'));
+				} else {
+					createDebug.names.push(new RegExp('^' + namespaces + '$'));
+				}
+			}
+		}
+
+		/**
+		* Disable debug output.
+		*
+		* @return {String} namespaces
+		* @api public
+		*/
+		function disable() {
+			const namespaces = [
+				...createDebug.names.map(toNamespace),
+				...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+			].join(',');
+			createDebug.enable('');
+			return namespaces;
+		}
+
+		/**
+		* Returns true if the given mode name is enabled, false otherwise.
+		*
+		* @param {String} name
+		* @return {Boolean}
+		* @api public
+		*/
+		function enabled(name) {
+			if (name[name.length - 1] === '*') {
+				return true;
+			}
+
+			let i;
+			let len;
+
+			for (i = 0, len = createDebug.skips.length; i < len; i++) {
+				if (createDebug.skips[i].test(name)) {
+					return false;
+				}
+			}
+
+			for (i = 0, len = createDebug.names.length; i < len; i++) {
+				if (createDebug.names[i].test(name)) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		/**
+		* Convert regexp to namespace
+		*
+		* @param {RegExp} regxep
+		* @return {String} namespace
+		* @api private
+		*/
+		function toNamespace(regexp) {
+			return regexp.toString()
+				.substring(2, regexp.toString().length - 2)
+				.replace(/\.\*\?$/, '*');
+		}
+
+		/**
+		* Coerce `val`.
+		*
+		* @param {Mixed} val
+		* @return {Mixed}
+		* @api private
+		*/
+		function coerce(val) {
+			if (val instanceof Error) {
+				return val.stack || val.message;
+			}
+			return val;
+		}
+
+		/**
+		* XXX DO NOT USE. This is a temporary stub function.
+		* XXX It WILL be removed in the next major release.
+		*/
+		function destroy() {
+			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+		}
+
+		createDebug.enable(createDebug.load());
+
+		return createDebug;
+	}
+
+	common = setup;
+	return common;
+}
+
+/* eslint-env browser */
+
+var hasRequiredBrowser$1;
+
+function requireBrowser$1 () {
+	if (hasRequiredBrowser$1) return browserExports;
+	hasRequiredBrowser$1 = 1;
+	(function (module, exports) {
+		/**
+		 * This is the web browser implementation of `debug()`.
+		 */
+
+		exports.formatArgs = formatArgs;
+		exports.save = save;
+		exports.load = load;
+		exports.useColors = useColors;
+		exports.storage = localstorage();
+		exports.destroy = (() => {
+			let warned = false;
+
+			return () => {
+				if (!warned) {
+					warned = true;
+					console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+				}
+			};
+		})();
+
+		/**
+		 * Colors.
+		 */
+
+		exports.colors = [
+			'#0000CC',
+			'#0000FF',
+			'#0033CC',
+			'#0033FF',
+			'#0066CC',
+			'#0066FF',
+			'#0099CC',
+			'#0099FF',
+			'#00CC00',
+			'#00CC33',
+			'#00CC66',
+			'#00CC99',
+			'#00CCCC',
+			'#00CCFF',
+			'#3300CC',
+			'#3300FF',
+			'#3333CC',
+			'#3333FF',
+			'#3366CC',
+			'#3366FF',
+			'#3399CC',
+			'#3399FF',
+			'#33CC00',
+			'#33CC33',
+			'#33CC66',
+			'#33CC99',
+			'#33CCCC',
+			'#33CCFF',
+			'#6600CC',
+			'#6600FF',
+			'#6633CC',
+			'#6633FF',
+			'#66CC00',
+			'#66CC33',
+			'#9900CC',
+			'#9900FF',
+			'#9933CC',
+			'#9933FF',
+			'#99CC00',
+			'#99CC33',
+			'#CC0000',
+			'#CC0033',
+			'#CC0066',
+			'#CC0099',
+			'#CC00CC',
+			'#CC00FF',
+			'#CC3300',
+			'#CC3333',
+			'#CC3366',
+			'#CC3399',
+			'#CC33CC',
+			'#CC33FF',
+			'#CC6600',
+			'#CC6633',
+			'#CC9900',
+			'#CC9933',
+			'#CCCC00',
+			'#CCCC33',
+			'#FF0000',
+			'#FF0033',
+			'#FF0066',
+			'#FF0099',
+			'#FF00CC',
+			'#FF00FF',
+			'#FF3300',
+			'#FF3333',
+			'#FF3366',
+			'#FF3399',
+			'#FF33CC',
+			'#FF33FF',
+			'#FF6600',
+			'#FF6633',
+			'#FF9900',
+			'#FF9933',
+			'#FFCC00',
+			'#FFCC33'
+		];
+
+		/**
+		 * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+		 * and the Firebug extension (any Firefox version) are known
+		 * to support "%c" CSS customizations.
+		 *
+		 * TODO: add a `localStorage` variable to explicitly enable/disable colors
+		 */
+
+		// eslint-disable-next-line complexity
+		function useColors() {
+			// NB: In an Electron preload script, document will be defined but not fully
+			// initialized. Since we know we're in Chrome, we'll just detect this case
+			// explicitly
+			if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+				return true;
+			}
+
+			// Internet Explorer and Edge do not support colors.
+			if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+				return false;
+			}
+
+			// Is webkit? http://stackoverflow.com/a/16459606/376773
+			// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+			return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+				// Is firebug? http://stackoverflow.com/a/398120/376773
+				(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+				// Is firefox >= v31?
+				// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+				(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+				// Double check webkit in userAgent just in case we are in a worker
+				(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+		}
+
+		/**
+		 * Colorize log arguments if enabled.
+		 *
+		 * @api public
+		 */
+
+		function formatArgs(args) {
+			args[0] = (this.useColors ? '%c' : '') +
+				this.namespace +
+				(this.useColors ? ' %c' : ' ') +
+				args[0] +
+				(this.useColors ? '%c ' : ' ') +
+				'+' + module.exports.humanize(this.diff);
+
+			if (!this.useColors) {
+				return;
+			}
+
+			const c = 'color: ' + this.color;
+			args.splice(1, 0, c, 'color: inherit');
+
+			// The final "%c" is somewhat tricky, because there could be other
+			// arguments passed either before or after the %c, so we need to
+			// figure out the correct index to insert the CSS into
+			let index = 0;
+			let lastC = 0;
+			args[0].replace(/%[a-zA-Z%]/g, match => {
+				if (match === '%%') {
+					return;
+				}
+				index++;
+				if (match === '%c') {
+					// We only are interested in the *last* %c
+					// (the user may have provided their own)
+					lastC = index;
+				}
+			});
+
+			args.splice(lastC, 0, c);
+		}
+
+		/**
+		 * Invokes `console.debug()` when available.
+		 * No-op when `console.debug` is not a "function".
+		 * If `console.debug` is not available, falls back
+		 * to `console.log`.
+		 *
+		 * @api public
+		 */
+		exports.log = console.debug || console.log || (() => {});
+
+		/**
+		 * Save `namespaces`.
+		 *
+		 * @param {String} namespaces
+		 * @api private
+		 */
+		function save(namespaces) {
+			try {
+				if (namespaces) {
+					exports.storage.setItem('debug', namespaces);
+				} else {
+					exports.storage.removeItem('debug');
+				}
+			} catch (error) {
+				// Swallow
+				// XXX (@Qix-) should we be logging these?
+			}
+		}
+
+		/**
+		 * Load `namespaces`.
+		 *
+		 * @return {String} returns the previously persisted debug modes
+		 * @api private
+		 */
+		function load() {
+			let r;
+			try {
+				r = exports.storage.getItem('debug');
+			} catch (error) {
+				// Swallow
+				// XXX (@Qix-) should we be logging these?
+			}
+
+			// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+			if (!r && typeof process !== 'undefined' && 'env' in process) {
+				r = process.env.DEBUG;
+			}
+
+			return r;
+		}
+
+		/**
+		 * Localstorage attempts to return the localstorage.
+		 *
+		 * This is necessary because safari throws
+		 * when a user disables cookies/localstorage
+		 * and you attempt to access it.
+		 *
+		 * @return {LocalStorage}
+		 * @api private
+		 */
+
+		function localstorage() {
+			try {
+				// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+				// The Browser also has localStorage in the global context.
+				return localStorage;
+			} catch (error) {
+				// Swallow
+				// XXX (@Qix-) should we be logging these?
+			}
+		}
+
+		module.exports = requireCommon()(exports);
+
+		const {formatters} = module.exports;
+
+		/**
+		 * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+		 */
+
+		formatters.j = function (v) {
+			try {
+				return JSON.stringify(v);
+			} catch (error) {
+				return '[UnexpectedJSONParseError]: ' + error.message;
+			}
+		};
+} (browser$1, browserExports));
+	return browserExports;
+}
+
+var nodeExports = {};
+var node = {
+  get exports(){ return nodeExports; },
+  set exports(v){ nodeExports = v; },
+};
+
+/* eslint-env browser */
+
+var browser;
+var hasRequiredBrowser;
+
+function requireBrowser () {
+	if (hasRequiredBrowser) return browser;
+	hasRequiredBrowser = 1;
+
+	function getChromeVersion() {
+		const matches = /(Chrome|Chromium)\/(?<chromeVersion>\d+)\./.exec(navigator.userAgent);
+
+		if (!matches) {
+			return;
+		}
+
+		return Number.parseInt(matches.groups.chromeVersion, 10);
+	}
+
+	const colorSupport = getChromeVersion() >= 69 ? {
+		level: 1,
+		hasBasic: true,
+		has256: false,
+		has16m: false
+	} : false;
+
+	browser = {
+		stdout: colorSupport,
+		stderr: colorSupport
+	};
+	return browser;
+}
+
+/**
+ * Module dependencies.
+ */
+
+var hasRequiredNode;
+
+function requireNode () {
+	if (hasRequiredNode) return nodeExports;
+	hasRequiredNode = 1;
+	(function (module, exports) {
+		const tty = require$$0__default$1["default"];
+		const util = require$$0__default["default"];
+
+		/**
+		 * This is the Node.js implementation of `debug()`.
+		 */
+
+		exports.init = init;
+		exports.log = log;
+		exports.formatArgs = formatArgs;
+		exports.save = save;
+		exports.load = load;
+		exports.useColors = useColors;
+		exports.destroy = util.deprecate(
+			() => {},
+			'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.'
+		);
+
+		/**
+		 * Colors.
+		 */
+
+		exports.colors = [6, 2, 3, 4, 5, 1];
+
+		try {
+			// Optional dependency (as in, doesn't need to be installed, NOT like optionalDependencies in package.json)
+			// eslint-disable-next-line import/no-extraneous-dependencies
+			const supportsColor = requireBrowser();
+
+			if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
+				exports.colors = [
+					20,
+					21,
+					26,
+					27,
+					32,
+					33,
+					38,
+					39,
+					40,
+					41,
+					42,
+					43,
+					44,
+					45,
+					56,
+					57,
+					62,
+					63,
+					68,
+					69,
+					74,
+					75,
+					76,
+					77,
+					78,
+					79,
+					80,
+					81,
+					92,
+					93,
+					98,
+					99,
+					112,
+					113,
+					128,
+					129,
+					134,
+					135,
+					148,
+					149,
+					160,
+					161,
+					162,
+					163,
+					164,
+					165,
+					166,
+					167,
+					168,
+					169,
+					170,
+					171,
+					172,
+					173,
+					178,
+					179,
+					184,
+					185,
+					196,
+					197,
+					198,
+					199,
+					200,
+					201,
+					202,
+					203,
+					204,
+					205,
+					206,
+					207,
+					208,
+					209,
+					214,
+					215,
+					220,
+					221
+				];
+			}
+		} catch (error) {
+			// Swallow - we only care if `supports-color` is available; it doesn't have to be.
+		}
+
+		/**
+		 * Build up the default `inspectOpts` object from the environment variables.
+		 *
+		 *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
+		 */
+
+		exports.inspectOpts = Object.keys(process.env).filter(key => {
+			return /^debug_/i.test(key);
+		}).reduce((obj, key) => {
+			// Camel-case
+			const prop = key
+				.substring(6)
+				.toLowerCase()
+				.replace(/_([a-z])/g, (_, k) => {
+					return k.toUpperCase();
+				});
+
+			// Coerce string value into JS value
+			let val = process.env[key];
+			if (/^(yes|on|true|enabled)$/i.test(val)) {
+				val = true;
+			} else if (/^(no|off|false|disabled)$/i.test(val)) {
+				val = false;
+			} else if (val === 'null') {
+				val = null;
+			} else {
+				val = Number(val);
+			}
+
+			obj[prop] = val;
+			return obj;
+		}, {});
+
+		/**
+		 * Is stdout a TTY? Colored output is enabled when `true`.
+		 */
+
+		function useColors() {
+			return 'colors' in exports.inspectOpts ?
+				Boolean(exports.inspectOpts.colors) :
+				tty.isatty(process.stderr.fd);
+		}
+
+		/**
+		 * Adds ANSI color escape codes if enabled.
+		 *
+		 * @api public
+		 */
+
+		function formatArgs(args) {
+			const {namespace: name, useColors} = this;
+
+			if (useColors) {
+				const c = this.color;
+				const colorCode = '\u001B[3' + (c < 8 ? c : '8;5;' + c);
+				const prefix = `  ${colorCode};1m${name} \u001B[0m`;
+
+				args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+				args.push(colorCode + 'm+' + module.exports.humanize(this.diff) + '\u001B[0m');
+			} else {
+				args[0] = getDate() + name + ' ' + args[0];
+			}
+		}
+
+		function getDate() {
+			if (exports.inspectOpts.hideDate) {
+				return '';
+			}
+			return new Date().toISOString() + ' ';
+		}
+
+		/**
+		 * Invokes `util.format()` with the specified arguments and writes to stderr.
+		 */
+
+		function log(...args) {
+			return process.stderr.write(util.format(...args) + '\n');
+		}
+
+		/**
+		 * Save `namespaces`.
+		 *
+		 * @param {String} namespaces
+		 * @api private
+		 */
+		function save(namespaces) {
+			if (namespaces) {
+				process.env.DEBUG = namespaces;
+			} else {
+				// If you set a process.env field to null or undefined, it gets cast to the
+				// string 'null' or 'undefined'. Just delete instead.
+				delete process.env.DEBUG;
+			}
+		}
+
+		/**
+		 * Load `namespaces`.
+		 *
+		 * @return {String} returns the previously persisted debug modes
+		 * @api private
+		 */
+
+		function load() {
+			return process.env.DEBUG;
+		}
+
+		/**
+		 * Init logic for `debug` instances.
+		 *
+		 * Create a new `inspectOpts` object in case `useColors` is set
+		 * differently for a particular `debug` instance.
+		 */
+
+		function init(debug) {
+			debug.inspectOpts = {};
+
+			const keys = Object.keys(exports.inspectOpts);
+			for (let i = 0; i < keys.length; i++) {
+				debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
+			}
+		}
+
+		module.exports = requireCommon()(exports);
+
+		const {formatters} = module.exports;
+
+		/**
+		 * Map %o to `util.inspect()`, all on a single line.
+		 */
+
+		formatters.o = function (v) {
+			this.inspectOpts.colors = this.useColors;
+			return util.inspect(v, this.inspectOpts)
+				.split('\n')
+				.map(str => str.trim())
+				.join(' ');
+		};
+
+		/**
+		 * Map %O to `util.inspect()`, allowing multiple lines if needed.
+		 */
+
+		formatters.O = function (v) {
+			this.inspectOpts.colors = this.useColors;
+			return util.inspect(v, this.inspectOpts);
+		};
+} (node, nodeExports));
+	return nodeExports;
+}
+
+/**
+ * Detect Electron renderer / nwjs process, which is node, but we should
+ * treat as a browser.
+ */
+
+(function (module) {
+	if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
+		module.exports = requireBrowser$1();
+	} else {
+		module.exports = requireNode();
+	}
+} (src));
+
+var compatExports = {};
+var compat = {
+  get exports(){ return compatExports; },
+  set exports(v){ compatExports = v; },
+};
+
+/*!
+ * depd
+ * Copyright(c) 2014 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+var callsiteTostring;
+var hasRequiredCallsiteTostring;
+
+function requireCallsiteTostring () {
+	if (hasRequiredCallsiteTostring) return callsiteTostring;
+	hasRequiredCallsiteTostring = 1;
+
+	/**
+	 * Module exports.
+	 */
+
+	callsiteTostring = callSiteToString;
+
+	/**
+	 * Format a CallSite file location to a string.
+	 */
+
+	function callSiteFileLocation (callSite) {
+	  var fileName;
+	  var fileLocation = '';
+
+	  if (callSite.isNative()) {
+	    fileLocation = 'native';
+	  } else if (callSite.isEval()) {
+	    fileName = callSite.getScriptNameOrSourceURL();
+	    if (!fileName) {
+	      fileLocation = callSite.getEvalOrigin();
+	    }
+	  } else {
+	    fileName = callSite.getFileName();
+	  }
+
+	  if (fileName) {
+	    fileLocation += fileName;
+
+	    var lineNumber = callSite.getLineNumber();
+	    if (lineNumber != null) {
+	      fileLocation += ':' + lineNumber;
+
+	      var columnNumber = callSite.getColumnNumber();
+	      if (columnNumber) {
+	        fileLocation += ':' + columnNumber;
+	      }
+	    }
+	  }
+
+	  return fileLocation || 'unknown source'
+	}
+
+	/**
+	 * Format a CallSite to a string.
+	 */
+
+	function callSiteToString (callSite) {
+	  var addSuffix = true;
+	  var fileLocation = callSiteFileLocation(callSite);
+	  var functionName = callSite.getFunctionName();
+	  var isConstructor = callSite.isConstructor();
+	  var isMethodCall = !(callSite.isToplevel() || isConstructor);
+	  var line = '';
+
+	  if (isMethodCall) {
+	    var methodName = callSite.getMethodName();
+	    var typeName = getConstructorName(callSite);
+
+	    if (functionName) {
+	      if (typeName && functionName.indexOf(typeName) !== 0) {
+	        line += typeName + '.';
+	      }
+
+	      line += functionName;
+
+	      if (methodName && functionName.lastIndexOf('.' + methodName) !== functionName.length - methodName.length - 1) {
+	        line += ' [as ' + methodName + ']';
+	      }
+	    } else {
+	      line += typeName + '.' + (methodName || '<anonymous>');
+	    }
+	  } else if (isConstructor) {
+	    line += 'new ' + (functionName || '<anonymous>');
+	  } else if (functionName) {
+	    line += functionName;
+	  } else {
+	    addSuffix = false;
+	    line += fileLocation;
+	  }
+
+	  if (addSuffix) {
+	    line += ' (' + fileLocation + ')';
+	  }
+
+	  return line
+	}
+
+	/**
+	 * Get constructor name of reviver.
+	 */
+
+	function getConstructorName (obj) {
+	  var receiver = obj.receiver;
+	  return (receiver.constructor && receiver.constructor.name) || null
+	}
+	return callsiteTostring;
+}
+
+/*!
+ * depd
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+var eventListenerCount_1;
+var hasRequiredEventListenerCount;
+
+function requireEventListenerCount () {
+	if (hasRequiredEventListenerCount) return eventListenerCount_1;
+	hasRequiredEventListenerCount = 1;
+
+	/**
+	 * Module exports.
+	 * @public
+	 */
+
+	eventListenerCount_1 = eventListenerCount;
+
+	/**
+	 * Get the count of listeners on an event emitter of a specific type.
+	 */
+
+	function eventListenerCount (emitter, type) {
+	  return emitter.listeners(type).length
+	}
+	return eventListenerCount_1;
+}
+
+/*!
+ * depd
+ * Copyright(c) 2014-2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+(function (module) {
+
+	/**
+	 * Module dependencies.
+	 * @private
+	 */
+
+	var EventEmitter = require$$0__default$2["default"].EventEmitter;
+
+	/**
+	 * Module exports.
+	 * @public
+	 */
+
+	lazyProperty(module.exports, 'callSiteToString', function callSiteToString () {
+	  var limit = Error.stackTraceLimit;
+	  var obj = {};
+	  var prep = Error.prepareStackTrace;
+
+	  function prepareObjectStackTrace (obj, stack) {
+	    return stack
+	  }
+
+	  Error.prepareStackTrace = prepareObjectStackTrace;
+	  Error.stackTraceLimit = 2;
+
+	  // capture the stack
+	  Error.captureStackTrace(obj);
+
+	  // slice the stack
+	  var stack = obj.stack.slice();
+
+	  Error.prepareStackTrace = prep;
+	  Error.stackTraceLimit = limit;
+
+	  return stack[0].toString ? toString : requireCallsiteTostring()
+	});
+
+	lazyProperty(module.exports, 'eventListenerCount', function eventListenerCount () {
+	  return EventEmitter.listenerCount || requireEventListenerCount()
+	});
+
+	/**
+	 * Define a lazy property.
+	 */
+
+	function lazyProperty (obj, prop, getter) {
+	  function get () {
+	    var val = getter();
+
+	    Object.defineProperty(obj, prop, {
+	      configurable: true,
+	      enumerable: true,
+	      value: val
+	    });
+
+	    return val
+	  }
+
+	  Object.defineProperty(obj, prop, {
+	    configurable: true,
+	    enumerable: true,
+	    get: get
+	  });
+	}
+
+	/**
+	 * Call toString() on the obj
+	 */
+
+	function toString (obj) {
+	  return obj.toString()
+	}
+} (compat));
+
+/*!
+ * depd
+ * Copyright(c) 2014-2017 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/**
+ * Module dependencies.
+ */
+
+var callSiteToString = compatExports.callSiteToString;
+var eventListenerCount = compatExports.eventListenerCount;
+var relative = require$$1__default["default"].relative;
+
+/**
+ * Module exports.
+ */
+
+var depd_1 = depd;
+
+/**
+ * Get the path to base files on.
+ */
+
+var basePath = process.cwd();
+
+/**
+ * Determine if namespace is contained in the string.
+ */
+
+function containsNamespace (str, namespace) {
+  var vals = str.split(/[ ,]+/);
+  var ns = String(namespace).toLowerCase();
+
+  for (var i = 0; i < vals.length; i++) {
+    var val = vals[i];
+
+    // namespace contained
+    if (val && (val === '*' || val.toLowerCase() === ns)) {
+      return true
+    }
+  }
+
+  return false
+}
+
+/**
+ * Convert a data descriptor to accessor descriptor.
+ */
+
+function convertDataDescriptorToAccessor (obj, prop, message) {
+  var descriptor = Object.getOwnPropertyDescriptor(obj, prop);
+  var value = descriptor.value;
+
+  descriptor.get = function getter () { return value };
+
+  if (descriptor.writable) {
+    descriptor.set = function setter (val) { return (value = val) };
+  }
+
+  delete descriptor.value;
+  delete descriptor.writable;
+
+  Object.defineProperty(obj, prop, descriptor);
+
+  return descriptor
+}
+
+/**
+ * Create arguments string to keep arity.
+ */
+
+function createArgumentsString (arity) {
+  var str = '';
+
+  for (var i = 0; i < arity; i++) {
+    str += ', arg' + i;
+  }
+
+  return str.substr(2)
+}
+
+/**
+ * Create stack string from stack.
+ */
+
+function createStackString (stack) {
+  var str = this.name + ': ' + this.namespace;
+
+  if (this.message) {
+    str += ' deprecated ' + this.message;
+  }
+
+  for (var i = 0; i < stack.length; i++) {
+    str += '\n    at ' + callSiteToString(stack[i]);
+  }
+
+  return str
+}
+
+/**
+ * Create deprecate for namespace in caller.
+ */
+
+function depd (namespace) {
+  if (!namespace) {
+    throw new TypeError('argument namespace is required')
+  }
+
+  var stack = getStack();
+  var site = callSiteLocation(stack[1]);
+  var file = site[0];
+
+  function deprecate (message) {
+    // call to self as log
+    log.call(deprecate, message);
+  }
+
+  deprecate._file = file;
+  deprecate._ignored = isignored(namespace);
+  deprecate._namespace = namespace;
+  deprecate._traced = istraced(namespace);
+  deprecate._warned = Object.create(null);
+
+  deprecate.function = wrapfunction;
+  deprecate.property = wrapproperty;
+
+  return deprecate
+}
+
+/**
+ * Determine if namespace is ignored.
+ */
+
+function isignored (namespace) {
+  /* istanbul ignore next: tested in a child processs */
+  if (process.noDeprecation) {
+    // --no-deprecation support
+    return true
+  }
+
+  var str = process.env.NO_DEPRECATION || '';
+
+  // namespace ignored
+  return containsNamespace(str, namespace)
+}
+
+/**
+ * Determine if namespace is traced.
+ */
+
+function istraced (namespace) {
+  /* istanbul ignore next: tested in a child processs */
+  if (process.traceDeprecation) {
+    // --trace-deprecation support
+    return true
+  }
+
+  var str = process.env.TRACE_DEPRECATION || '';
+
+  // namespace traced
+  return containsNamespace(str, namespace)
+}
+
+/**
+ * Display deprecation message.
+ */
+
+function log (message, site) {
+  var haslisteners = eventListenerCount(process, 'deprecation') !== 0;
+
+  // abort early if no destination
+  if (!haslisteners && this._ignored) {
+    return
+  }
+
+  var caller;
+  var callFile;
+  var callSite;
+  var depSite;
+  var i = 0;
+  var seen = false;
+  var stack = getStack();
+  var file = this._file;
+
+  if (site) {
+    // provided site
+    depSite = site;
+    callSite = callSiteLocation(stack[1]);
+    callSite.name = depSite.name;
+    file = callSite[0];
+  } else {
+    // get call site
+    i = 2;
+    depSite = callSiteLocation(stack[i]);
+    callSite = depSite;
+  }
+
+  // get caller of deprecated thing in relation to file
+  for (; i < stack.length; i++) {
+    caller = callSiteLocation(stack[i]);
+    callFile = caller[0];
+
+    if (callFile === file) {
+      seen = true;
+    } else if (callFile === this._file) {
+      file = this._file;
+    } else if (seen) {
+      break
+    }
+  }
+
+  var key = caller
+    ? depSite.join(':') + '__' + caller.join(':')
+    : undefined;
+
+  if (key !== undefined && key in this._warned) {
+    // already warned
+    return
+  }
+
+  this._warned[key] = true;
+
+  // generate automatic message from call site
+  var msg = message;
+  if (!msg) {
+    msg = callSite === depSite || !callSite.name
+      ? defaultMessage(depSite)
+      : defaultMessage(callSite);
+  }
+
+  // emit deprecation if listeners exist
+  if (haslisteners) {
+    var err = DeprecationError(this._namespace, msg, stack.slice(i));
+    process.emit('deprecation', err);
+    return
+  }
+
+  // format and write message
+  var format = process.stderr.isTTY
+    ? formatColor
+    : formatPlain;
+  var output = format.call(this, msg, caller, stack.slice(i));
+  process.stderr.write(output + '\n', 'utf8');
+}
+
+/**
+ * Get call site location as array.
+ */
+
+function callSiteLocation (callSite) {
+  var file = callSite.getFileName() || '<anonymous>';
+  var line = callSite.getLineNumber();
+  var colm = callSite.getColumnNumber();
+
+  if (callSite.isEval()) {
+    file = callSite.getEvalOrigin() + ', ' + file;
+  }
+
+  var site = [file, line, colm];
+
+  site.callSite = callSite;
+  site.name = callSite.getFunctionName();
+
+  return site
+}
+
+/**
+ * Generate a default message from the site.
+ */
+
+function defaultMessage (site) {
+  var callSite = site.callSite;
+  var funcName = site.name;
+
+  // make useful anonymous name
+  if (!funcName) {
+    funcName = '<anonymous@' + formatLocation(site) + '>';
+  }
+
+  var context = callSite.getThis();
+  var typeName = context && callSite.getTypeName();
+
+  // ignore useless type name
+  if (typeName === 'Object') {
+    typeName = undefined;
+  }
+
+  // make useful type name
+  if (typeName === 'Function') {
+    typeName = context.name || typeName;
+  }
+
+  return typeName && callSite.getMethodName()
+    ? typeName + '.' + funcName
+    : funcName
+}
+
+/**
+ * Format deprecation message without color.
+ */
+
+function formatPlain (msg, caller, stack) {
+  var timestamp = new Date().toUTCString();
+
+  var formatted = timestamp +
+    ' ' + this._namespace +
+    ' deprecated ' + msg;
+
+  // add stack trace
+  if (this._traced) {
+    for (var i = 0; i < stack.length; i++) {
+      formatted += '\n    at ' + callSiteToString(stack[i]);
+    }
+
+    return formatted
+  }
+
+  if (caller) {
+    formatted += ' at ' + formatLocation(caller);
+  }
+
+  return formatted
+}
+
+/**
+ * Format deprecation message with color.
+ */
+
+function formatColor (msg, caller, stack) {
+  var formatted = '\x1b[36;1m' + this._namespace + '\x1b[22;39m' + // bold cyan
+    ' \x1b[33;1mdeprecated\x1b[22;39m' + // bold yellow
+    ' \x1b[0m' + msg + '\x1b[39m'; // reset
+
+  // add stack trace
+  if (this._traced) {
+    for (var i = 0; i < stack.length; i++) {
+      formatted += '\n    \x1b[36mat ' + callSiteToString(stack[i]) + '\x1b[39m'; // cyan
+    }
+
+    return formatted
+  }
+
+  if (caller) {
+    formatted += ' \x1b[36m' + formatLocation(caller) + '\x1b[39m'; // cyan
+  }
+
+  return formatted
+}
+
+/**
+ * Format call site location.
+ */
+
+function formatLocation (callSite) {
+  return relative(basePath, callSite[0]) +
+    ':' + callSite[1] +
+    ':' + callSite[2]
+}
+
+/**
+ * Get the stack as array of call sites.
+ */
+
+function getStack () {
+  var limit = Error.stackTraceLimit;
+  var obj = {};
+  var prep = Error.prepareStackTrace;
+
+  Error.prepareStackTrace = prepareObjectStackTrace;
+  Error.stackTraceLimit = Math.max(10, limit);
+
+  // capture the stack
+  Error.captureStackTrace(obj);
+
+  // slice this function off the top
+  var stack = obj.stack.slice(1);
+
+  Error.prepareStackTrace = prep;
+  Error.stackTraceLimit = limit;
+
+  return stack
+}
+
+/**
+ * Capture call site stack from v8.
+ */
+
+function prepareObjectStackTrace (obj, stack) {
+  return stack
+}
+
+/**
+ * Return a wrapped function in a deprecation message.
+ */
+
+function wrapfunction (fn, message) {
+  if (typeof fn !== 'function') {
+    throw new TypeError('argument fn must be a function')
+  }
+
+  var args = createArgumentsString(fn.length);
+  var stack = getStack();
+  var site = callSiteLocation(stack[1]);
+
+  site.name = fn.name;
+
+   // eslint-disable-next-line no-eval
+  var deprecatedfn = eval('(function (' + args + ') {\n' +
+    '"use strict"\n' +
+    'log.call(deprecate, message, site)\n' +
+    'return fn.apply(this, arguments)\n' +
+    '})');
+
+  return deprecatedfn
+}
+
+/**
+ * Wrap property in a deprecation message.
+ */
+
+function wrapproperty (obj, prop, message) {
+  if (!obj || (typeof obj !== 'object' && typeof obj !== 'function')) {
+    throw new TypeError('argument obj must be object')
+  }
+
+  var descriptor = Object.getOwnPropertyDescriptor(obj, prop);
+
+  if (!descriptor) {
+    throw new TypeError('must call property on owner object')
+  }
+
+  if (!descriptor.configurable) {
+    throw new TypeError('property must be configurable')
+  }
+
+  var deprecate = this;
+  var stack = getStack();
+  var site = callSiteLocation(stack[1]);
+
+  // set site name
+  site.name = prop;
+
+  // convert data descriptor
+  if ('value' in descriptor) {
+    descriptor = convertDataDescriptorToAccessor(obj, prop);
+  }
+
+  var get = descriptor.get;
+  var set = descriptor.set;
+
+  // wrap getter
+  if (typeof get === 'function') {
+    descriptor.get = function getter () {
+      log.call(deprecate, message, site);
+      return get.apply(this, arguments)
+    };
+  }
+
+  // wrap setter
+  if (typeof set === 'function') {
+    descriptor.set = function setter () {
+      log.call(deprecate, message, site);
+      return set.apply(this, arguments)
+    };
+  }
+
+  Object.defineProperty(obj, prop, descriptor);
+}
+
+/**
+ * Create DeprecationError for deprecation
+ */
+
+function DeprecationError (namespace, message, stack) {
+  var error = new Error();
+  var stackString;
+
+  Object.defineProperty(error, 'constructor', {
+    value: DeprecationError
+  });
+
+  Object.defineProperty(error, 'message', {
+    configurable: true,
+    enumerable: false,
+    value: message,
+    writable: true
+  });
+
+  Object.defineProperty(error, 'name', {
+    enumerable: false,
+    configurable: true,
+    value: 'DeprecationError',
+    writable: true
+  });
+
+  Object.defineProperty(error, 'namespace', {
+    configurable: true,
+    enumerable: false,
+    value: namespace,
+    writable: true
+  });
+
+  Object.defineProperty(error, 'stack', {
+    configurable: true,
+    enumerable: false,
+    get: function () {
+      if (stackString !== undefined) {
+        return stackString
+      }
+
+      // prepare stack trace
+      return (stackString = createStackString.call(this, stack))
+    },
+    set: function setter (val) {
+      stackString = val;
+    }
+  });
+
+  return error
+}
+
+var constants = {
+  // agent
+  CURRENT_ID: Symbol('agentkeepalive#currentId'),
+  CREATE_ID: Symbol('agentkeepalive#createId'),
+  INIT_SOCKET: Symbol('agentkeepalive#initSocket'),
+  CREATE_HTTPS_CONNECTION: Symbol('agentkeepalive#createHttpsConnection'),
+  // socket
+  SOCKET_CREATED_TIME: Symbol('agentkeepalive#socketCreatedTime'),
+  SOCKET_NAME: Symbol('agentkeepalive#socketName'),
+  SOCKET_REQUEST_COUNT: Symbol('agentkeepalive#socketRequestCount'),
+  SOCKET_REQUEST_FINISHED_COUNT: Symbol('agentkeepalive#socketRequestFinishedCount'),
+};
+
+const OriginalAgent = require$$0__default$3["default"].Agent;
+const ms = humanizeMs;
+const debug = srcExports('agentkeepalive');
+const deprecate = depd_1('agentkeepalive');
+const {
+  INIT_SOCKET: INIT_SOCKET$1,
+  CURRENT_ID,
+  CREATE_ID,
+  SOCKET_CREATED_TIME,
+  SOCKET_NAME,
+  SOCKET_REQUEST_COUNT,
+  SOCKET_REQUEST_FINISHED_COUNT,
+} = constants;
+
+// OriginalAgent come from
+// - https://github.com/nodejs/node/blob/v8.12.0/lib/_http_agent.js
+// - https://github.com/nodejs/node/blob/v10.12.0/lib/_http_agent.js
+
+// node <= 10
+let defaultTimeoutListenerCount = 1;
+const majorVersion = parseInt(process.version.split('.', 1)[0].substring(1));
+if (majorVersion >= 11 && majorVersion <= 12) {
+  defaultTimeoutListenerCount = 2;
+} else if (majorVersion >= 13) {
+  defaultTimeoutListenerCount = 3;
+}
+
+class Agent extends OriginalAgent {
+  constructor(options) {
+    options = options || {};
+    options.keepAlive = options.keepAlive !== false;
+    // default is keep-alive and 4s free socket timeout
+    // see https://medium.com/ssense-tech/reduce-networking-errors-in-nodejs-23b4eb9f2d83
+    if (options.freeSocketTimeout === undefined) {
+      options.freeSocketTimeout = 4000;
+    }
+    // Legacy API: keepAliveTimeout should be rename to `freeSocketTimeout`
+    if (options.keepAliveTimeout) {
+      deprecate('options.keepAliveTimeout is deprecated, please use options.freeSocketTimeout instead');
+      options.freeSocketTimeout = options.keepAliveTimeout;
+      delete options.keepAliveTimeout;
+    }
+    // Legacy API: freeSocketKeepAliveTimeout should be rename to `freeSocketTimeout`
+    if (options.freeSocketKeepAliveTimeout) {
+      deprecate('options.freeSocketKeepAliveTimeout is deprecated, please use options.freeSocketTimeout instead');
+      options.freeSocketTimeout = options.freeSocketKeepAliveTimeout;
+      delete options.freeSocketKeepAliveTimeout;
+    }
+
+    // Sets the socket to timeout after timeout milliseconds of inactivity on the socket.
+    // By default is double free socket timeout.
+    if (options.timeout === undefined) {
+      // make sure socket default inactivity timeout >= 8s
+      options.timeout = Math.max(options.freeSocketTimeout * 2, 8000);
+    }
+
+    // support humanize format
+    options.timeout = ms(options.timeout);
+    options.freeSocketTimeout = ms(options.freeSocketTimeout);
+    options.socketActiveTTL = options.socketActiveTTL ? ms(options.socketActiveTTL) : 0;
+
+    super(options);
+
+    this[CURRENT_ID] = 0;
+
+    // create socket success counter
+    this.createSocketCount = 0;
+    this.createSocketCountLastCheck = 0;
+
+    this.createSocketErrorCount = 0;
+    this.createSocketErrorCountLastCheck = 0;
+
+    this.closeSocketCount = 0;
+    this.closeSocketCountLastCheck = 0;
+
+    // socket error event count
+    this.errorSocketCount = 0;
+    this.errorSocketCountLastCheck = 0;
+
+    // request finished counter
+    this.requestCount = 0;
+    this.requestCountLastCheck = 0;
+
+    // including free socket timeout counter
+    this.timeoutSocketCount = 0;
+    this.timeoutSocketCountLastCheck = 0;
+
+    this.on('free', socket => {
+      // https://github.com/nodejs/node/pull/32000
+      // Node.js native agent will check socket timeout eqs agent.options.timeout.
+      // Use the ttl or freeSocketTimeout to overwrite.
+      const timeout = this.calcSocketTimeout(socket);
+      if (timeout > 0 && socket.timeout !== timeout) {
+        socket.setTimeout(timeout);
+      }
+    });
+  }
+
+  get freeSocketKeepAliveTimeout() {
+    deprecate('agent.freeSocketKeepAliveTimeout is deprecated, please use agent.options.freeSocketTimeout instead');
+    return this.options.freeSocketTimeout;
+  }
+
+  get timeout() {
+    deprecate('agent.timeout is deprecated, please use agent.options.timeout instead');
+    return this.options.timeout;
+  }
+
+  get socketActiveTTL() {
+    deprecate('agent.socketActiveTTL is deprecated, please use agent.options.socketActiveTTL instead');
+    return this.options.socketActiveTTL;
+  }
+
+  calcSocketTimeout(socket) {
+    /**
+     * return <= 0: should free socket
+     * return > 0: should update socket timeout
+     * return undefined: not find custom timeout
+     */
+    let freeSocketTimeout = this.options.freeSocketTimeout;
+    const socketActiveTTL = this.options.socketActiveTTL;
+    if (socketActiveTTL) {
+      // check socketActiveTTL
+      const aliveTime = Date.now() - socket[SOCKET_CREATED_TIME];
+      const diff = socketActiveTTL - aliveTime;
+      if (diff <= 0) {
+        return diff;
+      }
+      if (freeSocketTimeout && diff < freeSocketTimeout) {
+        freeSocketTimeout = diff;
+      }
+    }
+    // set freeSocketTimeout
+    if (freeSocketTimeout) {
+      // set free keepalive timer
+      // try to use socket custom freeSocketTimeout first, support headers['keep-alive']
+      // https://github.com/node-modules/urllib/blob/b76053020923f4d99a1c93cf2e16e0c5ba10bacf/lib/urllib.js#L498
+      const customFreeSocketTimeout = socket.freeSocketTimeout || socket.freeSocketKeepAliveTimeout;
+      return customFreeSocketTimeout || freeSocketTimeout;
+    }
+  }
+
+  keepSocketAlive(socket) {
+    const result = super.keepSocketAlive(socket);
+    // should not keepAlive, do nothing
+    if (!result) return result;
+
+    const customTimeout = this.calcSocketTimeout(socket);
+    if (typeof customTimeout === 'undefined') {
+      return true;
+    }
+    if (customTimeout <= 0) {
+      debug('%s(requests: %s, finished: %s) free but need to destroy by TTL, request count %s, diff is %s',
+        socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT], customTimeout);
+      return false;
+    }
+    if (socket.timeout !== customTimeout) {
+      socket.setTimeout(customTimeout);
+    }
+    return true;
+  }
+
+  // only call on addRequest
+  reuseSocket(...args) {
+    // reuseSocket(socket, req)
+    super.reuseSocket(...args);
+    const socket = args[0];
+    const req = args[1];
+    req.reusedSocket = true;
+    const agentTimeout = this.options.timeout;
+    if (getSocketTimeout(socket) !== agentTimeout) {
+      // reset timeout before use
+      socket.setTimeout(agentTimeout);
+      debug('%s reset timeout to %sms', socket[SOCKET_NAME], agentTimeout);
+    }
+    socket[SOCKET_REQUEST_COUNT]++;
+    debug('%s(requests: %s, finished: %s) reuse on addRequest, timeout %sms',
+      socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT],
+      getSocketTimeout(socket));
+  }
+
+  [CREATE_ID]() {
+    const id = this[CURRENT_ID]++;
+    if (this[CURRENT_ID] === Number.MAX_SAFE_INTEGER) this[CURRENT_ID] = 0;
+    return id;
+  }
+
+  [INIT_SOCKET$1](socket, options) {
+    // bugfix here.
+    // https on node 8, 10 won't set agent.options.timeout by default
+    // TODO: need to fix on node itself
+    if (options.timeout) {
+      const timeout = getSocketTimeout(socket);
+      if (!timeout) {
+        socket.setTimeout(options.timeout);
+      }
+    }
+
+    if (this.options.keepAlive) {
+      // Disable Nagle's algorithm: http://blog.caustik.com/2012/04/08/scaling-node-js-to-100k-concurrent-connections/
+      // https://fengmk2.com/benchmark/nagle-algorithm-delayed-ack-mock.html
+      socket.setNoDelay(true);
+    }
+    this.createSocketCount++;
+    if (this.options.socketActiveTTL) {
+      socket[SOCKET_CREATED_TIME] = Date.now();
+    }
+    // don't show the hole '-----BEGIN CERTIFICATE----' key string
+    socket[SOCKET_NAME] = `sock[${this[CREATE_ID]()}#${options._agentKey}]`.split('-----BEGIN', 1)[0];
+    socket[SOCKET_REQUEST_COUNT] = 1;
+    socket[SOCKET_REQUEST_FINISHED_COUNT] = 0;
+    installListeners(this, socket, options);
+  }
+
+  createConnection(options, oncreate) {
+    let called = false;
+    const onNewCreate = (err, socket) => {
+      if (called) return;
+      called = true;
+
+      if (err) {
+        this.createSocketErrorCount++;
+        return oncreate(err);
+      }
+      this[INIT_SOCKET$1](socket, options);
+      oncreate(err, socket);
+    };
+
+    const newSocket = super.createConnection(options, onNewCreate);
+    if (newSocket) onNewCreate(null, newSocket);
+  }
+
+  get statusChanged() {
+    const changed = this.createSocketCount !== this.createSocketCountLastCheck ||
+      this.createSocketErrorCount !== this.createSocketErrorCountLastCheck ||
+      this.closeSocketCount !== this.closeSocketCountLastCheck ||
+      this.errorSocketCount !== this.errorSocketCountLastCheck ||
+      this.timeoutSocketCount !== this.timeoutSocketCountLastCheck ||
+      this.requestCount !== this.requestCountLastCheck;
+    if (changed) {
+      this.createSocketCountLastCheck = this.createSocketCount;
+      this.createSocketErrorCountLastCheck = this.createSocketErrorCount;
+      this.closeSocketCountLastCheck = this.closeSocketCount;
+      this.errorSocketCountLastCheck = this.errorSocketCount;
+      this.timeoutSocketCountLastCheck = this.timeoutSocketCount;
+      this.requestCountLastCheck = this.requestCount;
+    }
+    return changed;
+  }
+
+  getCurrentStatus() {
+    return {
+      createSocketCount: this.createSocketCount,
+      createSocketErrorCount: this.createSocketErrorCount,
+      closeSocketCount: this.closeSocketCount,
+      errorSocketCount: this.errorSocketCount,
+      timeoutSocketCount: this.timeoutSocketCount,
+      requestCount: this.requestCount,
+      freeSockets: inspect(this.freeSockets),
+      sockets: inspect(this.sockets),
+      requests: inspect(this.requests),
+    };
+  }
+}
+
+// node 8 don't has timeout attribute on socket
+// https://github.com/nodejs/node/pull/21204/files#diff-e6ef024c3775d787c38487a6309e491dR408
+function getSocketTimeout(socket) {
+  return socket.timeout || socket._idleTimeout;
+}
+
+function installListeners(agent, socket, options) {
+  debug('%s create, timeout %sms', socket[SOCKET_NAME], getSocketTimeout(socket));
+
+  // listener socket events: close, timeout, error, free
+  function onFree() {
+    // create and socket.emit('free') logic
+    // https://github.com/nodejs/node/blob/master/lib/_http_agent.js#L311
+    // no req on the socket, it should be the new socket
+    if (!socket._httpMessage && socket[SOCKET_REQUEST_COUNT] === 1) return;
+
+    socket[SOCKET_REQUEST_FINISHED_COUNT]++;
+    agent.requestCount++;
+    debug('%s(requests: %s, finished: %s) free',
+      socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT]);
+
+    // should reuse on pedding requests?
+    const name = agent.getName(options);
+    if (socket.writable && agent.requests[name] && agent.requests[name].length) {
+      // will be reuse on agent free listener
+      socket[SOCKET_REQUEST_COUNT]++;
+      debug('%s(requests: %s, finished: %s) will be reuse on agent free event',
+        socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT]);
+    }
+  }
+  socket.on('free', onFree);
+
+  function onClose(isError) {
+    debug('%s(requests: %s, finished: %s) close, isError: %s',
+      socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT], isError);
+    agent.closeSocketCount++;
+  }
+  socket.on('close', onClose);
+
+  // start socket timeout handler
+  function onTimeout() {
+    // onTimeout and emitRequestTimeout(_http_client.js)
+    // https://github.com/nodejs/node/blob/v12.x/lib/_http_client.js#L711
+    const listenerCount = socket.listeners('timeout').length;
+    // node <= 10, default listenerCount is 1, onTimeout
+    // 11 < node <= 12, default listenerCount is 2, onTimeout and emitRequestTimeout
+    // node >= 13, default listenerCount is 3, onTimeout,
+    //   onTimeout(https://github.com/nodejs/node/pull/32000/files#diff-5f7fb0850412c6be189faeddea6c5359R333)
+    //   and emitRequestTimeout
+    const timeout = getSocketTimeout(socket);
+    const req = socket._httpMessage;
+    const reqTimeoutListenerCount = req && req.listeners('timeout').length || 0;
+    debug('%s(requests: %s, finished: %s) timeout after %sms, listeners %s, defaultTimeoutListenerCount %s, hasHttpRequest %s, HttpRequest timeoutListenerCount %s',
+      socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT],
+      timeout, listenerCount, defaultTimeoutListenerCount, !!req, reqTimeoutListenerCount);
+    if (debug.enabled) {
+      debug('timeout listeners: %s', socket.listeners('timeout').map(f => f.name).join(', '));
+    }
+    agent.timeoutSocketCount++;
+    const name = agent.getName(options);
+    if (agent.freeSockets[name] && agent.freeSockets[name].indexOf(socket) !== -1) {
+      // free socket timeout, destroy quietly
+      socket.destroy();
+      // Remove it from freeSockets list immediately to prevent new requests
+      // from being sent through this socket.
+      agent.removeSocket(socket, options);
+      debug('%s is free, destroy quietly', socket[SOCKET_NAME]);
+    } else {
+      // if there is no any request socket timeout handler,
+      // agent need to handle socket timeout itself.
+      //
+      // custom request socket timeout handle logic must follow these rules:
+      //  1. Destroy socket first
+      //  2. Must emit socket 'agentRemove' event tell agent remove socket
+      //     from freeSockets list immediately.
+      //     Otherise you may be get 'socket hang up' error when reuse
+      //     free socket and timeout happen in the same time.
+      if (reqTimeoutListenerCount === 0) {
+        const error = new Error('Socket timeout');
+        error.code = 'ERR_SOCKET_TIMEOUT';
+        error.timeout = timeout;
+        // must manually call socket.end() or socket.destroy() to end the connection.
+        // https://nodejs.org/dist/latest-v10.x/docs/api/net.html#net_socket_settimeout_timeout_callback
+        socket.destroy(error);
+        agent.removeSocket(socket, options);
+        debug('%s destroy with timeout error', socket[SOCKET_NAME]);
+      }
+    }
+  }
+  socket.on('timeout', onTimeout);
+
+  function onError(err) {
+    const listenerCount = socket.listeners('error').length;
+    debug('%s(requests: %s, finished: %s) error: %s, listenerCount: %s',
+      socket[SOCKET_NAME], socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT],
+      err, listenerCount);
+    agent.errorSocketCount++;
+    if (listenerCount === 1) {
+      // if socket don't contain error event handler, don't catch it, emit it again
+      debug('%s emit uncaught error event', socket[SOCKET_NAME]);
+      socket.removeListener('error', onError);
+      socket.emit('error', err);
+    }
+  }
+  socket.on('error', onError);
+
+  function onRemove() {
+    debug('%s(requests: %s, finished: %s) agentRemove',
+      socket[SOCKET_NAME],
+      socket[SOCKET_REQUEST_COUNT], socket[SOCKET_REQUEST_FINISHED_COUNT]);
+    // We need this function for cases like HTTP 'upgrade'
+    // (defined by WebSockets) where we need to remove a socket from the
+    // pool because it'll be locked up indefinitely
+    socket.removeListener('close', onClose);
+    socket.removeListener('error', onError);
+    socket.removeListener('free', onFree);
+    socket.removeListener('timeout', onTimeout);
+    socket.removeListener('agentRemove', onRemove);
+  }
+  socket.on('agentRemove', onRemove);
+}
+
+var agent = Agent;
+
+function inspect(obj) {
+  const res = {};
+  for (const key in obj) {
+    res[key] = obj[key].length;
+  }
+  return res;
+}
+
+const OriginalHttpsAgent = require$$0__default$4["default"].Agent;
+const HttpAgent = agent;
+const {
+  INIT_SOCKET,
+  CREATE_HTTPS_CONNECTION,
+} = constants;
+
+class HttpsAgent extends HttpAgent {
+  constructor(options) {
+    super(options);
+
+    this.defaultPort = 443;
+    this.protocol = 'https:';
+    this.maxCachedSessions = this.options.maxCachedSessions;
+    /* istanbul ignore next */
+    if (this.maxCachedSessions === undefined) {
+      this.maxCachedSessions = 100;
+    }
+
+    this._sessionCache = {
+      map: {},
+      list: [],
+    };
+  }
+
+  createConnection(options) {
+    const socket = this[CREATE_HTTPS_CONNECTION](options);
+    this[INIT_SOCKET](socket, options);
+    return socket;
+  }
+}
+
+// https://github.com/nodejs/node/blob/master/lib/https.js#L89
+HttpsAgent.prototype[CREATE_HTTPS_CONNECTION] = OriginalHttpsAgent.prototype.createConnection;
+
+[
+  'getName',
+  '_getSession',
+  '_cacheSession',
+  // https://github.com/nodejs/node/pull/4982
+  '_evictSession',
+].forEach(function(method) {
+  /* istanbul ignore next */
+  if (typeof OriginalHttpsAgent.prototype[method] === 'function') {
+    HttpsAgent.prototype[method] = OriginalHttpsAgent.prototype[method];
+  }
+});
+
+var https_agent = HttpsAgent;
+
+(function (module) {
+
+	module.exports = agent;
+	module.exports.HttpsAgent = https_agent;
+	module.exports.constants = constants;
+} (agentkeepalive));
+
+var HttpKeepAliveAgent = /*@__PURE__*/getDefaultExportFromCjs(agentkeepaliveExports);
 
 var objToString = Object.prototype.toString;
 var objKeys = Object.keys || function(obj) {
@@ -14633,69 +17244,19 @@ var fastStableStringify = function(val) {
 
 var fastStableStringify$1 = fastStableStringify;
 
-const DESTROY_TIMEOUT_MS = 5000;
-class AgentManager {
-  static _newAgent(useHttps) {
-    const options = {
-      keepAlive: true,
-      maxSockets: 25
-    };
+const MINIMUM_SLOT_PER_EPOCH = 32;
 
-    if (useHttps) {
-      return new https__default["default"].Agent(options);
-    } else {
-      return new http__default["default"].Agent(options);
-    }
-  }
-
-  constructor(useHttps) {
-    this._agent = void 0;
-    this._activeRequests = 0;
-    this._destroyTimeout = null;
-    this._useHttps = void 0;
-    this._useHttps = useHttps === true;
-    this._agent = AgentManager._newAgent(this._useHttps);
-  }
-
-  requestStart() {
-    this._activeRequests++;
-
-    if (this._destroyTimeout !== null) {
-      clearTimeout(this._destroyTimeout);
-      this._destroyTimeout = null;
-    }
-
-    return this._agent;
-  }
-
-  requestEnd() {
-    this._activeRequests--;
-
-    if (this._activeRequests === 0 && this._destroyTimeout === null) {
-      this._destroyTimeout = setTimeout(() => {
-        this._agent.destroy();
-
-        this._agent = AgentManager._newAgent(this._useHttps);
-      }, DESTROY_TIMEOUT_MS);
-    }
-  }
-
-}
-
-const MINIMUM_SLOT_PER_EPOCH = 32; // Returns the number of trailing zeros in the binary representation of self.
-
+// Returns the number of trailing zeros in the binary representation of self.
 function trailingZeros(n) {
   let trailingZeros = 0;
-
   while (n > 1) {
     n /= 2;
     trailingZeros++;
   }
-
   return trailingZeros;
-} // Returns the smallest power of two greater than or equal to n
+}
 
-
+// Returns the smallest power of two greater than or equal to n
 function nextPowerOfTwo(n) {
   if (n === 0) return 1;
   n--;
@@ -14707,13 +17268,12 @@ function nextPowerOfTwo(n) {
   n |= n >> 32;
   return n + 1;
 }
+
 /**
  * Epoch schedule
  * (see https://docs.solana.com/terminology#epoch)
- * Can be retrieved with the {@link connection.getEpochSchedule} method
+ * Can be retrieved with the {@link Connection.getEpochSchedule} method
  */
-
-
 class EpochSchedule {
   /** The maximum number of slots in each epoch */
 
@@ -14724,6 +17284,7 @@ class EpochSchedule {
   /** The first epoch with `slotsPerEpoch` slots */
 
   /** The first slot of `firstNormalEpoch` */
+
   constructor(slotsPerEpoch, leaderScheduleSlotOffset, warmup, firstNormalEpoch, firstNormalSlot) {
     this.slotsPerEpoch = void 0;
     this.leaderScheduleSlotOffset = void 0;
@@ -14736,11 +17297,9 @@ class EpochSchedule {
     this.firstNormalEpoch = firstNormalEpoch;
     this.firstNormalSlot = firstNormalSlot;
   }
-
   getEpoch(slot) {
     return this.getEpochAndSlotIndex(slot)[0];
   }
-
   getEpochAndSlotIndex(slot) {
     if (slot < this.firstNormalSlot) {
       const epoch = trailingZeros(nextPowerOfTwo(slot + MINIMUM_SLOT_PER_EPOCH + 1)) - trailingZeros(MINIMUM_SLOT_PER_EPOCH) - 1;
@@ -14755,7 +17314,6 @@ class EpochSchedule {
       return [epoch, slotIndex];
     }
   }
-
   getFirstSlotInEpoch(epoch) {
     if (epoch <= this.firstNormalEpoch) {
       return (Math.pow(2, epoch) - 1) * MINIMUM_SLOT_PER_EPOCH;
@@ -14763,11 +17321,9 @@ class EpochSchedule {
       return (epoch - this.firstNormalEpoch) * this.slotsPerEpoch + this.firstNormalSlot;
     }
   }
-
   getLastSlotInEpoch(epoch) {
     return this.getFirstSlotInEpoch(epoch) + this.getSlotsInEpoch(epoch) - 1;
   }
-
   getSlotsInEpoch(epoch) {
     if (epoch < this.firstNormalEpoch) {
       return Math.pow(2, epoch + trailingZeros(MINIMUM_SLOT_PER_EPOCH));
@@ -14775,7 +17331,6 @@ class EpochSchedule {
       return this.slotsPerEpoch;
     }
   }
-
 }
 
 class SendTransactionError extends Error {
@@ -14784,10 +17339,10 @@ class SendTransactionError extends Error {
     this.logs = void 0;
     this.logs = logs;
   }
+}
 
-} // Keep in sync with client/src/rpc_custom_errors.rs
+// Keep in sync with client/src/rpc_custom_errors.rs
 // Typescript `enums` thwart tree-shaking. See https://bargsten.org/jsts/enums/
-
 const SolanaJSONRPCErrorCode = {
   JSON_RPC_SERVER_ERROR_BLOCK_CLEANED_UP: -32001,
   JSON_RPC_SERVER_ERROR_SEND_TRANSACTION_PREFLIGHT_FAILURE: -32002,
@@ -14819,12 +17374,47 @@ class SolanaJSONRPCError extends Error {
     this.data = data;
     this.name = 'SolanaJSONRPCError';
   }
-
 }
 
 async function fetchImpl (input, init) {
   const processedInput = typeof input === 'string' && input.slice(0, 2) === '//' ? 'https:' + input : input;
   return await nodeFetch__namespace.default(processedInput, init);
+}
+
+class RpcWebSocketClient extends RpcWebSocketCommonClient__default["default"] {
+  constructor(address, options, generate_request_id) {
+    const webSocketFactory = url => {
+      const rpc = WebsocketFactory__default["default"](url, {
+        autoconnect: true,
+        max_reconnects: 5,
+        reconnect: true,
+        reconnect_interval: 1000,
+        ...options
+      });
+      if ('socket' in rpc) {
+        this.underlyingSocket = rpc.socket;
+      } else {
+        this.underlyingSocket = rpc;
+      }
+      return rpc;
+    };
+    super(webSocketFactory, address, options, generate_request_id);
+    this.underlyingSocket = void 0;
+  }
+  call(...args) {
+    const readyState = this.underlyingSocket?.readyState;
+    if (readyState === 1 /* WebSocket.OPEN */) {
+      return super.call(...args);
+    }
+    return Promise.reject(new Error('Tried to call a JSON-RPC method `' + args[0] + '` but the socket was not `CONNECTING` or `OPEN` (`readyState` was ' + readyState + ')'));
+  }
+  notify(...args) {
+    const readyState = this.underlyingSocket?.readyState;
+    if (readyState === 1 /* WebSocket.OPEN */) {
+      return super.notify(...args);
+    }
+    return Promise.reject(new Error('Tried to send a JSON-RPC notification `' + args[0] + '` but the socket was not `CONNECTING` or `OPEN` (`readyState` was ' + readyState + ')'));
+  }
 }
 
 // TODO: These constants should be removed in favor of reading them out of a
@@ -14834,20 +17424,20 @@ async function fetchImpl (input, init) {
  * @internal
  */
 const NUM_TICKS_PER_SECOND = 160;
+
 /**
  * @internal
  */
-
 const DEFAULT_TICKS_PER_SLOT = 64;
+
 /**
  * @internal
  */
-
 const NUM_SLOTS_PER_SECOND = NUM_TICKS_PER_SECOND / DEFAULT_TICKS_PER_SLOT;
+
 /**
  * @internal
  */
-
 const MS_PER_SLOT = 1000 / NUM_SLOTS_PER_SECOND;
 
 /**
@@ -14860,17 +17450,14 @@ const MS_PER_SLOT = 1000 / NUM_SLOTS_PER_SECOND;
  */
 function decodeData(type, data) {
   let decoded;
-
   try {
     decoded = type.layout.decode(data);
   } catch (err) {
     throw new Error('invalid instruction; ' + err);
   }
-
   if (decoded.typeIndex !== type.index) {
     throw new Error(`invalid account data; account type mismatch ${decoded.typeIndex} != ${type.index}`);
   }
-
   return decoded;
 }
 
@@ -14883,12 +17470,10 @@ class AddressLookupTableAccount {
     this.key = args.key;
     this.state = args.state;
   }
-
   isActive() {
     const U64_MAX = BigInt('0xffffffffffffffff');
     return this.state.deactivationSlot === U64_MAX;
   }
-
   static deserialize(accountData) {
     const meta = decodeData(LookupTableMetaLayout, accountData);
     const serializedAddressesLen = accountData.length - LOOKUP_TABLE_META_SIZE;
@@ -14906,27 +17491,27 @@ class AddressLookupTableAccount {
       addresses: addresses.map(address => new PublicKey(address))
     };
   }
-
 }
 const LookupTableMetaLayout = {
   index: 1,
-  layout: BufferLayout__namespace.struct([BufferLayout__namespace.u32('typeIndex'), u64('deactivationSlot'), BufferLayout__namespace.nu64('lastExtendedSlot'), BufferLayout__namespace.u8('lastExtendedStartIndex'), BufferLayout__namespace.u8(), // option
+  layout: BufferLayout__namespace.struct([BufferLayout__namespace.u32('typeIndex'), u64('deactivationSlot'), BufferLayout__namespace.nu64('lastExtendedSlot'), BufferLayout__namespace.u8('lastExtendedStartIndex'), BufferLayout__namespace.u8(),
+  // option
   BufferLayout__namespace.seq(publicKey(), BufferLayout__namespace.offset(BufferLayout__namespace.u8(), -1), 'authority')])
 };
 
 const URL_RE = /^[^:]+:\/\/([^:[]+|\[[^\]]+\])(:\d+)?(.*)/i;
 function makeWebsocketUrl(endpoint) {
   const matches = endpoint.match(URL_RE);
-
   if (matches == null) {
     throw TypeError(`Failed to validate endpoint URL \`${endpoint}\``);
   }
-
-  const [_, // eslint-disable-line @typescript-eslint/no-unused-vars
+  const [_,
+  // eslint-disable-line @typescript-eslint/no-unused-vars
   hostish, portWithColon, rest] = matches;
   const protocol = endpoint.startsWith('https:') ? 'wss:' : 'ws:';
   const startPort = portWithColon == null ? null : parseInt(portWithColon.slice(1), 10);
-  const websocketPort = // Only shift the port by +1 as a convention for ws(s) only if given endpoint
+  const websocketPort =
+  // Only shift the port by +1 as a convention for ws(s) only if given endpoint
   // is explictly specifying the endpoint port (HTTP-based RPC), assuming
   // we're directly trying to connect to solana-validator's ws listening port.
   // When the endpoint omits the port, we're connecting to the protocol
@@ -14936,16 +17521,16 @@ function makeWebsocketUrl(endpoint) {
   return `${protocol}//${hostish}${websocketPort}${rest}`;
 }
 
-var _process$env$npm_pack;
 const PublicKeyFromString = superstruct.coerce(superstruct.instance(PublicKey), superstruct.string(), value => new PublicKey(value));
 const RawAccountDataResult = superstruct.tuple([superstruct.string(), superstruct.literal('base64')]);
 const BufferFromRawAccountData = superstruct.coerce(superstruct.instance(buffer.Buffer), RawAccountDataResult, value => buffer.Buffer.from(value[0], 'base64'));
+
 /**
  * Attempt to use a recent blockhash for up to 30 seconds
  * @internal
  */
-
 const BLOCKHASH_CACHE_TIMEOUT_MS = 30 * 1000;
+
 /**
  * HACK.
  * Copied from rpc-websockets/dist/lib/client.
@@ -14958,16 +17543,13 @@ function assertEndpointUrl(putativeUrl) {
   if (/^https?:/.test(putativeUrl) === false) {
     throw new TypeError('Endpoint URL must start with `http:` or `https:`.');
   }
-
   return putativeUrl;
 }
+
 /** @internal */
-
-
 function extractCommitmentFromConfig(commitmentOrConfig) {
   let commitment;
   let config;
-
   if (typeof commitmentOrConfig === 'string') {
     commitment = commitmentOrConfig;
   } else if (commitmentOrConfig) {
@@ -14978,17 +17560,15 @@ function extractCommitmentFromConfig(commitmentOrConfig) {
     commitment = specifiedCommitment;
     config = specifiedConfig;
   }
-
   return {
     commitment,
     config
   };
 }
+
 /**
  * @internal
  */
-
-
 function createRpcResult(result) {
   return superstruct.union([superstruct.type({
     jsonrpc: superstruct.literal('2.0'),
@@ -15004,28 +17584,27 @@ function createRpcResult(result) {
     })
   })]);
 }
-
 const UnknownRpcResult = createRpcResult(superstruct.unknown());
+
 /**
  * @internal
  */
-
 function jsonRpcResult(schema) {
   return superstruct.coerce(createRpcResult(schema), UnknownRpcResult, value => {
     if ('error' in value) {
       return value;
     } else {
-      return { ...value,
+      return {
+        ...value,
         result: superstruct.create(value.result, schema)
       };
     }
   });
 }
+
 /**
  * @internal
  */
-
-
 function jsonRpcResultAndContext(value) {
   return jsonRpcResult(superstruct.type({
     context: superstruct.type({
@@ -15034,11 +17613,10 @@ function jsonRpcResultAndContext(value) {
     value
   }));
 }
+
 /**
  * @internal
  */
-
-
 function notificationResultAndContext(value) {
   return superstruct.type({
     context: superstruct.type({
@@ -15047,11 +17625,10 @@ function notificationResultAndContext(value) {
     value
   });
 }
+
 /**
  * @internal
  */
-
-
 function versionedMessageFromResponse(version, response) {
   if (version === 0) {
     return new MessageV0({
@@ -15069,6 +17646,7 @@ function versionedMessageFromResponse(version, response) {
     return new Message(response);
   }
 }
+
 /**
  * The level of commitment desired when querying state
  * <pre>
@@ -15078,7 +17656,6 @@ function versionedMessageFromResponse(version, response) {
  * </pre>
  */
 
-
 const GetInflationGovernorResult = superstruct.type({
   foundation: superstruct.number(),
   foundationTerm: superstruct.number(),
@@ -15086,6 +17663,7 @@ const GetInflationGovernorResult = superstruct.type({
   taper: superstruct.number(),
   terminal: superstruct.number()
 });
+
 /**
  * The inflation reward for an epoch
  */
@@ -15097,8 +17675,26 @@ const GetInflationRewardResult = jsonRpcResult(superstruct.array(superstruct.nul
   epoch: superstruct.number(),
   effectiveSlot: superstruct.number(),
   amount: superstruct.number(),
-  postBalance: superstruct.number()
+  postBalance: superstruct.number(),
+  commission: superstruct.optional(superstruct.nullable(superstruct.number()))
 }))));
+/**
+ * Expected JSON RPC response for the "getRecentPrioritizationFees" message
+ */
+const GetRecentPrioritizationFeesResult = superstruct.array(superstruct.type({
+  slot: superstruct.number(),
+  prioritizationFee: superstruct.number()
+}));
+/**
+ * Expected JSON RPC response for the "getInflationRate" message
+ */
+const GetInflationRateResult = superstruct.type({
+  total: superstruct.number(),
+  validator: superstruct.number(),
+  foundation: superstruct.number(),
+  epoch: superstruct.number()
+});
+
 /**
  * Information about the current epoch
  */
@@ -15118,29 +17714,31 @@ const GetEpochScheduleResult = superstruct.type({
   firstNormalEpoch: superstruct.number(),
   firstNormalSlot: superstruct.number()
 });
+
 /**
  * Leader schedule
  * (see https://docs.solana.com/terminology#leader-schedule)
  */
 
 const GetLeaderScheduleResult = superstruct.record(superstruct.string(), superstruct.array(superstruct.number()));
+
 /**
  * Transaction error or null
  */
-
 const TransactionErrorResult = superstruct.nullable(superstruct.union([superstruct.type({}), superstruct.string()]));
+
 /**
  * Signature status for a transaction
  */
-
 const SignatureStatusResult = superstruct.type({
   err: TransactionErrorResult
 });
+
 /**
  * Transaction signature received notification
  */
-
 const SignatureReceivedResult = superstruct.literal('receivedSignature');
+
 /**
  * Version info for a node
  */
@@ -15165,7 +17763,6 @@ const SimulatedTransactionResponseStruct = jsonRpcResultAndContext(superstruct.t
     data: superstruct.tuple([superstruct.string(), superstruct.literal('base64')])
   })))
 }));
-
 /**
  * Expected JSON RPC response for the "getBlockProduction" message
  */
@@ -15176,22 +17773,43 @@ const BlockProductionResponseStruct = jsonRpcResultAndContext(superstruct.type({
     lastSlot: superstruct.number()
   })
 }));
+
 /**
  * A performance sample
  */
 
-function createRpcClient(url, httpHeaders, customFetch, fetchMiddleware, disableRetryOnRateLimit) {
+function createRpcClient(url, httpHeaders, customFetch, fetchMiddleware, disableRetryOnRateLimit, httpAgent) {
   const fetch = customFetch ? customFetch : fetchImpl;
-  let agentManager;
-
+  let agent;
   {
-    agentManager = new AgentManager(url.startsWith('https:')
-    /* useHttps */
-    );
+    if (httpAgent == null) {
+      {
+        const agentOptions = {
+          // One second fewer than the Solana RPC's keepalive timeout.
+          // Read more: https://github.com/solana-labs/solana/issues/27859#issuecomment-1340097889
+          freeSocketTimeout: 19000,
+          keepAlive: true,
+          maxSockets: 25
+        };
+        if (url.startsWith('https:')) {
+          agent = new agentkeepaliveExports.HttpsAgent(agentOptions);
+        } else {
+          agent = new HttpKeepAliveAgent(agentOptions);
+        }
+      }
+    } else {
+      if (httpAgent !== false) {
+        const isHttps = url.startsWith('https:');
+        if (isHttps && !(httpAgent instanceof require$$0$4.Agent)) {
+          throw new Error('The endpoint `' + url + '` can only be paired with an `https.Agent`. You have, instead, supplied an ' + '`http.Agent` through `httpAgent`.');
+        } else if (!isHttps && httpAgent instanceof require$$0$4.Agent) {
+          throw new Error('The endpoint `' + url + '` can only be paired with an `http.Agent`. You have, instead, supplied an ' + '`https.Agent` through `httpAgent`.');
+        }
+        agent = httpAgent;
+      }
+    }
   }
-
   let fetchWithMiddleware;
-
   if (fetchMiddleware) {
     fetchWithMiddleware = async (info, init) => {
       const modifiedFetchArgs = await new Promise((resolve, reject) => {
@@ -15204,9 +17822,7 @@ function createRpcClient(url, httpHeaders, customFetch, fetchMiddleware, disable
       return await fetch(...modifiedFetchArgs);
     };
   }
-
   const clientBrowser = new RpcClient__default["default"](async (request, callback) => {
-    const agent = agentManager ? agentManager.requestStart() : undefined;
     const options = {
       method: 'POST',
       body: request,
@@ -15215,42 +17831,31 @@ function createRpcClient(url, httpHeaders, customFetch, fetchMiddleware, disable
         'Content-Type': 'application/json'
       }, httpHeaders || {}, COMMON_HTTP_HEADERS)
     };
-
     try {
       let too_many_requests_retries = 5;
       let res;
       let waitTime = 500;
-
       for (;;) {
         if (fetchWithMiddleware) {
           res = await fetchWithMiddleware(url, options);
         } else {
           res = await fetch(url, options);
         }
-
-        if (res.status !== 429
-        /* Too many requests */
-        ) {
+        if (res.status !== 429 /* Too many requests */) {
           break;
         }
-
         if (disableRetryOnRateLimit === true) {
           break;
         }
-
         too_many_requests_retries -= 1;
-
         if (too_many_requests_retries === 0) {
           break;
         }
-
         console.log(`Server responded with ${res.status} ${res.statusText}.  Retrying after ${waitTime}ms delay...`);
         await sleep(waitTime);
         waitTime *= 2;
       }
-
       const text = await res.text();
-
       if (res.ok) {
         callback(null, text);
       } else {
@@ -15258,13 +17863,10 @@ function createRpcClient(url, httpHeaders, customFetch, fetchMiddleware, disable
       }
     } catch (err) {
       if (err instanceof Error) callback(err);
-    } finally {
-      agentManager && agentManager.requestEnd();
     }
   }, {});
   return clientBrowser;
 }
-
 function createRpcRequest(client) {
   return (method, args) => {
     return new Promise((resolve, reject) => {
@@ -15273,13 +17875,11 @@ function createRpcRequest(client) {
           reject(err);
           return;
         }
-
         resolve(response);
       });
     });
   };
 }
-
 function createRpcBatchRequest(client) {
   return requests => {
     return new Promise((resolve, reject) => {
@@ -15293,38 +17893,47 @@ function createRpcBatchRequest(client) {
           reject(err);
           return;
         }
-
         resolve(response);
       });
     });
   };
 }
+
 /**
  * Expected JSON RPC response for the "getInflationGovernor" message
  */
-
-
 const GetInflationGovernorRpcResult = jsonRpcResult(GetInflationGovernorResult);
+
+/**
+ * Expected JSON RPC response for the "getInflationRate" message
+ */
+const GetInflationRateRpcResult = jsonRpcResult(GetInflationRateResult);
+
+/**
+ * Expected JSON RPC response for the "getRecentPrioritizationFees" message
+ */
+const GetRecentPrioritizationFeesRpcResult = jsonRpcResult(GetRecentPrioritizationFeesResult);
+
 /**
  * Expected JSON RPC response for the "getEpochInfo" message
  */
-
 const GetEpochInfoRpcResult = jsonRpcResult(GetEpochInfoResult);
+
 /**
  * Expected JSON RPC response for the "getEpochSchedule" message
  */
-
 const GetEpochScheduleRpcResult = jsonRpcResult(GetEpochScheduleResult);
+
 /**
  * Expected JSON RPC response for the "getLeaderSchedule" message
  */
-
 const GetLeaderScheduleRpcResult = jsonRpcResult(GetLeaderScheduleResult);
+
 /**
  * Expected JSON RPC response for the "minimumLedgerSlot" and "getFirstAvailableBlock" messages
  */
-
 const SlotRpcResult = jsonRpcResult(superstruct.number());
+
 /**
  * Supply
  */
@@ -15338,6 +17947,7 @@ const GetSupplyRpcResult = jsonRpcResultAndContext(superstruct.type({
   nonCirculating: superstruct.number(),
   nonCirculatingAccounts: superstruct.array(PublicKeyFromString)
 }));
+
 /**
  * Token amount object which returns a token amount in different formats
  * for various client use cases.
@@ -15352,6 +17962,7 @@ const TokenAmountResult = superstruct.type({
   decimals: superstruct.number(),
   uiAmountString: superstruct.optional(superstruct.string())
 });
+
 /**
  * Token address and balance.
  */
@@ -15366,10 +17977,10 @@ const GetTokenLargestAccountsResult = jsonRpcResultAndContext(superstruct.array(
   decimals: superstruct.number(),
   uiAmountString: superstruct.optional(superstruct.string())
 })));
+
 /**
  * Expected JSON RPC response for the "getTokenAccountsByOwner" message
  */
-
 const GetTokenAccountsByOwner = jsonRpcResultAndContext(superstruct.array(superstruct.type({
   pubkey: PublicKeyFromString,
   account: superstruct.type({
@@ -15385,10 +17996,10 @@ const ParsedAccountDataResult = superstruct.type({
   parsed: superstruct.unknown(),
   space: superstruct.number()
 });
+
 /**
  * Expected JSON RPC response for the "getTokenAccountsByOwner" message with parsed data
  */
-
 const GetParsedTokenAccountsByOwner = jsonRpcResultAndContext(superstruct.array(superstruct.type({
   pubkey: PublicKeyFromString,
   account: superstruct.type({
@@ -15399,6 +18010,7 @@ const GetParsedTokenAccountsByOwner = jsonRpcResultAndContext(superstruct.array(
     rentEpoch: superstruct.number()
   })
 })));
+
 /**
  * Pair of an account address and its balance
  */
@@ -15410,10 +18022,10 @@ const GetLargestAccountsRpcResult = jsonRpcResultAndContext(superstruct.array(su
   lamports: superstruct.number(),
   address: PublicKeyFromString
 })));
+
 /**
  * @internal
  */
-
 const AccountInfoResult = superstruct.type({
   executable: superstruct.boolean(),
   owner: PublicKeyFromString,
@@ -15421,10 +18033,10 @@ const AccountInfoResult = superstruct.type({
   data: BufferFromRawAccountData,
   rentEpoch: superstruct.number()
 });
+
 /**
  * @internal
  */
-
 const KeyedAccountInfoResult = superstruct.type({
   pubkey: PublicKeyFromString,
   account: AccountInfoResult
@@ -15436,10 +18048,10 @@ const ParsedOrRawAccountData = superstruct.coerce(superstruct.union([superstruct
     return value;
   }
 });
+
 /**
  * @internal
  */
-
 const ParsedAccountInfoResult = superstruct.type({
   executable: superstruct.boolean(),
   owner: PublicKeyFromString,
@@ -15451,15 +18063,16 @@ const KeyedParsedAccountInfoResult = superstruct.type({
   pubkey: PublicKeyFromString,
   account: ParsedAccountInfoResult
 });
+
 /**
  * @internal
  */
-
 const StakeActivationResult = superstruct.type({
   state: superstruct.union([superstruct.literal('active'), superstruct.literal('inactive'), superstruct.literal('activating'), superstruct.literal('deactivating')]),
   active: superstruct.number(),
   inactive: superstruct.number()
 });
+
 /**
  * Expected JSON RPC response for the "getConfirmedSignaturesForAddress2" message
  */
@@ -15471,10 +18084,10 @@ const GetConfirmedSignaturesForAddress2RpcResult = jsonRpcResult(superstruct.arr
   memo: superstruct.nullable(superstruct.string()),
   blockTime: superstruct.optional(superstruct.nullable(superstruct.number()))
 })));
+
 /**
  * Expected JSON RPC response for the "getSignaturesForAddress" message
  */
-
 const GetSignaturesForAddressRpcResult = jsonRpcResult(superstruct.array(superstruct.type({
   signature: superstruct.string(),
   slot: superstruct.number(),
@@ -15482,47 +18095,48 @@ const GetSignaturesForAddressRpcResult = jsonRpcResult(superstruct.array(superst
   memo: superstruct.nullable(superstruct.string()),
   blockTime: superstruct.optional(superstruct.nullable(superstruct.number()))
 })));
+
 /***
  * Expected JSON RPC response for the "accountNotification" message
  */
-
 const AccountNotificationResult = superstruct.type({
   subscription: superstruct.number(),
   result: notificationResultAndContext(AccountInfoResult)
 });
+
 /**
  * @internal
  */
-
 const ProgramAccountInfoResult = superstruct.type({
   pubkey: PublicKeyFromString,
   account: AccountInfoResult
 });
+
 /***
  * Expected JSON RPC response for the "programNotification" message
  */
-
 const ProgramAccountNotificationResult = superstruct.type({
   subscription: superstruct.number(),
   result: notificationResultAndContext(ProgramAccountInfoResult)
 });
+
 /**
  * @internal
  */
-
 const SlotInfoResult = superstruct.type({
   parent: superstruct.number(),
   slot: superstruct.number(),
   root: superstruct.number()
 });
+
 /**
  * Expected JSON RPC response for the "slotNotification" message
  */
-
 const SlotNotificationResult = superstruct.type({
   subscription: superstruct.number(),
   result: SlotInfoResult
 });
+
 /**
  * Slot updates which can be used for tracking the live progress of a cluster.
  * - `"firstShredReceived"`: connected node received the first shred of a block.
@@ -15566,26 +18180,26 @@ const SlotUpdateResult = superstruct.union([superstruct.type({
   timestamp: superstruct.number(),
   err: superstruct.string()
 })]);
+
 /**
  * Expected JSON RPC response for the "slotsUpdatesNotification" message
  */
-
 const SlotUpdateNotificationResult = superstruct.type({
   subscription: superstruct.number(),
   result: SlotUpdateResult
 });
+
 /**
  * Expected JSON RPC response for the "signatureNotification" message
  */
-
 const SignatureNotificationResult = superstruct.type({
   subscription: superstruct.number(),
   result: notificationResultAndContext(superstruct.union([SignatureStatusResult, SignatureReceivedResult]))
 });
+
 /**
  * Expected JSON RPC response for the "rootNotification" message
  */
-
 const RootNotificationResult = superstruct.type({
   subscription: superstruct.number(),
   result: superstruct.number()
@@ -15607,10 +18221,10 @@ const VoteAccountInfoResult = superstruct.type({
   lastVote: superstruct.number(),
   rootSlot: superstruct.nullable(superstruct.number())
 });
+
 /**
  * Expected JSON RPC response for the "getVoteAccounts" message
  */
-
 const GetVoteAccounts = jsonRpcResult(superstruct.type({
   current: superstruct.array(VoteAccountInfoResult),
   delinquent: superstruct.array(VoteAccountInfoResult)
@@ -15622,15 +18236,15 @@ const SignatureStatusResponse = superstruct.type({
   err: TransactionErrorResult,
   confirmationStatus: superstruct.optional(ConfirmationStatus)
 });
+
 /**
  * Expected JSON RPC response for the "getSignatureStatuses" message
  */
-
 const GetSignatureStatusesRpcResult = jsonRpcResultAndContext(superstruct.array(superstruct.nullable(SignatureStatusResponse)));
+
 /**
  * Expected JSON RPC response for the "getMinimumBalanceForRentExemption" message
  */
-
 const GetMinimumBalanceForRentExemptionRpcResult = jsonRpcResult(superstruct.number());
 const AddressTableLookupStruct = superstruct.type({
   accountKey: PublicKeyFromString,
@@ -15654,6 +18268,16 @@ const ConfirmedTransactionResult = superstruct.type({
     recentBlockhash: superstruct.string(),
     addressTableLookups: superstruct.optional(superstruct.array(AddressTableLookupStruct))
   })
+});
+const AnnotatedAccountKey = superstruct.type({
+  pubkey: PublicKeyFromString,
+  signer: superstruct.boolean(),
+  writable: superstruct.boolean(),
+  source: superstruct.optional(superstruct.union([superstruct.literal('transaction'), superstruct.literal('lookupTable')]))
+});
+const ConfirmedTransactionAccountsModeResult = superstruct.type({
+  accountKeys: superstruct.array(AnnotatedAccountKey),
+  signatures: superstruct.array(superstruct.string())
 });
 const ParsedInstructionResult = superstruct.type({
   parsed: superstruct.unknown(),
@@ -15682,19 +18306,14 @@ const ParsedOrRawInstruction = superstruct.coerce(InstructionResult, UnknownInst
     return superstruct.create(value, ParsedInstructionResult);
   }
 });
+
 /**
  * @internal
  */
-
 const ParsedConfirmedTransactionResult = superstruct.type({
   signatures: superstruct.array(superstruct.string()),
   message: superstruct.type({
-    accountKeys: superstruct.array(superstruct.type({
-      pubkey: PublicKeyFromString,
-      signer: superstruct.boolean(),
-      writable: superstruct.boolean(),
-      source: superstruct.optional(superstruct.union([superstruct.literal('transaction'), superstruct.literal('lookupTable')]))
-    })),
+    accountKeys: superstruct.array(AnnotatedAccountKey),
     instructions: superstruct.array(ParsedOrRawInstruction),
     recentBlockhash: superstruct.string(),
     addressTableLookups: superstruct.optional(superstruct.nullable(superstruct.array(AddressTableLookupStruct)))
@@ -15710,10 +18329,10 @@ const LoadedAddressesResult = superstruct.type({
   writable: superstruct.array(PublicKeyFromString),
   readonly: superstruct.array(PublicKeyFromString)
 });
+
 /**
  * @internal
  */
-
 const ConfirmedTransactionMetaResult = superstruct.type({
   err: TransactionErrorResult,
   fee: superstruct.number(),
@@ -15733,10 +18352,10 @@ const ConfirmedTransactionMetaResult = superstruct.type({
   loadedAddresses: superstruct.optional(LoadedAddressesResult),
   computeUnitsConsumed: superstruct.optional(superstruct.number())
 });
+
 /**
  * @internal
  */
-
 const ParsedConfirmedTransactionMetaResult = superstruct.type({
   err: TransactionErrorResult,
   fee: superstruct.number(),
@@ -15753,10 +18372,19 @@ const ParsedConfirmedTransactionMetaResult = superstruct.type({
   computeUnitsConsumed: superstruct.optional(superstruct.number())
 });
 const TransactionVersionStruct = superstruct.union([superstruct.literal(0), superstruct.literal('legacy')]);
+
+/** @internal */
+const RewardsResult = superstruct.type({
+  pubkey: superstruct.string(),
+  lamports: superstruct.number(),
+  postBalance: superstruct.nullable(superstruct.number()),
+  rewardType: superstruct.nullable(superstruct.string()),
+  commission: superstruct.optional(superstruct.nullable(superstruct.number()))
+});
+
 /**
  * Expected JSON RPC response for the "getBlock" message
  */
-
 const GetBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
   blockhash: superstruct.string(),
   previousBlockhash: superstruct.string(),
@@ -15766,19 +18394,43 @@ const GetBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
     meta: superstruct.nullable(ConfirmedTransactionMetaResult),
     version: superstruct.optional(TransactionVersionStruct)
   })),
-  rewards: superstruct.optional(superstruct.array(superstruct.type({
-    pubkey: superstruct.string(),
-    lamports: superstruct.number(),
-    postBalance: superstruct.nullable(superstruct.number()),
-    rewardType: superstruct.nullable(superstruct.string())
-  }))),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
   blockTime: superstruct.nullable(superstruct.number()),
   blockHeight: superstruct.nullable(superstruct.number())
 })));
+
+/**
+ * Expected JSON RPC response for the "getBlock" message when `transactionDetails` is `none`
+ */
+const GetNoneModeBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
+  blockhash: superstruct.string(),
+  previousBlockhash: superstruct.string(),
+  parentSlot: superstruct.number(),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
+  blockTime: superstruct.nullable(superstruct.number()),
+  blockHeight: superstruct.nullable(superstruct.number())
+})));
+
+/**
+ * Expected JSON RPC response for the "getBlock" message when `transactionDetails` is `accounts`
+ */
+const GetAccountsModeBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
+  blockhash: superstruct.string(),
+  previousBlockhash: superstruct.string(),
+  parentSlot: superstruct.number(),
+  transactions: superstruct.array(superstruct.type({
+    transaction: ConfirmedTransactionAccountsModeResult,
+    meta: superstruct.nullable(ConfirmedTransactionMetaResult),
+    version: superstruct.optional(TransactionVersionStruct)
+  })),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
+  blockTime: superstruct.nullable(superstruct.number()),
+  blockHeight: superstruct.nullable(superstruct.number())
+})));
+
 /**
  * Expected parsed JSON RPC response for the "getBlock" message
  */
-
 const GetParsedBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
   blockhash: superstruct.string(),
   previousBlockhash: superstruct.string(),
@@ -15788,21 +18440,45 @@ const GetParsedBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.t
     meta: superstruct.nullable(ParsedConfirmedTransactionMetaResult),
     version: superstruct.optional(TransactionVersionStruct)
   })),
-  rewards: superstruct.optional(superstruct.array(superstruct.type({
-    pubkey: superstruct.string(),
-    lamports: superstruct.number(),
-    postBalance: superstruct.nullable(superstruct.number()),
-    rewardType: superstruct.nullable(superstruct.string())
-  }))),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
   blockTime: superstruct.nullable(superstruct.number()),
   blockHeight: superstruct.nullable(superstruct.number())
 })));
+
+/**
+ * Expected parsed JSON RPC response for the "getBlock" message  when `transactionDetails` is `accounts`
+ */
+const GetParsedAccountsModeBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
+  blockhash: superstruct.string(),
+  previousBlockhash: superstruct.string(),
+  parentSlot: superstruct.number(),
+  transactions: superstruct.array(superstruct.type({
+    transaction: ConfirmedTransactionAccountsModeResult,
+    meta: superstruct.nullable(ParsedConfirmedTransactionMetaResult),
+    version: superstruct.optional(TransactionVersionStruct)
+  })),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
+  blockTime: superstruct.nullable(superstruct.number()),
+  blockHeight: superstruct.nullable(superstruct.number())
+})));
+
+/**
+ * Expected parsed JSON RPC response for the "getBlock" message  when `transactionDetails` is `none`
+ */
+const GetParsedNoneModeBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
+  blockhash: superstruct.string(),
+  previousBlockhash: superstruct.string(),
+  parentSlot: superstruct.number(),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
+  blockTime: superstruct.nullable(superstruct.number()),
+  blockHeight: superstruct.nullable(superstruct.number())
+})));
+
 /**
  * Expected JSON RPC response for the "getConfirmedBlock" message
  *
  * @deprecated Deprecated since Solana v1.8.0. Please use {@link GetBlockRpcResult} instead.
  */
-
 const GetConfirmedBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
   blockhash: superstruct.string(),
   previousBlockhash: superstruct.string(),
@@ -15811,18 +18487,13 @@ const GetConfirmedBlockRpcResult = jsonRpcResult(superstruct.nullable(superstruc
     transaction: ConfirmedTransactionResult,
     meta: superstruct.nullable(ConfirmedTransactionMetaResult)
   })),
-  rewards: superstruct.optional(superstruct.array(superstruct.type({
-    pubkey: superstruct.string(),
-    lamports: superstruct.number(),
-    postBalance: superstruct.nullable(superstruct.number()),
-    rewardType: superstruct.nullable(superstruct.string())
-  }))),
+  rewards: superstruct.optional(superstruct.array(RewardsResult)),
   blockTime: superstruct.nullable(superstruct.number())
 })));
+
 /**
  * Expected JSON RPC response for the "getBlock" message
  */
-
 const GetBlockSignaturesRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
   blockhash: superstruct.string(),
   previousBlockhash: superstruct.string(),
@@ -15830,10 +18501,10 @@ const GetBlockSignaturesRpcResult = jsonRpcResult(superstruct.nullable(superstru
   signatures: superstruct.array(superstruct.string()),
   blockTime: superstruct.nullable(superstruct.number())
 })));
+
 /**
  * Expected JSON RPC response for the "getTransaction" message
  */
-
 const GetTransactionRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
   slot: superstruct.number(),
   meta: ConfirmedTransactionMetaResult,
@@ -15841,10 +18512,10 @@ const GetTransactionRpcResult = jsonRpcResult(superstruct.nullable(superstruct.t
   transaction: ConfirmedTransactionResult,
   version: superstruct.optional(TransactionVersionStruct)
 })));
+
 /**
  * Expected parsed JSON RPC response for the "getTransaction" message
  */
-
 const GetParsedTransactionRpcResult = jsonRpcResult(superstruct.nullable(superstruct.type({
   slot: superstruct.number(),
   transaction: ParsedConfirmedTransactionResult,
@@ -15852,22 +18523,22 @@ const GetParsedTransactionRpcResult = jsonRpcResult(superstruct.nullable(superst
   blockTime: superstruct.optional(superstruct.nullable(superstruct.number())),
   version: superstruct.optional(TransactionVersionStruct)
 })));
+
 /**
  * Expected JSON RPC response for the "getRecentBlockhash" message
  *
  * @deprecated Deprecated since Solana v1.8.0. Please use {@link GetLatestBlockhashRpcResult} instead.
  */
-
 const GetRecentBlockhashAndContextRpcResult = jsonRpcResultAndContext(superstruct.type({
   blockhash: superstruct.string(),
   feeCalculator: superstruct.type({
     lamportsPerSignature: superstruct.number()
   })
 }));
+
 /**
  * Expected JSON RPC response for the "getLatestBlockhash" message
  */
-
 const GetLatestBlockhashRpcResult = jsonRpcResultAndContext(superstruct.type({
   blockhash: superstruct.string(),
   lastValidBlockHeight: superstruct.number()
@@ -15878,30 +18549,31 @@ const PerfSampleResult = superstruct.type({
   numSlots: superstruct.number(),
   samplePeriodSecs: superstruct.number()
 });
+
 /*
  * Expected JSON RPC response for "getRecentPerformanceSamples" message
  */
-
 const GetRecentPerformanceSamplesRpcResult = jsonRpcResult(superstruct.array(PerfSampleResult));
+
 /**
  * Expected JSON RPC response for the "getFeeCalculatorForBlockhash" message
  */
-
 const GetFeeCalculatorRpcResult = jsonRpcResultAndContext(superstruct.nullable(superstruct.type({
   feeCalculator: superstruct.type({
     lamportsPerSignature: superstruct.number()
   })
 })));
+
 /**
  * Expected JSON RPC response for the "requestAirdrop" message
  */
-
 const RequestAirdropRpcResult = jsonRpcResult(superstruct.string());
+
 /**
  * Expected JSON RPC response for the "sendTransaction" message
  */
-
 const SendTransactionRpcResult = jsonRpcResult(superstruct.string());
+
 /**
  * Information about the latest slot being processed by a node
  */
@@ -15914,6 +18586,7 @@ const LogsResult = superstruct.type({
   logs: superstruct.array(superstruct.string()),
   signature: superstruct.string()
 });
+
 /**
  * Logs result.
  */
@@ -15925,37 +18598,29 @@ const LogsNotificationResult = superstruct.type({
   result: notificationResultAndContext(LogsResult),
   subscription: superstruct.number()
 });
+
 /**
  * Filter for log subscriptions.
  */
 
 /** @internal */
 const COMMON_HTTP_HEADERS = {
-  'solana-client': `js/${(_process$env$npm_pack = "0.0.0-development") !== null && _process$env$npm_pack !== void 0 ? _process$env$npm_pack : 'UNKNOWN'}`
+  'solana-client': `js/${"0.0.0-development" }`
 };
+
 /**
  * A connection to a fullnode JSON RPC endpoint
  */
-
 class Connection {
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
-
   /** @internal */
 
   /** @internal */
@@ -15969,9 +18634,10 @@ class Connection {
    */
 
   /** @internal */
-
+  /** @internal */
   /** @internal */
 
+  /** @internal */
   /** @internal */
 
   /** @internal */
@@ -15995,7 +18661,6 @@ class Connection {
    * NOTE: There is a proposal to eliminate this special case, here:
    * https://github.com/solana-labs/solana/issues/18892
    */
-
   /** @internal */
 
   /**
@@ -16004,7 +18669,7 @@ class Connection {
    * @param endpoint URL to the fullnode JSON RPC endpoint
    * @param commitmentOrConfig optional default commitment level or optional ConnectionConfig configuration object
    */
-  constructor(endpoint, commitmentOrConfig) {
+  constructor(endpoint, _commitmentOrConfig) {
     this._commitment = void 0;
     this._confirmTransactionInitialTimeout = void 0;
     this._rpcEndpoint = void 0;
@@ -16027,168 +18692,164 @@ class Connection {
     };
     this._nextClientSubscriptionId = 0;
     this._subscriptionDisposeFunctionsByClientSubscriptionId = {};
+    this._subscriptionHashByClientSubscriptionId = {};
+    this._subscriptionStateChangeCallbacksByHash = {};
     this._subscriptionCallbacksByServerSubscriptionId = {};
     this._subscriptionsByHash = {};
     this._subscriptionsAutoDisposedByRpc = new Set();
+    this.getBlockHeight = (() => {
+      const requestPromises = {};
+      return async commitmentOrConfig => {
+        const {
+          commitment,
+          config
+        } = extractCommitmentFromConfig(commitmentOrConfig);
+        const args = this._buildArgs([], commitment, undefined /* encoding */, config);
+        const requestHash = fastStableStringify$1(args);
+        requestPromises[requestHash] = requestPromises[requestHash] ?? (async () => {
+          try {
+            const unsafeRes = await this._rpcRequest('getBlockHeight', args);
+            const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.number()));
+            if ('error' in res) {
+              throw new SolanaJSONRPCError(res.error, 'failed to get block height information');
+            }
+            return res.result;
+          } finally {
+            delete requestPromises[requestHash];
+          }
+        })();
+        return await requestPromises[requestHash];
+      };
+    })();
     let wsEndpoint;
     let httpHeaders;
     let fetch;
     let fetchMiddleware;
     let disableRetryOnRateLimit;
-
-    if (commitmentOrConfig && typeof commitmentOrConfig === 'string') {
-      this._commitment = commitmentOrConfig;
-    } else if (commitmentOrConfig) {
-      this._commitment = commitmentOrConfig.commitment;
-      this._confirmTransactionInitialTimeout = commitmentOrConfig.confirmTransactionInitialTimeout;
-      wsEndpoint = commitmentOrConfig.wsEndpoint;
-      httpHeaders = commitmentOrConfig.httpHeaders;
-      fetch = commitmentOrConfig.fetch;
-      fetchMiddleware = commitmentOrConfig.fetchMiddleware;
-      disableRetryOnRateLimit = commitmentOrConfig.disableRetryOnRateLimit;
+    let httpAgent;
+    if (_commitmentOrConfig && typeof _commitmentOrConfig === 'string') {
+      this._commitment = _commitmentOrConfig;
+    } else if (_commitmentOrConfig) {
+      this._commitment = _commitmentOrConfig.commitment;
+      this._confirmTransactionInitialTimeout = _commitmentOrConfig.confirmTransactionInitialTimeout;
+      wsEndpoint = _commitmentOrConfig.wsEndpoint;
+      httpHeaders = _commitmentOrConfig.httpHeaders;
+      fetch = _commitmentOrConfig.fetch;
+      fetchMiddleware = _commitmentOrConfig.fetchMiddleware;
+      disableRetryOnRateLimit = _commitmentOrConfig.disableRetryOnRateLimit;
+      httpAgent = _commitmentOrConfig.httpAgent;
     }
-
     this._rpcEndpoint = assertEndpointUrl(endpoint);
     this._rpcWsEndpoint = wsEndpoint || makeWebsocketUrl(endpoint);
-    this._rpcClient = createRpcClient(endpoint, httpHeaders, fetch, fetchMiddleware, disableRetryOnRateLimit);
+    this._rpcClient = createRpcClient(endpoint, httpHeaders, fetch, fetchMiddleware, disableRetryOnRateLimit, httpAgent);
     this._rpcRequest = createRpcRequest(this._rpcClient);
     this._rpcBatchRequest = createRpcBatchRequest(this._rpcClient);
-    this._rpcWebSocket = new rpcWebsockets.Client(this._rpcWsEndpoint, {
+    this._rpcWebSocket = new RpcWebSocketClient(this._rpcWsEndpoint, {
       autoconnect: false,
       max_reconnects: Infinity
     });
-
     this._rpcWebSocket.on('open', this._wsOnOpen.bind(this));
-
     this._rpcWebSocket.on('error', this._wsOnError.bind(this));
-
     this._rpcWebSocket.on('close', this._wsOnClose.bind(this));
-
     this._rpcWebSocket.on('accountNotification', this._wsOnAccountNotification.bind(this));
-
     this._rpcWebSocket.on('programNotification', this._wsOnProgramAccountNotification.bind(this));
-
     this._rpcWebSocket.on('slotNotification', this._wsOnSlotNotification.bind(this));
-
     this._rpcWebSocket.on('slotsUpdatesNotification', this._wsOnSlotUpdatesNotification.bind(this));
-
     this._rpcWebSocket.on('signatureNotification', this._wsOnSignatureNotification.bind(this));
-
     this._rpcWebSocket.on('rootNotification', this._wsOnRootNotification.bind(this));
-
     this._rpcWebSocket.on('logsNotification', this._wsOnLogsNotification.bind(this));
   }
+
   /**
    * The default commitment used for requests
    */
-
-
   get commitment() {
     return this._commitment;
   }
+
   /**
    * The RPC endpoint
    */
-
-
   get rpcEndpoint() {
     return this._rpcEndpoint;
   }
+
   /**
    * Fetch the balance for the specified public key, return with context
    */
-
-
   async getBalanceAndContext(publicKey, commitmentOrConfig) {
     /** @internal */
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([publicKey.toBase58()], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgs([publicKey.toBase58()], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getBalance', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.number()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get balance for ${publicKey.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch the balance for the specified public key
    */
-
-
   async getBalance(publicKey, commitmentOrConfig) {
     return await this.getBalanceAndContext(publicKey, commitmentOrConfig).then(x => x.value).catch(e => {
       throw new Error('failed to get balance of account ' + publicKey.toBase58() + ': ' + e);
     });
   }
+
   /**
    * Fetch the estimated production time of a block
    */
-
-
   async getBlockTime(slot) {
     const unsafeRes = await this._rpcRequest('getBlockTime', [slot]);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.nullable(superstruct.number())));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get block time for slot ${slot}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch the lowest slot that the node has information about in its ledger.
    * This value may increase over time if the node is configured to purge older ledger data
    */
-
-
   async getMinimumLedgerSlot() {
     const unsafeRes = await this._rpcRequest('minimumLedgerSlot', []);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.number()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get minimum ledger slot');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the slot of the lowest confirmed block that has not been purged from the ledger
    */
-
-
   async getFirstAvailableBlock() {
     const unsafeRes = await this._rpcRequest('getFirstAvailableBlock', []);
     const res = superstruct.create(unsafeRes, SlotRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get first available block');
     }
-
     return res.result;
   }
+
   /**
    * Fetch information about the current supply
    */
-
-
   async getSupply(config) {
     let configArg = {};
-
     if (typeof config === 'string') {
       configArg = {
         commitment: config
       };
     } else if (config) {
-      configArg = { ...config,
+      configArg = {
+        ...config,
         commitment: config && config.commitment || this.commitment
       };
     } else {
@@ -16196,64 +18857,51 @@ class Connection {
         commitment: this.commitment
       };
     }
-
     const unsafeRes = await this._rpcRequest('getSupply', [configArg]);
     const res = superstruct.create(unsafeRes, GetSupplyRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get supply');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current supply of a token mint
    */
-
-
   async getTokenSupply(tokenMintAddress, commitment) {
     const args = this._buildArgs([tokenMintAddress.toBase58()], commitment);
-
     const unsafeRes = await this._rpcRequest('getTokenSupply', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(TokenAmountResult));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get token supply');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current balance of a token account
    */
-
-
   async getTokenAccountBalance(tokenAddress, commitment) {
     const args = this._buildArgs([tokenAddress.toBase58()], commitment);
-
     const unsafeRes = await this._rpcRequest('getTokenAccountBalance', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(TokenAmountResult));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get token account balance');
     }
-
     return res.result;
   }
+
   /**
    * Fetch all the token accounts owned by the specified account
    *
    * @return {Promise<RpcResponseAndContext<Array<{pubkey: PublicKey, account: AccountInfo<Buffer>}>>>}
    */
-
-
   async getTokenAccountsByOwner(ownerAddress, filter, commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
     let _args = [ownerAddress.toBase58()];
-
     if ('mint' in filter) {
       _args.push({
         mint: filter.mint.toBase58()
@@ -16263,28 +18911,22 @@ class Connection {
         programId: filter.programId.toBase58()
       });
     }
-
     const args = this._buildArgs(_args, commitment, 'base64', config);
-
     const unsafeRes = await this._rpcRequest('getTokenAccountsByOwner', args);
     const res = superstruct.create(unsafeRes, GetTokenAccountsByOwner);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get token accounts owned by account ${ownerAddress.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch parsed token accounts owned by the specified account
    *
    * @return {Promise<RpcResponseAndContext<Array<{pubkey: PublicKey, account: AccountInfo<ParsedAccountData>}>>>}
    */
-
-
   async getParsedTokenAccountsByOwner(ownerAddress, filter, commitment) {
     let _args = [ownerAddress.toBase58()];
-
     if ('mint' in filter) {
       _args.push({
         mint: filter.mint.toBase58()
@@ -16294,104 +18936,83 @@ class Connection {
         programId: filter.programId.toBase58()
       });
     }
-
     const args = this._buildArgs(_args, commitment, 'jsonParsed');
-
     const unsafeRes = await this._rpcRequest('getTokenAccountsByOwner', args);
     const res = superstruct.create(unsafeRes, GetParsedTokenAccountsByOwner);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get token accounts owned by account ${ownerAddress.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch the 20 largest accounts with their current balances
    */
-
-
   async getLargestAccounts(config) {
-    const arg = { ...config,
+    const arg = {
+      ...config,
       commitment: config && config.commitment || this.commitment
     };
     const args = arg.filter || arg.commitment ? [arg] : [];
     const unsafeRes = await this._rpcRequest('getLargestAccounts', args);
     const res = superstruct.create(unsafeRes, GetLargestAccountsRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get largest accounts');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the 20 largest token accounts with their current balances
    * for a given mint.
    */
-
-
   async getTokenLargestAccounts(mintAddress, commitment) {
     const args = this._buildArgs([mintAddress.toBase58()], commitment);
-
     const unsafeRes = await this._rpcRequest('getTokenLargestAccounts', args);
     const res = superstruct.create(unsafeRes, GetTokenLargestAccountsResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get token largest accounts');
     }
-
     return res.result;
   }
+
   /**
    * Fetch all the account info for the specified public key, return with context
    */
-
-
   async getAccountInfoAndContext(publicKey, commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
     const args = this._buildArgs([publicKey.toBase58()], commitment, 'base64', config);
-
     const unsafeRes = await this._rpcRequest('getAccountInfo', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.nullable(AccountInfoResult)));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get info about account ${publicKey.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch parsed account info for the specified public key
    */
-
-
   async getParsedAccountInfo(publicKey, commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
     const args = this._buildArgs([publicKey.toBase58()], commitment, 'jsonParsed', config);
-
     const unsafeRes = await this._rpcRequest('getAccountInfo', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.nullable(ParsedAccountInfoResult)));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get info about account ${publicKey.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch all the account info for the specified public key
    */
-
-
   async getAccountInfo(publicKey, commitmentOrConfig) {
     try {
       const res = await this.getAccountInfoAndContext(publicKey, commitmentOrConfig);
@@ -16400,71 +19021,76 @@ class Connection {
       throw new Error('failed to get info about account ' + publicKey.toBase58() + ': ' + e);
     }
   }
+
   /**
    * Fetch all the account info for multiple accounts specified by an array of public keys, return with context
    */
+  async getMultipleParsedAccounts(publicKeys, rawConfig) {
+    const {
+      commitment,
+      config
+    } = extractCommitmentFromConfig(rawConfig);
+    const keys = publicKeys.map(key => key.toBase58());
+    const args = this._buildArgs([keys], commitment, 'jsonParsed', config);
+    const unsafeRes = await this._rpcRequest('getMultipleAccounts', args);
+    const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.array(superstruct.nullable(ParsedAccountInfoResult))));
+    if ('error' in res) {
+      throw new SolanaJSONRPCError(res.error, `failed to get info for accounts ${keys}`);
+    }
+    return res.result;
+  }
 
-
+  /**
+   * Fetch all the account info for multiple accounts specified by an array of public keys, return with context
+   */
   async getMultipleAccountsInfoAndContext(publicKeys, commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
     const keys = publicKeys.map(key => key.toBase58());
-
     const args = this._buildArgs([keys], commitment, 'base64', config);
-
     const unsafeRes = await this._rpcRequest('getMultipleAccounts', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.array(superstruct.nullable(AccountInfoResult))));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get info for accounts ${keys}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch all the account info for multiple accounts specified by an array of public keys
    */
-
-
   async getMultipleAccountsInfo(publicKeys, commitmentOrConfig) {
     const res = await this.getMultipleAccountsInfoAndContext(publicKeys, commitmentOrConfig);
     return res.value;
   }
+
   /**
    * Returns epoch activation information for a stake account that has been delegated
    */
-
-
   async getStakeActivation(publicKey, commitmentOrConfig, epoch) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([publicKey.toBase58()], commitment, undefined
-    /* encoding */
-    , { ...config,
-      epoch: epoch != null ? epoch : config === null || config === void 0 ? void 0 : config.epoch
+    const args = this._buildArgs([publicKey.toBase58()], commitment, undefined /* encoding */, {
+      ...config,
+      epoch: epoch != null ? epoch : config?.epoch
     });
-
     const unsafeRes = await this._rpcRequest('getStakeActivation', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(StakeActivationResult));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get Stake Activation ${publicKey.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch all the accounts owned by the specified program id
    *
    * @return {Promise<Array<{pubkey: PublicKey, account: AccountInfo<Buffer>}>>}
    */
-
-
   async getProgramAccounts(programId, configOrCommitment) {
     const {
       commitment,
@@ -16474,264 +19100,487 @@ class Connection {
       encoding,
       ...configWithoutEncoding
     } = config || {};
-
     const args = this._buildArgs([programId.toBase58()], commitment, encoding || 'base64', configWithoutEncoding);
-
     const unsafeRes = await this._rpcRequest('getProgramAccounts', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.array(KeyedAccountInfoResult)));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get accounts owned by program ${programId.toBase58()}`);
     }
-
     return res.result;
   }
+
   /**
    * Fetch and parse all the accounts owned by the specified program id
    *
    * @return {Promise<Array<{pubkey: PublicKey, account: AccountInfo<Buffer | ParsedAccountData>}>>}
    */
-
-
   async getParsedProgramAccounts(programId, configOrCommitment) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(configOrCommitment);
-
     const args = this._buildArgs([programId.toBase58()], commitment, 'jsonParsed', config);
-
     const unsafeRes = await this._rpcRequest('getProgramAccounts', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.array(KeyedParsedAccountInfoResult)));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get accounts owned by program ${programId.toBase58()}`);
     }
-
     return res.result;
   }
-
   // eslint-disable-next-line no-dupe-class-members
   async confirmTransaction(strategy, commitment) {
     let rawSignature;
-
     if (typeof strategy == 'string') {
       rawSignature = strategy;
     } else {
       const config = strategy;
+      if (config.abortSignal?.aborted) {
+        return Promise.reject(config.abortSignal.reason);
+      }
       rawSignature = config.signature;
     }
-
     let decodedSignature;
-
     try {
       decodedSignature = bs58__default["default"].decode(rawSignature);
     } catch (err) {
       throw new Error('signature must be base58 encoded: ' + rawSignature);
     }
-
     assert(decodedSignature.length === 64, 'signature has invalid length');
-    const subscriptionCommitment = commitment || this.commitment;
-    let timeoutId;
-    let subscriptionId;
+    if (typeof strategy === 'string') {
+      return await this.confirmTransactionUsingLegacyTimeoutStrategy({
+        commitment: commitment || this.commitment,
+        signature: rawSignature
+      });
+    } else if ('lastValidBlockHeight' in strategy) {
+      return await this.confirmTransactionUsingBlockHeightExceedanceStrategy({
+        commitment: commitment || this.commitment,
+        strategy
+      });
+    } else {
+      return await this.confirmTransactionUsingDurableNonceStrategy({
+        commitment: commitment || this.commitment,
+        strategy
+      });
+    }
+  }
+  getCancellationPromise(signal) {
+    return new Promise((_, reject) => {
+      if (signal == null) {
+        return;
+      }
+      if (signal.aborted) {
+        reject(signal.reason);
+      } else {
+        signal.addEventListener('abort', () => {
+          reject(signal.reason);
+        });
+      }
+    });
+  }
+  getTransactionConfirmationPromise({
+    commitment,
+    signature
+  }) {
+    let signatureSubscriptionId;
+    let disposeSignatureSubscriptionStateChangeObserver;
     let done = false;
     const confirmationPromise = new Promise((resolve, reject) => {
       try {
-        subscriptionId = this.onSignature(rawSignature, (result, context) => {
-          subscriptionId = undefined;
+        signatureSubscriptionId = this.onSignature(signature, (result, context) => {
+          signatureSubscriptionId = undefined;
           const response = {
             context,
             value: result
           };
-          done = true;
           resolve({
             __type: exports.TransactionStatus.PROCESSED,
             response
           });
-        }, subscriptionCommitment);
+        }, commitment);
+        const subscriptionSetupPromise = new Promise(resolveSubscriptionSetup => {
+          if (signatureSubscriptionId == null) {
+            resolveSubscriptionSetup();
+          } else {
+            disposeSignatureSubscriptionStateChangeObserver = this._onSubscriptionStateChange(signatureSubscriptionId, nextState => {
+              if (nextState === 'subscribed') {
+                resolveSubscriptionSetup();
+              }
+            });
+          }
+        });
+        (async () => {
+          await subscriptionSetupPromise;
+          if (done) return;
+          const response = await this.getSignatureStatus(signature);
+          if (done) return;
+          if (response == null) {
+            return;
+          }
+          const {
+            context,
+            value
+          } = response;
+          if (value == null) {
+            return;
+          }
+          if (value?.err) {
+            reject(value.err);
+          } else {
+            switch (commitment) {
+              case 'confirmed':
+              case 'single':
+              case 'singleGossip':
+                {
+                  if (value.confirmationStatus === 'processed') {
+                    return;
+                  }
+                  break;
+                }
+              case 'finalized':
+              case 'max':
+              case 'root':
+                {
+                  if (value.confirmationStatus === 'processed' || value.confirmationStatus === 'confirmed') {
+                    return;
+                  }
+                  break;
+                }
+              // exhaust enums to ensure full coverage
+              case 'processed':
+              case 'recent':
+            }
+            done = true;
+            resolve({
+              __type: exports.TransactionStatus.PROCESSED,
+              response: {
+                context,
+                value
+              }
+            });
+          }
+        })();
       } catch (err) {
         reject(err);
       }
     });
-    const expiryPromise = new Promise(resolve => {
-      if (typeof strategy === 'string') {
-        let timeoutMs = this._confirmTransactionInitialTimeout || 60 * 1000;
-
-        switch (subscriptionCommitment) {
-          case 'processed':
-          case 'recent':
-          case 'single':
-          case 'confirmed':
-          case 'singleGossip':
-            {
-              timeoutMs = this._confirmTransactionInitialTimeout || 30 * 1000;
-              break;
-            }
-        }
-
-        timeoutId = setTimeout(() => resolve({
-          __type: exports.TransactionStatus.TIMED_OUT,
-          timeoutMs
-        }), timeoutMs);
-      } else {
-        let config = strategy;
-
-        const checkBlockHeight = async () => {
-          try {
-            const blockHeight = await this.getBlockHeight(commitment);
-            return blockHeight;
-          } catch (_e) {
-            return -1;
-          }
-        };
-
-        (async () => {
-          let currentBlockHeight = await checkBlockHeight();
-          if (done) return;
-
-          while (currentBlockHeight <= config.lastValidBlockHeight) {
-            await sleep(1000);
-            if (done) return;
-            currentBlockHeight = await checkBlockHeight();
-            if (done) return;
-          }
-
-          resolve({
-            __type: exports.TransactionStatus.BLOCKHEIGHT_EXCEEDED
-          });
-        })();
+    const abortConfirmation = () => {
+      if (disposeSignatureSubscriptionStateChangeObserver) {
+        disposeSignatureSubscriptionStateChangeObserver();
+        disposeSignatureSubscriptionStateChangeObserver = undefined;
       }
+      if (signatureSubscriptionId != null) {
+        this.removeSignatureListener(signatureSubscriptionId);
+        signatureSubscriptionId = undefined;
+      }
+    };
+    return {
+      abortConfirmation,
+      confirmationPromise
+    };
+  }
+  async confirmTransactionUsingBlockHeightExceedanceStrategy({
+    commitment,
+    strategy: {
+      abortSignal,
+      lastValidBlockHeight,
+      signature
+    }
+  }) {
+    let done = false;
+    const expiryPromise = new Promise(resolve => {
+      const checkBlockHeight = async () => {
+        try {
+          const blockHeight = await this.getBlockHeight(commitment);
+          return blockHeight;
+        } catch (_e) {
+          return -1;
+        }
+      };
+      (async () => {
+        let currentBlockHeight = await checkBlockHeight();
+        if (done) return;
+        while (currentBlockHeight <= lastValidBlockHeight) {
+          await sleep(1000);
+          if (done) return;
+          currentBlockHeight = await checkBlockHeight();
+          if (done) return;
+        }
+        resolve({
+          __type: exports.TransactionStatus.BLOCKHEIGHT_EXCEEDED
+        });
+      })();
+    });
+    const {
+      abortConfirmation,
+      confirmationPromise
+    } = this.getTransactionConfirmationPromise({
+      commitment,
+      signature
+    });
+    const cancellationPromise = this.getCancellationPromise(abortSignal);
+    let result;
+    try {
+      const outcome = await Promise.race([cancellationPromise, confirmationPromise, expiryPromise]);
+      if (outcome.__type === exports.TransactionStatus.PROCESSED) {
+        result = outcome.response;
+      } else {
+        throw new TransactionExpiredBlockheightExceededError(signature);
+      }
+    } finally {
+      done = true;
+      abortConfirmation();
+    }
+    return result;
+  }
+  async confirmTransactionUsingDurableNonceStrategy({
+    commitment,
+    strategy: {
+      abortSignal,
+      minContextSlot,
+      nonceAccountPubkey,
+      nonceValue,
+      signature
+    }
+  }) {
+    let done = false;
+    const expiryPromise = new Promise(resolve => {
+      let currentNonceValue = nonceValue;
+      let lastCheckedSlot = null;
+      const getCurrentNonceValue = async () => {
+        try {
+          const {
+            context,
+            value: nonceAccount
+          } = await this.getNonceAndContext(nonceAccountPubkey, {
+            commitment,
+            minContextSlot
+          });
+          lastCheckedSlot = context.slot;
+          return nonceAccount?.nonce;
+        } catch (e) {
+          // If for whatever reason we can't reach/read the nonce
+          // account, just keep using the last-known value.
+          return currentNonceValue;
+        }
+      };
+      (async () => {
+        currentNonceValue = await getCurrentNonceValue();
+        if (done) return;
+        while (true // eslint-disable-line no-constant-condition
+        ) {
+          if (nonceValue !== currentNonceValue) {
+            resolve({
+              __type: exports.TransactionStatus.NONCE_INVALID,
+              slotInWhichNonceDidAdvance: lastCheckedSlot
+            });
+            return;
+          }
+          await sleep(2000);
+          if (done) return;
+          currentNonceValue = await getCurrentNonceValue();
+          if (done) return;
+        }
+      })();
+    });
+    const {
+      abortConfirmation,
+      confirmationPromise
+    } = this.getTransactionConfirmationPromise({
+      commitment,
+      signature
+    });
+    const cancellationPromise = this.getCancellationPromise(abortSignal);
+    let result;
+    try {
+      const outcome = await Promise.race([cancellationPromise, confirmationPromise, expiryPromise]);
+      if (outcome.__type === exports.TransactionStatus.PROCESSED) {
+        result = outcome.response;
+      } else {
+        // Double check that the transaction is indeed unconfirmed.
+        let signatureStatus;
+        while (true // eslint-disable-line no-constant-condition
+        ) {
+          const status = await this.getSignatureStatus(signature);
+          if (status == null) {
+            break;
+          }
+          if (status.context.slot < (outcome.slotInWhichNonceDidAdvance ?? minContextSlot)) {
+            await sleep(400);
+            continue;
+          }
+          signatureStatus = status;
+          break;
+        }
+        if (signatureStatus?.value) {
+          const commitmentForStatus = commitment || 'finalized';
+          const {
+            confirmationStatus
+          } = signatureStatus.value;
+          switch (commitmentForStatus) {
+            case 'processed':
+            case 'recent':
+              if (confirmationStatus !== 'processed' && confirmationStatus !== 'confirmed' && confirmationStatus !== 'finalized') {
+                throw new TransactionExpiredNonceInvalidError(signature);
+              }
+              break;
+            case 'confirmed':
+            case 'single':
+            case 'singleGossip':
+              if (confirmationStatus !== 'confirmed' && confirmationStatus !== 'finalized') {
+                throw new TransactionExpiredNonceInvalidError(signature);
+              }
+              break;
+            case 'finalized':
+            case 'max':
+            case 'root':
+              if (confirmationStatus !== 'finalized') {
+                throw new TransactionExpiredNonceInvalidError(signature);
+              }
+              break;
+            default:
+              // Exhaustive switch.
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+              (_ => {})(commitmentForStatus);
+          }
+          result = {
+            context: signatureStatus.context,
+            value: {
+              err: signatureStatus.value.err
+            }
+          };
+        } else {
+          throw new TransactionExpiredNonceInvalidError(signature);
+        }
+      }
+    } finally {
+      done = true;
+      abortConfirmation();
+    }
+    return result;
+  }
+  async confirmTransactionUsingLegacyTimeoutStrategy({
+    commitment,
+    signature
+  }) {
+    let timeoutId;
+    const expiryPromise = new Promise(resolve => {
+      let timeoutMs = this._confirmTransactionInitialTimeout || 60 * 1000;
+      switch (commitment) {
+        case 'processed':
+        case 'recent':
+        case 'single':
+        case 'confirmed':
+        case 'singleGossip':
+          {
+            timeoutMs = this._confirmTransactionInitialTimeout || 30 * 1000;
+            break;
+          }
+      }
+      timeoutId = setTimeout(() => resolve({
+        __type: exports.TransactionStatus.TIMED_OUT,
+        timeoutMs
+      }), timeoutMs);
+    });
+    const {
+      abortConfirmation,
+      confirmationPromise
+    } = this.getTransactionConfirmationPromise({
+      commitment,
+      signature
     });
     let result;
-
     try {
       const outcome = await Promise.race([confirmationPromise, expiryPromise]);
-
-      switch (outcome.__type) {
-        case exports.TransactionStatus.BLOCKHEIGHT_EXCEEDED:
-          throw new TransactionExpiredBlockheightExceededError(rawSignature);
-
-        case exports.TransactionStatus.PROCESSED:
-          result = outcome.response;
-          break;
-
-        case exports.TransactionStatus.TIMED_OUT:
-          throw new TransactionExpiredTimeoutError(rawSignature, outcome.timeoutMs / 1000);
+      if (outcome.__type === exports.TransactionStatus.PROCESSED) {
+        result = outcome.response;
+      } else {
+        throw new TransactionExpiredTimeoutError(signature, outcome.timeoutMs / 1000);
       }
     } finally {
       clearTimeout(timeoutId);
-
-      if (subscriptionId) {
-        this.removeSignatureListener(subscriptionId);
-      }
+      abortConfirmation();
     }
-
     return result;
   }
+
   /**
    * Return the list of nodes that are currently participating in the cluster
    */
-
-
   async getClusterNodes() {
     const unsafeRes = await this._rpcRequest('getClusterNodes', []);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.array(ContactInfoResult)));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get cluster nodes');
     }
-
     return res.result;
   }
+
   /**
    * Return the list of nodes that are currently participating in the cluster
    */
-
-
   async getVoteAccounts(commitment) {
     const args = this._buildArgs([], commitment);
-
     const unsafeRes = await this._rpcRequest('getVoteAccounts', args);
     const res = superstruct.create(unsafeRes, GetVoteAccounts);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get vote accounts');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current slot that the node is processing
    */
-
-
   async getSlot(commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgs([], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getSlot', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.number()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get slot');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current slot leader of the cluster
    */
-
-
   async getSlotLeader(commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgs([], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getSlotLeader', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.string()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get slot leader');
     }
-
     return res.result;
   }
+
   /**
    * Fetch `limit` number of slot leaders starting from `startSlot`
    *
    * @param startSlot fetch slot leaders starting from this slot
    * @param limit number of slot leaders to return
    */
-
-
   async getSlotLeaders(startSlot, limit) {
     const args = [startSlot, limit];
     const unsafeRes = await this._rpcRequest('getSlotLeaders', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.array(PublicKeyFromString)));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get slot leaders');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current status of a signature
    */
-
-
   async getSignatureStatus(signature, config) {
     const {
       context,
@@ -16744,58 +19593,45 @@ class Connection {
       value
     };
   }
+
   /**
    * Fetch the current statuses of a batch of signatures
    */
-
-
   async getSignatureStatuses(signatures, config) {
     const params = [signatures];
-
     if (config) {
       params.push(config);
     }
-
     const unsafeRes = await this._rpcRequest('getSignatureStatuses', params);
     const res = superstruct.create(unsafeRes, GetSignatureStatusesRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get signature status');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current transaction count of the cluster
    */
-
-
   async getTransactionCount(commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgs([], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getTransactionCount', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.number()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get transaction count');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the current total currency supply of the cluster in lamports
    *
    * @deprecated Deprecated since v1.2.8. Please use {@link getSupply} instead.
    */
-
-
   async getTotalSupply(commitment) {
     const result = await this.getSupply({
       commitment,
@@ -16803,177 +19639,151 @@ class Connection {
     });
     return result.value.total;
   }
+
   /**
    * Fetch the cluster InflationGovernor parameters
    */
-
-
   async getInflationGovernor(commitment) {
     const args = this._buildArgs([], commitment);
-
     const unsafeRes = await this._rpcRequest('getInflationGovernor', args);
     const res = superstruct.create(unsafeRes, GetInflationGovernorRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get inflation');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the inflation reward for a list of addresses for an epoch
    */
-
-
   async getInflationReward(addresses, epoch, commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([addresses.map(pubkey => pubkey.toBase58())], commitment, undefined
-    /* encoding */
-    , { ...config,
-      epoch: epoch != null ? epoch : config === null || config === void 0 ? void 0 : config.epoch
+    const args = this._buildArgs([addresses.map(pubkey => pubkey.toBase58())], commitment, undefined /* encoding */, {
+      ...config,
+      epoch: epoch != null ? epoch : config?.epoch
     });
-
     const unsafeRes = await this._rpcRequest('getInflationReward', args);
     const res = superstruct.create(unsafeRes, GetInflationRewardResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get inflation reward');
     }
-
     return res.result;
   }
+
+  /**
+   * Fetch the specific inflation values for the current epoch
+   */
+  async getInflationRate() {
+    const unsafeRes = await this._rpcRequest('getInflationRate', []);
+    const res = superstruct.create(unsafeRes, GetInflationRateRpcResult);
+    if ('error' in res) {
+      throw new SolanaJSONRPCError(res.error, 'failed to get inflation rate');
+    }
+    return res.result;
+  }
+
   /**
    * Fetch the Epoch Info parameters
    */
-
-
   async getEpochInfo(commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgs([], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getEpochInfo', args);
     const res = superstruct.create(unsafeRes, GetEpochInfoRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get epoch info');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the Epoch Schedule parameters
    */
-
-
   async getEpochSchedule() {
     const unsafeRes = await this._rpcRequest('getEpochSchedule', []);
     const res = superstruct.create(unsafeRes, GetEpochScheduleRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get epoch schedule');
     }
-
     const epochSchedule = res.result;
     return new EpochSchedule(epochSchedule.slotsPerEpoch, epochSchedule.leaderScheduleSlotOffset, epochSchedule.warmup, epochSchedule.firstNormalEpoch, epochSchedule.firstNormalSlot);
   }
+
   /**
    * Fetch the leader schedule for the current epoch
    * @return {Promise<RpcResponseAndContext<LeaderSchedule>>}
    */
-
-
   async getLeaderSchedule() {
     const unsafeRes = await this._rpcRequest('getLeaderSchedule', []);
     const res = superstruct.create(unsafeRes, GetLeaderScheduleRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get leader schedule');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the minimum balance needed to exempt an account of `dataLength`
    * size from rent
    */
-
-
   async getMinimumBalanceForRentExemption(dataLength, commitment) {
     const args = this._buildArgs([dataLength], commitment);
-
     const unsafeRes = await this._rpcRequest('getMinimumBalanceForRentExemption', args);
     const res = superstruct.create(unsafeRes, GetMinimumBalanceForRentExemptionRpcResult);
-
     if ('error' in res) {
       console.warn('Unable to fetch minimum balance for rent exemption');
       return 0;
     }
-
     return res.result;
   }
+
   /**
    * Fetch a recent blockhash from the cluster, return with context
    * @return {Promise<RpcResponseAndContext<{blockhash: Blockhash, feeCalculator: FeeCalculator}>>}
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getLatestBlockhash} instead.
    */
-
-
   async getRecentBlockhashAndContext(commitment) {
     const args = this._buildArgs([], commitment);
-
     const unsafeRes = await this._rpcRequest('getRecentBlockhash', args);
     const res = superstruct.create(unsafeRes, GetRecentBlockhashAndContextRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get recent blockhash');
     }
-
     return res.result;
   }
+
   /**
    * Fetch recent performance samples
    * @return {Promise<Array<PerfSample>>}
    */
-
-
   async getRecentPerformanceSamples(limit) {
     const unsafeRes = await this._rpcRequest('getRecentPerformanceSamples', limit ? [limit] : []);
     const res = superstruct.create(unsafeRes, GetRecentPerformanceSamplesRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get recent performance samples');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the fee calculator for a recent blockhash from the cluster, return with context
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getFeeForMessage} instead.
    */
-
-
   async getFeeCalculatorForBlockhash(blockhash, commitment) {
     const args = this._buildArgs([blockhash], commitment);
-
     const unsafeRes = await this._rpcRequest('getFeeCalculatorForBlockhash', args);
     const res = superstruct.create(unsafeRes, GetFeeCalculatorRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get fee calculator');
     }
-
     const {
       context,
       value
@@ -16983,27 +19793,35 @@ class Connection {
       value: value !== null ? value.feeCalculator : null
     };
   }
+
   /**
    * Fetch the fee for a message from the cluster, return with context
    */
-
-
   async getFeeForMessage(message, commitment) {
-    const wireMessage = message.serialize().toString('base64');
-
+    const wireMessage = toBuffer(message.serialize()).toString('base64');
     const args = this._buildArgs([wireMessage], commitment);
-
     const unsafeRes = await this._rpcRequest('getFeeForMessage', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.nullable(superstruct.number())));
-
     if ('error' in res) {
-      throw new SolanaJSONRPCError(res.error, 'failed to get slot');
+      throw new SolanaJSONRPCError(res.error, 'failed to get fee for message');
     }
-
     if (res.result === null) {
       throw new Error('invalid blockhash');
     }
+    return res.result;
+  }
 
+  /**
+   * Fetch a list of prioritization fees from recent blocks.
+   */
+  async getRecentPrioritizationFees(config) {
+    const accounts = config?.lockedWritableAccounts?.map(key => key.toBase58());
+    const args = this._buildArgs(accounts?.length ? [accounts] : []);
+    const unsafeRes = await this._rpcRequest('getRecentPrioritizationFees', args);
+    const res = superstruct.create(unsafeRes, GetRecentPrioritizationFeesRpcResult);
+    if ('error' in res) {
+      throw new SolanaJSONRPCError(res.error, 'failed to get recent prioritization fees');
+    }
     return res.result;
   }
   /**
@@ -17012,8 +19830,6 @@ class Connection {
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getLatestBlockhash} instead.
    */
-
-
   async getRecentBlockhash(commitment) {
     try {
       const res = await this.getRecentBlockhashAndContext(commitment);
@@ -17022,12 +19838,11 @@ class Connection {
       throw new Error('failed to get recent blockhash: ' + e);
     }
   }
+
   /**
    * Fetch the latest blockhash from the cluster
    * @return {Promise<BlockhashWithExpiryBlockHeight>}
    */
-
-
   async getLatestBlockhash(commitmentOrConfig) {
     try {
       const res = await this.getLatestBlockhashAndContext(commitmentOrConfig);
@@ -17036,68 +19851,55 @@ class Connection {
       throw new Error('failed to get recent blockhash: ' + e);
     }
   }
+
   /**
    * Fetch the latest blockhash from the cluster
    * @return {Promise<BlockhashWithExpiryBlockHeight>}
    */
-
-
   async getLatestBlockhashAndContext(commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgs([], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getLatestBlockhash', args);
     const res = superstruct.create(unsafeRes, GetLatestBlockhashRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get latest blockhash');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the node version
    */
-
-
   async getVersion() {
     const unsafeRes = await this._rpcRequest('getVersion', []);
     const res = superstruct.create(unsafeRes, jsonRpcResult(VersionResult));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get version');
     }
-
     return res.result;
   }
+
   /**
    * Fetch the genesis hash
    */
-
-
   async getGenesisHash() {
     const unsafeRes = await this._rpcRequest('getGenesisHash', []);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.string()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get genesis hash');
     }
-
     return res.result;
   }
+
   /**
    * Fetch a processed block from the cluster.
    *
    * @deprecated Instead, call `getBlock` using a `GetVersionedBlockConfig` by
    * setting the `maxSupportedTransactionVersion` property.
    */
-
 
   /**
    * Fetch a processed block from the cluster.
@@ -17108,89 +19910,111 @@ class Connection {
       commitment,
       config
     } = extractCommitmentFromConfig(rawConfig);
-
-    const args = this._buildArgsAtLeastConfirmed([slot], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgsAtLeastConfirmed([slot], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getBlock', args);
-    const res = superstruct.create(unsafeRes, GetBlockRpcResult);
-
-    if ('error' in res) {
-      throw new SolanaJSONRPCError(res.error, 'failed to get confirmed block');
+    try {
+      switch (config?.transactionDetails) {
+        case 'accounts':
+          {
+            const res = superstruct.create(unsafeRes, GetAccountsModeBlockRpcResult);
+            if ('error' in res) {
+              throw res.error;
+            }
+            return res.result;
+          }
+        case 'none':
+          {
+            const res = superstruct.create(unsafeRes, GetNoneModeBlockRpcResult);
+            if ('error' in res) {
+              throw res.error;
+            }
+            return res.result;
+          }
+        default:
+          {
+            const res = superstruct.create(unsafeRes, GetBlockRpcResult);
+            if ('error' in res) {
+              throw res.error;
+            }
+            const {
+              result
+            } = res;
+            return result ? {
+              ...result,
+              transactions: result.transactions.map(({
+                transaction,
+                meta,
+                version
+              }) => ({
+                meta,
+                transaction: {
+                  ...transaction,
+                  message: versionedMessageFromResponse(version, transaction.message)
+                },
+                version
+              }))
+            } : null;
+          }
+      }
+    } catch (e) {
+      throw new SolanaJSONRPCError(e, 'failed to get confirmed block');
     }
-
-    const result = res.result;
-    if (!result) return result;
-    return { ...result,
-      transactions: result.transactions.map(({
-        transaction,
-        meta,
-        version
-      }) => ({
-        meta,
-        transaction: { ...transaction,
-          message: versionedMessageFromResponse(version, transaction.message)
-        },
-        version
-      }))
-    };
   }
+
   /**
    * Fetch parsed transaction details for a confirmed or finalized block
    */
 
-
+  // eslint-disable-next-line no-dupe-class-members
   async getParsedBlock(slot, rawConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(rawConfig);
-
     const args = this._buildArgsAtLeastConfirmed([slot], commitment, 'jsonParsed', config);
-
     const unsafeRes = await this._rpcRequest('getBlock', args);
-    const res = superstruct.create(unsafeRes, GetParsedBlockRpcResult);
-
-    if ('error' in res) {
-      throw new SolanaJSONRPCError(res.error, 'failed to get block');
+    try {
+      switch (config?.transactionDetails) {
+        case 'accounts':
+          {
+            const res = superstruct.create(unsafeRes, GetParsedAccountsModeBlockRpcResult);
+            if ('error' in res) {
+              throw res.error;
+            }
+            return res.result;
+          }
+        case 'none':
+          {
+            const res = superstruct.create(unsafeRes, GetParsedNoneModeBlockRpcResult);
+            if ('error' in res) {
+              throw res.error;
+            }
+            return res.result;
+          }
+        default:
+          {
+            const res = superstruct.create(unsafeRes, GetParsedBlockRpcResult);
+            if ('error' in res) {
+              throw res.error;
+            }
+            return res.result;
+          }
+      }
+    } catch (e) {
+      throw new SolanaJSONRPCError(e, 'failed to get block');
     }
-
-    return res.result;
   }
+
   /*
    * Returns the current block height of the node
    */
 
-
-  async getBlockHeight(commitmentOrConfig) {
-    const {
-      commitment,
-      config
-    } = extractCommitmentFromConfig(commitmentOrConfig);
-
-    const args = this._buildArgs([], commitment, undefined
-    /* encoding */
-    , config);
-
-    const unsafeRes = await this._rpcRequest('getBlockHeight', args);
-    const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.number()));
-
-    if ('error' in res) {
-      throw new SolanaJSONRPCError(res.error, 'failed to get block height information');
-    }
-
-    return res.result;
-  }
   /*
    * Returns recent block production information from the current or previous epoch
    */
-
-
   async getBlockProduction(configOrCommitment) {
     let extra;
     let commitment;
-
     if (typeof configOrCommitment === 'string') {
       commitment = configOrCommitment;
     } else if (configOrCommitment) {
@@ -17201,18 +20025,15 @@ class Connection {
       commitment = c;
       extra = rest;
     }
-
     const args = this._buildArgs([], commitment, 'base64', extra);
-
     const unsafeRes = await this._rpcRequest('getBlockProduction', args);
     const res = superstruct.create(unsafeRes, BlockProductionResponseStruct);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get block production information');
     }
-
     return res.result;
   }
+
   /**
    * Fetch a confirmed or finalized transaction from the cluster.
    *
@@ -17220,7 +20041,6 @@ class Connection {
    * `GetVersionedTransactionConfig` by setting the
    * `maxSupportedTransactionVersion` property.
    */
-
 
   /**
    * Fetch a confirmed or finalized transaction from the cluster.
@@ -17231,53 +20051,43 @@ class Connection {
       commitment,
       config
     } = extractCommitmentFromConfig(rawConfig);
-
-    const args = this._buildArgsAtLeastConfirmed([signature], commitment, undefined
-    /* encoding */
-    , config);
-
+    const args = this._buildArgsAtLeastConfirmed([signature], commitment, undefined /* encoding */, config);
     const unsafeRes = await this._rpcRequest('getTransaction', args);
     const res = superstruct.create(unsafeRes, GetTransactionRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get transaction');
     }
-
     const result = res.result;
     if (!result) return result;
-    return { ...result,
-      transaction: { ...result.transaction,
+    return {
+      ...result,
+      transaction: {
+        ...result.transaction,
         message: versionedMessageFromResponse(result.version, result.transaction.message)
       }
     };
   }
+
   /**
    * Fetch parsed transaction details for a confirmed or finalized transaction
    */
-
-
   async getParsedTransaction(signature, commitmentOrConfig) {
     const {
       commitment,
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
-
     const args = this._buildArgsAtLeastConfirmed([signature], commitment, 'jsonParsed', config);
-
     const unsafeRes = await this._rpcRequest('getTransaction', args);
     const res = superstruct.create(unsafeRes, GetParsedTransactionRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get transaction');
     }
-
     return res.result;
   }
+
   /**
    * Fetch parsed transaction details for a batch of confirmed transactions
    */
-
-
   async getParsedTransactions(signatures, commitmentOrConfig) {
     const {
       commitment,
@@ -17285,7 +20095,6 @@ class Connection {
     } = extractCommitmentFromConfig(commitmentOrConfig);
     const batch = signatures.map(signature => {
       const args = this._buildArgsAtLeastConfirmed([signature], commitment, 'jsonParsed', config);
-
       return {
         methodName: 'getTransaction',
         args
@@ -17294,15 +20103,14 @@ class Connection {
     const unsafeRes = await this._rpcBatchRequest(batch);
     const res = unsafeRes.map(unsafeRes => {
       const res = superstruct.create(unsafeRes, GetParsedTransactionRpcResult);
-
       if ('error' in res) {
         throw new SolanaJSONRPCError(res.error, 'failed to get transactions');
       }
-
       return res.result;
     });
     return res;
   }
+
   /**
    * Fetch transaction details for a batch of confirmed transactions.
    * Similar to {@link getParsedTransactions} but returns a {@link TransactionResponse}.
@@ -17311,7 +20119,6 @@ class Connection {
    * `GetVersionedTransactionConfig` by setting the
    * `maxSupportedTransactionVersion` property.
    */
-
 
   /**
    * Fetch transaction details for a batch of confirmed transactions.
@@ -17325,10 +20132,7 @@ class Connection {
       config
     } = extractCommitmentFromConfig(commitmentOrConfig);
     const batch = signatures.map(signature => {
-      const args = this._buildArgsAtLeastConfirmed([signature], commitment, undefined
-      /* encoding */
-      , config);
-
+      const args = this._buildArgsAtLeastConfirmed([signature], commitment, undefined /* encoding */, config);
       return {
         methodName: 'getTransaction',
         args
@@ -17337,46 +20141,41 @@ class Connection {
     const unsafeRes = await this._rpcBatchRequest(batch);
     const res = unsafeRes.map(unsafeRes => {
       const res = superstruct.create(unsafeRes, GetTransactionRpcResult);
-
       if ('error' in res) {
         throw new SolanaJSONRPCError(res.error, 'failed to get transactions');
       }
-
       const result = res.result;
       if (!result) return result;
-      return { ...result,
-        transaction: { ...result.transaction,
+      return {
+        ...result,
+        transaction: {
+          ...result.transaction,
           message: versionedMessageFromResponse(result.version, result.transaction.message)
         }
       };
     });
     return res;
   }
+
   /**
    * Fetch a list of Transactions and transaction statuses from the cluster
    * for a confirmed block.
    *
    * @deprecated Deprecated since v1.13.0. Please use {@link getBlock} instead.
    */
-
-
   async getConfirmedBlock(slot, commitment) {
     const args = this._buildArgsAtLeastConfirmed([slot], commitment);
-
     const unsafeRes = await this._rpcRequest('getConfirmedBlock', args);
     const res = superstruct.create(unsafeRes, GetConfirmedBlockRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get confirmed block');
     }
-
     const result = res.result;
-
     if (!result) {
       throw new Error('Confirmed block ' + slot + ' not found');
     }
-
-    const block = { ...result,
+    const block = {
+      ...result,
       transactions: result.transactions.map(({
         transaction,
         meta
@@ -17384,13 +20183,15 @@ class Connection {
         const message = new Message(transaction.message);
         return {
           meta,
-          transaction: { ...transaction,
+          transaction: {
+            ...transaction,
             message
           }
         };
       })
     };
-    return { ...block,
+    return {
+      ...block,
       transactions: block.transactions.map(({
         transaction,
         meta
@@ -17402,132 +20203,107 @@ class Connection {
       })
     };
   }
+
   /**
    * Fetch confirmed blocks between two slots
    */
-
-
   async getBlocks(startSlot, endSlot, commitment) {
     const args = this._buildArgsAtLeastConfirmed(endSlot !== undefined ? [startSlot, endSlot] : [startSlot], commitment);
-
     const unsafeRes = await this._rpcRequest('getBlocks', args);
     const res = superstruct.create(unsafeRes, jsonRpcResult(superstruct.array(superstruct.number())));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get blocks');
     }
-
     return res.result;
   }
+
   /**
    * Fetch a list of Signatures from the cluster for a block, excluding rewards
    */
-
-
   async getBlockSignatures(slot, commitment) {
     const args = this._buildArgsAtLeastConfirmed([slot], commitment, undefined, {
       transactionDetails: 'signatures',
       rewards: false
     });
-
     const unsafeRes = await this._rpcRequest('getBlock', args);
     const res = superstruct.create(unsafeRes, GetBlockSignaturesRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get block');
     }
-
     const result = res.result;
-
     if (!result) {
       throw new Error('Block ' + slot + ' not found');
     }
-
     return result;
   }
+
   /**
    * Fetch a list of Signatures from the cluster for a confirmed block, excluding rewards
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getBlockSignatures} instead.
    */
-
-
   async getConfirmedBlockSignatures(slot, commitment) {
     const args = this._buildArgsAtLeastConfirmed([slot], commitment, undefined, {
       transactionDetails: 'signatures',
       rewards: false
     });
-
     const unsafeRes = await this._rpcRequest('getConfirmedBlock', args);
     const res = superstruct.create(unsafeRes, GetBlockSignaturesRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get confirmed block');
     }
-
     const result = res.result;
-
     if (!result) {
       throw new Error('Confirmed block ' + slot + ' not found');
     }
-
     return result;
   }
+
   /**
    * Fetch a transaction details for a confirmed transaction
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getTransaction} instead.
    */
-
-
   async getConfirmedTransaction(signature, commitment) {
     const args = this._buildArgsAtLeastConfirmed([signature], commitment);
-
     const unsafeRes = await this._rpcRequest('getConfirmedTransaction', args);
     const res = superstruct.create(unsafeRes, GetTransactionRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get transaction');
     }
-
     const result = res.result;
     if (!result) return result;
     const message = new Message(result.transaction.message);
     const signatures = result.transaction.signatures;
-    return { ...result,
+    return {
+      ...result,
       transaction: Transaction.populate(message, signatures)
     };
   }
+
   /**
    * Fetch parsed transaction details for a confirmed transaction
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getParsedTransaction} instead.
    */
-
-
   async getParsedConfirmedTransaction(signature, commitment) {
     const args = this._buildArgsAtLeastConfirmed([signature], commitment, 'jsonParsed');
-
     const unsafeRes = await this._rpcRequest('getConfirmedTransaction', args);
     const res = superstruct.create(unsafeRes, GetParsedTransactionRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get confirmed transaction');
     }
-
     return res.result;
   }
+
   /**
    * Fetch parsed transaction details for a batch of confirmed transactions
    *
    * @deprecated Deprecated since Solana v1.8.0. Please use {@link getParsedTransactions} instead.
    */
-
-
   async getParsedConfirmedTransactions(signatures, commitment) {
     const batch = signatures.map(signature => {
       const args = this._buildArgsAtLeastConfirmed([signature], commitment, 'jsonParsed');
-
       return {
         methodName: 'getConfirmedTransaction',
         args
@@ -17536,15 +20312,14 @@ class Connection {
     const unsafeRes = await this._rpcBatchRequest(batch);
     const res = unsafeRes.map(unsafeRes => {
       const res = superstruct.create(unsafeRes, GetParsedTransactionRpcResult);
-
       if ('error' in res) {
         throw new SolanaJSONRPCError(res.error, 'failed to get confirmed transactions');
       }
-
       return res.result;
     });
     return res;
   }
+
   /**
    * Fetch a list of all the confirmed signatures for transactions involving an address
    * within a specified slot range. Max range allowed is 10,000 slots.
@@ -17555,22 +20330,16 @@ class Connection {
    * @param startSlot start slot, inclusive
    * @param endSlot end slot, inclusive
    */
-
-
   async getConfirmedSignaturesForAddress(address, startSlot, endSlot) {
     let options = {};
     let firstAvailableBlock = await this.getFirstAvailableBlock();
-
     while (!('until' in options)) {
       startSlot--;
-
       if (startSlot <= 0 || startSlot < firstAvailableBlock) {
         break;
       }
-
       try {
         const block = await this.getConfirmedBlockSignatures(startSlot, 'finalized');
-
         if (block.signatures.length > 0) {
           options.until = block.signatures[block.signatures.length - 1].toString();
         }
@@ -17582,19 +20351,14 @@ class Connection {
         }
       }
     }
-
     let highestConfirmedRoot = await this.getSlot('finalized');
-
     while (!('before' in options)) {
       endSlot++;
-
       if (endSlot > highestConfirmedRoot) {
         break;
       }
-
       try {
         const block = await this.getConfirmedBlockSignatures(endSlot);
-
         if (block.signatures.length > 0) {
           options.before = block.signatures[block.signatures.length - 1].toString();
         }
@@ -17606,10 +20370,10 @@ class Connection {
         }
       }
     }
-
     const confirmedSignatureInfo = await this.getConfirmedSignaturesForAddress2(address, options);
     return confirmedSignatureInfo.map(info => info.signature);
   }
+
   /**
    * Returns confirmed signatures for transactions involving an
    * address backwards in time from the provided signature or most recent confirmed block
@@ -17618,20 +20382,16 @@ class Connection {
    * @param address queried address
    * @param options
    */
-
-
   async getConfirmedSignaturesForAddress2(address, options, commitment) {
     const args = this._buildArgsAtLeastConfirmed([address.toBase58()], commitment, undefined, options);
-
     const unsafeRes = await this._rpcRequest('getConfirmedSignaturesForAddress2', args);
     const res = superstruct.create(unsafeRes, GetConfirmedSignaturesForAddress2RpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get confirmed signatures for address');
     }
-
     return res.result;
   }
+
   /**
    * Returns confirmed signatures for transactions involving an
    * address backwards in time from the provided signature or most recent confirmed block
@@ -17640,71 +20400,60 @@ class Connection {
    * @param address queried address
    * @param options
    */
-
-
   async getSignaturesForAddress(address, options, commitment) {
     const args = this._buildArgsAtLeastConfirmed([address.toBase58()], commitment, undefined, options);
-
     const unsafeRes = await this._rpcRequest('getSignaturesForAddress', args);
     const res = superstruct.create(unsafeRes, GetSignaturesForAddressRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, 'failed to get signatures for address');
     }
-
     return res.result;
   }
-
   async getAddressLookupTable(accountKey, config) {
     const {
       context,
       value: accountInfo
     } = await this.getAccountInfoAndContext(accountKey, config);
     let value = null;
-
     if (accountInfo !== null) {
       value = new AddressLookupTableAccount({
         key: accountKey,
         state: AddressLookupTableAccount.deserialize(accountInfo.data)
       });
     }
-
     return {
       context,
       value
     };
   }
+
   /**
    * Fetch the contents of a Nonce account from the cluster, return with context
    */
-
-
-  async getNonceAndContext(nonceAccount, commitment) {
+  async getNonceAndContext(nonceAccount, commitmentOrConfig) {
     const {
       context,
       value: accountInfo
-    } = await this.getAccountInfoAndContext(nonceAccount, commitment);
+    } = await this.getAccountInfoAndContext(nonceAccount, commitmentOrConfig);
     let value = null;
-
     if (accountInfo !== null) {
       value = NonceAccount.fromAccountData(accountInfo.data);
     }
-
     return {
       context,
       value
     };
   }
+
   /**
    * Fetch the contents of a Nonce account from the cluster
    */
-
-
-  async getNonce(nonceAccount, commitment) {
-    return await this.getNonceAndContext(nonceAccount, commitment).then(x => x.value).catch(e => {
+  async getNonce(nonceAccount, commitmentOrConfig) {
+    return await this.getNonceAndContext(nonceAccount, commitmentOrConfig).then(x => x.value).catch(e => {
       throw new Error('failed to get nonce for account ' + nonceAccount.toBase58() + ': ' + e);
     });
   }
+
   /**
    * Request an allocation of lamports to the specified address
    *
@@ -17719,57 +20468,44 @@ class Connection {
    * })();
    * ```
    */
-
-
   async requestAirdrop(to, lamports) {
     const unsafeRes = await this._rpcRequest('requestAirdrop', [to.toBase58(), lamports]);
     const res = superstruct.create(unsafeRes, RequestAirdropRpcResult);
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `airdrop to ${to.toBase58()} failed`);
     }
-
     return res.result;
   }
+
   /**
    * @internal
    */
-
-
   async _blockhashWithExpiryBlockHeight(disableCache) {
     if (!disableCache) {
       // Wait for polling to finish
       while (this._pollingBlockhash) {
         await sleep(100);
       }
-
       const timeSinceFetch = Date.now() - this._blockhashInfo.lastFetch;
-
       const expired = timeSinceFetch >= BLOCKHASH_CACHE_TIMEOUT_MS;
-
       if (this._blockhashInfo.latestBlockhash !== null && !expired) {
         return this._blockhashInfo.latestBlockhash;
       }
     }
-
     return await this._pollNewBlockhash();
   }
+
   /**
    * @internal
    */
-
-
   async _pollNewBlockhash() {
     this._pollingBlockhash = true;
-
     try {
       const startTime = Date.now();
       const cachedLatestBlockhash = this._blockhashInfo.latestBlockhash;
       const cachedBlockhash = cachedLatestBlockhash ? cachedLatestBlockhash.blockhash : null;
-
       for (let i = 0; i < 50; i++) {
         const latestBlockhash = await this.getLatestBlockhash('finalized');
-
         if (cachedBlockhash !== latestBlockhash.blockhash) {
           this._blockhashInfo = {
             latestBlockhash,
@@ -17778,46 +20514,40 @@ class Connection {
             simulatedSignatures: []
           };
           return latestBlockhash;
-        } // Sleep for approximately half a slot
+        }
 
-
+        // Sleep for approximately half a slot
         await sleep(MS_PER_SLOT / 2);
       }
-
       throw new Error(`Unable to obtain a new blockhash after ${Date.now() - startTime}ms`);
     } finally {
       this._pollingBlockhash = false;
     }
   }
+
   /**
    * get the stake minimum delegation
    */
-
-
   async getStakeMinimumDelegation(config) {
     const {
       commitment,
       config: configArg
     } = extractCommitmentFromConfig(config);
-
     const args = this._buildArgs([], commitment, 'base64', configArg);
-
     const unsafeRes = await this._rpcRequest('getStakeMinimumDelegation', args);
     const res = superstruct.create(unsafeRes, jsonRpcResultAndContext(superstruct.number()));
-
     if ('error' in res) {
       throw new SolanaJSONRPCError(res.error, `failed to get stake minimum delegation`);
     }
-
     return res.result;
   }
+
   /**
    * Simulate a transaction
    *
    * @deprecated Instead, call {@link simulateTransaction} with {@link
    * VersionedTransaction} and {@link SimulateTransactionConfig} parameters
    */
-
 
   /**
    * Simulate a transaction
@@ -17828,31 +20558,23 @@ class Connection {
       const versionedTx = transactionOrMessage;
       const wireTransaction = versionedTx.serialize();
       const encodedTransaction = buffer.Buffer.from(wireTransaction).toString('base64');
-
       if (Array.isArray(configOrSigners) || includeAccounts !== undefined) {
         throw new Error('Invalid arguments');
       }
-
       const config = configOrSigners || {};
       config.encoding = 'base64';
-
       if (!('commitment' in config)) {
         config.commitment = this.commitment;
       }
-
       const args = [encodedTransaction, config];
       const unsafeRes = await this._rpcRequest('simulateTransaction', args);
       const res = superstruct.create(unsafeRes, SimulatedTransactionResponseStruct);
-
       if ('error' in res) {
         throw new Error('failed to simulate transaction: ' + res.error.message);
       }
-
       return res.result;
     }
-
     let transaction;
-
     if (transactionOrMessage instanceof Transaction) {
       let originalTx = transactionOrMessage;
       transaction = new Transaction();
@@ -17861,40 +20583,33 @@ class Connection {
       transaction.nonceInfo = originalTx.nonceInfo;
       transaction.signatures = originalTx.signatures;
     } else {
-      transaction = Transaction.populate(transactionOrMessage); // HACK: this function relies on mutating the populated transaction
-
+      transaction = Transaction.populate(transactionOrMessage);
+      // HACK: this function relies on mutating the populated transaction
       transaction._message = transaction._json = undefined;
     }
-
     if (configOrSigners !== undefined && !Array.isArray(configOrSigners)) {
       throw new Error('Invalid arguments');
     }
-
     const signers = configOrSigners;
-
     if (transaction.nonceInfo && signers) {
       transaction.sign(...signers);
     } else {
       let disableCache = this._disableBlockhashCaching;
-
       for (;;) {
         const latestBlockhash = await this._blockhashWithExpiryBlockHeight(disableCache);
         transaction.lastValidBlockHeight = latestBlockhash.lastValidBlockHeight;
         transaction.recentBlockhash = latestBlockhash.blockhash;
         if (!signers) break;
         transaction.sign(...signers);
-
         if (!transaction.signature) {
           throw new Error('!signature'); // should never happen
         }
 
         const signature = transaction.signature.toString('base64');
-
         if (!this._blockhashInfo.simulatedSignatures.includes(signature) && !this._blockhashInfo.transactionSignatures.includes(signature)) {
           // The signature of this transaction has not been seen before with the
           // current recentBlockhash, all done. Let's break
           this._blockhashInfo.simulatedSignatures.push(signature);
-
           break;
         } else {
           // This transaction would be treated as duplicate (its derived signature
@@ -17905,19 +20620,14 @@ class Connection {
         }
       }
     }
-
     const message = transaction._compile();
-
     const signData = message.serialize();
-
     const wireTransaction = transaction._serialize(signData);
-
     const encodedTransaction = wireTransaction.toString('base64');
     const config = {
       encoding: 'base64',
       commitment: this.commitment
     };
-
     if (includeAccounts) {
       const addresses = (Array.isArray(includeAccounts) ? includeAccounts : message.nonProgramIds()).map(key => key.toBase58());
       config['accounts'] = {
@@ -17925,40 +20635,33 @@ class Connection {
         addresses
       };
     }
-
     if (signers) {
       config.sigVerify = true;
     }
-
     const args = [encodedTransaction, config];
     const unsafeRes = await this._rpcRequest('simulateTransaction', args);
     const res = superstruct.create(unsafeRes, SimulatedTransactionResponseStruct);
-
     if ('error' in res) {
       let logs;
-
       if ('data' in res.error) {
         logs = res.error.data.logs;
-
         if (logs && Array.isArray(logs)) {
           const traceIndent = '\n    ';
           const logTrace = traceIndent + logs.join(traceIndent);
           console.error(res.error.message, logTrace);
         }
       }
-
       throw new SendTransactionError('failed to simulate transaction: ' + res.error.message, logs);
     }
-
     return res.result;
   }
+
   /**
    * Sign and send a transaction
    *
    * @deprecated Instead, call {@link sendTransaction} with a {@link
    * VersionedTransaction}
    */
-
 
   /**
    * Sign and send a transaction
@@ -17969,39 +20672,31 @@ class Connection {
       if (signersOrOptions && Array.isArray(signersOrOptions)) {
         throw new Error('Invalid arguments');
       }
-
       const wireTransaction = transaction.serialize();
-      return await this.sendRawTransaction(wireTransaction, options);
+      return await this.sendRawTransaction(wireTransaction, signersOrOptions);
     }
-
     if (signersOrOptions === undefined || !Array.isArray(signersOrOptions)) {
       throw new Error('Invalid arguments');
     }
-
     const signers = signersOrOptions;
-
     if (transaction.nonceInfo) {
       transaction.sign(...signers);
     } else {
       let disableCache = this._disableBlockhashCaching;
-
       for (;;) {
         const latestBlockhash = await this._blockhashWithExpiryBlockHeight(disableCache);
         transaction.lastValidBlockHeight = latestBlockhash.lastValidBlockHeight;
         transaction.recentBlockhash = latestBlockhash.blockhash;
         transaction.sign(...signers);
-
         if (!transaction.signature) {
           throw new Error('!signature'); // should never happen
         }
 
         const signature = transaction.signature.toString('base64');
-
         if (!this._blockhashInfo.transactionSignatures.includes(signature)) {
           // The signature of this transaction has not been seen before with the
           // current recentBlockhash, all done. Let's break
           this._blockhashInfo.transactionSignatures.push(signature);
-
           break;
         } else {
           // This transaction would be treated as duplicate (its derived signature
@@ -18012,135 +20707,157 @@ class Connection {
         }
       }
     }
-
     const wireTransaction = transaction.serialize();
     return await this.sendRawTransaction(wireTransaction, options);
   }
+
   /**
    * Send a transaction that has already been signed and serialized into the
    * wire format
    */
-
-
   async sendRawTransaction(rawTransaction, options) {
     const encodedTransaction = toBuffer(rawTransaction).toString('base64');
     const result = await this.sendEncodedTransaction(encodedTransaction, options);
     return result;
   }
+
   /**
    * Send a transaction that has already been signed, serialized into the
    * wire format, and encoded as a base64 string
    */
-
-
   async sendEncodedTransaction(encodedTransaction, options) {
     const config = {
       encoding: 'base64'
     };
     const skipPreflight = options && options.skipPreflight;
     const preflightCommitment = options && options.preflightCommitment || this.commitment;
-
     if (options && options.maxRetries != null) {
       config.maxRetries = options.maxRetries;
     }
-
     if (options && options.minContextSlot != null) {
       config.minContextSlot = options.minContextSlot;
     }
-
     if (skipPreflight) {
       config.skipPreflight = skipPreflight;
     }
-
     if (preflightCommitment) {
       config.preflightCommitment = preflightCommitment;
     }
-
     const args = [encodedTransaction, config];
     const unsafeRes = await this._rpcRequest('sendTransaction', args);
     const res = superstruct.create(unsafeRes, SendTransactionRpcResult);
-
     if ('error' in res) {
       let logs;
-
       if ('data' in res.error) {
         logs = res.error.data.logs;
       }
-
       throw new SendTransactionError('failed to send transaction: ' + res.error.message, logs);
     }
-
     return res.result;
   }
+
   /**
    * @internal
    */
-
-
   _wsOnOpen() {
     this._rpcWebSocketConnected = true;
     this._rpcWebSocketHeartbeat = setInterval(() => {
       // Ping server every 5s to prevent idle timeouts
-      this._rpcWebSocket.notify('ping').catch(() => {});
+      (async () => {
+        try {
+          await this._rpcWebSocket.notify('ping');
+          // eslint-disable-next-line no-empty
+        } catch {}
+      })();
     }, 5000);
-
     this._updateSubscriptions();
   }
+
   /**
    * @internal
    */
-
-
   _wsOnError(err) {
     this._rpcWebSocketConnected = false;
     console.error('ws error:', err.message);
   }
+
   /**
    * @internal
    */
-
-
   _wsOnClose(code) {
     this._rpcWebSocketConnected = false;
-    this._rpcWebSocketGeneration++;
-
+    this._rpcWebSocketGeneration = (this._rpcWebSocketGeneration + 1) % Number.MAX_SAFE_INTEGER;
     if (this._rpcWebSocketIdleTimeout) {
       clearTimeout(this._rpcWebSocketIdleTimeout);
       this._rpcWebSocketIdleTimeout = null;
     }
-
     if (this._rpcWebSocketHeartbeat) {
       clearInterval(this._rpcWebSocketHeartbeat);
       this._rpcWebSocketHeartbeat = null;
     }
-
     if (code === 1000) {
       // explicit close, check if any subscriptions have been made since close
       this._updateSubscriptions();
-
       return;
-    } // implicit close, prepare subscriptions for auto-reconnect
+    }
 
-
+    // implicit close, prepare subscriptions for auto-reconnect
     this._subscriptionCallbacksByServerSubscriptionId = {};
     Object.entries(this._subscriptionsByHash).forEach(([hash, subscription]) => {
-      this._subscriptionsByHash[hash] = { ...subscription,
+      this._setSubscription(hash, {
+        ...subscription,
         state: 'pending'
-      };
+      });
     });
   }
+
   /**
    * @internal
    */
+  _setSubscription(hash, nextSubscription) {
+    const prevState = this._subscriptionsByHash[hash]?.state;
+    this._subscriptionsByHash[hash] = nextSubscription;
+    if (prevState !== nextSubscription.state) {
+      const stateChangeCallbacks = this._subscriptionStateChangeCallbacksByHash[hash];
+      if (stateChangeCallbacks) {
+        stateChangeCallbacks.forEach(cb => {
+          try {
+            cb(nextSubscription.state);
+            // eslint-disable-next-line no-empty
+          } catch {}
+        });
+      }
+    }
+  }
 
+  /**
+   * @internal
+   */
+  _onSubscriptionStateChange(clientSubscriptionId, callback) {
+    var _this$_subscriptionSt;
+    const hash = this._subscriptionHashByClientSubscriptionId[clientSubscriptionId];
+    if (hash == null) {
+      return () => {};
+    }
+    const stateChangeCallbacks = (_this$_subscriptionSt = this._subscriptionStateChangeCallbacksByHash)[hash] || (_this$_subscriptionSt[hash] = new Set());
+    stateChangeCallbacks.add(callback);
+    return () => {
+      stateChangeCallbacks.delete(callback);
+      if (stateChangeCallbacks.size === 0) {
+        delete this._subscriptionStateChangeCallbacksByHash[hash];
+      }
+    };
+  }
 
+  /**
+   * @internal
+   */
   async _updateSubscriptions() {
     if (Object.keys(this._subscriptionsByHash).length === 0) {
       if (this._rpcWebSocketConnected) {
         this._rpcWebSocketConnected = false;
         this._rpcWebSocketIdleTimeout = setTimeout(() => {
           this._rpcWebSocketIdleTimeout = null;
-
           try {
             this._rpcWebSocket.close();
           } catch (err) {
@@ -18151,40 +20868,32 @@ class Connection {
           }
         }, 500);
       }
-
       return;
     }
-
     if (this._rpcWebSocketIdleTimeout !== null) {
       clearTimeout(this._rpcWebSocketIdleTimeout);
       this._rpcWebSocketIdleTimeout = null;
       this._rpcWebSocketConnected = true;
     }
-
     if (!this._rpcWebSocketConnected) {
       this._rpcWebSocket.connect();
-
       return;
     }
-
     const activeWebSocketGeneration = this._rpcWebSocketGeneration;
-
     const isCurrentConnectionStillActive = () => {
       return activeWebSocketGeneration === this._rpcWebSocketGeneration;
     };
-
-    await Promise.all( // Don't be tempted to change this to `Object.entries`. We call
+    await Promise.all(
+    // Don't be tempted to change this to `Object.entries`. We call
     // `_updateSubscriptions` recursively when processing the state,
     // so it's important that we look up the *current* version of
     // each subscription, every time we process a hash.
     Object.keys(this._subscriptionsByHash).map(async hash => {
       const subscription = this._subscriptionsByHash[hash];
-
       if (subscription === undefined) {
         // This entry has since been deleted. Skip.
         return;
       }
-
       switch (subscription.state) {
         case 'pending':
         case 'unsubscribed':
@@ -18203,50 +20912,46 @@ class Connection {
              * subscription any longer, delete it.
              */
             delete this._subscriptionsByHash[hash];
-
             if (subscription.state === 'unsubscribed') {
               delete this._subscriptionCallbacksByServerSubscriptionId[subscription.serverSubscriptionId];
             }
-
             await this._updateSubscriptions();
             return;
           }
-
           await (async () => {
             const {
               args,
               method
             } = subscription;
-
             try {
-              this._subscriptionsByHash[hash] = { ...subscription,
+              this._setSubscription(hash, {
+                ...subscription,
                 state: 'subscribing'
-              };
+              });
               const serverSubscriptionId = await this._rpcWebSocket.call(method, args);
-              this._subscriptionsByHash[hash] = { ...subscription,
+              this._setSubscription(hash, {
+                ...subscription,
                 serverSubscriptionId,
                 state: 'subscribed'
-              };
+              });
               this._subscriptionCallbacksByServerSubscriptionId[serverSubscriptionId] = subscription.callbacks;
               await this._updateSubscriptions();
             } catch (e) {
               if (e instanceof Error) {
                 console.error(`${method} error for argument`, args, e.message);
               }
-
               if (!isCurrentConnectionStillActive()) {
                 return;
-              } // TODO: Maybe add an 'errored' state or a retry limit?
-
-
-              this._subscriptionsByHash[hash] = { ...subscription,
+              }
+              // TODO: Maybe add an 'errored' state or a retry limit?
+              this._setSubscription(hash, {
+                ...subscription,
                 state: 'pending'
-              };
+              });
               await this._updateSubscriptions();
             }
           })();
           break;
-
         case 'subscribed':
           if (subscription.callbacks.size === 0) {
             // By the time we successfully set up a subscription
@@ -18257,7 +20962,6 @@ class Connection {
                 serverSubscriptionId,
                 unsubscribeMethod
               } = subscription;
-
               if (this._subscriptionsAutoDisposedByRpc.has(serverSubscriptionId)) {
                 /**
                  * Special case.
@@ -18270,56 +20974,56 @@ class Connection {
                  */
                 this._subscriptionsAutoDisposedByRpc.delete(serverSubscriptionId);
               } else {
-                this._subscriptionsByHash[hash] = { ...subscription,
+                this._setSubscription(hash, {
+                  ...subscription,
                   state: 'unsubscribing'
-                };
-
+                });
+                this._setSubscription(hash, {
+                  ...subscription,
+                  state: 'unsubscribing'
+                });
                 try {
                   await this._rpcWebSocket.call(unsubscribeMethod, [serverSubscriptionId]);
                 } catch (e) {
                   if (e instanceof Error) {
                     console.error(`${unsubscribeMethod} error:`, e.message);
                   }
-
                   if (!isCurrentConnectionStillActive()) {
                     return;
-                  } // TODO: Maybe add an 'errored' state or a retry limit?
-
-
-                  this._subscriptionsByHash[hash] = { ...subscription,
+                  }
+                  // TODO: Maybe add an 'errored' state or a retry limit?
+                  this._setSubscription(hash, {
+                    ...subscription,
                     state: 'subscribed'
-                  };
+                  });
                   await this._updateSubscriptions();
                   return;
                 }
               }
-
-              this._subscriptionsByHash[hash] = { ...subscription,
+              this._setSubscription(hash, {
+                ...subscription,
                 state: 'unsubscribed'
-              };
+              });
               await this._updateSubscriptions();
             })();
           }
-
           break;
       }
     }));
   }
+
   /**
    * @internal
    */
-
-
   _handleServerNotification(serverSubscriptionId, callbackArgs) {
     const callbacks = this._subscriptionCallbacksByServerSubscriptionId[serverSubscriptionId];
-
     if (callbacks === undefined) {
       return;
     }
-
     callbacks.forEach(cb => {
       try {
-        cb( // I failed to find a way to convince TypeScript that `cb` is of type
+        cb(
+        // I failed to find a way to convince TypeScript that `cb` is of type
         // `TCallback` which is certainly compatible with `Parameters<TCallback>`.
         // See https://github.com/microsoft/TypeScript/issues/47615
         // @ts-ignore
@@ -18329,24 +21033,21 @@ class Connection {
       }
     });
   }
+
   /**
    * @internal
    */
-
-
   _wsOnAccountNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, AccountNotificationResult);
-
     this._handleServerNotification(subscription, [result.value, result.context]);
   }
+
   /**
    * @internal
    */
-
-
   _makeSubscription(subscriptionConfig,
   /**
    * When preparing `args` for a call to `_makeSubscription`, be sure
@@ -18374,13 +21075,12 @@ class Connection {
    */
   args) {
     const clientSubscriptionId = this._nextClientSubscriptionId++;
-    const hash = fastStableStringify$1([subscriptionConfig.method, args], true
-    /* isArrayProp */
-    );
-    const existingSubscription = this._subscriptionsByHash[hash];
+    const hash = fastStableStringify$1([subscriptionConfig.method, args]);
 
+    const existingSubscription = this._subscriptionsByHash[hash];
     if (existingSubscription === undefined) {
-      this._subscriptionsByHash[hash] = { ...subscriptionConfig,
+      this._subscriptionsByHash[hash] = {
+        ...subscriptionConfig,
         args,
         callbacks: new Set([subscriptionConfig.callback]),
         state: 'pending'
@@ -18388,19 +21088,19 @@ class Connection {
     } else {
       existingSubscription.callbacks.add(subscriptionConfig.callback);
     }
-
+    this._subscriptionHashByClientSubscriptionId[clientSubscriptionId] = hash;
     this._subscriptionDisposeFunctionsByClientSubscriptionId[clientSubscriptionId] = async () => {
       delete this._subscriptionDisposeFunctionsByClientSubscriptionId[clientSubscriptionId];
+      delete this._subscriptionHashByClientSubscriptionId[clientSubscriptionId];
       const subscription = this._subscriptionsByHash[hash];
       assert(subscription !== undefined, `Could not find a \`Subscription\` when tearing down client subscription #${clientSubscriptionId}`);
       subscription.callbacks.delete(subscriptionConfig.callback);
       await this._updateSubscriptions();
     };
-
     this._updateSubscriptions();
-
     return clientSubscriptionId;
   }
+
   /**
    * Register a callback to be invoked whenever the specified account changes
    *
@@ -18409,44 +21109,40 @@ class Connection {
    * @param commitment Specify the commitment level account changes must reach before notification
    * @return subscription id
    */
-
-
   onAccountChange(publicKey, callback, commitment) {
-    const args = this._buildArgs([publicKey.toBase58()], commitment || this._commitment || 'finalized', // Apply connection/server default.
+    const args = this._buildArgs([publicKey.toBase58()], commitment || this._commitment || 'finalized',
+    // Apply connection/server default.
     'base64');
-
     return this._makeSubscription({
       callback,
       method: 'accountSubscribe',
       unsubscribeMethod: 'accountUnsubscribe'
     }, args);
   }
+
   /**
    * Deregister an account notification callback
    *
    * @param id client subscription id to deregister
    */
-
-
   async removeAccountChangeListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'account change');
   }
+
   /**
    * @internal
    */
-
-
   _wsOnProgramAccountNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, ProgramAccountNotificationResult);
-
     this._handleServerNotification(subscription, [{
       accountId: result.value.pubkey,
       accountInfo: result.value.account
     }, result.context]);
   }
+
   /**
    * Register a callback to be invoked whenever accounts owned by the
    * specified program change
@@ -18457,17 +21153,12 @@ class Connection {
    * @param filters The program account filters to pass into the RPC method
    * @return subscription id
    */
-
-
   onProgramAccountChange(programId, callback, commitment, filters) {
-    const args = this._buildArgs([programId.toBase58()], commitment || this._commitment || 'finalized', // Apply connection/server default.
-    'base64'
-    /* encoding */
-    , filters ? {
+    const args = this._buildArgs([programId.toBase58()], commitment || this._commitment || 'finalized',
+    // Apply connection/server default.
+    'base64' /* encoding */, filters ? {
       filters: filters
-    } : undefined
-    /* extra */
-    );
+    } : undefined /* extra */);
 
     return this._makeSubscription({
       callback,
@@ -18475,21 +21166,19 @@ class Connection {
       unsubscribeMethod: 'programUnsubscribe'
     }, args);
   }
+
   /**
    * Deregister an account notification callback
    *
    * @param id client subscription id to deregister
    */
-
-
   async removeProgramAccountChangeListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'program account change');
   }
+
   /**
    * Registers a callback to be invoked whenever logs are emitted.
    */
-
-
   onLogs(filter, callback, commitment) {
     const args = this._buildArgs([typeof filter === 'object' ? {
       mentions: [filter.toString()]
@@ -18502,82 +21191,72 @@ class Connection {
       unsubscribeMethod: 'logsUnsubscribe'
     }, args);
   }
+
   /**
    * Deregister a logs callback.
    *
    * @param id client subscription id to deregister.
    */
-
-
   async removeOnLogsListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'logs');
   }
+
   /**
    * @internal
    */
-
-
   _wsOnLogsNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, LogsNotificationResult);
-
     this._handleServerNotification(subscription, [result.value, result.context]);
   }
+
   /**
    * @internal
    */
-
-
   _wsOnSlotNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, SlotNotificationResult);
-
     this._handleServerNotification(subscription, [result]);
   }
+
   /**
    * Register a callback to be invoked upon slot changes
    *
    * @param callback Function to invoke whenever the slot changes
    * @return subscription id
    */
-
-
   onSlotChange(callback) {
     return this._makeSubscription({
       callback,
       method: 'slotSubscribe',
       unsubscribeMethod: 'slotUnsubscribe'
-    }, []
-    /* args */
-    );
+    }, [] /* args */);
   }
+
   /**
    * Deregister a slot notification callback
    *
    * @param id client subscription id to deregister
    */
-
-
   async removeSlotChangeListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'slot change');
   }
+
   /**
    * @internal
    */
-
-
   _wsOnSlotUpdatesNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, SlotUpdateNotificationResult);
-
     this._handleServerNotification(subscription, [result]);
   }
+
   /**
    * Register a callback to be invoked upon slot updates. {@link SlotUpdate}'s
    * may be useful to track live progress of a cluster.
@@ -18585,90 +21264,72 @@ class Connection {
    * @param callback Function to invoke whenever the slot updates
    * @return subscription id
    */
-
-
   onSlotUpdate(callback) {
     return this._makeSubscription({
       callback,
       method: 'slotsUpdatesSubscribe',
       unsubscribeMethod: 'slotsUpdatesUnsubscribe'
-    }, []
-    /* args */
-    );
+    }, [] /* args */);
   }
+
   /**
    * Deregister a slot update notification callback
    *
    * @param id client subscription id to deregister
    */
-
-
   async removeSlotUpdateListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'slot update');
   }
+
   /**
    * @internal
    */
 
-
   async _unsubscribeClientSubscription(clientSubscriptionId, subscriptionName) {
     const dispose = this._subscriptionDisposeFunctionsByClientSubscriptionId[clientSubscriptionId];
-
     if (dispose) {
       await dispose();
     } else {
       console.warn('Ignored unsubscribe request because an active subscription with id ' + `\`${clientSubscriptionId}\` for '${subscriptionName}' events ` + 'could not be found.');
     }
   }
-
   _buildArgs(args, override, encoding, extra) {
     const commitment = override || this._commitment;
-
     if (commitment || encoding || extra) {
       let options = {};
-
       if (encoding) {
         options.encoding = encoding;
       }
-
       if (commitment) {
         options.commitment = commitment;
       }
-
       if (extra) {
         options = Object.assign(options, extra);
       }
-
       args.push(options);
     }
-
     return args;
   }
+
   /**
    * @internal
    */
-
-
   _buildArgsAtLeastConfirmed(args, override, encoding, extra) {
     const commitment = override || this._commitment;
-
     if (commitment && !['confirmed', 'finalized'].includes(commitment)) {
       throw new Error('Using Connection with default commitment: `' + this._commitment + '`, but method requires at least `confirmed`');
     }
-
     return this._buildArgs(args, override, encoding, extra);
   }
+
   /**
    * @internal
    */
-
-
   _wsOnSignatureNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, SignatureNotificationResult);
-
     if (result.value !== 'receivedSignature') {
       /**
        * Special case.
@@ -18685,7 +21346,6 @@ class Connection {
        */
       this._subscriptionsAutoDisposedByRpc.add(subscription);
     }
-
     this._handleServerNotification(subscription, result.value === 'receivedSignature' ? [{
       type: 'received'
     }, result.context] : [{
@@ -18693,6 +21353,7 @@ class Connection {
       result: result.value
     }, result.context]);
   }
+
   /**
    * Register a callback to be invoked upon signature updates
    *
@@ -18701,8 +21362,6 @@ class Connection {
    * @param commitment Specify the commitment level signature must reach before notification
    * @return subscription id
    */
-
-
   onSignature(signature, callback, commitment) {
     const args = this._buildArgs([signature], commitment || this._commitment || 'finalized' // Apply connection/server default.
     );
@@ -18710,21 +21369,23 @@ class Connection {
     const clientSubscriptionId = this._makeSubscription({
       callback: (notification, context) => {
         if (notification.type === 'status') {
-          callback(notification.result, context); // Signatures subscriptions are auto-removed by the RPC service
+          callback(notification.result, context);
+          // Signatures subscriptions are auto-removed by the RPC service
           // so no need to explicitly send an unsubscribe message.
-
           try {
-            this.removeSignatureListener(clientSubscriptionId); // eslint-disable-next-line no-empty
-          } catch (_err) {// Already removed.
+            this.removeSignatureListener(clientSubscriptionId);
+            // eslint-disable-next-line no-empty
+          } catch (_err) {
+            // Already removed.
           }
         }
       },
       method: 'signatureSubscribe',
       unsubscribeMethod: 'signatureUnsubscribe'
     }, args);
-
     return clientSubscriptionId;
   }
+
   /**
    * Register a callback to be invoked when a transaction is
    * received and/or processed.
@@ -18735,88 +21396,76 @@ class Connection {
    *   level that signature must reach before notification
    * @return subscription id
    */
-
-
   onSignatureWithOptions(signature, callback, options) {
     const {
       commitment,
       ...extra
-    } = { ...options,
+    } = {
+      ...options,
       commitment: options && options.commitment || this._commitment || 'finalized' // Apply connection/server default.
-
     };
 
-    const args = this._buildArgs([signature], commitment, undefined
-    /* encoding */
-    , extra);
-
+    const args = this._buildArgs([signature], commitment, undefined /* encoding */, extra);
     const clientSubscriptionId = this._makeSubscription({
       callback: (notification, context) => {
-        callback(notification, context); // Signatures subscriptions are auto-removed by the RPC service
+        callback(notification, context);
+        // Signatures subscriptions are auto-removed by the RPC service
         // so no need to explicitly send an unsubscribe message.
-
         try {
-          this.removeSignatureListener(clientSubscriptionId); // eslint-disable-next-line no-empty
-        } catch (_err) {// Already removed.
+          this.removeSignatureListener(clientSubscriptionId);
+          // eslint-disable-next-line no-empty
+        } catch (_err) {
+          // Already removed.
         }
       },
       method: 'signatureSubscribe',
       unsubscribeMethod: 'signatureUnsubscribe'
     }, args);
-
     return clientSubscriptionId;
   }
+
   /**
    * Deregister a signature notification callback
    *
    * @param id client subscription id to deregister
    */
-
-
   async removeSignatureListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'signature result');
   }
+
   /**
    * @internal
    */
-
-
   _wsOnRootNotification(notification) {
     const {
       result,
       subscription
     } = superstruct.create(notification, RootNotificationResult);
-
     this._handleServerNotification(subscription, [result]);
   }
+
   /**
    * Register a callback to be invoked upon root changes
    *
    * @param callback Function to invoke whenever the root changes
    * @return subscription id
    */
-
-
   onRootChange(callback) {
     return this._makeSubscription({
       callback,
       method: 'rootSubscribe',
       unsubscribeMethod: 'rootUnsubscribe'
-    }, []
-    /* args */
-    );
+    }, [] /* args */);
   }
+
   /**
    * Deregister a root notification callback
    *
    * @param id client subscription id to deregister
    */
-
-
   async removeRootChangeListener(clientSubscriptionId) {
     await this._unsubscribeClientSubscription(clientSubscriptionId, 'root change');
   }
-
 }
 
 /**
@@ -18835,16 +21484,16 @@ class Keypair {
    */
   constructor(keypair) {
     this._keypair = void 0;
-    this._keypair = keypair !== null && keypair !== void 0 ? keypair : generateKeypair();
+    this._keypair = keypair ?? generateKeypair();
   }
+
   /**
    * Generate a new random keypair
    */
-
-
   static generate() {
     return new Keypair(generateKeypair());
   }
+
   /**
    * Create a keypair from a raw secret key byte array.
    *
@@ -18857,38 +21506,31 @@ class Keypair {
    * @param secretKey secret key byte array
    * @param options: skip secret key validation
    */
-
-
   static fromSecretKey(secretKey, options) {
     if (secretKey.byteLength !== 64) {
       throw new Error('bad secret key size');
     }
-
     const publicKey = secretKey.slice(32, 64);
-
     if (!options || !options.skipValidation) {
       const privateScalar = secretKey.slice(0, 32);
       const computedPublicKey = getPublicKey(privateScalar);
-
       for (let ii = 0; ii < 32; ii++) {
         if (publicKey[ii] !== computedPublicKey[ii]) {
           throw new Error('provided secretKey is invalid');
         }
       }
     }
-
     return new Keypair({
       publicKey,
       secretKey
     });
   }
+
   /**
    * Generate a keypair from a 32 byte seed.
    *
    * @param seed seed byte array
    */
-
-
   static fromSeed(seed) {
     const publicKey = getPublicKey(seed);
     const secretKey = new Uint8Array(64);
@@ -18899,23 +21541,20 @@ class Keypair {
       secretKey
     });
   }
+
   /**
    * The public key for this keypair
    */
-
-
   get publicKey() {
     return new PublicKey(this._keypair.publicKey);
   }
+
   /**
    * The raw secret key for this keypair
    */
-
-
   get secretKey() {
     return new Uint8Array(this._keypair.secretKey);
   }
-
 }
 
 /**
@@ -18949,27 +21588,22 @@ class AddressLookupTableInstruction {
    * @internal
    */
   constructor() {}
-
   static decodeInstructionType(instruction) {
     this.checkProgramId(instruction.programId);
     const instructionTypeLayout = BufferLayout__namespace.u32('instruction');
     const index = instructionTypeLayout.decode(instruction.data);
     let type;
-
     for (const [layoutType, layout] of Object.entries(LOOKUP_TABLE_INSTRUCTION_LAYOUTS)) {
       if (layout.index == index) {
         type = layoutType;
         break;
       }
     }
-
     if (!type) {
       throw new Error('Invalid Instruction. Should be a LookupTable Instruction');
     }
-
     return type;
   }
-
   static decodeCreateLookupTable(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeysLength(instruction.keys, 4);
@@ -18982,14 +21616,11 @@ class AddressLookupTableInstruction {
       recentSlot: Number(recentSlot)
     };
   }
-
   static decodeExtendLookupTable(instruction) {
     this.checkProgramId(instruction.programId);
-
     if (instruction.keys.length < 2) {
       throw new Error(`invalid instruction; found ${instruction.keys.length} keys, expected at least 2`);
     }
-
     const {
       addresses
     } = decodeData$1(LOOKUP_TABLE_INSTRUCTION_LAYOUTS.ExtendLookupTable, instruction.data);
@@ -19000,7 +21631,6 @@ class AddressLookupTableInstruction {
       addresses: addresses.map(buffer => new PublicKey(buffer))
     };
   }
-
   static decodeCloseLookupTable(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeysLength(instruction.keys, 3);
@@ -19010,7 +21640,6 @@ class AddressLookupTableInstruction {
       recipient: instruction.keys[2].pubkey
     };
   }
-
   static decodeFreezeLookupTable(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeysLength(instruction.keys, 2);
@@ -19019,7 +21648,6 @@ class AddressLookupTableInstruction {
       authority: instruction.keys[1].pubkey
     };
   }
-
   static decodeDeactivateLookupTable(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeysLength(instruction.keys, 2);
@@ -19028,11 +21656,10 @@ class AddressLookupTableInstruction {
       authority: instruction.keys[1].pubkey
     };
   }
+
   /**
    * @internal
    */
-
-
   static checkProgramId(programId) {
     if (!programId.equals(AddressLookupTableProgram.programId)) {
       throw new Error('invalid instruction; programId is not AddressLookupTable Program');
@@ -19041,21 +21668,17 @@ class AddressLookupTableInstruction {
   /**
    * @internal
    */
-
-
   static checkKeysLength(keys, expectedLength) {
     if (keys.length < expectedLength) {
       throw new Error(`invalid instruction; found ${keys.length} keys, expected at least ${expectedLength}`);
     }
   }
-
 }
 class AddressLookupTableProgram {
   /**
    * @internal
    */
   constructor() {}
-
   static createLookupTable(params) {
     const [lookupTableAddress, bumpSeed] = PublicKey.findProgramAddressSync([params.authority.toBuffer(), bigintBuffer.toBufferLE(BigInt(params.recentSlot), 8)], this.programId);
     const type = LOOKUP_TABLE_INSTRUCTION_LAYOUTS.CreateLookupTable;
@@ -19086,7 +21709,6 @@ class AddressLookupTableProgram {
       data: data
     }), lookupTableAddress];
   }
-
   static freezeLookupTable(params) {
     const type = LOOKUP_TABLE_INSTRUCTION_LAYOUTS.FreezeLookupTable;
     const data = encodeData(type);
@@ -19105,7 +21727,6 @@ class AddressLookupTableProgram {
       data: data
     });
   }
-
   static extendLookupTable(params) {
     const type = LOOKUP_TABLE_INSTRUCTION_LAYOUTS.ExtendLookupTable;
     const data = encodeData(type, {
@@ -19120,7 +21741,6 @@ class AddressLookupTableProgram {
       isSigner: true,
       isWritable: false
     }];
-
     if (params.payer) {
       keys.push({
         pubkey: params.payer,
@@ -19132,14 +21752,12 @@ class AddressLookupTableProgram {
         isWritable: false
       });
     }
-
     return new TransactionInstruction({
       programId: this.programId,
       keys: keys,
       data: data
     });
   }
-
   static deactivateLookupTable(params) {
     const type = LOOKUP_TABLE_INSTRUCTION_LAYOUTS.DeactivateLookupTable;
     const data = encodeData(type);
@@ -19158,7 +21776,6 @@ class AddressLookupTableProgram {
       data: data
     });
   }
-
   static closeLookupTable(params) {
     const type = LOOKUP_TABLE_INSTRUCTION_LAYOUTS.CloseLookupTable;
     const data = encodeData(type);
@@ -19181,48 +21798,41 @@ class AddressLookupTableProgram {
       data: data
     });
   }
-
 }
 AddressLookupTableProgram.programId = new PublicKey('AddressLookupTab1e1111111111111111111111111');
 
 /**
  * Compute Budget Instruction class
  */
-
 class ComputeBudgetInstruction {
   /**
    * @internal
    */
   constructor() {}
+
   /**
    * Decode a compute budget instruction and retrieve the instruction type.
    */
-
-
   static decodeInstructionType(instruction) {
     this.checkProgramId(instruction.programId);
     const instructionTypeLayout = BufferLayout__namespace.u8('instruction');
     const typeIndex = instructionTypeLayout.decode(instruction.data);
     let type;
-
     for (const [ixType, layout] of Object.entries(COMPUTE_BUDGET_INSTRUCTION_LAYOUTS)) {
       if (layout.index == typeIndex) {
         type = ixType;
         break;
       }
     }
-
     if (!type) {
       throw new Error('Instruction type incorrect; not a ComputeBudgetInstruction');
     }
-
     return type;
   }
+
   /**
    * Decode request units compute budget instruction and retrieve the instruction params.
    */
-
-
   static decodeRequestUnits(instruction) {
     this.checkProgramId(instruction.programId);
     const {
@@ -19234,11 +21844,10 @@ class ComputeBudgetInstruction {
       additionalFee
     };
   }
+
   /**
    * Decode request heap frame compute budget instruction and retrieve the instruction params.
    */
-
-
   static decodeRequestHeapFrame(instruction) {
     this.checkProgramId(instruction.programId);
     const {
@@ -19248,11 +21857,10 @@ class ComputeBudgetInstruction {
       bytes
     };
   }
+
   /**
    * Decode set compute unit limit compute budget instruction and retrieve the instruction params.
    */
-
-
   static decodeSetComputeUnitLimit(instruction) {
     this.checkProgramId(instruction.programId);
     const {
@@ -19262,11 +21870,10 @@ class ComputeBudgetInstruction {
       units
     };
   }
+
   /**
    * Decode set compute unit price compute budget instruction and retrieve the instruction params.
    */
-
-
   static decodeSetComputeUnitPrice(instruction) {
     this.checkProgramId(instruction.programId);
     const {
@@ -19276,18 +21883,17 @@ class ComputeBudgetInstruction {
       microLamports
     };
   }
+
   /**
    * @internal
    */
-
-
   static checkProgramId(programId) {
     if (!programId.equals(ComputeBudgetProgram.programId)) {
       throw new Error('invalid instruction; programId is not ComputeBudgetProgram');
     }
   }
-
 }
+
 /**
  * An enumeration of valid ComputeBudgetInstructionType's
  */
@@ -19314,19 +21920,19 @@ const COMPUTE_BUDGET_INSTRUCTION_LAYOUTS = Object.freeze({
     layout: BufferLayout__namespace.struct([BufferLayout__namespace.u8('instruction'), u64('microLamports')])
   }
 });
+
 /**
  * Factory class for transaction instructions to interact with the Compute Budget program
  */
-
 class ComputeBudgetProgram {
   /**
    * @internal
    */
   constructor() {}
+
   /**
    * Public key that identifies the Compute Budget program
    */
-
 
   /**
    * @deprecated Instead, call {@link setComputeUnitLimit} and/or {@link setComputeUnitPrice}
@@ -19340,7 +21946,6 @@ class ComputeBudgetProgram {
       data
     });
   }
-
   static requestHeapFrame(params) {
     const type = COMPUTE_BUDGET_INSTRUCTION_LAYOUTS.RequestHeapFrame;
     const data = encodeData(type, params);
@@ -19350,7 +21955,6 @@ class ComputeBudgetProgram {
       data
     });
   }
-
   static setComputeUnitLimit(params) {
     const type = COMPUTE_BUDGET_INSTRUCTION_LAYOUTS.SetComputeUnitLimit;
     const data = encodeData(type, params);
@@ -19360,7 +21964,6 @@ class ComputeBudgetProgram {
       data
     });
   }
-
   static setComputeUnitPrice(params) {
     const type = COMPUTE_BUDGET_INSTRUCTION_LAYOUTS.SetComputeUnitPrice;
     const data = encodeData(type, {
@@ -19372,13 +21975,13 @@ class ComputeBudgetProgram {
       data
     });
   }
-
 }
 ComputeBudgetProgram.programId = new PublicKey('ComputeBudget111111111111111111111111111111');
 
 const PRIVATE_KEY_BYTES$1 = 64;
 const PUBLIC_KEY_BYTES$1 = 32;
 const SIGNATURE_BYTES = 64;
+
 /**
  * Params for creating an ed25519 instruction using a public key
  */
@@ -19389,10 +21992,10 @@ class Ed25519Program {
    * @internal
    */
   constructor() {}
+
   /**
    * Public key that identifies the ed25519 program
    */
-
 
   /**
    * Create an ed25519 instruction with a public key and signature. The
@@ -19435,12 +22038,11 @@ class Ed25519Program {
       data: instructionData
     });
   }
+
   /**
    * Create an ed25519 instruction with a private key. The private key
    * must be a buffer that is 64 bytes long.
    */
-
-
   static createInstructionWithPrivateKey(params) {
     const {
       privateKey,
@@ -19448,7 +22050,6 @@ class Ed25519Program {
       instructionIndex
     } = params;
     assert(privateKey.length === PRIVATE_KEY_BYTES$1, `Private key must be ${PRIVATE_KEY_BYTES$1} bytes but received ${privateKey.length} bytes`);
-
     try {
       const keypair = Keypair.fromSecretKey(privateKey);
       const publicKey = keypair.publicKey.toBytes();
@@ -19463,18 +22064,16 @@ class Ed25519Program {
       throw new Error(`Error creating instruction; ${error}`);
     }
   }
-
 }
 Ed25519Program.programId = new PublicKey('Ed25519SigVerify111111111111111111111111111');
 
+// Supply a synchronous hashing algorithm to make this
 // library interoperable with the synchronous APIs in web3.js.
-
 secp256k1__namespace.utils.hmacSha256Sync = (key, ...msgs) => {
   const h = hmac.hmac.create(sha256.sha256, key);
   msgs.forEach(msg => h.update(msg));
   return h.digest();
 };
-
 const ecdsaSign = (msgHash, privKey) => secp256k1__namespace.signSync(msgHash, privKey, {
   der: false,
   recovered: true
@@ -19486,6 +22085,7 @@ const PRIVATE_KEY_BYTES = 32;
 const ETHEREUM_ADDRESS_BYTES = 20;
 const PUBLIC_KEY_BYTES = 64;
 const SIGNATURE_OFFSETS_SERIALIZED_SIZE = 11;
+
 /**
  * Params for creating an secp256k1 instruction using a public key
  */
@@ -19496,10 +22096,10 @@ class Secp256k1Program {
    * @internal
    */
   constructor() {}
+
   /**
    * Public key that identifies the secp256k1 program
    */
-
 
   /**
    * Construct an Ethereum address from a secp256k1 public key buffer.
@@ -19507,19 +22107,17 @@ class Secp256k1Program {
    */
   static publicKeyToEthAddress(publicKey) {
     assert(publicKey.length === PUBLIC_KEY_BYTES, `Public key must be ${PUBLIC_KEY_BYTES} bytes but received ${publicKey.length} bytes`);
-
     try {
       return buffer.Buffer.from(sha3.keccak_256(toBuffer(publicKey))).slice(-ETHEREUM_ADDRESS_BYTES);
     } catch (error) {
       throw new Error(`Error constructing Ethereum address: ${error}`);
     }
   }
+
   /**
    * Create an secp256k1 instruction with a public key. The public key
    * must be a buffer that is 64 bytes long.
    */
-
-
   static createInstructionWithPublicKey(params) {
     const {
       publicKey,
@@ -19536,12 +22134,11 @@ class Secp256k1Program {
       instructionIndex
     });
   }
+
   /**
    * Create an secp256k1 instruction with an Ethereum address. The address
    * must be a hex string or a buffer that is 20 bytes long.
    */
-
-
   static createInstructionWithEthAddress(params) {
     const {
       ethAddress: rawAddress,
@@ -19551,7 +22148,6 @@ class Secp256k1Program {
       instructionIndex = 0
     } = params;
     let ethAddress;
-
     if (typeof rawAddress === 'string') {
       if (rawAddress.startsWith('0x')) {
         ethAddress = buffer.Buffer.from(rawAddress.substr(2), 'hex');
@@ -19561,7 +22157,6 @@ class Secp256k1Program {
     } else {
       ethAddress = rawAddress;
     }
-
     assert(ethAddress.length === ETHEREUM_ADDRESS_BYTES, `Address must be ${ETHEREUM_ADDRESS_BYTES} bytes but received ${ethAddress.length} bytes`);
     const dataStart = 1 + SIGNATURE_OFFSETS_SERIALIZED_SIZE;
     const ethAddressOffset = dataStart;
@@ -19589,12 +22184,11 @@ class Secp256k1Program {
       data: instructionData
     });
   }
+
   /**
    * Create an secp256k1 instruction with a private key. The private key
    * must be a buffer that is 32 bytes long.
    */
-
-
   static createInstructionWithPrivateKey(params) {
     const {
       privateKey: pkey,
@@ -19602,13 +22196,9 @@ class Secp256k1Program {
       instructionIndex
     } = params;
     assert(pkey.length === PRIVATE_KEY_BYTES, `Private key must be ${PRIVATE_KEY_BYTES} bytes but received ${pkey.length} bytes`);
-
     try {
       const privateKey = toBuffer(pkey);
-      const publicKey = publicKeyCreate(privateKey, false
-      /* isCompressed */
-      ).slice(1); // throw away leading byte
-
+      const publicKey = publicKeyCreate(privateKey, false /* isCompressed */).slice(1); // throw away leading byte
       const messageHash = buffer.Buffer.from(sha3.keccak_256(toBuffer(message)));
       const [signature, recoveryId] = ecdsaSign(messageHash, privateKey);
       return this.createInstructionWithPublicKey({
@@ -19622,7 +22212,6 @@ class Secp256k1Program {
       throw new Error(`Error creating instruction; ${error}`);
     }
   }
-
 }
 Secp256k1Program.programId = new PublicKey('KeccakSecp256k11111111111111111111111111111');
 
@@ -19630,12 +22219,11 @@ Secp256k1Program.programId = new PublicKey('KeccakSecp256k1111111111111111111111
  * Address of the stake config account which configures the rate
  * of stake warmup and cooldown as well as the slashing penalty.
  */
-
 const STAKE_CONFIG_ID = new PublicKey('StakeConfig11111111111111111111111111111111');
+
 /**
  * Stake account authority info
  */
-
 class Authorized {
   /** stake authority */
 
@@ -19652,9 +22240,7 @@ class Authorized {
     this.staker = staker;
     this.withdrawer = withdrawer;
   }
-
 }
-
 /**
  * Stake account lockup info
  */
@@ -19676,14 +22262,12 @@ class Lockup {
     this.epoch = epoch;
     this.custodian = custodian;
   }
+
   /**
    * Default, inactive Lockup value
    */
-
-
 }
 Lockup.default = new Lockup(0, 0, PublicKey.default);
-
 /**
  * Stake Instruction class
  */
@@ -19692,35 +22276,30 @@ class StakeInstruction {
    * @internal
    */
   constructor() {}
+
   /**
    * Decode a stake instruction and retrieve the instruction type.
    */
-
-
   static decodeInstructionType(instruction) {
     this.checkProgramId(instruction.programId);
     const instructionTypeLayout = BufferLayout__namespace.u32('instruction');
     const typeIndex = instructionTypeLayout.decode(instruction.data);
     let type;
-
     for (const [ixType, layout] of Object.entries(STAKE_INSTRUCTION_LAYOUTS)) {
       if (layout.index == typeIndex) {
         type = ixType;
         break;
       }
     }
-
     if (!type) {
       throw new Error('Instruction type incorrect; not a StakeInstruction');
     }
-
     return type;
   }
+
   /**
    * Decode a initialize stake instruction and retrieve the instruction params.
    */
-
-
   static decodeInitialize(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 2);
@@ -19734,11 +22313,10 @@ class StakeInstruction {
       lockup: new Lockup(lockup.unixTimestamp, lockup.epoch, new PublicKey(lockup.custodian))
     };
   }
+
   /**
    * Decode a delegate stake instruction and retrieve the instruction params.
    */
-
-
   static decodeDelegate(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 6);
@@ -19749,11 +22327,10 @@ class StakeInstruction {
       authorizedPubkey: instruction.keys[5].pubkey
     };
   }
+
   /**
    * Decode an authorize stake instruction and retrieve the instruction params.
    */
-
-
   static decodeAuthorize(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -19769,18 +22346,15 @@ class StakeInstruction {
         index: stakeAuthorizationType
       }
     };
-
     if (instruction.keys.length > 3) {
       o.custodianPubkey = instruction.keys[3].pubkey;
     }
-
     return o;
   }
+
   /**
    * Decode an authorize-with-seed stake instruction and retrieve the instruction params.
    */
-
-
   static decodeAuthorizeWithSeed(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 2);
@@ -19800,18 +22374,15 @@ class StakeInstruction {
         index: stakeAuthorizationType
       }
     };
-
     if (instruction.keys.length > 3) {
       o.custodianPubkey = instruction.keys[3].pubkey;
     }
-
     return o;
   }
+
   /**
    * Decode a split stake instruction and retrieve the instruction params.
    */
-
-
   static decodeSplit(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -19825,11 +22396,10 @@ class StakeInstruction {
       lamports
     };
   }
+
   /**
    * Decode a merge stake instruction and retrieve the instruction params.
    */
-
-
   static decodeMerge(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -19840,11 +22410,10 @@ class StakeInstruction {
       authorizedPubkey: instruction.keys[4].pubkey
     };
   }
+
   /**
    * Decode a withdraw stake instruction and retrieve the instruction params.
    */
-
-
   static decodeWithdraw(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 5);
@@ -19857,18 +22426,15 @@ class StakeInstruction {
       authorizedPubkey: instruction.keys[4].pubkey,
       lamports
     };
-
     if (instruction.keys.length > 5) {
       o.custodianPubkey = instruction.keys[5].pubkey;
     }
-
     return o;
   }
+
   /**
    * Decode a deactivate stake instruction and retrieve the instruction params.
    */
-
-
   static decodeDeactivate(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -19878,28 +22444,26 @@ class StakeInstruction {
       authorizedPubkey: instruction.keys[2].pubkey
     };
   }
+
   /**
    * @internal
    */
-
-
   static checkProgramId(programId) {
     if (!programId.equals(StakeProgram.programId)) {
       throw new Error('invalid instruction; programId is not StakeProgram');
     }
   }
+
   /**
    * @internal
    */
-
-
   static checkKeyLength(keys, expectedLength) {
     if (keys.length < expectedLength) {
       throw new Error(`invalid instruction; found ${keys.length} keys, expected at least ${expectedLength}`);
     }
   }
-
 }
+
 /**
  * An enumeration of valid StakeInstructionType's
  */
@@ -19942,6 +22506,7 @@ const STAKE_INSTRUCTION_LAYOUTS = Object.freeze({
     layout: BufferLayout__namespace.struct([BufferLayout__namespace.u32('instruction'), publicKey('newAuthorized'), BufferLayout__namespace.u32('stakeAuthorizationType'), rustString('authoritySeed'), publicKey('authorityOwner')])
   }
 });
+
 /**
  * Stake authorization type
  */
@@ -19957,19 +22522,19 @@ const StakeAuthorizationLayout = Object.freeze({
     index: 1
   }
 });
+
 /**
  * Factory class for transactions to interact with the Stake program
  */
-
 class StakeProgram {
   /**
    * @internal
    */
   constructor() {}
+
   /**
    * Public key that identifies the Stake program
    */
-
 
   /**
    * Generate an Initialize instruction to add to a Stake Create transaction
@@ -20008,12 +22573,11 @@ class StakeProgram {
     };
     return new TransactionInstruction(instructionData);
   }
+
   /**
    * Generate a Transaction that creates a new Stake account at
    *   an address generated with `from`, a seed, and the Stake programId
    */
-
-
   static createAccountWithSeed(params) {
     const transaction = new Transaction();
     transaction.add(SystemProgram.createAccountWithSeed({
@@ -20036,11 +22600,10 @@ class StakeProgram {
       lockup
     }));
   }
+
   /**
    * Generate a Transaction that creates a new Stake account
    */
-
-
   static createAccount(params) {
     const transaction = new Transaction();
     transaction.add(SystemProgram.createAccount({
@@ -20061,13 +22624,12 @@ class StakeProgram {
       lockup
     }));
   }
+
   /**
    * Generate a Transaction that delegates Stake tokens to a validator
    * Vote PublicKey. This transaction can also be used to redelegate Stake
    * to a new validator Vote PublicKey.
    */
-
-
   static delegate(params) {
     const {
       stakePubkey,
@@ -20106,12 +22668,11 @@ class StakeProgram {
       data
     });
   }
+
   /**
    * Generate a Transaction that authorizes a new PublicKey as Staker
    * or Withdrawer on the Stake account.
    */
-
-
   static authorize(params) {
     const {
       stakePubkey,
@@ -20138,7 +22699,6 @@ class StakeProgram {
       isSigner: true,
       isWritable: false
     }];
-
     if (custodianPubkey) {
       keys.push({
         pubkey: custodianPubkey,
@@ -20146,19 +22706,17 @@ class StakeProgram {
         isWritable: false
       });
     }
-
     return new Transaction().add({
       keys,
       programId: this.programId,
       data
     });
   }
+
   /**
    * Generate a Transaction that authorizes a new PublicKey as Staker
    * or Withdrawer on the Stake account.
    */
-
-
   static authorizeWithSeed(params) {
     const {
       stakePubkey,
@@ -20189,7 +22747,6 @@ class StakeProgram {
       isSigner: false,
       isWritable: false
     }];
-
     if (custodianPubkey) {
       keys.push({
         pubkey: custodianPubkey,
@@ -20197,18 +22754,16 @@ class StakeProgram {
         isWritable: false
       });
     }
-
     return new Transaction().add({
       keys,
       programId: this.programId,
       data
     });
   }
+
   /**
    * @internal
    */
-
-
   static splitInstruction(params) {
     const {
       stakePubkey,
@@ -20238,11 +22793,10 @@ class StakeProgram {
       data
     });
   }
+
   /**
    * Generate a Transaction that splits Stake tokens into another stake account
    */
-
-
   static split(params) {
     const transaction = new Transaction();
     transaction.add(SystemProgram.createAccount({
@@ -20254,12 +22808,11 @@ class StakeProgram {
     }));
     return transaction.add(this.splitInstruction(params));
   }
+
   /**
    * Generate a Transaction that splits Stake tokens into another account
    * derived from a base public key and seed
    */
-
-
   static splitWithSeed(params) {
     const {
       stakePubkey,
@@ -20284,11 +22837,10 @@ class StakeProgram {
       lamports
     }));
   }
+
   /**
    * Generate a Transaction that merges Stake accounts.
    */
-
-
   static merge(params) {
     const {
       stakePubkey,
@@ -20323,11 +22875,10 @@ class StakeProgram {
       data
     });
   }
+
   /**
    * Generate a Transaction that withdraws deactivated Stake tokens.
    */
-
-
   static withdraw(params) {
     const {
       stakePubkey,
@@ -20361,7 +22912,6 @@ class StakeProgram {
       isSigner: true,
       isWritable: false
     }];
-
     if (custodianPubkey) {
       keys.push({
         pubkey: custodianPubkey,
@@ -20369,18 +22919,16 @@ class StakeProgram {
         isWritable: false
       });
     }
-
     return new Transaction().add({
       keys,
       programId: this.programId,
       data
     });
   }
+
   /**
    * Generate a Transaction that deactivates Stake tokens.
    */
-
-
   static deactivate(params) {
     const {
       stakePubkey,
@@ -20406,7 +22954,6 @@ class StakeProgram {
       data
     });
   }
-
 }
 StakeProgram.programId = new PublicKey('Stake11111111111111111111111111111111111111');
 StakeProgram.space = 200;
@@ -20414,9 +22961,9 @@ StakeProgram.space = 200;
 /**
  * Vote account info
  */
-
 class VoteInit {
   /** [0, 100] */
+
   constructor(nodePubkey, authorizedVoter, authorizedWithdrawer, commission) {
     this.nodePubkey = void 0;
     this.authorizedVoter = void 0;
@@ -20427,8 +22974,8 @@ class VoteInit {
     this.authorizedWithdrawer = authorizedWithdrawer;
     this.commission = commission;
   }
-
 }
+
 /**
  * Create vote account transaction params
  */
@@ -20441,35 +22988,30 @@ class VoteInstruction {
    * @internal
    */
   constructor() {}
+
   /**
    * Decode a vote instruction and retrieve the instruction type.
    */
-
-
   static decodeInstructionType(instruction) {
     this.checkProgramId(instruction.programId);
     const instructionTypeLayout = BufferLayout__namespace.u32('instruction');
     const typeIndex = instructionTypeLayout.decode(instruction.data);
     let type;
-
     for (const [ixType, layout] of Object.entries(VOTE_INSTRUCTION_LAYOUTS)) {
       if (layout.index == typeIndex) {
         type = ixType;
         break;
       }
     }
-
     if (!type) {
       throw new Error('Instruction type incorrect; not a VoteInstruction');
     }
-
     return type;
   }
+
   /**
    * Decode an initialize vote instruction and retrieve the instruction params.
    */
-
-
   static decodeInitializeAccount(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 4);
@@ -20482,11 +23024,10 @@ class VoteInstruction {
       voteInit: new VoteInit(new PublicKey(voteInit.nodePubkey), new PublicKey(voteInit.authorizedVoter), new PublicKey(voteInit.authorizedWithdrawer), voteInit.commission)
     };
   }
+
   /**
    * Decode an authorize instruction and retrieve the instruction params.
    */
-
-
   static decodeAuthorize(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -20503,11 +23044,10 @@ class VoteInstruction {
       }
     };
   }
+
   /**
    * Decode an authorize instruction and retrieve the instruction params.
    */
-
-
   static decodeAuthorizeWithSeed(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -20530,11 +23070,10 @@ class VoteInstruction {
       votePubkey: instruction.keys[0].pubkey
     };
   }
+
   /**
    * Decode a withdraw instruction and retrieve the instruction params.
    */
-
-
   static decodeWithdraw(instruction) {
     this.checkProgramId(instruction.programId);
     this.checkKeyLength(instruction.keys, 3);
@@ -20548,28 +23087,26 @@ class VoteInstruction {
       toPubkey: instruction.keys[1].pubkey
     };
   }
+
   /**
    * @internal
    */
-
-
   static checkProgramId(programId) {
     if (!programId.equals(VoteProgram.programId)) {
       throw new Error('invalid instruction; programId is not VoteProgram');
     }
   }
+
   /**
    * @internal
    */
-
-
   static checkKeyLength(keys, expectedLength) {
     if (keys.length < expectedLength) {
       throw new Error(`invalid instruction; found ${keys.length} keys, expected at least ${expectedLength}`);
     }
   }
-
 }
+
 /**
  * An enumeration of valid VoteInstructionType's
  */
@@ -20592,6 +23129,7 @@ const VOTE_INSTRUCTION_LAYOUTS = Object.freeze({
     layout: BufferLayout__namespace.struct([BufferLayout__namespace.u32('instruction'), voteAuthorizeWithSeedArgs()])
   }
 });
+
 /**
  * VoteAuthorize type
  */
@@ -20607,19 +23145,19 @@ const VoteAuthorizationLayout = Object.freeze({
     index: 1
   }
 });
+
 /**
  * Factory class for transactions to interact with the Vote program
  */
-
 class VoteProgram {
   /**
    * @internal
    */
   constructor() {}
+
   /**
    * Public key that identifies the Vote program
    */
-
 
   /**
    * Generate an Initialize instruction.
@@ -20662,11 +23200,10 @@ class VoteProgram {
     };
     return new TransactionInstruction(instructionData);
   }
+
   /**
    * Generate a transaction that creates a new Vote account.
    */
-
-
   static createAccount(params) {
     const transaction = new Transaction();
     transaction.add(SystemProgram.createAccount({
@@ -20682,11 +23219,10 @@ class VoteProgram {
       voteInit: params.voteInit
     }));
   }
+
   /**
    * Generate a transaction that authorizes a new Voter or Withdrawer on the Vote account.
    */
-
-
   static authorize(params) {
     const {
       votePubkey,
@@ -20718,12 +23254,11 @@ class VoteProgram {
       data
     });
   }
+
   /**
    * Generate a transaction that authorizes a new Voter or Withdrawer on the Vote account
    * where the current Voter or Withdrawer authority is a derived key.
    */
-
-
   static authorizeWithSeed(params) {
     const {
       currentAuthorityDerivedKeyBasePubkey,
@@ -20761,11 +23296,10 @@ class VoteProgram {
       data
     });
   }
+
   /**
    * Generate a transaction to withdraw from a Vote account.
    */
-
-
   static withdraw(params) {
     const {
       votePubkey,
@@ -20796,6 +23330,7 @@ class VoteProgram {
       data
     });
   }
+
   /**
    * Generate a transaction to withdraw safely from a Vote account.
    *
@@ -20804,21 +23339,18 @@ class VoteProgram {
    * to cover rent. If you wish to close the vote account by withdrawing the full amount, call the
    * `withdraw` method directly.
    */
-
-
   static safeWithdraw(params, currentVoteAccountBalance, rentExemptMinimum) {
     if (params.lamports > currentVoteAccountBalance - rentExemptMinimum) {
       throw new Error('Withdraw will leave vote account with insuffcient funds.');
     }
-
     return VoteProgram.withdraw(params);
   }
-
 }
 VoteProgram.programId = new PublicKey('Vote111111111111111111111111111111111111111');
 VoteProgram.space = 3731;
 
 const VALIDATOR_INFO_KEY = new PublicKey('Va1idator1nfo111111111111111111111111111111');
+
 /**
  * @internal
  */
@@ -20829,10 +23361,10 @@ const InfoString = superstruct.type({
   details: superstruct.optional(superstruct.string()),
   keybaseUsername: superstruct.optional(superstruct.string())
 });
+
 /**
  * ValidatorInfo class
  */
-
 class ValidatorInfo {
   /**
    * validator public key
@@ -20854,6 +23386,7 @@ class ValidatorInfo {
     this.key = key;
     this.info = info;
   }
+
   /**
    * Deserialize ValidatorInfo from the config account data. Exactly two config
    * keys are required in the data.
@@ -20861,14 +23394,11 @@ class ValidatorInfo {
    * @param buffer config account data
    * @return null if info was not found
    */
-
-
   static fromConfigData(buffer$1) {
     let byteArray = [...buffer$1];
     const configKeyCount = decodeLength(byteArray);
     if (configKeyCount !== 2) return null;
     const configKeys = [];
-
     for (let i = 0; i < 2; i++) {
       const publicKey = new PublicKey(byteArray.slice(0, PUBLIC_KEY_LENGTH));
       byteArray = byteArray.slice(PUBLIC_KEY_LENGTH);
@@ -20879,7 +23409,6 @@ class ValidatorInfo {
         isSigner
       });
     }
-
     if (configKeys[0].publicKey.equals(VALIDATOR_INFO_KEY)) {
       if (configKeys[1].isSigner) {
         const rawInfo = rustString().decode(buffer.Buffer.from(byteArray));
@@ -20888,24 +23417,23 @@ class ValidatorInfo {
         return new ValidatorInfo(configKeys[1].publicKey, info);
       }
     }
-
     return null;
   }
-
 }
 
 const VOTE_PROGRAM_ID = new PublicKey('Vote111111111111111111111111111111111111111');
-
 /**
  * See https://github.com/solana-labs/solana/blob/8a12ed029cfa38d4a45400916c2463fb82bbec8c/programs/vote_api/src/vote_state.rs#L68-L88
  *
  * @internal
  */
-const VoteAccountLayout = BufferLayout__namespace.struct([publicKey('nodePubkey'), publicKey('authorizedWithdrawer'), BufferLayout__namespace.u8('commission'), BufferLayout__namespace.nu64(), // votes.length
-BufferLayout__namespace.seq(BufferLayout__namespace.struct([BufferLayout__namespace.nu64('slot'), BufferLayout__namespace.u32('confirmationCount')]), BufferLayout__namespace.offset(BufferLayout__namespace.u32(), -8), 'votes'), BufferLayout__namespace.u8('rootSlotValid'), BufferLayout__namespace.nu64('rootSlot'), BufferLayout__namespace.nu64(), // authorizedVoters.length
-BufferLayout__namespace.seq(BufferLayout__namespace.struct([BufferLayout__namespace.nu64('epoch'), publicKey('authorizedVoter')]), BufferLayout__namespace.offset(BufferLayout__namespace.u32(), -8), 'authorizedVoters'), BufferLayout__namespace.struct([BufferLayout__namespace.seq(BufferLayout__namespace.struct([publicKey('authorizedPubkey'), BufferLayout__namespace.nu64('epochOfLastAuthorizedSwitch'), BufferLayout__namespace.nu64('targetEpoch')]), 32, 'buf'), BufferLayout__namespace.nu64('idx'), BufferLayout__namespace.u8('isEmpty')], 'priorVoters'), BufferLayout__namespace.nu64(), // epochCredits.length
+const VoteAccountLayout = BufferLayout__namespace.struct([publicKey('nodePubkey'), publicKey('authorizedWithdrawer'), BufferLayout__namespace.u8('commission'), BufferLayout__namespace.nu64(),
+// votes.length
+BufferLayout__namespace.seq(BufferLayout__namespace.struct([BufferLayout__namespace.nu64('slot'), BufferLayout__namespace.u32('confirmationCount')]), BufferLayout__namespace.offset(BufferLayout__namespace.u32(), -8), 'votes'), BufferLayout__namespace.u8('rootSlotValid'), BufferLayout__namespace.nu64('rootSlot'), BufferLayout__namespace.nu64(),
+// authorizedVoters.length
+BufferLayout__namespace.seq(BufferLayout__namespace.struct([BufferLayout__namespace.nu64('epoch'), publicKey('authorizedVoter')]), BufferLayout__namespace.offset(BufferLayout__namespace.u32(), -8), 'authorizedVoters'), BufferLayout__namespace.struct([BufferLayout__namespace.seq(BufferLayout__namespace.struct([publicKey('authorizedPubkey'), BufferLayout__namespace.nu64('epochOfLastAuthorizedSwitch'), BufferLayout__namespace.nu64('targetEpoch')]), 32, 'buf'), BufferLayout__namespace.nu64('idx'), BufferLayout__namespace.u8('isEmpty')], 'priorVoters'), BufferLayout__namespace.nu64(),
+// epochCredits.length
 BufferLayout__namespace.seq(BufferLayout__namespace.struct([BufferLayout__namespace.nu64('epoch'), BufferLayout__namespace.nu64('credits'), BufferLayout__namespace.nu64('prevCredits')]), BufferLayout__namespace.offset(BufferLayout__namespace.u32(), -8), 'epochCredits'), BufferLayout__namespace.struct([BufferLayout__namespace.nu64('slot'), BufferLayout__namespace.nu64('timestamp')], 'lastTimestamp')]);
-
 /**
  * VoteAccount class
  */
@@ -20933,23 +23461,20 @@ class VoteAccount {
     this.epochCredits = args.epochCredits;
     this.lastTimestamp = args.lastTimestamp;
   }
+
   /**
    * Deserialize VoteAccount from the account data.
    *
    * @param buffer account data
    * @return VoteAccount
    */
-
-
   static fromAccountData(buffer) {
     const versionOffset = 4;
     const va = VoteAccountLayout.decode(toBuffer(buffer), versionOffset);
     let rootSlot = va.rootSlot;
-
     if (!va.rootSlotValid) {
       rootSlot = null;
     }
-
     return new VoteAccount({
       nodePubkey: new PublicKey(va.nodePubkey),
       authorizedWithdrawer: new PublicKey(va.authorizedWithdrawer),
@@ -20962,9 +23487,7 @@ class VoteAccount {
       lastTimestamp: va.lastTimestamp
     });
   }
-
 }
-
 function parseAuthorizedVoter({
   authorizedVoter,
   epoch
@@ -20974,7 +23497,6 @@ function parseAuthorizedVoter({
     authorizedVoter: new PublicKey(authorizedVoter)
   };
 }
-
 function parsePriorVoters({
   authorizedPubkey,
   epochOfLastAuthorizedSwitch,
@@ -20986,7 +23508,6 @@ function parsePriorVoters({
     targetEpoch
   };
 }
-
 function getPriorVoters({
   buf,
   idx,
@@ -20995,7 +23516,6 @@ function getPriorVoters({
   if (isEmpty) {
     return [];
   }
-
   return [...buf.slice(idx + 1).map(parsePriorVoters), ...buf.slice(0, idx).map(parsePriorVoters)];
 }
 
@@ -21011,23 +23531,18 @@ const endpoint = {
     'mainnet-beta': 'https://api.mainnet-beta.solana.com/'
   }
 };
-
 /**
  * Retrieves the RPC API URL for the specified cluster
  */
 function clusterApiUrl(cluster, tls) {
   const key = tls === false ? 'http' : 'https';
-
   if (!cluster) {
     return endpoint[key]['devnet'];
   }
-
   const url = endpoint[key][cluster];
-
   if (!url) {
     throw new Error(`Unknown ${key} cluster: ${cluster}`);
   }
-
   return url;
 }
 
@@ -21038,7 +23553,7 @@ function clusterApiUrl(cluster, tls) {
  *
  * @param {Connection} connection
  * @param {Buffer} rawTransaction
- * @param {BlockheightBasedTransactionConfirmationStrategy} confirmationStrategy
+ * @param {TransactionConfirmationStrategy} confirmationStrategy
  * @param {ConfirmOptions} [options]
  * @returns {Promise<TransactionSignature>}
  */
@@ -21048,18 +23563,20 @@ function clusterApiUrl(cluster, tls) {
  * is no longer supported and will be removed in a future version.
  */
 // eslint-disable-next-line no-redeclare
+
 // eslint-disable-next-line no-redeclare
 async function sendAndConfirmRawTransaction(connection, rawTransaction, confirmationStrategyOrConfirmOptions, maybeConfirmOptions) {
   let confirmationStrategy;
   let options;
-
   if (confirmationStrategyOrConfirmOptions && Object.prototype.hasOwnProperty.call(confirmationStrategyOrConfirmOptions, 'lastValidBlockHeight')) {
+    confirmationStrategy = confirmationStrategyOrConfirmOptions;
+    options = maybeConfirmOptions;
+  } else if (confirmationStrategyOrConfirmOptions && Object.prototype.hasOwnProperty.call(confirmationStrategyOrConfirmOptions, 'nonceValue')) {
     confirmationStrategy = confirmationStrategyOrConfirmOptions;
     options = maybeConfirmOptions;
   } else {
     options = confirmationStrategyOrConfirmOptions;
   }
-
   const sendOptions = options && {
     skipPreflight: options.skipPreflight,
     preflightCommitment: options.preflightCommitment || options.commitment,
@@ -21069,18 +23586,15 @@ async function sendAndConfirmRawTransaction(connection, rawTransaction, confirma
   const commitment = options && options.commitment;
   const confirmationPromise = confirmationStrategy ? connection.confirmTransaction(confirmationStrategy, commitment) : connection.confirmTransaction(signature, commitment);
   const status = (await confirmationPromise).value;
-
   if (status.err) {
     throw new Error(`Raw transaction ${signature} failed (${JSON.stringify(status)})`);
   }
-
   return signature;
 }
 
 /**
  * There are 1-billion lamports in one SOL
  */
-
 const LAMPORTS_PER_SOL = 1000000000;
 
 exports.Account = Account;
@@ -21140,6 +23654,7 @@ exports.SystemInstruction = SystemInstruction;
 exports.SystemProgram = SystemProgram;
 exports.Transaction = Transaction;
 exports.TransactionExpiredBlockheightExceededError = TransactionExpiredBlockheightExceededError;
+exports.TransactionExpiredNonceInvalidError = TransactionExpiredNonceInvalidError;
 exports.TransactionExpiredTimeoutError = TransactionExpiredTimeoutError;
 exports.TransactionInstruction = TransactionInstruction;
 exports.TransactionMessage = TransactionMessage;
@@ -21158,6 +23673,6900 @@ exports.clusterApiUrl = clusterApiUrl;
 exports.sendAndConfirmRawTransaction = sendAndConfirmRawTransaction;
 exports.sendAndConfirmTransaction = sendAndConfirmTransaction;
 //# sourceMappingURL=index.cjs.js.map
+
+
+/***/ }),
+
+/***/ 3059:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var Stream = _interopDefault(__nccwpck_require__(2413));
+var http = _interopDefault(__nccwpck_require__(8605));
+var Url = _interopDefault(__nccwpck_require__(8835));
+var whatwgUrl = _interopDefault(__nccwpck_require__(8665));
+var https = _interopDefault(__nccwpck_require__(7211));
+var zlib = _interopDefault(__nccwpck_require__(8761));
+
+// Based on https://github.com/tmpvar/jsdom/blob/aa85b2abf07766ff7bf5c1f6daafb3726f2f2db5/lib/jsdom/living/blob.js
+
+// fix for "Readable" isn't a named export issue
+const Readable = Stream.Readable;
+
+const BUFFER = Symbol('buffer');
+const TYPE = Symbol('type');
+
+class Blob {
+	constructor() {
+		this[TYPE] = '';
+
+		const blobParts = arguments[0];
+		const options = arguments[1];
+
+		const buffers = [];
+		let size = 0;
+
+		if (blobParts) {
+			const a = blobParts;
+			const length = Number(a.length);
+			for (let i = 0; i < length; i++) {
+				const element = a[i];
+				let buffer;
+				if (element instanceof Buffer) {
+					buffer = element;
+				} else if (ArrayBuffer.isView(element)) {
+					buffer = Buffer.from(element.buffer, element.byteOffset, element.byteLength);
+				} else if (element instanceof ArrayBuffer) {
+					buffer = Buffer.from(element);
+				} else if (element instanceof Blob) {
+					buffer = element[BUFFER];
+				} else {
+					buffer = Buffer.from(typeof element === 'string' ? element : String(element));
+				}
+				size += buffer.length;
+				buffers.push(buffer);
+			}
+		}
+
+		this[BUFFER] = Buffer.concat(buffers);
+
+		let type = options && options.type !== undefined && String(options.type).toLowerCase();
+		if (type && !/[^\u0020-\u007E]/.test(type)) {
+			this[TYPE] = type;
+		}
+	}
+	get size() {
+		return this[BUFFER].length;
+	}
+	get type() {
+		return this[TYPE];
+	}
+	text() {
+		return Promise.resolve(this[BUFFER].toString());
+	}
+	arrayBuffer() {
+		const buf = this[BUFFER];
+		const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+		return Promise.resolve(ab);
+	}
+	stream() {
+		const readable = new Readable();
+		readable._read = function () {};
+		readable.push(this[BUFFER]);
+		readable.push(null);
+		return readable;
+	}
+	toString() {
+		return '[object Blob]';
+	}
+	slice() {
+		const size = this.size;
+
+		const start = arguments[0];
+		const end = arguments[1];
+		let relativeStart, relativeEnd;
+		if (start === undefined) {
+			relativeStart = 0;
+		} else if (start < 0) {
+			relativeStart = Math.max(size + start, 0);
+		} else {
+			relativeStart = Math.min(start, size);
+		}
+		if (end === undefined) {
+			relativeEnd = size;
+		} else if (end < 0) {
+			relativeEnd = Math.max(size + end, 0);
+		} else {
+			relativeEnd = Math.min(end, size);
+		}
+		const span = Math.max(relativeEnd - relativeStart, 0);
+
+		const buffer = this[BUFFER];
+		const slicedBuffer = buffer.slice(relativeStart, relativeStart + span);
+		const blob = new Blob([], { type: arguments[2] });
+		blob[BUFFER] = slicedBuffer;
+		return blob;
+	}
+}
+
+Object.defineProperties(Blob.prototype, {
+	size: { enumerable: true },
+	type: { enumerable: true },
+	slice: { enumerable: true }
+});
+
+Object.defineProperty(Blob.prototype, Symbol.toStringTag, {
+	value: 'Blob',
+	writable: false,
+	enumerable: false,
+	configurable: true
+});
+
+/**
+ * fetch-error.js
+ *
+ * FetchError interface for operational errors
+ */
+
+/**
+ * Create FetchError instance
+ *
+ * @param   String      message      Error message for human
+ * @param   String      type         Error type for machine
+ * @param   String      systemError  For Node.js system error
+ * @return  FetchError
+ */
+function FetchError(message, type, systemError) {
+  Error.call(this, message);
+
+  this.message = message;
+  this.type = type;
+
+  // when err.type is `system`, err.code contains system error code
+  if (systemError) {
+    this.code = this.errno = systemError.code;
+  }
+
+  // hide custom error implementation details from end-users
+  Error.captureStackTrace(this, this.constructor);
+}
+
+FetchError.prototype = Object.create(Error.prototype);
+FetchError.prototype.constructor = FetchError;
+FetchError.prototype.name = 'FetchError';
+
+let convert;
+try {
+	convert = __nccwpck_require__(2877).convert;
+} catch (e) {}
+
+const INTERNALS = Symbol('Body internals');
+
+// fix an issue where "PassThrough" isn't a named export for node <10
+const PassThrough = Stream.PassThrough;
+
+/**
+ * Body mixin
+ *
+ * Ref: https://fetch.spec.whatwg.org/#body
+ *
+ * @param   Stream  body  Readable stream
+ * @param   Object  opts  Response options
+ * @return  Void
+ */
+function Body(body) {
+	var _this = this;
+
+	var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+	    _ref$size = _ref.size;
+
+	let size = _ref$size === undefined ? 0 : _ref$size;
+	var _ref$timeout = _ref.timeout;
+	let timeout = _ref$timeout === undefined ? 0 : _ref$timeout;
+
+	if (body == null) {
+		// body is undefined or null
+		body = null;
+	} else if (isURLSearchParams(body)) {
+		// body is a URLSearchParams
+		body = Buffer.from(body.toString());
+	} else if (isBlob(body)) ; else if (Buffer.isBuffer(body)) ; else if (Object.prototype.toString.call(body) === '[object ArrayBuffer]') {
+		// body is ArrayBuffer
+		body = Buffer.from(body);
+	} else if (ArrayBuffer.isView(body)) {
+		// body is ArrayBufferView
+		body = Buffer.from(body.buffer, body.byteOffset, body.byteLength);
+	} else if (body instanceof Stream) ; else {
+		// none of the above
+		// coerce to string then buffer
+		body = Buffer.from(String(body));
+	}
+	this[INTERNALS] = {
+		body,
+		disturbed: false,
+		error: null
+	};
+	this.size = size;
+	this.timeout = timeout;
+
+	if (body instanceof Stream) {
+		body.on('error', function (err) {
+			const error = err.name === 'AbortError' ? err : new FetchError(`Invalid response body while trying to fetch ${_this.url}: ${err.message}`, 'system', err);
+			_this[INTERNALS].error = error;
+		});
+	}
+}
+
+Body.prototype = {
+	get body() {
+		return this[INTERNALS].body;
+	},
+
+	get bodyUsed() {
+		return this[INTERNALS].disturbed;
+	},
+
+	/**
+  * Decode response as ArrayBuffer
+  *
+  * @return  Promise
+  */
+	arrayBuffer() {
+		return consumeBody.call(this).then(function (buf) {
+			return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+		});
+	},
+
+	/**
+  * Return raw response as Blob
+  *
+  * @return Promise
+  */
+	blob() {
+		let ct = this.headers && this.headers.get('content-type') || '';
+		return consumeBody.call(this).then(function (buf) {
+			return Object.assign(
+			// Prevent copying
+			new Blob([], {
+				type: ct.toLowerCase()
+			}), {
+				[BUFFER]: buf
+			});
+		});
+	},
+
+	/**
+  * Decode response as json
+  *
+  * @return  Promise
+  */
+	json() {
+		var _this2 = this;
+
+		return consumeBody.call(this).then(function (buffer) {
+			try {
+				return JSON.parse(buffer.toString());
+			} catch (err) {
+				return Body.Promise.reject(new FetchError(`invalid json response body at ${_this2.url} reason: ${err.message}`, 'invalid-json'));
+			}
+		});
+	},
+
+	/**
+  * Decode response as text
+  *
+  * @return  Promise
+  */
+	text() {
+		return consumeBody.call(this).then(function (buffer) {
+			return buffer.toString();
+		});
+	},
+
+	/**
+  * Decode response as buffer (non-spec api)
+  *
+  * @return  Promise
+  */
+	buffer() {
+		return consumeBody.call(this);
+	},
+
+	/**
+  * Decode response as text, while automatically detecting the encoding and
+  * trying to decode to UTF-8 (non-spec api)
+  *
+  * @return  Promise
+  */
+	textConverted() {
+		var _this3 = this;
+
+		return consumeBody.call(this).then(function (buffer) {
+			return convertBody(buffer, _this3.headers);
+		});
+	}
+};
+
+// In browsers, all properties are enumerable.
+Object.defineProperties(Body.prototype, {
+	body: { enumerable: true },
+	bodyUsed: { enumerable: true },
+	arrayBuffer: { enumerable: true },
+	blob: { enumerable: true },
+	json: { enumerable: true },
+	text: { enumerable: true }
+});
+
+Body.mixIn = function (proto) {
+	for (const name of Object.getOwnPropertyNames(Body.prototype)) {
+		// istanbul ignore else: future proof
+		if (!(name in proto)) {
+			const desc = Object.getOwnPropertyDescriptor(Body.prototype, name);
+			Object.defineProperty(proto, name, desc);
+		}
+	}
+};
+
+/**
+ * Consume and convert an entire Body to a Buffer.
+ *
+ * Ref: https://fetch.spec.whatwg.org/#concept-body-consume-body
+ *
+ * @return  Promise
+ */
+function consumeBody() {
+	var _this4 = this;
+
+	if (this[INTERNALS].disturbed) {
+		return Body.Promise.reject(new TypeError(`body used already for: ${this.url}`));
+	}
+
+	this[INTERNALS].disturbed = true;
+
+	if (this[INTERNALS].error) {
+		return Body.Promise.reject(this[INTERNALS].error);
+	}
+
+	let body = this.body;
+
+	// body is null
+	if (body === null) {
+		return Body.Promise.resolve(Buffer.alloc(0));
+	}
+
+	// body is blob
+	if (isBlob(body)) {
+		body = body.stream();
+	}
+
+	// body is buffer
+	if (Buffer.isBuffer(body)) {
+		return Body.Promise.resolve(body);
+	}
+
+	// istanbul ignore if: should never happen
+	if (!(body instanceof Stream)) {
+		return Body.Promise.resolve(Buffer.alloc(0));
+	}
+
+	// body is stream
+	// get ready to actually consume the body
+	let accum = [];
+	let accumBytes = 0;
+	let abort = false;
+
+	return new Body.Promise(function (resolve, reject) {
+		let resTimeout;
+
+		// allow timeout on slow response body
+		if (_this4.timeout) {
+			resTimeout = setTimeout(function () {
+				abort = true;
+				reject(new FetchError(`Response timeout while trying to fetch ${_this4.url} (over ${_this4.timeout}ms)`, 'body-timeout'));
+			}, _this4.timeout);
+		}
+
+		// handle stream errors
+		body.on('error', function (err) {
+			if (err.name === 'AbortError') {
+				// if the request was aborted, reject with this Error
+				abort = true;
+				reject(err);
+			} else {
+				// other errors, such as incorrect content-encoding
+				reject(new FetchError(`Invalid response body while trying to fetch ${_this4.url}: ${err.message}`, 'system', err));
+			}
+		});
+
+		body.on('data', function (chunk) {
+			if (abort || chunk === null) {
+				return;
+			}
+
+			if (_this4.size && accumBytes + chunk.length > _this4.size) {
+				abort = true;
+				reject(new FetchError(`content size at ${_this4.url} over limit: ${_this4.size}`, 'max-size'));
+				return;
+			}
+
+			accumBytes += chunk.length;
+			accum.push(chunk);
+		});
+
+		body.on('end', function () {
+			if (abort) {
+				return;
+			}
+
+			clearTimeout(resTimeout);
+
+			try {
+				resolve(Buffer.concat(accum, accumBytes));
+			} catch (err) {
+				// handle streams that have accumulated too much data (issue #414)
+				reject(new FetchError(`Could not create Buffer from response body for ${_this4.url}: ${err.message}`, 'system', err));
+			}
+		});
+	});
+}
+
+/**
+ * Detect buffer encoding and convert to target encoding
+ * ref: http://www.w3.org/TR/2011/WD-html5-20110113/parsing.html#determining-the-character-encoding
+ *
+ * @param   Buffer  buffer    Incoming buffer
+ * @param   String  encoding  Target encoding
+ * @return  String
+ */
+function convertBody(buffer, headers) {
+	if (typeof convert !== 'function') {
+		throw new Error('The package `encoding` must be installed to use the textConverted() function');
+	}
+
+	const ct = headers.get('content-type');
+	let charset = 'utf-8';
+	let res, str;
+
+	// header
+	if (ct) {
+		res = /charset=([^;]*)/i.exec(ct);
+	}
+
+	// no charset in content type, peek at response body for at most 1024 bytes
+	str = buffer.slice(0, 1024).toString();
+
+	// html5
+	if (!res && str) {
+		res = /<meta.+?charset=(['"])(.+?)\1/i.exec(str);
+	}
+
+	// html4
+	if (!res && str) {
+		res = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(str);
+		if (!res) {
+			res = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(str);
+			if (res) {
+				res.pop(); // drop last quote
+			}
+		}
+
+		if (res) {
+			res = /charset=(.*)/i.exec(res.pop());
+		}
+	}
+
+	// xml
+	if (!res && str) {
+		res = /<\?xml.+?encoding=(['"])(.+?)\1/i.exec(str);
+	}
+
+	// found charset
+	if (res) {
+		charset = res.pop();
+
+		// prevent decode issues when sites use incorrect encoding
+		// ref: https://hsivonen.fi/encoding-menu/
+		if (charset === 'gb2312' || charset === 'gbk') {
+			charset = 'gb18030';
+		}
+	}
+
+	// turn raw buffers into a single utf-8 buffer
+	return convert(buffer, 'UTF-8', charset).toString();
+}
+
+/**
+ * Detect a URLSearchParams object
+ * ref: https://github.com/bitinn/node-fetch/issues/296#issuecomment-307598143
+ *
+ * @param   Object  obj     Object to detect by type or brand
+ * @return  String
+ */
+function isURLSearchParams(obj) {
+	// Duck-typing as a necessary condition.
+	if (typeof obj !== 'object' || typeof obj.append !== 'function' || typeof obj.delete !== 'function' || typeof obj.get !== 'function' || typeof obj.getAll !== 'function' || typeof obj.has !== 'function' || typeof obj.set !== 'function') {
+		return false;
+	}
+
+	// Brand-checking and more duck-typing as optional condition.
+	return obj.constructor.name === 'URLSearchParams' || Object.prototype.toString.call(obj) === '[object URLSearchParams]' || typeof obj.sort === 'function';
+}
+
+/**
+ * Check if `obj` is a W3C `Blob` object (which `File` inherits from)
+ * @param  {*} obj
+ * @return {boolean}
+ */
+function isBlob(obj) {
+	return typeof obj === 'object' && typeof obj.arrayBuffer === 'function' && typeof obj.type === 'string' && typeof obj.stream === 'function' && typeof obj.constructor === 'function' && typeof obj.constructor.name === 'string' && /^(Blob|File)$/.test(obj.constructor.name) && /^(Blob|File)$/.test(obj[Symbol.toStringTag]);
+}
+
+/**
+ * Clone body given Res/Req instance
+ *
+ * @param   Mixed  instance  Response or Request instance
+ * @return  Mixed
+ */
+function clone(instance) {
+	let p1, p2;
+	let body = instance.body;
+
+	// don't allow cloning a used body
+	if (instance.bodyUsed) {
+		throw new Error('cannot clone body after it is used');
+	}
+
+	// check that body is a stream and not form-data object
+	// note: we can't clone the form-data object without having it as a dependency
+	if (body instanceof Stream && typeof body.getBoundary !== 'function') {
+		// tee instance body
+		p1 = new PassThrough();
+		p2 = new PassThrough();
+		body.pipe(p1);
+		body.pipe(p2);
+		// set instance body to teed body and return the other teed body
+		instance[INTERNALS].body = p1;
+		body = p2;
+	}
+
+	return body;
+}
+
+/**
+ * Performs the operation "extract a `Content-Type` value from |object|" as
+ * specified in the specification:
+ * https://fetch.spec.whatwg.org/#concept-bodyinit-extract
+ *
+ * This function assumes that instance.body is present.
+ *
+ * @param   Mixed  instance  Any options.body input
+ */
+function extractContentType(body) {
+	if (body === null) {
+		// body is null
+		return null;
+	} else if (typeof body === 'string') {
+		// body is string
+		return 'text/plain;charset=UTF-8';
+	} else if (isURLSearchParams(body)) {
+		// body is a URLSearchParams
+		return 'application/x-www-form-urlencoded;charset=UTF-8';
+	} else if (isBlob(body)) {
+		// body is blob
+		return body.type || null;
+	} else if (Buffer.isBuffer(body)) {
+		// body is buffer
+		return null;
+	} else if (Object.prototype.toString.call(body) === '[object ArrayBuffer]') {
+		// body is ArrayBuffer
+		return null;
+	} else if (ArrayBuffer.isView(body)) {
+		// body is ArrayBufferView
+		return null;
+	} else if (typeof body.getBoundary === 'function') {
+		// detect form data input from form-data module
+		return `multipart/form-data;boundary=${body.getBoundary()}`;
+	} else if (body instanceof Stream) {
+		// body is stream
+		// can't really do much about this
+		return null;
+	} else {
+		// Body constructor defaults other things to string
+		return 'text/plain;charset=UTF-8';
+	}
+}
+
+/**
+ * The Fetch Standard treats this as if "total bytes" is a property on the body.
+ * For us, we have to explicitly get it with a function.
+ *
+ * ref: https://fetch.spec.whatwg.org/#concept-body-total-bytes
+ *
+ * @param   Body    instance   Instance of Body
+ * @return  Number?            Number of bytes, or null if not possible
+ */
+function getTotalBytes(instance) {
+	const body = instance.body;
+
+
+	if (body === null) {
+		// body is null
+		return 0;
+	} else if (isBlob(body)) {
+		return body.size;
+	} else if (Buffer.isBuffer(body)) {
+		// body is buffer
+		return body.length;
+	} else if (body && typeof body.getLengthSync === 'function') {
+		// detect form data input from form-data module
+		if (body._lengthRetrievers && body._lengthRetrievers.length == 0 || // 1.x
+		body.hasKnownLength && body.hasKnownLength()) {
+			// 2.x
+			return body.getLengthSync();
+		}
+		return null;
+	} else {
+		// body is stream
+		return null;
+	}
+}
+
+/**
+ * Write a Body to a Node.js WritableStream (e.g. http.Request) object.
+ *
+ * @param   Body    instance   Instance of Body
+ * @return  Void
+ */
+function writeToStream(dest, instance) {
+	const body = instance.body;
+
+
+	if (body === null) {
+		// body is null
+		dest.end();
+	} else if (isBlob(body)) {
+		body.stream().pipe(dest);
+	} else if (Buffer.isBuffer(body)) {
+		// body is buffer
+		dest.write(body);
+		dest.end();
+	} else {
+		// body is stream
+		body.pipe(dest);
+	}
+}
+
+// expose Promise
+Body.Promise = global.Promise;
+
+/**
+ * headers.js
+ *
+ * Headers class offers convenient helpers
+ */
+
+const invalidTokenRegex = /[^\^_`a-zA-Z\-0-9!#$%&'*+.|~]/;
+const invalidHeaderCharRegex = /[^\t\x20-\x7e\x80-\xff]/;
+
+function validateName(name) {
+	name = `${name}`;
+	if (invalidTokenRegex.test(name) || name === '') {
+		throw new TypeError(`${name} is not a legal HTTP header name`);
+	}
+}
+
+function validateValue(value) {
+	value = `${value}`;
+	if (invalidHeaderCharRegex.test(value)) {
+		throw new TypeError(`${value} is not a legal HTTP header value`);
+	}
+}
+
+/**
+ * Find the key in the map object given a header name.
+ *
+ * Returns undefined if not found.
+ *
+ * @param   String  name  Header name
+ * @return  String|Undefined
+ */
+function find(map, name) {
+	name = name.toLowerCase();
+	for (const key in map) {
+		if (key.toLowerCase() === name) {
+			return key;
+		}
+	}
+	return undefined;
+}
+
+const MAP = Symbol('map');
+class Headers {
+	/**
+  * Headers class
+  *
+  * @param   Object  headers  Response headers
+  * @return  Void
+  */
+	constructor() {
+		let init = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+
+		this[MAP] = Object.create(null);
+
+		if (init instanceof Headers) {
+			const rawHeaders = init.raw();
+			const headerNames = Object.keys(rawHeaders);
+
+			for (const headerName of headerNames) {
+				for (const value of rawHeaders[headerName]) {
+					this.append(headerName, value);
+				}
+			}
+
+			return;
+		}
+
+		// We don't worry about converting prop to ByteString here as append()
+		// will handle it.
+		if (init == null) ; else if (typeof init === 'object') {
+			const method = init[Symbol.iterator];
+			if (method != null) {
+				if (typeof method !== 'function') {
+					throw new TypeError('Header pairs must be iterable');
+				}
+
+				// sequence<sequence<ByteString>>
+				// Note: per spec we have to first exhaust the lists then process them
+				const pairs = [];
+				for (const pair of init) {
+					if (typeof pair !== 'object' || typeof pair[Symbol.iterator] !== 'function') {
+						throw new TypeError('Each header pair must be iterable');
+					}
+					pairs.push(Array.from(pair));
+				}
+
+				for (const pair of pairs) {
+					if (pair.length !== 2) {
+						throw new TypeError('Each header pair must be a name/value tuple');
+					}
+					this.append(pair[0], pair[1]);
+				}
+			} else {
+				// record<ByteString, ByteString>
+				for (const key of Object.keys(init)) {
+					const value = init[key];
+					this.append(key, value);
+				}
+			}
+		} else {
+			throw new TypeError('Provided initializer must be an object');
+		}
+	}
+
+	/**
+  * Return combined header value given name
+  *
+  * @param   String  name  Header name
+  * @return  Mixed
+  */
+	get(name) {
+		name = `${name}`;
+		validateName(name);
+		const key = find(this[MAP], name);
+		if (key === undefined) {
+			return null;
+		}
+
+		return this[MAP][key].join(', ');
+	}
+
+	/**
+  * Iterate over all headers
+  *
+  * @param   Function  callback  Executed for each item with parameters (value, name, thisArg)
+  * @param   Boolean   thisArg   `this` context for callback function
+  * @return  Void
+  */
+	forEach(callback) {
+		let thisArg = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
+		let pairs = getHeaders(this);
+		let i = 0;
+		while (i < pairs.length) {
+			var _pairs$i = pairs[i];
+			const name = _pairs$i[0],
+			      value = _pairs$i[1];
+
+			callback.call(thisArg, value, name, this);
+			pairs = getHeaders(this);
+			i++;
+		}
+	}
+
+	/**
+  * Overwrite header values given name
+  *
+  * @param   String  name   Header name
+  * @param   String  value  Header value
+  * @return  Void
+  */
+	set(name, value) {
+		name = `${name}`;
+		value = `${value}`;
+		validateName(name);
+		validateValue(value);
+		const key = find(this[MAP], name);
+		this[MAP][key !== undefined ? key : name] = [value];
+	}
+
+	/**
+  * Append a value onto existing header
+  *
+  * @param   String  name   Header name
+  * @param   String  value  Header value
+  * @return  Void
+  */
+	append(name, value) {
+		name = `${name}`;
+		value = `${value}`;
+		validateName(name);
+		validateValue(value);
+		const key = find(this[MAP], name);
+		if (key !== undefined) {
+			this[MAP][key].push(value);
+		} else {
+			this[MAP][name] = [value];
+		}
+	}
+
+	/**
+  * Check for header name existence
+  *
+  * @param   String   name  Header name
+  * @return  Boolean
+  */
+	has(name) {
+		name = `${name}`;
+		validateName(name);
+		return find(this[MAP], name) !== undefined;
+	}
+
+	/**
+  * Delete all header values given name
+  *
+  * @param   String  name  Header name
+  * @return  Void
+  */
+	delete(name) {
+		name = `${name}`;
+		validateName(name);
+		const key = find(this[MAP], name);
+		if (key !== undefined) {
+			delete this[MAP][key];
+		}
+	}
+
+	/**
+  * Return raw headers (non-spec api)
+  *
+  * @return  Object
+  */
+	raw() {
+		return this[MAP];
+	}
+
+	/**
+  * Get an iterator on keys.
+  *
+  * @return  Iterator
+  */
+	keys() {
+		return createHeadersIterator(this, 'key');
+	}
+
+	/**
+  * Get an iterator on values.
+  *
+  * @return  Iterator
+  */
+	values() {
+		return createHeadersIterator(this, 'value');
+	}
+
+	/**
+  * Get an iterator on entries.
+  *
+  * This is the default iterator of the Headers object.
+  *
+  * @return  Iterator
+  */
+	[Symbol.iterator]() {
+		return createHeadersIterator(this, 'key+value');
+	}
+}
+Headers.prototype.entries = Headers.prototype[Symbol.iterator];
+
+Object.defineProperty(Headers.prototype, Symbol.toStringTag, {
+	value: 'Headers',
+	writable: false,
+	enumerable: false,
+	configurable: true
+});
+
+Object.defineProperties(Headers.prototype, {
+	get: { enumerable: true },
+	forEach: { enumerable: true },
+	set: { enumerable: true },
+	append: { enumerable: true },
+	has: { enumerable: true },
+	delete: { enumerable: true },
+	keys: { enumerable: true },
+	values: { enumerable: true },
+	entries: { enumerable: true }
+});
+
+function getHeaders(headers) {
+	let kind = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'key+value';
+
+	const keys = Object.keys(headers[MAP]).sort();
+	return keys.map(kind === 'key' ? function (k) {
+		return k.toLowerCase();
+	} : kind === 'value' ? function (k) {
+		return headers[MAP][k].join(', ');
+	} : function (k) {
+		return [k.toLowerCase(), headers[MAP][k].join(', ')];
+	});
+}
+
+const INTERNAL = Symbol('internal');
+
+function createHeadersIterator(target, kind) {
+	const iterator = Object.create(HeadersIteratorPrototype);
+	iterator[INTERNAL] = {
+		target,
+		kind,
+		index: 0
+	};
+	return iterator;
+}
+
+const HeadersIteratorPrototype = Object.setPrototypeOf({
+	next() {
+		// istanbul ignore if
+		if (!this || Object.getPrototypeOf(this) !== HeadersIteratorPrototype) {
+			throw new TypeError('Value of `this` is not a HeadersIterator');
+		}
+
+		var _INTERNAL = this[INTERNAL];
+		const target = _INTERNAL.target,
+		      kind = _INTERNAL.kind,
+		      index = _INTERNAL.index;
+
+		const values = getHeaders(target, kind);
+		const len = values.length;
+		if (index >= len) {
+			return {
+				value: undefined,
+				done: true
+			};
+		}
+
+		this[INTERNAL].index = index + 1;
+
+		return {
+			value: values[index],
+			done: false
+		};
+	}
+}, Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]())));
+
+Object.defineProperty(HeadersIteratorPrototype, Symbol.toStringTag, {
+	value: 'HeadersIterator',
+	writable: false,
+	enumerable: false,
+	configurable: true
+});
+
+/**
+ * Export the Headers object in a form that Node.js can consume.
+ *
+ * @param   Headers  headers
+ * @return  Object
+ */
+function exportNodeCompatibleHeaders(headers) {
+	const obj = Object.assign({ __proto__: null }, headers[MAP]);
+
+	// http.request() only supports string as Host header. This hack makes
+	// specifying custom Host header possible.
+	const hostHeaderKey = find(headers[MAP], 'Host');
+	if (hostHeaderKey !== undefined) {
+		obj[hostHeaderKey] = obj[hostHeaderKey][0];
+	}
+
+	return obj;
+}
+
+/**
+ * Create a Headers object from an object of headers, ignoring those that do
+ * not conform to HTTP grammar productions.
+ *
+ * @param   Object  obj  Object of headers
+ * @return  Headers
+ */
+function createHeadersLenient(obj) {
+	const headers = new Headers();
+	for (const name of Object.keys(obj)) {
+		if (invalidTokenRegex.test(name)) {
+			continue;
+		}
+		if (Array.isArray(obj[name])) {
+			for (const val of obj[name]) {
+				if (invalidHeaderCharRegex.test(val)) {
+					continue;
+				}
+				if (headers[MAP][name] === undefined) {
+					headers[MAP][name] = [val];
+				} else {
+					headers[MAP][name].push(val);
+				}
+			}
+		} else if (!invalidHeaderCharRegex.test(obj[name])) {
+			headers[MAP][name] = [obj[name]];
+		}
+	}
+	return headers;
+}
+
+const INTERNALS$1 = Symbol('Response internals');
+
+// fix an issue where "STATUS_CODES" aren't a named export for node <10
+const STATUS_CODES = http.STATUS_CODES;
+
+/**
+ * Response class
+ *
+ * @param   Stream  body  Readable stream
+ * @param   Object  opts  Response options
+ * @return  Void
+ */
+class Response {
+	constructor() {
+		let body = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+		let opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+		Body.call(this, body, opts);
+
+		const status = opts.status || 200;
+		const headers = new Headers(opts.headers);
+
+		if (body != null && !headers.has('Content-Type')) {
+			const contentType = extractContentType(body);
+			if (contentType) {
+				headers.append('Content-Type', contentType);
+			}
+		}
+
+		this[INTERNALS$1] = {
+			url: opts.url,
+			status,
+			statusText: opts.statusText || STATUS_CODES[status],
+			headers,
+			counter: opts.counter
+		};
+	}
+
+	get url() {
+		return this[INTERNALS$1].url || '';
+	}
+
+	get status() {
+		return this[INTERNALS$1].status;
+	}
+
+	/**
+  * Convenience property representing if the request ended normally
+  */
+	get ok() {
+		return this[INTERNALS$1].status >= 200 && this[INTERNALS$1].status < 300;
+	}
+
+	get redirected() {
+		return this[INTERNALS$1].counter > 0;
+	}
+
+	get statusText() {
+		return this[INTERNALS$1].statusText;
+	}
+
+	get headers() {
+		return this[INTERNALS$1].headers;
+	}
+
+	/**
+  * Clone this response
+  *
+  * @return  Response
+  */
+	clone() {
+		return new Response(clone(this), {
+			url: this.url,
+			status: this.status,
+			statusText: this.statusText,
+			headers: this.headers,
+			ok: this.ok,
+			redirected: this.redirected
+		});
+	}
+}
+
+Body.mixIn(Response.prototype);
+
+Object.defineProperties(Response.prototype, {
+	url: { enumerable: true },
+	status: { enumerable: true },
+	ok: { enumerable: true },
+	redirected: { enumerable: true },
+	statusText: { enumerable: true },
+	headers: { enumerable: true },
+	clone: { enumerable: true }
+});
+
+Object.defineProperty(Response.prototype, Symbol.toStringTag, {
+	value: 'Response',
+	writable: false,
+	enumerable: false,
+	configurable: true
+});
+
+const INTERNALS$2 = Symbol('Request internals');
+const URL = Url.URL || whatwgUrl.URL;
+
+// fix an issue where "format", "parse" aren't a named export for node <10
+const parse_url = Url.parse;
+const format_url = Url.format;
+
+/**
+ * Wrapper around `new URL` to handle arbitrary URLs
+ *
+ * @param  {string} urlStr
+ * @return {void}
+ */
+function parseURL(urlStr) {
+	/*
+ 	Check whether the URL is absolute or not
+ 		Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
+ 	Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+ */
+	if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.exec(urlStr)) {
+		urlStr = new URL(urlStr).toString();
+	}
+
+	// Fallback to old implementation for arbitrary URLs
+	return parse_url(urlStr);
+}
+
+const streamDestructionSupported = 'destroy' in Stream.Readable.prototype;
+
+/**
+ * Check if a value is an instance of Request.
+ *
+ * @param   Mixed   input
+ * @return  Boolean
+ */
+function isRequest(input) {
+	return typeof input === 'object' && typeof input[INTERNALS$2] === 'object';
+}
+
+function isAbortSignal(signal) {
+	const proto = signal && typeof signal === 'object' && Object.getPrototypeOf(signal);
+	return !!(proto && proto.constructor.name === 'AbortSignal');
+}
+
+/**
+ * Request class
+ *
+ * @param   Mixed   input  Url or Request instance
+ * @param   Object  init   Custom options
+ * @return  Void
+ */
+class Request {
+	constructor(input) {
+		let init = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+		let parsedURL;
+
+		// normalize input
+		if (!isRequest(input)) {
+			if (input && input.href) {
+				// in order to support Node.js' Url objects; though WHATWG's URL objects
+				// will fall into this branch also (since their `toString()` will return
+				// `href` property anyway)
+				parsedURL = parseURL(input.href);
+			} else {
+				// coerce input to a string before attempting to parse
+				parsedURL = parseURL(`${input}`);
+			}
+			input = {};
+		} else {
+			parsedURL = parseURL(input.url);
+		}
+
+		let method = init.method || input.method || 'GET';
+		method = method.toUpperCase();
+
+		if ((init.body != null || isRequest(input) && input.body !== null) && (method === 'GET' || method === 'HEAD')) {
+			throw new TypeError('Request with GET/HEAD method cannot have body');
+		}
+
+		let inputBody = init.body != null ? init.body : isRequest(input) && input.body !== null ? clone(input) : null;
+
+		Body.call(this, inputBody, {
+			timeout: init.timeout || input.timeout || 0,
+			size: init.size || input.size || 0
+		});
+
+		const headers = new Headers(init.headers || input.headers || {});
+
+		if (inputBody != null && !headers.has('Content-Type')) {
+			const contentType = extractContentType(inputBody);
+			if (contentType) {
+				headers.append('Content-Type', contentType);
+			}
+		}
+
+		let signal = isRequest(input) ? input.signal : null;
+		if ('signal' in init) signal = init.signal;
+
+		if (signal != null && !isAbortSignal(signal)) {
+			throw new TypeError('Expected signal to be an instanceof AbortSignal');
+		}
+
+		this[INTERNALS$2] = {
+			method,
+			redirect: init.redirect || input.redirect || 'follow',
+			headers,
+			parsedURL,
+			signal
+		};
+
+		// node-fetch-only options
+		this.follow = init.follow !== undefined ? init.follow : input.follow !== undefined ? input.follow : 20;
+		this.compress = init.compress !== undefined ? init.compress : input.compress !== undefined ? input.compress : true;
+		this.counter = init.counter || input.counter || 0;
+		this.agent = init.agent || input.agent;
+	}
+
+	get method() {
+		return this[INTERNALS$2].method;
+	}
+
+	get url() {
+		return format_url(this[INTERNALS$2].parsedURL);
+	}
+
+	get headers() {
+		return this[INTERNALS$2].headers;
+	}
+
+	get redirect() {
+		return this[INTERNALS$2].redirect;
+	}
+
+	get signal() {
+		return this[INTERNALS$2].signal;
+	}
+
+	/**
+  * Clone this request
+  *
+  * @return  Request
+  */
+	clone() {
+		return new Request(this);
+	}
+}
+
+Body.mixIn(Request.prototype);
+
+Object.defineProperty(Request.prototype, Symbol.toStringTag, {
+	value: 'Request',
+	writable: false,
+	enumerable: false,
+	configurable: true
+});
+
+Object.defineProperties(Request.prototype, {
+	method: { enumerable: true },
+	url: { enumerable: true },
+	headers: { enumerable: true },
+	redirect: { enumerable: true },
+	clone: { enumerable: true },
+	signal: { enumerable: true }
+});
+
+/**
+ * Convert a Request to Node.js http request options.
+ *
+ * @param   Request  A Request instance
+ * @return  Object   The options object to be passed to http.request
+ */
+function getNodeRequestOptions(request) {
+	const parsedURL = request[INTERNALS$2].parsedURL;
+	const headers = new Headers(request[INTERNALS$2].headers);
+
+	// fetch step 1.3
+	if (!headers.has('Accept')) {
+		headers.set('Accept', '*/*');
+	}
+
+	// Basic fetch
+	if (!parsedURL.protocol || !parsedURL.hostname) {
+		throw new TypeError('Only absolute URLs are supported');
+	}
+
+	if (!/^https?:$/.test(parsedURL.protocol)) {
+		throw new TypeError('Only HTTP(S) protocols are supported');
+	}
+
+	if (request.signal && request.body instanceof Stream.Readable && !streamDestructionSupported) {
+		throw new Error('Cancellation of streamed requests with AbortSignal is not supported in node < 8');
+	}
+
+	// HTTP-network-or-cache fetch steps 2.4-2.7
+	let contentLengthValue = null;
+	if (request.body == null && /^(POST|PUT)$/i.test(request.method)) {
+		contentLengthValue = '0';
+	}
+	if (request.body != null) {
+		const totalBytes = getTotalBytes(request);
+		if (typeof totalBytes === 'number') {
+			contentLengthValue = String(totalBytes);
+		}
+	}
+	if (contentLengthValue) {
+		headers.set('Content-Length', contentLengthValue);
+	}
+
+	// HTTP-network-or-cache fetch step 2.11
+	if (!headers.has('User-Agent')) {
+		headers.set('User-Agent', 'node-fetch/1.0 (+https://github.com/bitinn/node-fetch)');
+	}
+
+	// HTTP-network-or-cache fetch step 2.15
+	if (request.compress && !headers.has('Accept-Encoding')) {
+		headers.set('Accept-Encoding', 'gzip,deflate');
+	}
+
+	let agent = request.agent;
+	if (typeof agent === 'function') {
+		agent = agent(parsedURL);
+	}
+
+	if (!headers.has('Connection') && !agent) {
+		headers.set('Connection', 'close');
+	}
+
+	// HTTP-network fetch step 4.2
+	// chunked encoding is handled by Node.js
+
+	return Object.assign({}, parsedURL, {
+		method: request.method,
+		headers: exportNodeCompatibleHeaders(headers),
+		agent
+	});
+}
+
+/**
+ * abort-error.js
+ *
+ * AbortError interface for cancelled requests
+ */
+
+/**
+ * Create AbortError instance
+ *
+ * @param   String      message      Error message for human
+ * @return  AbortError
+ */
+function AbortError(message) {
+  Error.call(this, message);
+
+  this.type = 'aborted';
+  this.message = message;
+
+  // hide custom error implementation details from end-users
+  Error.captureStackTrace(this, this.constructor);
+}
+
+AbortError.prototype = Object.create(Error.prototype);
+AbortError.prototype.constructor = AbortError;
+AbortError.prototype.name = 'AbortError';
+
+const URL$1 = Url.URL || whatwgUrl.URL;
+
+// fix an issue where "PassThrough", "resolve" aren't a named export for node <10
+const PassThrough$1 = Stream.PassThrough;
+
+const isDomainOrSubdomain = function isDomainOrSubdomain(destination, original) {
+	const orig = new URL$1(original).hostname;
+	const dest = new URL$1(destination).hostname;
+
+	return orig === dest || orig[orig.length - dest.length - 1] === '.' && orig.endsWith(dest);
+};
+
+/**
+ * isSameProtocol reports whether the two provided URLs use the same protocol.
+ *
+ * Both domains must already be in canonical form.
+ * @param {string|URL} original
+ * @param {string|URL} destination
+ */
+const isSameProtocol = function isSameProtocol(destination, original) {
+	const orig = new URL$1(original).protocol;
+	const dest = new URL$1(destination).protocol;
+
+	return orig === dest;
+};
+
+/**
+ * Fetch function
+ *
+ * @param   Mixed    url   Absolute url or Request instance
+ * @param   Object   opts  Fetch options
+ * @return  Promise
+ */
+function fetch(url, opts) {
+
+	// allow custom promise
+	if (!fetch.Promise) {
+		throw new Error('native promise missing, set fetch.Promise to your favorite alternative');
+	}
+
+	Body.Promise = fetch.Promise;
+
+	// wrap http.request into fetch
+	return new fetch.Promise(function (resolve, reject) {
+		// build request object
+		const request = new Request(url, opts);
+		const options = getNodeRequestOptions(request);
+
+		const send = (options.protocol === 'https:' ? https : http).request;
+		const signal = request.signal;
+
+		let response = null;
+
+		const abort = function abort() {
+			let error = new AbortError('The user aborted a request.');
+			reject(error);
+			if (request.body && request.body instanceof Stream.Readable) {
+				destroyStream(request.body, error);
+			}
+			if (!response || !response.body) return;
+			response.body.emit('error', error);
+		};
+
+		if (signal && signal.aborted) {
+			abort();
+			return;
+		}
+
+		const abortAndFinalize = function abortAndFinalize() {
+			abort();
+			finalize();
+		};
+
+		// send request
+		const req = send(options);
+		let reqTimeout;
+
+		if (signal) {
+			signal.addEventListener('abort', abortAndFinalize);
+		}
+
+		function finalize() {
+			req.abort();
+			if (signal) signal.removeEventListener('abort', abortAndFinalize);
+			clearTimeout(reqTimeout);
+		}
+
+		if (request.timeout) {
+			req.once('socket', function (socket) {
+				reqTimeout = setTimeout(function () {
+					reject(new FetchError(`network timeout at: ${request.url}`, 'request-timeout'));
+					finalize();
+				}, request.timeout);
+			});
+		}
+
+		req.on('error', function (err) {
+			reject(new FetchError(`request to ${request.url} failed, reason: ${err.message}`, 'system', err));
+
+			if (response && response.body) {
+				destroyStream(response.body, err);
+			}
+
+			finalize();
+		});
+
+		fixResponseChunkedTransferBadEnding(req, function (err) {
+			if (signal && signal.aborted) {
+				return;
+			}
+
+			if (response && response.body) {
+				destroyStream(response.body, err);
+			}
+		});
+
+		/* c8 ignore next 18 */
+		if (parseInt(process.version.substring(1)) < 14) {
+			// Before Node.js 14, pipeline() does not fully support async iterators and does not always
+			// properly handle when the socket close/end events are out of order.
+			req.on('socket', function (s) {
+				s.addListener('close', function (hadError) {
+					// if a data listener is still present we didn't end cleanly
+					const hasDataListener = s.listenerCount('data') > 0;
+
+					// if end happened before close but the socket didn't emit an error, do it now
+					if (response && hasDataListener && !hadError && !(signal && signal.aborted)) {
+						const err = new Error('Premature close');
+						err.code = 'ERR_STREAM_PREMATURE_CLOSE';
+						response.body.emit('error', err);
+					}
+				});
+			});
+		}
+
+		req.on('response', function (res) {
+			clearTimeout(reqTimeout);
+
+			const headers = createHeadersLenient(res.headers);
+
+			// HTTP fetch step 5
+			if (fetch.isRedirect(res.statusCode)) {
+				// HTTP fetch step 5.2
+				const location = headers.get('Location');
+
+				// HTTP fetch step 5.3
+				let locationURL = null;
+				try {
+					locationURL = location === null ? null : new URL$1(location, request.url).toString();
+				} catch (err) {
+					// error here can only be invalid URL in Location: header
+					// do not throw when options.redirect == manual
+					// let the user extract the errorneous redirect URL
+					if (request.redirect !== 'manual') {
+						reject(new FetchError(`uri requested responds with an invalid redirect URL: ${location}`, 'invalid-redirect'));
+						finalize();
+						return;
+					}
+				}
+
+				// HTTP fetch step 5.5
+				switch (request.redirect) {
+					case 'error':
+						reject(new FetchError(`uri requested responds with a redirect, redirect mode is set to error: ${request.url}`, 'no-redirect'));
+						finalize();
+						return;
+					case 'manual':
+						// node-fetch-specific step: make manual redirect a bit easier to use by setting the Location header value to the resolved URL.
+						if (locationURL !== null) {
+							// handle corrupted header
+							try {
+								headers.set('Location', locationURL);
+							} catch (err) {
+								// istanbul ignore next: nodejs server prevent invalid response headers, we can't test this through normal request
+								reject(err);
+							}
+						}
+						break;
+					case 'follow':
+						// HTTP-redirect fetch step 2
+						if (locationURL === null) {
+							break;
+						}
+
+						// HTTP-redirect fetch step 5
+						if (request.counter >= request.follow) {
+							reject(new FetchError(`maximum redirect reached at: ${request.url}`, 'max-redirect'));
+							finalize();
+							return;
+						}
+
+						// HTTP-redirect fetch step 6 (counter increment)
+						// Create a new Request object.
+						const requestOpts = {
+							headers: new Headers(request.headers),
+							follow: request.follow,
+							counter: request.counter + 1,
+							agent: request.agent,
+							compress: request.compress,
+							method: request.method,
+							body: request.body,
+							signal: request.signal,
+							timeout: request.timeout,
+							size: request.size
+						};
+
+						if (!isDomainOrSubdomain(request.url, locationURL) || !isSameProtocol(request.url, locationURL)) {
+							for (const name of ['authorization', 'www-authenticate', 'cookie', 'cookie2']) {
+								requestOpts.headers.delete(name);
+							}
+						}
+
+						// HTTP-redirect fetch step 9
+						if (res.statusCode !== 303 && request.body && getTotalBytes(request) === null) {
+							reject(new FetchError('Cannot follow redirect with body being a readable stream', 'unsupported-redirect'));
+							finalize();
+							return;
+						}
+
+						// HTTP-redirect fetch step 11
+						if (res.statusCode === 303 || (res.statusCode === 301 || res.statusCode === 302) && request.method === 'POST') {
+							requestOpts.method = 'GET';
+							requestOpts.body = undefined;
+							requestOpts.headers.delete('content-length');
+						}
+
+						// HTTP-redirect fetch step 15
+						resolve(fetch(new Request(locationURL, requestOpts)));
+						finalize();
+						return;
+				}
+			}
+
+			// prepare response
+			res.once('end', function () {
+				if (signal) signal.removeEventListener('abort', abortAndFinalize);
+			});
+			let body = res.pipe(new PassThrough$1());
+
+			const response_options = {
+				url: request.url,
+				status: res.statusCode,
+				statusText: res.statusMessage,
+				headers: headers,
+				size: request.size,
+				timeout: request.timeout,
+				counter: request.counter
+			};
+
+			// HTTP-network fetch step 12.1.1.3
+			const codings = headers.get('Content-Encoding');
+
+			// HTTP-network fetch step 12.1.1.4: handle content codings
+
+			// in following scenarios we ignore compression support
+			// 1. compression support is disabled
+			// 2. HEAD request
+			// 3. no Content-Encoding header
+			// 4. no content response (204)
+			// 5. content not modified response (304)
+			if (!request.compress || request.method === 'HEAD' || codings === null || res.statusCode === 204 || res.statusCode === 304) {
+				response = new Response(body, response_options);
+				resolve(response);
+				return;
+			}
+
+			// For Node v6+
+			// Be less strict when decoding compressed responses, since sometimes
+			// servers send slightly invalid responses that are still accepted
+			// by common browsers.
+			// Always using Z_SYNC_FLUSH is what cURL does.
+			const zlibOptions = {
+				flush: zlib.Z_SYNC_FLUSH,
+				finishFlush: zlib.Z_SYNC_FLUSH
+			};
+
+			// for gzip
+			if (codings == 'gzip' || codings == 'x-gzip') {
+				body = body.pipe(zlib.createGunzip(zlibOptions));
+				response = new Response(body, response_options);
+				resolve(response);
+				return;
+			}
+
+			// for deflate
+			if (codings == 'deflate' || codings == 'x-deflate') {
+				// handle the infamous raw deflate response from old servers
+				// a hack for old IIS and Apache servers
+				const raw = res.pipe(new PassThrough$1());
+				raw.once('data', function (chunk) {
+					// see http://stackoverflow.com/questions/37519828
+					if ((chunk[0] & 0x0F) === 0x08) {
+						body = body.pipe(zlib.createInflate());
+					} else {
+						body = body.pipe(zlib.createInflateRaw());
+					}
+					response = new Response(body, response_options);
+					resolve(response);
+				});
+				raw.on('end', function () {
+					// some old IIS servers return zero-length OK deflate responses, so 'data' is never emitted.
+					if (!response) {
+						response = new Response(body, response_options);
+						resolve(response);
+					}
+				});
+				return;
+			}
+
+			// for br
+			if (codings == 'br' && typeof zlib.createBrotliDecompress === 'function') {
+				body = body.pipe(zlib.createBrotliDecompress());
+				response = new Response(body, response_options);
+				resolve(response);
+				return;
+			}
+
+			// otherwise, use response as-is
+			response = new Response(body, response_options);
+			resolve(response);
+		});
+
+		writeToStream(req, request);
+	});
+}
+function fixResponseChunkedTransferBadEnding(request, errorCallback) {
+	let socket;
+
+	request.on('socket', function (s) {
+		socket = s;
+	});
+
+	request.on('response', function (response) {
+		const headers = response.headers;
+
+		if (headers['transfer-encoding'] === 'chunked' && !headers['content-length']) {
+			response.once('close', function (hadError) {
+				// if a data listener is still present we didn't end cleanly
+				const hasDataListener = socket.listenerCount('data') > 0;
+
+				if (hasDataListener && !hadError) {
+					const err = new Error('Premature close');
+					err.code = 'ERR_STREAM_PREMATURE_CLOSE';
+					errorCallback(err);
+				}
+			});
+		}
+	});
+}
+
+function destroyStream(stream, err) {
+	if (stream.destroy) {
+		stream.destroy(err);
+	} else {
+		// node < 8
+		stream.emit('error', err);
+		stream.end();
+	}
+}
+
+/**
+ * Redirect code matching
+ *
+ * @param   Number   code  Status code
+ * @return  Boolean
+ */
+fetch.isRedirect = function (code) {
+	return code === 301 || code === 302 || code === 303 || code === 307 || code === 308;
+};
+
+// expose Promise
+fetch.Promise = global.Promise;
+
+module.exports = exports = fetch;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.default = exports;
+exports.Headers = Headers;
+exports.Request = Request;
+exports.Response = Response;
+exports.FetchError = FetchError;
+
+
+/***/ }),
+
+/***/ 5834:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+/**
+ * "Client" wraps "ws" or a browser-implemented "WebSocket" library
+ * according to the environment providing JSON RPC 2.0 support on top.
+ * @module Client
+ */
+
+
+var _interopRequireDefault = __nccwpck_require__(3298);
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var _regenerator = _interopRequireDefault(__nccwpck_require__(9032));
+
+var _asyncToGenerator2 = _interopRequireDefault(__nccwpck_require__(7400));
+
+var _typeof2 = _interopRequireDefault(__nccwpck_require__(1042));
+
+var _classCallCheck2 = _interopRequireDefault(__nccwpck_require__(9346));
+
+var _createClass2 = _interopRequireDefault(__nccwpck_require__(8755));
+
+var _inherits2 = _interopRequireDefault(__nccwpck_require__(5937));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(__nccwpck_require__(8104));
+
+var _getPrototypeOf2 = _interopRequireDefault(__nccwpck_require__(2030));
+
+var _eventemitter = __nccwpck_require__(1848);
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+}; // @ts-ignore
+
+
+var CommonClient = /*#__PURE__*/function (_EventEmitter) {
+  (0, _inherits2["default"])(CommonClient, _EventEmitter);
+
+  var _super = _createSuper(CommonClient);
+
+  /**
+   * Instantiate a Client class.
+   * @constructor
+   * @param {webSocketFactory} webSocketFactory - factory method for WebSocket
+   * @param {String} address - url to a websocket server
+   * @param {Object} options - ws options object with reconnect parameters
+   * @param {Function} generate_request_id - custom generation request Id
+   * @return {CommonClient}
+   */
+  function CommonClient(webSocketFactory) {
+    var _this;
+
+    var address = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "ws://localhost:8080";
+
+    var _a = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    var generate_request_id = arguments.length > 3 ? arguments[3] : undefined;
+    (0, _classCallCheck2["default"])(this, CommonClient);
+
+    var _a$autoconnect = _a.autoconnect,
+        autoconnect = _a$autoconnect === void 0 ? true : _a$autoconnect,
+        _a$reconnect = _a.reconnect,
+        reconnect = _a$reconnect === void 0 ? true : _a$reconnect,
+        _a$reconnect_interval = _a.reconnect_interval,
+        reconnect_interval = _a$reconnect_interval === void 0 ? 1000 : _a$reconnect_interval,
+        _a$max_reconnects = _a.max_reconnects,
+        max_reconnects = _a$max_reconnects === void 0 ? 5 : _a$max_reconnects,
+        rest_options = __rest(_a, ["autoconnect", "reconnect", "reconnect_interval", "max_reconnects"]);
+
+    _this = _super.call(this);
+    _this.webSocketFactory = webSocketFactory;
+    _this.queue = {};
+    _this.rpc_id = 0;
+    _this.address = address;
+    _this.autoconnect = autoconnect;
+    _this.ready = false;
+    _this.reconnect = reconnect;
+    _this.reconnect_timer_id = undefined;
+    _this.reconnect_interval = reconnect_interval;
+    _this.max_reconnects = max_reconnects;
+    _this.rest_options = rest_options;
+    _this.current_reconnects = 0;
+
+    _this.generate_request_id = generate_request_id || function () {
+      return ++_this.rpc_id;
+    };
+
+    if (_this.autoconnect) _this._connect(_this.address, Object.assign({
+      autoconnect: _this.autoconnect,
+      reconnect: _this.reconnect,
+      reconnect_interval: _this.reconnect_interval,
+      max_reconnects: _this.max_reconnects
+    }, _this.rest_options));
+    return _this;
+  }
+  /**
+   * Connects to a defined server if not connected already.
+   * @method
+   * @return {Undefined}
+   */
+
+
+  (0, _createClass2["default"])(CommonClient, [{
+    key: "connect",
+    value: function connect() {
+      if (this.socket) return;
+
+      this._connect(this.address, Object.assign({
+        autoconnect: this.autoconnect,
+        reconnect: this.reconnect,
+        reconnect_interval: this.reconnect_interval,
+        max_reconnects: this.max_reconnects
+      }, this.rest_options));
+    }
+    /**
+     * Calls a registered RPC method on server.
+     * @method
+     * @param {String} method - RPC method name
+     * @param {Object|Array} params - optional method parameters
+     * @param {Number} timeout - RPC reply timeout value
+     * @param {Object} ws_opts - options passed to ws
+     * @return {Promise}
+     */
+
+  }, {
+    key: "call",
+    value: function call(method, params, timeout, ws_opts) {
+      var _this2 = this;
+
+      if (!ws_opts && "object" === (0, _typeof2["default"])(timeout)) {
+        ws_opts = timeout;
+        timeout = null;
+      }
+
+      return new Promise(function (resolve, reject) {
+        if (!_this2.ready) return reject(new Error("socket not ready"));
+
+        var rpc_id = _this2.generate_request_id(method, params);
+
+        var message = {
+          jsonrpc: "2.0",
+          method: method,
+          params: params || null,
+          id: rpc_id
+        };
+
+        _this2.socket.send(JSON.stringify(message), ws_opts, function (error) {
+          if (error) return reject(error);
+          _this2.queue[rpc_id] = {
+            promise: [resolve, reject]
+          };
+
+          if (timeout) {
+            _this2.queue[rpc_id].timeout = setTimeout(function () {
+              delete _this2.queue[rpc_id];
+              reject(new Error("reply timeout"));
+            }, timeout);
+          }
+        });
+      });
+    }
+    /**
+     * Logins with the other side of the connection.
+     * @method
+     * @param {Object} params - Login credentials object
+     * @return {Promise}
+     */
+
+  }, {
+    key: "login",
+    value: function () {
+      var _login = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(params) {
+        var resp;
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.call("rpc.login", params);
+
+              case 2:
+                resp = _context.sent;
+
+                if (resp) {
+                  _context.next = 5;
+                  break;
+                }
+
+                throw new Error("authentication failed");
+
+              case 5:
+                return _context.abrupt("return", resp);
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function login(_x) {
+        return _login.apply(this, arguments);
+      }
+
+      return login;
+    }()
+    /**
+     * Fetches a list of client's methods registered on server.
+     * @method
+     * @return {Array}
+     */
+
+  }, {
+    key: "listMethods",
+    value: function () {
+      var _listMethods = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.call("__listMethods");
+
+              case 2:
+                return _context2.abrupt("return", _context2.sent);
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function listMethods() {
+        return _listMethods.apply(this, arguments);
+      }
+
+      return listMethods;
+    }()
+    /**
+     * Sends a JSON-RPC 2.0 notification to server.
+     * @method
+     * @param {String} method - RPC method name
+     * @param {Object} params - optional method parameters
+     * @return {Promise}
+     */
+
+  }, {
+    key: "notify",
+    value: function notify(method, params) {
+      var _this3 = this;
+
+      return new Promise(function (resolve, reject) {
+        if (!_this3.ready) return reject(new Error("socket not ready"));
+        var message = {
+          jsonrpc: "2.0",
+          method: method,
+          params: params || null
+        };
+
+        _this3.socket.send(JSON.stringify(message), function (error) {
+          if (error) return reject(error);
+          resolve();
+        });
+      });
+    }
+    /**
+     * Subscribes for a defined event.
+     * @method
+     * @param {String|Array} event - event name
+     * @return {Undefined}
+     * @throws {Error}
+     */
+
+  }, {
+    key: "subscribe",
+    value: function () {
+      var _subscribe = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(event) {
+        var result;
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (typeof event === "string") event = [event];
+                _context3.next = 3;
+                return this.call("rpc.on", event);
+
+              case 3:
+                result = _context3.sent;
+
+                if (!(typeof event === "string" && result[event] !== "ok")) {
+                  _context3.next = 6;
+                  break;
+                }
+
+                throw new Error("Failed subscribing to an event '" + event + "' with: " + result[event]);
+
+              case 6:
+                return _context3.abrupt("return", result);
+
+              case 7:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function subscribe(_x2) {
+        return _subscribe.apply(this, arguments);
+      }
+
+      return subscribe;
+    }()
+    /**
+     * Unsubscribes from a defined event.
+     * @method
+     * @param {String|Array} event - event name
+     * @return {Undefined}
+     * @throws {Error}
+     */
+
+  }, {
+    key: "unsubscribe",
+    value: function () {
+      var _unsubscribe = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(event) {
+        var result;
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (typeof event === "string") event = [event];
+                _context4.next = 3;
+                return this.call("rpc.off", event);
+
+              case 3:
+                result = _context4.sent;
+
+                if (!(typeof event === "string" && result[event] !== "ok")) {
+                  _context4.next = 6;
+                  break;
+                }
+
+                throw new Error("Failed unsubscribing from an event with: " + result);
+
+              case 6:
+                return _context4.abrupt("return", result);
+
+              case 7:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function unsubscribe(_x3) {
+        return _unsubscribe.apply(this, arguments);
+      }
+
+      return unsubscribe;
+    }()
+    /**
+     * Closes a WebSocket connection gracefully.
+     * @method
+     * @param {Number} code - socket close code
+     * @param {String} data - optional data to be sent before closing
+     * @return {Undefined}
+     */
+
+  }, {
+    key: "close",
+    value: function close(code, data) {
+      this.socket.close(code || 1000, data);
+    }
+    /**
+     * Connection/Message handler.
+     * @method
+     * @private
+     * @param {String} address - WebSocket API address
+     * @param {Object} options - ws options object
+     * @return {Undefined}
+     */
+
+  }, {
+    key: "_connect",
+    value: function _connect(address, options) {
+      var _this4 = this;
+
+      clearTimeout(this.reconnect_timer_id);
+      this.socket = this.webSocketFactory(address, options);
+      this.socket.addEventListener("open", function () {
+        _this4.ready = true;
+
+        _this4.emit("open");
+
+        _this4.current_reconnects = 0;
+      });
+      this.socket.addEventListener("message", function (_ref) {
+        var message = _ref.data;
+        if (message instanceof ArrayBuffer) message = Buffer.from(message).toString();
+
+        try {
+          message = JSON.parse(message);
+        } catch (error) {
+          return;
+        } // check if any listeners are attached and forward event
+
+
+        if (message.notification && _this4.listeners(message.notification).length) {
+          if (!Object.keys(message.params).length) return _this4.emit(message.notification);
+          var args = [message.notification];
+          if (message.params.constructor === Object) args.push(message.params);else // using for-loop instead of unshift/spread because performance is better
+            for (var i = 0; i < message.params.length; i++) {
+              args.push(message.params[i]);
+            } // run as microtask so that pending queue messages are resolved first
+          // eslint-disable-next-line prefer-spread
+
+          return Promise.resolve().then(function () {
+            _this4.emit.apply(_this4, args);
+          });
+        }
+
+        if (!_this4.queue[message.id]) {
+          // general JSON RPC 2.0 events
+          if (message.method && message.params) {
+            // run as microtask so that pending queue messages are resolved first
+            return Promise.resolve().then(function () {
+              _this4.emit(message.method, message.params);
+            });
+          }
+
+          return;
+        } // reject early since server's response is invalid
+
+
+        if ("error" in message === "result" in message) _this4.queue[message.id].promise[1](new Error("Server response malformed. Response must include either \"result\"" + " or \"error\", but not both."));
+        if (_this4.queue[message.id].timeout) clearTimeout(_this4.queue[message.id].timeout);
+        if (message.error) _this4.queue[message.id].promise[1](message.error);else _this4.queue[message.id].promise[0](message.result);
+        delete _this4.queue[message.id];
+      });
+      this.socket.addEventListener("error", function (error) {
+        return _this4.emit("error", error);
+      });
+      this.socket.addEventListener("close", function (_ref2) {
+        var code = _ref2.code,
+            reason = _ref2.reason;
+        if (_this4.ready) // Delay close event until internal state is updated
+          setTimeout(function () {
+            return _this4.emit("close", code, reason);
+          }, 0);
+        _this4.ready = false;
+        _this4.socket = undefined;
+        if (code === 1000) return;
+        _this4.current_reconnects++;
+        if (_this4.reconnect && (_this4.max_reconnects > _this4.current_reconnects || _this4.max_reconnects === 0)) _this4.reconnect_timer_id = setTimeout(function () {
+          return _this4._connect(address, options);
+        }, _this4.reconnect_interval);
+      });
+    }
+  }]);
+  return CommonClient;
+}(_eventemitter.EventEmitter);
+
+exports.default = CommonClient;
+
+/***/ }),
+
+/***/ 8889:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+/* A wrapper for the "qaap/uws-bindings" library. */
+
+
+var _interopRequireDefault = __nccwpck_require__(3298);
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = _default;
+
+var _ws = _interopRequireDefault(__nccwpck_require__(2211));
+
+/**
+ * factory method for common WebSocket instance
+ * @method
+ * @param {String} address - url to a websocket server
+ * @param {(Object)} options - websocket options
+ * @return {Undefined}
+ */
+function _default(address, options) {
+  return new _ws["default"](address, options);
+}
+
+/***/ }),
+
+/***/ 2211:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const WebSocket = __nccwpck_require__(1837);
+
+WebSocket.createWebSocketStream = __nccwpck_require__(3442);
+WebSocket.Server = __nccwpck_require__(3000);
+WebSocket.Receiver = __nccwpck_require__(515);
+WebSocket.Sender = __nccwpck_require__(4563);
+
+WebSocket.WebSocket = WebSocket;
+WebSocket.WebSocketServer = WebSocket.Server;
+
+module.exports = WebSocket;
+
+
+/***/ }),
+
+/***/ 2409:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const { EMPTY_BUFFER } = __nccwpck_require__(2104);
+
+/**
+ * Merges an array of buffers into a new buffer.
+ *
+ * @param {Buffer[]} list The array of buffers to concat
+ * @param {Number} totalLength The total length of buffers in the list
+ * @return {Buffer} The resulting buffer
+ * @public
+ */
+function concat(list, totalLength) {
+  if (list.length === 0) return EMPTY_BUFFER;
+  if (list.length === 1) return list[0];
+
+  const target = Buffer.allocUnsafe(totalLength);
+  let offset = 0;
+
+  for (let i = 0; i < list.length; i++) {
+    const buf = list[i];
+    target.set(buf, offset);
+    offset += buf.length;
+  }
+
+  if (offset < totalLength) return target.slice(0, offset);
+
+  return target;
+}
+
+/**
+ * Masks a buffer using the given mask.
+ *
+ * @param {Buffer} source The buffer to mask
+ * @param {Buffer} mask The mask to use
+ * @param {Buffer} output The buffer where to store the result
+ * @param {Number} offset The offset at which to start writing
+ * @param {Number} length The number of bytes to mask.
+ * @public
+ */
+function _mask(source, mask, output, offset, length) {
+  for (let i = 0; i < length; i++) {
+    output[offset + i] = source[i] ^ mask[i & 3];
+  }
+}
+
+/**
+ * Unmasks a buffer using the given mask.
+ *
+ * @param {Buffer} buffer The buffer to unmask
+ * @param {Buffer} mask The mask to use
+ * @public
+ */
+function _unmask(buffer, mask) {
+  for (let i = 0; i < buffer.length; i++) {
+    buffer[i] ^= mask[i & 3];
+  }
+}
+
+/**
+ * Converts a buffer to an `ArrayBuffer`.
+ *
+ * @param {Buffer} buf The buffer to convert
+ * @return {ArrayBuffer} Converted buffer
+ * @public
+ */
+function toArrayBuffer(buf) {
+  if (buf.byteLength === buf.buffer.byteLength) {
+    return buf.buffer;
+  }
+
+  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+}
+
+/**
+ * Converts `data` to a `Buffer`.
+ *
+ * @param {*} data The data to convert
+ * @return {Buffer} The buffer
+ * @throws {TypeError}
+ * @public
+ */
+function toBuffer(data) {
+  toBuffer.readOnly = true;
+
+  if (Buffer.isBuffer(data)) return data;
+
+  let buf;
+
+  if (data instanceof ArrayBuffer) {
+    buf = Buffer.from(data);
+  } else if (ArrayBuffer.isView(data)) {
+    buf = Buffer.from(data.buffer, data.byteOffset, data.byteLength);
+  } else {
+    buf = Buffer.from(data);
+    toBuffer.readOnly = false;
+  }
+
+  return buf;
+}
+
+module.exports = {
+  concat,
+  mask: _mask,
+  toArrayBuffer,
+  toBuffer,
+  unmask: _unmask
+};
+
+/* istanbul ignore else  */
+if (!process.env.WS_NO_BUFFER_UTIL) {
+  try {
+    const bufferUtil = __nccwpck_require__(3352);
+
+    module.exports.mask = function (source, mask, output, offset, length) {
+      if (length < 48) _mask(source, mask, output, offset, length);
+      else bufferUtil.mask(source, mask, output, offset, length);
+    };
+
+    module.exports.unmask = function (buffer, mask) {
+      if (buffer.length < 32) _unmask(buffer, mask);
+      else bufferUtil.unmask(buffer, mask);
+    };
+  } catch (e) {
+    // Continue regardless of the error.
+  }
+}
+
+
+/***/ }),
+
+/***/ 2104:
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = {
+  BINARY_TYPES: ['nodebuffer', 'arraybuffer', 'fragments'],
+  EMPTY_BUFFER: Buffer.alloc(0),
+  GUID: '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',
+  kForOnEventAttribute: Symbol('kIsForOnEventAttribute'),
+  kListener: Symbol('kListener'),
+  kStatusCode: Symbol('status-code'),
+  kWebSocket: Symbol('websocket'),
+  NOOP: () => {}
+};
+
+
+/***/ }),
+
+/***/ 907:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const { kForOnEventAttribute, kListener } = __nccwpck_require__(2104);
+
+const kCode = Symbol('kCode');
+const kData = Symbol('kData');
+const kError = Symbol('kError');
+const kMessage = Symbol('kMessage');
+const kReason = Symbol('kReason');
+const kTarget = Symbol('kTarget');
+const kType = Symbol('kType');
+const kWasClean = Symbol('kWasClean');
+
+/**
+ * Class representing an event.
+ */
+class Event {
+  /**
+   * Create a new `Event`.
+   *
+   * @param {String} type The name of the event
+   * @throws {TypeError} If the `type` argument is not specified
+   */
+  constructor(type) {
+    this[kTarget] = null;
+    this[kType] = type;
+  }
+
+  /**
+   * @type {*}
+   */
+  get target() {
+    return this[kTarget];
+  }
+
+  /**
+   * @type {String}
+   */
+  get type() {
+    return this[kType];
+  }
+}
+
+Object.defineProperty(Event.prototype, 'target', { enumerable: true });
+Object.defineProperty(Event.prototype, 'type', { enumerable: true });
+
+/**
+ * Class representing a close event.
+ *
+ * @extends Event
+ */
+class CloseEvent extends Event {
+  /**
+   * Create a new `CloseEvent`.
+   *
+   * @param {String} type The name of the event
+   * @param {Object} [options] A dictionary object that allows for setting
+   *     attributes via object members of the same name
+   * @param {Number} [options.code=0] The status code explaining why the
+   *     connection was closed
+   * @param {String} [options.reason=''] A human-readable string explaining why
+   *     the connection was closed
+   * @param {Boolean} [options.wasClean=false] Indicates whether or not the
+   *     connection was cleanly closed
+   */
+  constructor(type, options = {}) {
+    super(type);
+
+    this[kCode] = options.code === undefined ? 0 : options.code;
+    this[kReason] = options.reason === undefined ? '' : options.reason;
+    this[kWasClean] = options.wasClean === undefined ? false : options.wasClean;
+  }
+
+  /**
+   * @type {Number}
+   */
+  get code() {
+    return this[kCode];
+  }
+
+  /**
+   * @type {String}
+   */
+  get reason() {
+    return this[kReason];
+  }
+
+  /**
+   * @type {Boolean}
+   */
+  get wasClean() {
+    return this[kWasClean];
+  }
+}
+
+Object.defineProperty(CloseEvent.prototype, 'code', { enumerable: true });
+Object.defineProperty(CloseEvent.prototype, 'reason', { enumerable: true });
+Object.defineProperty(CloseEvent.prototype, 'wasClean', { enumerable: true });
+
+/**
+ * Class representing an error event.
+ *
+ * @extends Event
+ */
+class ErrorEvent extends Event {
+  /**
+   * Create a new `ErrorEvent`.
+   *
+   * @param {String} type The name of the event
+   * @param {Object} [options] A dictionary object that allows for setting
+   *     attributes via object members of the same name
+   * @param {*} [options.error=null] The error that generated this event
+   * @param {String} [options.message=''] The error message
+   */
+  constructor(type, options = {}) {
+    super(type);
+
+    this[kError] = options.error === undefined ? null : options.error;
+    this[kMessage] = options.message === undefined ? '' : options.message;
+  }
+
+  /**
+   * @type {*}
+   */
+  get error() {
+    return this[kError];
+  }
+
+  /**
+   * @type {String}
+   */
+  get message() {
+    return this[kMessage];
+  }
+}
+
+Object.defineProperty(ErrorEvent.prototype, 'error', { enumerable: true });
+Object.defineProperty(ErrorEvent.prototype, 'message', { enumerable: true });
+
+/**
+ * Class representing a message event.
+ *
+ * @extends Event
+ */
+class MessageEvent extends Event {
+  /**
+   * Create a new `MessageEvent`.
+   *
+   * @param {String} type The name of the event
+   * @param {Object} [options] A dictionary object that allows for setting
+   *     attributes via object members of the same name
+   * @param {*} [options.data=null] The message content
+   */
+  constructor(type, options = {}) {
+    super(type);
+
+    this[kData] = options.data === undefined ? null : options.data;
+  }
+
+  /**
+   * @type {*}
+   */
+  get data() {
+    return this[kData];
+  }
+}
+
+Object.defineProperty(MessageEvent.prototype, 'data', { enumerable: true });
+
+/**
+ * This provides methods for emulating the `EventTarget` interface. It's not
+ * meant to be used directly.
+ *
+ * @mixin
+ */
+const EventTarget = {
+  /**
+   * Register an event listener.
+   *
+   * @param {String} type A string representing the event type to listen for
+   * @param {Function} listener The listener to add
+   * @param {Object} [options] An options object specifies characteristics about
+   *     the event listener
+   * @param {Boolean} [options.once=false] A `Boolean` indicating that the
+   *     listener should be invoked at most once after being added. If `true`,
+   *     the listener would be automatically removed when invoked.
+   * @public
+   */
+  addEventListener(type, listener, options = {}) {
+    let wrapper;
+
+    if (type === 'message') {
+      wrapper = function onMessage(data, isBinary) {
+        const event = new MessageEvent('message', {
+          data: isBinary ? data : data.toString()
+        });
+
+        event[kTarget] = this;
+        listener.call(this, event);
+      };
+    } else if (type === 'close') {
+      wrapper = function onClose(code, message) {
+        const event = new CloseEvent('close', {
+          code,
+          reason: message.toString(),
+          wasClean: this._closeFrameReceived && this._closeFrameSent
+        });
+
+        event[kTarget] = this;
+        listener.call(this, event);
+      };
+    } else if (type === 'error') {
+      wrapper = function onError(error) {
+        const event = new ErrorEvent('error', {
+          error,
+          message: error.message
+        });
+
+        event[kTarget] = this;
+        listener.call(this, event);
+      };
+    } else if (type === 'open') {
+      wrapper = function onOpen() {
+        const event = new Event('open');
+
+        event[kTarget] = this;
+        listener.call(this, event);
+      };
+    } else {
+      return;
+    }
+
+    wrapper[kForOnEventAttribute] = !!options[kForOnEventAttribute];
+    wrapper[kListener] = listener;
+
+    if (options.once) {
+      this.once(type, wrapper);
+    } else {
+      this.on(type, wrapper);
+    }
+  },
+
+  /**
+   * Remove an event listener.
+   *
+   * @param {String} type A string representing the event type to remove
+   * @param {Function} handler The listener to remove
+   * @public
+   */
+  removeEventListener(type, handler) {
+    for (const listener of this.listeners(type)) {
+      if (listener[kListener] === handler && !listener[kForOnEventAttribute]) {
+        this.removeListener(type, listener);
+        break;
+      }
+    }
+  }
+};
+
+module.exports = {
+  CloseEvent,
+  ErrorEvent,
+  Event,
+  EventTarget,
+  MessageEvent
+};
+
+
+/***/ }),
+
+/***/ 720:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const { tokenChars } = __nccwpck_require__(9052);
+
+/**
+ * Adds an offer to the map of extension offers or a parameter to the map of
+ * parameters.
+ *
+ * @param {Object} dest The map of extension offers or parameters
+ * @param {String} name The extension or parameter name
+ * @param {(Object|Boolean|String)} elem The extension parameters or the
+ *     parameter value
+ * @private
+ */
+function push(dest, name, elem) {
+  if (dest[name] === undefined) dest[name] = [elem];
+  else dest[name].push(elem);
+}
+
+/**
+ * Parses the `Sec-WebSocket-Extensions` header into an object.
+ *
+ * @param {String} header The field value of the header
+ * @return {Object} The parsed object
+ * @public
+ */
+function parse(header) {
+  const offers = Object.create(null);
+  let params = Object.create(null);
+  let mustUnescape = false;
+  let isEscaping = false;
+  let inQuotes = false;
+  let extensionName;
+  let paramName;
+  let start = -1;
+  let code = -1;
+  let end = -1;
+  let i = 0;
+
+  for (; i < header.length; i++) {
+    code = header.charCodeAt(i);
+
+    if (extensionName === undefined) {
+      if (end === -1 && tokenChars[code] === 1) {
+        if (start === -1) start = i;
+      } else if (
+        i !== 0 &&
+        (code === 0x20 /* ' ' */ || code === 0x09) /* '\t' */
+      ) {
+        if (end === -1 && start !== -1) end = i;
+      } else if (code === 0x3b /* ';' */ || code === 0x2c /* ',' */) {
+        if (start === -1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+
+        if (end === -1) end = i;
+        const name = header.slice(start, end);
+        if (code === 0x2c) {
+          push(offers, name, params);
+          params = Object.create(null);
+        } else {
+          extensionName = name;
+        }
+
+        start = end = -1;
+      } else {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+    } else if (paramName === undefined) {
+      if (end === -1 && tokenChars[code] === 1) {
+        if (start === -1) start = i;
+      } else if (code === 0x20 || code === 0x09) {
+        if (end === -1 && start !== -1) end = i;
+      } else if (code === 0x3b || code === 0x2c) {
+        if (start === -1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+
+        if (end === -1) end = i;
+        push(params, header.slice(start, end), true);
+        if (code === 0x2c) {
+          push(offers, extensionName, params);
+          params = Object.create(null);
+          extensionName = undefined;
+        }
+
+        start = end = -1;
+      } else if (code === 0x3d /* '=' */ && start !== -1 && end === -1) {
+        paramName = header.slice(start, i);
+        start = end = -1;
+      } else {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+    } else {
+      //
+      // The value of a quoted-string after unescaping must conform to the
+      // token ABNF, so only token characters are valid.
+      // Ref: https://tools.ietf.org/html/rfc6455#section-9.1
+      //
+      if (isEscaping) {
+        if (tokenChars[code] !== 1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+        if (start === -1) start = i;
+        else if (!mustUnescape) mustUnescape = true;
+        isEscaping = false;
+      } else if (inQuotes) {
+        if (tokenChars[code] === 1) {
+          if (start === -1) start = i;
+        } else if (code === 0x22 /* '"' */ && start !== -1) {
+          inQuotes = false;
+          end = i;
+        } else if (code === 0x5c /* '\' */) {
+          isEscaping = true;
+        } else {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+      } else if (code === 0x22 && header.charCodeAt(i - 1) === 0x3d) {
+        inQuotes = true;
+      } else if (end === -1 && tokenChars[code] === 1) {
+        if (start === -1) start = i;
+      } else if (start !== -1 && (code === 0x20 || code === 0x09)) {
+        if (end === -1) end = i;
+      } else if (code === 0x3b || code === 0x2c) {
+        if (start === -1) {
+          throw new SyntaxError(`Unexpected character at index ${i}`);
+        }
+
+        if (end === -1) end = i;
+        let value = header.slice(start, end);
+        if (mustUnescape) {
+          value = value.replace(/\\/g, '');
+          mustUnescape = false;
+        }
+        push(params, paramName, value);
+        if (code === 0x2c) {
+          push(offers, extensionName, params);
+          params = Object.create(null);
+          extensionName = undefined;
+        }
+
+        paramName = undefined;
+        start = end = -1;
+      } else {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+    }
+  }
+
+  if (start === -1 || inQuotes || code === 0x20 || code === 0x09) {
+    throw new SyntaxError('Unexpected end of input');
+  }
+
+  if (end === -1) end = i;
+  const token = header.slice(start, end);
+  if (extensionName === undefined) {
+    push(offers, token, params);
+  } else {
+    if (paramName === undefined) {
+      push(params, token, true);
+    } else if (mustUnescape) {
+      push(params, paramName, token.replace(/\\/g, ''));
+    } else {
+      push(params, paramName, token);
+    }
+    push(offers, extensionName, params);
+  }
+
+  return offers;
+}
+
+/**
+ * Builds the `Sec-WebSocket-Extensions` header field value.
+ *
+ * @param {Object} extensions The map of extensions and parameters to format
+ * @return {String} A string representing the given object
+ * @public
+ */
+function format(extensions) {
+  return Object.keys(extensions)
+    .map((extension) => {
+      let configurations = extensions[extension];
+      if (!Array.isArray(configurations)) configurations = [configurations];
+      return configurations
+        .map((params) => {
+          return [extension]
+            .concat(
+              Object.keys(params).map((k) => {
+                let values = params[k];
+                if (!Array.isArray(values)) values = [values];
+                return values
+                  .map((v) => (v === true ? k : `${k}=${v}`))
+                  .join('; ');
+              })
+            )
+            .join('; ');
+        })
+        .join(', ');
+    })
+    .join(', ');
+}
+
+module.exports = { format, parse };
+
+
+/***/ }),
+
+/***/ 5145:
+/***/ ((module) => {
+
+"use strict";
+
+
+const kDone = Symbol('kDone');
+const kRun = Symbol('kRun');
+
+/**
+ * A very simple job queue with adjustable concurrency. Adapted from
+ * https://github.com/STRML/async-limiter
+ */
+class Limiter {
+  /**
+   * Creates a new `Limiter`.
+   *
+   * @param {Number} [concurrency=Infinity] The maximum number of jobs allowed
+   *     to run concurrently
+   */
+  constructor(concurrency) {
+    this[kDone] = () => {
+      this.pending--;
+      this[kRun]();
+    };
+    this.concurrency = concurrency || Infinity;
+    this.jobs = [];
+    this.pending = 0;
+  }
+
+  /**
+   * Adds a job to the queue.
+   *
+   * @param {Function} job The job to run
+   * @public
+   */
+  add(job) {
+    this.jobs.push(job);
+    this[kRun]();
+  }
+
+  /**
+   * Removes a job from the queue and runs it if possible.
+   *
+   * @private
+   */
+  [kRun]() {
+    if (this.pending === this.concurrency) return;
+
+    if (this.jobs.length) {
+      const job = this.jobs.shift();
+
+      this.pending++;
+      job(this[kDone]);
+    }
+  }
+}
+
+module.exports = Limiter;
+
+
+/***/ }),
+
+/***/ 2215:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const zlib = __nccwpck_require__(8761);
+
+const bufferUtil = __nccwpck_require__(2409);
+const Limiter = __nccwpck_require__(5145);
+const { kStatusCode } = __nccwpck_require__(2104);
+
+const TRAILER = Buffer.from([0x00, 0x00, 0xff, 0xff]);
+const kPerMessageDeflate = Symbol('permessage-deflate');
+const kTotalLength = Symbol('total-length');
+const kCallback = Symbol('callback');
+const kBuffers = Symbol('buffers');
+const kError = Symbol('error');
+
+//
+// We limit zlib concurrency, which prevents severe memory fragmentation
+// as documented in https://github.com/nodejs/node/issues/8871#issuecomment-250915913
+// and https://github.com/websockets/ws/issues/1202
+//
+// Intentionally global; it's the global thread pool that's an issue.
+//
+let zlibLimiter;
+
+/**
+ * permessage-deflate implementation.
+ */
+class PerMessageDeflate {
+  /**
+   * Creates a PerMessageDeflate instance.
+   *
+   * @param {Object} [options] Configuration options
+   * @param {(Boolean|Number)} [options.clientMaxWindowBits] Advertise support
+   *     for, or request, a custom client window size
+   * @param {Boolean} [options.clientNoContextTakeover=false] Advertise/
+   *     acknowledge disabling of client context takeover
+   * @param {Number} [options.concurrencyLimit=10] The number of concurrent
+   *     calls to zlib
+   * @param {(Boolean|Number)} [options.serverMaxWindowBits] Request/confirm the
+   *     use of a custom server window size
+   * @param {Boolean} [options.serverNoContextTakeover=false] Request/accept
+   *     disabling of server context takeover
+   * @param {Number} [options.threshold=1024] Size (in bytes) below which
+   *     messages should not be compressed if context takeover is disabled
+   * @param {Object} [options.zlibDeflateOptions] Options to pass to zlib on
+   *     deflate
+   * @param {Object} [options.zlibInflateOptions] Options to pass to zlib on
+   *     inflate
+   * @param {Boolean} [isServer=false] Create the instance in either server or
+   *     client mode
+   * @param {Number} [maxPayload=0] The maximum allowed message length
+   */
+  constructor(options, isServer, maxPayload) {
+    this._maxPayload = maxPayload | 0;
+    this._options = options || {};
+    this._threshold =
+      this._options.threshold !== undefined ? this._options.threshold : 1024;
+    this._isServer = !!isServer;
+    this._deflate = null;
+    this._inflate = null;
+
+    this.params = null;
+
+    if (!zlibLimiter) {
+      const concurrency =
+        this._options.concurrencyLimit !== undefined
+          ? this._options.concurrencyLimit
+          : 10;
+      zlibLimiter = new Limiter(concurrency);
+    }
+  }
+
+  /**
+   * @type {String}
+   */
+  static get extensionName() {
+    return 'permessage-deflate';
+  }
+
+  /**
+   * Create an extension negotiation offer.
+   *
+   * @return {Object} Extension parameters
+   * @public
+   */
+  offer() {
+    const params = {};
+
+    if (this._options.serverNoContextTakeover) {
+      params.server_no_context_takeover = true;
+    }
+    if (this._options.clientNoContextTakeover) {
+      params.client_no_context_takeover = true;
+    }
+    if (this._options.serverMaxWindowBits) {
+      params.server_max_window_bits = this._options.serverMaxWindowBits;
+    }
+    if (this._options.clientMaxWindowBits) {
+      params.client_max_window_bits = this._options.clientMaxWindowBits;
+    } else if (this._options.clientMaxWindowBits == null) {
+      params.client_max_window_bits = true;
+    }
+
+    return params;
+  }
+
+  /**
+   * Accept an extension negotiation offer/response.
+   *
+   * @param {Array} configurations The extension negotiation offers/reponse
+   * @return {Object} Accepted configuration
+   * @public
+   */
+  accept(configurations) {
+    configurations = this.normalizeParams(configurations);
+
+    this.params = this._isServer
+      ? this.acceptAsServer(configurations)
+      : this.acceptAsClient(configurations);
+
+    return this.params;
+  }
+
+  /**
+   * Releases all resources used by the extension.
+   *
+   * @public
+   */
+  cleanup() {
+    if (this._inflate) {
+      this._inflate.close();
+      this._inflate = null;
+    }
+
+    if (this._deflate) {
+      const callback = this._deflate[kCallback];
+
+      this._deflate.close();
+      this._deflate = null;
+
+      if (callback) {
+        callback(
+          new Error(
+            'The deflate stream was closed while data was being processed'
+          )
+        );
+      }
+    }
+  }
+
+  /**
+   *  Accept an extension negotiation offer.
+   *
+   * @param {Array} offers The extension negotiation offers
+   * @return {Object} Accepted configuration
+   * @private
+   */
+  acceptAsServer(offers) {
+    const opts = this._options;
+    const accepted = offers.find((params) => {
+      if (
+        (opts.serverNoContextTakeover === false &&
+          params.server_no_context_takeover) ||
+        (params.server_max_window_bits &&
+          (opts.serverMaxWindowBits === false ||
+            (typeof opts.serverMaxWindowBits === 'number' &&
+              opts.serverMaxWindowBits > params.server_max_window_bits))) ||
+        (typeof opts.clientMaxWindowBits === 'number' &&
+          !params.client_max_window_bits)
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+
+    if (!accepted) {
+      throw new Error('None of the extension offers can be accepted');
+    }
+
+    if (opts.serverNoContextTakeover) {
+      accepted.server_no_context_takeover = true;
+    }
+    if (opts.clientNoContextTakeover) {
+      accepted.client_no_context_takeover = true;
+    }
+    if (typeof opts.serverMaxWindowBits === 'number') {
+      accepted.server_max_window_bits = opts.serverMaxWindowBits;
+    }
+    if (typeof opts.clientMaxWindowBits === 'number') {
+      accepted.client_max_window_bits = opts.clientMaxWindowBits;
+    } else if (
+      accepted.client_max_window_bits === true ||
+      opts.clientMaxWindowBits === false
+    ) {
+      delete accepted.client_max_window_bits;
+    }
+
+    return accepted;
+  }
+
+  /**
+   * Accept the extension negotiation response.
+   *
+   * @param {Array} response The extension negotiation response
+   * @return {Object} Accepted configuration
+   * @private
+   */
+  acceptAsClient(response) {
+    const params = response[0];
+
+    if (
+      this._options.clientNoContextTakeover === false &&
+      params.client_no_context_takeover
+    ) {
+      throw new Error('Unexpected parameter "client_no_context_takeover"');
+    }
+
+    if (!params.client_max_window_bits) {
+      if (typeof this._options.clientMaxWindowBits === 'number') {
+        params.client_max_window_bits = this._options.clientMaxWindowBits;
+      }
+    } else if (
+      this._options.clientMaxWindowBits === false ||
+      (typeof this._options.clientMaxWindowBits === 'number' &&
+        params.client_max_window_bits > this._options.clientMaxWindowBits)
+    ) {
+      throw new Error(
+        'Unexpected or invalid parameter "client_max_window_bits"'
+      );
+    }
+
+    return params;
+  }
+
+  /**
+   * Normalize parameters.
+   *
+   * @param {Array} configurations The extension negotiation offers/reponse
+   * @return {Array} The offers/response with normalized parameters
+   * @private
+   */
+  normalizeParams(configurations) {
+    configurations.forEach((params) => {
+      Object.keys(params).forEach((key) => {
+        let value = params[key];
+
+        if (value.length > 1) {
+          throw new Error(`Parameter "${key}" must have only a single value`);
+        }
+
+        value = value[0];
+
+        if (key === 'client_max_window_bits') {
+          if (value !== true) {
+            const num = +value;
+            if (!Number.isInteger(num) || num < 8 || num > 15) {
+              throw new TypeError(
+                `Invalid value for parameter "${key}": ${value}`
+              );
+            }
+            value = num;
+          } else if (!this._isServer) {
+            throw new TypeError(
+              `Invalid value for parameter "${key}": ${value}`
+            );
+          }
+        } else if (key === 'server_max_window_bits') {
+          const num = +value;
+          if (!Number.isInteger(num) || num < 8 || num > 15) {
+            throw new TypeError(
+              `Invalid value for parameter "${key}": ${value}`
+            );
+          }
+          value = num;
+        } else if (
+          key === 'client_no_context_takeover' ||
+          key === 'server_no_context_takeover'
+        ) {
+          if (value !== true) {
+            throw new TypeError(
+              `Invalid value for parameter "${key}": ${value}`
+            );
+          }
+        } else {
+          throw new Error(`Unknown parameter "${key}"`);
+        }
+
+        params[key] = value;
+      });
+    });
+
+    return configurations;
+  }
+
+  /**
+   * Decompress data. Concurrency limited.
+   *
+   * @param {Buffer} data Compressed data
+   * @param {Boolean} fin Specifies whether or not this is the last fragment
+   * @param {Function} callback Callback
+   * @public
+   */
+  decompress(data, fin, callback) {
+    zlibLimiter.add((done) => {
+      this._decompress(data, fin, (err, result) => {
+        done();
+        callback(err, result);
+      });
+    });
+  }
+
+  /**
+   * Compress data. Concurrency limited.
+   *
+   * @param {(Buffer|String)} data Data to compress
+   * @param {Boolean} fin Specifies whether or not this is the last fragment
+   * @param {Function} callback Callback
+   * @public
+   */
+  compress(data, fin, callback) {
+    zlibLimiter.add((done) => {
+      this._compress(data, fin, (err, result) => {
+        done();
+        callback(err, result);
+      });
+    });
+  }
+
+  /**
+   * Decompress data.
+   *
+   * @param {Buffer} data Compressed data
+   * @param {Boolean} fin Specifies whether or not this is the last fragment
+   * @param {Function} callback Callback
+   * @private
+   */
+  _decompress(data, fin, callback) {
+    const endpoint = this._isServer ? 'client' : 'server';
+
+    if (!this._inflate) {
+      const key = `${endpoint}_max_window_bits`;
+      const windowBits =
+        typeof this.params[key] !== 'number'
+          ? zlib.Z_DEFAULT_WINDOWBITS
+          : this.params[key];
+
+      this._inflate = zlib.createInflateRaw({
+        ...this._options.zlibInflateOptions,
+        windowBits
+      });
+      this._inflate[kPerMessageDeflate] = this;
+      this._inflate[kTotalLength] = 0;
+      this._inflate[kBuffers] = [];
+      this._inflate.on('error', inflateOnError);
+      this._inflate.on('data', inflateOnData);
+    }
+
+    this._inflate[kCallback] = callback;
+
+    this._inflate.write(data);
+    if (fin) this._inflate.write(TRAILER);
+
+    this._inflate.flush(() => {
+      const err = this._inflate[kError];
+
+      if (err) {
+        this._inflate.close();
+        this._inflate = null;
+        callback(err);
+        return;
+      }
+
+      const data = bufferUtil.concat(
+        this._inflate[kBuffers],
+        this._inflate[kTotalLength]
+      );
+
+      if (this._inflate._readableState.endEmitted) {
+        this._inflate.close();
+        this._inflate = null;
+      } else {
+        this._inflate[kTotalLength] = 0;
+        this._inflate[kBuffers] = [];
+
+        if (fin && this.params[`${endpoint}_no_context_takeover`]) {
+          this._inflate.reset();
+        }
+      }
+
+      callback(null, data);
+    });
+  }
+
+  /**
+   * Compress data.
+   *
+   * @param {(Buffer|String)} data Data to compress
+   * @param {Boolean} fin Specifies whether or not this is the last fragment
+   * @param {Function} callback Callback
+   * @private
+   */
+  _compress(data, fin, callback) {
+    const endpoint = this._isServer ? 'server' : 'client';
+
+    if (!this._deflate) {
+      const key = `${endpoint}_max_window_bits`;
+      const windowBits =
+        typeof this.params[key] !== 'number'
+          ? zlib.Z_DEFAULT_WINDOWBITS
+          : this.params[key];
+
+      this._deflate = zlib.createDeflateRaw({
+        ...this._options.zlibDeflateOptions,
+        windowBits
+      });
+
+      this._deflate[kTotalLength] = 0;
+      this._deflate[kBuffers] = [];
+
+      this._deflate.on('data', deflateOnData);
+    }
+
+    this._deflate[kCallback] = callback;
+
+    this._deflate.write(data);
+    this._deflate.flush(zlib.Z_SYNC_FLUSH, () => {
+      if (!this._deflate) {
+        //
+        // The deflate stream was closed while data was being processed.
+        //
+        return;
+      }
+
+      let data = bufferUtil.concat(
+        this._deflate[kBuffers],
+        this._deflate[kTotalLength]
+      );
+
+      if (fin) data = data.slice(0, data.length - 4);
+
+      //
+      // Ensure that the callback will not be called again in
+      // `PerMessageDeflate#cleanup()`.
+      //
+      this._deflate[kCallback] = null;
+
+      this._deflate[kTotalLength] = 0;
+      this._deflate[kBuffers] = [];
+
+      if (fin && this.params[`${endpoint}_no_context_takeover`]) {
+        this._deflate.reset();
+      }
+
+      callback(null, data);
+    });
+  }
+}
+
+module.exports = PerMessageDeflate;
+
+/**
+ * The listener of the `zlib.DeflateRaw` stream `'data'` event.
+ *
+ * @param {Buffer} chunk A chunk of data
+ * @private
+ */
+function deflateOnData(chunk) {
+  this[kBuffers].push(chunk);
+  this[kTotalLength] += chunk.length;
+}
+
+/**
+ * The listener of the `zlib.InflateRaw` stream `'data'` event.
+ *
+ * @param {Buffer} chunk A chunk of data
+ * @private
+ */
+function inflateOnData(chunk) {
+  this[kTotalLength] += chunk.length;
+
+  if (
+    this[kPerMessageDeflate]._maxPayload < 1 ||
+    this[kTotalLength] <= this[kPerMessageDeflate]._maxPayload
+  ) {
+    this[kBuffers].push(chunk);
+    return;
+  }
+
+  this[kError] = new RangeError('Max payload size exceeded');
+  this[kError].code = 'WS_ERR_UNSUPPORTED_MESSAGE_LENGTH';
+  this[kError][kStatusCode] = 1009;
+  this.removeListener('data', inflateOnData);
+  this.reset();
+}
+
+/**
+ * The listener of the `zlib.InflateRaw` stream `'error'` event.
+ *
+ * @param {Error} err The emitted error
+ * @private
+ */
+function inflateOnError(err) {
+  //
+  // There is no need to call `Zlib#close()` as the handle is automatically
+  // closed when an error is emitted.
+  //
+  this[kPerMessageDeflate]._inflate = null;
+  err[kStatusCode] = 1007;
+  this[kCallback](err);
+}
+
+
+/***/ }),
+
+/***/ 515:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const { Writable } = __nccwpck_require__(2413);
+
+const PerMessageDeflate = __nccwpck_require__(2215);
+const {
+  BINARY_TYPES,
+  EMPTY_BUFFER,
+  kStatusCode,
+  kWebSocket
+} = __nccwpck_require__(2104);
+const { concat, toArrayBuffer, unmask } = __nccwpck_require__(2409);
+const { isValidStatusCode, isValidUTF8 } = __nccwpck_require__(9052);
+
+const GET_INFO = 0;
+const GET_PAYLOAD_LENGTH_16 = 1;
+const GET_PAYLOAD_LENGTH_64 = 2;
+const GET_MASK = 3;
+const GET_DATA = 4;
+const INFLATING = 5;
+
+/**
+ * HyBi Receiver implementation.
+ *
+ * @extends Writable
+ */
+class Receiver extends Writable {
+  /**
+   * Creates a Receiver instance.
+   *
+   * @param {Object} [options] Options object
+   * @param {String} [options.binaryType=nodebuffer] The type for binary data
+   * @param {Object} [options.extensions] An object containing the negotiated
+   *     extensions
+   * @param {Boolean} [options.isServer=false] Specifies whether to operate in
+   *     client or server mode
+   * @param {Number} [options.maxPayload=0] The maximum allowed message length
+   * @param {Boolean} [options.skipUTF8Validation=false] Specifies whether or
+   *     not to skip UTF-8 validation for text and close messages
+   */
+  constructor(options = {}) {
+    super();
+
+    this._binaryType = options.binaryType || BINARY_TYPES[0];
+    this._extensions = options.extensions || {};
+    this._isServer = !!options.isServer;
+    this._maxPayload = options.maxPayload | 0;
+    this._skipUTF8Validation = !!options.skipUTF8Validation;
+    this[kWebSocket] = undefined;
+
+    this._bufferedBytes = 0;
+    this._buffers = [];
+
+    this._compressed = false;
+    this._payloadLength = 0;
+    this._mask = undefined;
+    this._fragmented = 0;
+    this._masked = false;
+    this._fin = false;
+    this._opcode = 0;
+
+    this._totalPayloadLength = 0;
+    this._messageLength = 0;
+    this._fragments = [];
+
+    this._state = GET_INFO;
+    this._loop = false;
+  }
+
+  /**
+   * Implements `Writable.prototype._write()`.
+   *
+   * @param {Buffer} chunk The chunk of data to write
+   * @param {String} encoding The character encoding of `chunk`
+   * @param {Function} cb Callback
+   * @private
+   */
+  _write(chunk, encoding, cb) {
+    if (this._opcode === 0x08 && this._state == GET_INFO) return cb();
+
+    this._bufferedBytes += chunk.length;
+    this._buffers.push(chunk);
+    this.startLoop(cb);
+  }
+
+  /**
+   * Consumes `n` bytes from the buffered data.
+   *
+   * @param {Number} n The number of bytes to consume
+   * @return {Buffer} The consumed bytes
+   * @private
+   */
+  consume(n) {
+    this._bufferedBytes -= n;
+
+    if (n === this._buffers[0].length) return this._buffers.shift();
+
+    if (n < this._buffers[0].length) {
+      const buf = this._buffers[0];
+      this._buffers[0] = buf.slice(n);
+      return buf.slice(0, n);
+    }
+
+    const dst = Buffer.allocUnsafe(n);
+
+    do {
+      const buf = this._buffers[0];
+      const offset = dst.length - n;
+
+      if (n >= buf.length) {
+        dst.set(this._buffers.shift(), offset);
+      } else {
+        dst.set(new Uint8Array(buf.buffer, buf.byteOffset, n), offset);
+        this._buffers[0] = buf.slice(n);
+      }
+
+      n -= buf.length;
+    } while (n > 0);
+
+    return dst;
+  }
+
+  /**
+   * Starts the parsing loop.
+   *
+   * @param {Function} cb Callback
+   * @private
+   */
+  startLoop(cb) {
+    let err;
+    this._loop = true;
+
+    do {
+      switch (this._state) {
+        case GET_INFO:
+          err = this.getInfo();
+          break;
+        case GET_PAYLOAD_LENGTH_16:
+          err = this.getPayloadLength16();
+          break;
+        case GET_PAYLOAD_LENGTH_64:
+          err = this.getPayloadLength64();
+          break;
+        case GET_MASK:
+          this.getMask();
+          break;
+        case GET_DATA:
+          err = this.getData(cb);
+          break;
+        default:
+          // `INFLATING`
+          this._loop = false;
+          return;
+      }
+    } while (this._loop);
+
+    cb(err);
+  }
+
+  /**
+   * Reads the first two bytes of a frame.
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  getInfo() {
+    if (this._bufferedBytes < 2) {
+      this._loop = false;
+      return;
+    }
+
+    const buf = this.consume(2);
+
+    if ((buf[0] & 0x30) !== 0x00) {
+      this._loop = false;
+      return error(
+        RangeError,
+        'RSV2 and RSV3 must be clear',
+        true,
+        1002,
+        'WS_ERR_UNEXPECTED_RSV_2_3'
+      );
+    }
+
+    const compressed = (buf[0] & 0x40) === 0x40;
+
+    if (compressed && !this._extensions[PerMessageDeflate.extensionName]) {
+      this._loop = false;
+      return error(
+        RangeError,
+        'RSV1 must be clear',
+        true,
+        1002,
+        'WS_ERR_UNEXPECTED_RSV_1'
+      );
+    }
+
+    this._fin = (buf[0] & 0x80) === 0x80;
+    this._opcode = buf[0] & 0x0f;
+    this._payloadLength = buf[1] & 0x7f;
+
+    if (this._opcode === 0x00) {
+      if (compressed) {
+        this._loop = false;
+        return error(
+          RangeError,
+          'RSV1 must be clear',
+          true,
+          1002,
+          'WS_ERR_UNEXPECTED_RSV_1'
+        );
+      }
+
+      if (!this._fragmented) {
+        this._loop = false;
+        return error(
+          RangeError,
+          'invalid opcode 0',
+          true,
+          1002,
+          'WS_ERR_INVALID_OPCODE'
+        );
+      }
+
+      this._opcode = this._fragmented;
+    } else if (this._opcode === 0x01 || this._opcode === 0x02) {
+      if (this._fragmented) {
+        this._loop = false;
+        return error(
+          RangeError,
+          `invalid opcode ${this._opcode}`,
+          true,
+          1002,
+          'WS_ERR_INVALID_OPCODE'
+        );
+      }
+
+      this._compressed = compressed;
+    } else if (this._opcode > 0x07 && this._opcode < 0x0b) {
+      if (!this._fin) {
+        this._loop = false;
+        return error(
+          RangeError,
+          'FIN must be set',
+          true,
+          1002,
+          'WS_ERR_EXPECTED_FIN'
+        );
+      }
+
+      if (compressed) {
+        this._loop = false;
+        return error(
+          RangeError,
+          'RSV1 must be clear',
+          true,
+          1002,
+          'WS_ERR_UNEXPECTED_RSV_1'
+        );
+      }
+
+      if (this._payloadLength > 0x7d) {
+        this._loop = false;
+        return error(
+          RangeError,
+          `invalid payload length ${this._payloadLength}`,
+          true,
+          1002,
+          'WS_ERR_INVALID_CONTROL_PAYLOAD_LENGTH'
+        );
+      }
+    } else {
+      this._loop = false;
+      return error(
+        RangeError,
+        `invalid opcode ${this._opcode}`,
+        true,
+        1002,
+        'WS_ERR_INVALID_OPCODE'
+      );
+    }
+
+    if (!this._fin && !this._fragmented) this._fragmented = this._opcode;
+    this._masked = (buf[1] & 0x80) === 0x80;
+
+    if (this._isServer) {
+      if (!this._masked) {
+        this._loop = false;
+        return error(
+          RangeError,
+          'MASK must be set',
+          true,
+          1002,
+          'WS_ERR_EXPECTED_MASK'
+        );
+      }
+    } else if (this._masked) {
+      this._loop = false;
+      return error(
+        RangeError,
+        'MASK must be clear',
+        true,
+        1002,
+        'WS_ERR_UNEXPECTED_MASK'
+      );
+    }
+
+    if (this._payloadLength === 126) this._state = GET_PAYLOAD_LENGTH_16;
+    else if (this._payloadLength === 127) this._state = GET_PAYLOAD_LENGTH_64;
+    else return this.haveLength();
+  }
+
+  /**
+   * Gets extended payload length (7+16).
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  getPayloadLength16() {
+    if (this._bufferedBytes < 2) {
+      this._loop = false;
+      return;
+    }
+
+    this._payloadLength = this.consume(2).readUInt16BE(0);
+    return this.haveLength();
+  }
+
+  /**
+   * Gets extended payload length (7+64).
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  getPayloadLength64() {
+    if (this._bufferedBytes < 8) {
+      this._loop = false;
+      return;
+    }
+
+    const buf = this.consume(8);
+    const num = buf.readUInt32BE(0);
+
+    //
+    // The maximum safe integer in JavaScript is 2^53 - 1. An error is returned
+    // if payload length is greater than this number.
+    //
+    if (num > Math.pow(2, 53 - 32) - 1) {
+      this._loop = false;
+      return error(
+        RangeError,
+        'Unsupported WebSocket frame: payload length > 2^53 - 1',
+        false,
+        1009,
+        'WS_ERR_UNSUPPORTED_DATA_PAYLOAD_LENGTH'
+      );
+    }
+
+    this._payloadLength = num * Math.pow(2, 32) + buf.readUInt32BE(4);
+    return this.haveLength();
+  }
+
+  /**
+   * Payload length has been read.
+   *
+   * @return {(RangeError|undefined)} A possible error
+   * @private
+   */
+  haveLength() {
+    if (this._payloadLength && this._opcode < 0x08) {
+      this._totalPayloadLength += this._payloadLength;
+      if (this._totalPayloadLength > this._maxPayload && this._maxPayload > 0) {
+        this._loop = false;
+        return error(
+          RangeError,
+          'Max payload size exceeded',
+          false,
+          1009,
+          'WS_ERR_UNSUPPORTED_MESSAGE_LENGTH'
+        );
+      }
+    }
+
+    if (this._masked) this._state = GET_MASK;
+    else this._state = GET_DATA;
+  }
+
+  /**
+   * Reads mask bytes.
+   *
+   * @private
+   */
+  getMask() {
+    if (this._bufferedBytes < 4) {
+      this._loop = false;
+      return;
+    }
+
+    this._mask = this.consume(4);
+    this._state = GET_DATA;
+  }
+
+  /**
+   * Reads data bytes.
+   *
+   * @param {Function} cb Callback
+   * @return {(Error|RangeError|undefined)} A possible error
+   * @private
+   */
+  getData(cb) {
+    let data = EMPTY_BUFFER;
+
+    if (this._payloadLength) {
+      if (this._bufferedBytes < this._payloadLength) {
+        this._loop = false;
+        return;
+      }
+
+      data = this.consume(this._payloadLength);
+
+      if (
+        this._masked &&
+        (this._mask[0] | this._mask[1] | this._mask[2] | this._mask[3]) !== 0
+      ) {
+        unmask(data, this._mask);
+      }
+    }
+
+    if (this._opcode > 0x07) return this.controlMessage(data);
+
+    if (this._compressed) {
+      this._state = INFLATING;
+      this.decompress(data, cb);
+      return;
+    }
+
+    if (data.length) {
+      //
+      // This message is not compressed so its length is the sum of the payload
+      // length of all fragments.
+      //
+      this._messageLength = this._totalPayloadLength;
+      this._fragments.push(data);
+    }
+
+    return this.dataMessage();
+  }
+
+  /**
+   * Decompresses data.
+   *
+   * @param {Buffer} data Compressed data
+   * @param {Function} cb Callback
+   * @private
+   */
+  decompress(data, cb) {
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];
+
+    perMessageDeflate.decompress(data, this._fin, (err, buf) => {
+      if (err) return cb(err);
+
+      if (buf.length) {
+        this._messageLength += buf.length;
+        if (this._messageLength > this._maxPayload && this._maxPayload > 0) {
+          return cb(
+            error(
+              RangeError,
+              'Max payload size exceeded',
+              false,
+              1009,
+              'WS_ERR_UNSUPPORTED_MESSAGE_LENGTH'
+            )
+          );
+        }
+
+        this._fragments.push(buf);
+      }
+
+      const er = this.dataMessage();
+      if (er) return cb(er);
+
+      this.startLoop(cb);
+    });
+  }
+
+  /**
+   * Handles a data message.
+   *
+   * @return {(Error|undefined)} A possible error
+   * @private
+   */
+  dataMessage() {
+    if (this._fin) {
+      const messageLength = this._messageLength;
+      const fragments = this._fragments;
+
+      this._totalPayloadLength = 0;
+      this._messageLength = 0;
+      this._fragmented = 0;
+      this._fragments = [];
+
+      if (this._opcode === 2) {
+        let data;
+
+        if (this._binaryType === 'nodebuffer') {
+          data = concat(fragments, messageLength);
+        } else if (this._binaryType === 'arraybuffer') {
+          data = toArrayBuffer(concat(fragments, messageLength));
+        } else {
+          data = fragments;
+        }
+
+        this.emit('message', data, true);
+      } else {
+        const buf = concat(fragments, messageLength);
+
+        if (!this._skipUTF8Validation && !isValidUTF8(buf)) {
+          this._loop = false;
+          return error(
+            Error,
+            'invalid UTF-8 sequence',
+            true,
+            1007,
+            'WS_ERR_INVALID_UTF8'
+          );
+        }
+
+        this.emit('message', buf, false);
+      }
+    }
+
+    this._state = GET_INFO;
+  }
+
+  /**
+   * Handles a control message.
+   *
+   * @param {Buffer} data Data to handle
+   * @return {(Error|RangeError|undefined)} A possible error
+   * @private
+   */
+  controlMessage(data) {
+    if (this._opcode === 0x08) {
+      this._loop = false;
+
+      if (data.length === 0) {
+        this.emit('conclude', 1005, EMPTY_BUFFER);
+        this.end();
+      } else if (data.length === 1) {
+        return error(
+          RangeError,
+          'invalid payload length 1',
+          true,
+          1002,
+          'WS_ERR_INVALID_CONTROL_PAYLOAD_LENGTH'
+        );
+      } else {
+        const code = data.readUInt16BE(0);
+
+        if (!isValidStatusCode(code)) {
+          return error(
+            RangeError,
+            `invalid status code ${code}`,
+            true,
+            1002,
+            'WS_ERR_INVALID_CLOSE_CODE'
+          );
+        }
+
+        const buf = data.slice(2);
+
+        if (!this._skipUTF8Validation && !isValidUTF8(buf)) {
+          return error(
+            Error,
+            'invalid UTF-8 sequence',
+            true,
+            1007,
+            'WS_ERR_INVALID_UTF8'
+          );
+        }
+
+        this.emit('conclude', code, buf);
+        this.end();
+      }
+    } else if (this._opcode === 0x09) {
+      this.emit('ping', data);
+    } else {
+      this.emit('pong', data);
+    }
+
+    this._state = GET_INFO;
+  }
+}
+
+module.exports = Receiver;
+
+/**
+ * Builds an error object.
+ *
+ * @param {function(new:Error|RangeError)} ErrorCtor The error constructor
+ * @param {String} message The error message
+ * @param {Boolean} prefix Specifies whether or not to add a default prefix to
+ *     `message`
+ * @param {Number} statusCode The status code
+ * @param {String} errorCode The exposed error code
+ * @return {(Error|RangeError)} The error
+ * @private
+ */
+function error(ErrorCtor, message, prefix, statusCode, errorCode) {
+  const err = new ErrorCtor(
+    prefix ? `Invalid WebSocket frame: ${message}` : message
+  );
+
+  Error.captureStackTrace(err, error);
+  err.code = errorCode;
+  err[kStatusCode] = statusCode;
+  return err;
+}
+
+
+/***/ }),
+
+/***/ 4563:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^net|tls$" }] */
+
+
+
+const net = __nccwpck_require__(1631);
+const tls = __nccwpck_require__(4016);
+const { randomFillSync } = __nccwpck_require__(6417);
+
+const PerMessageDeflate = __nccwpck_require__(2215);
+const { EMPTY_BUFFER } = __nccwpck_require__(2104);
+const { isValidStatusCode } = __nccwpck_require__(9052);
+const { mask: applyMask, toBuffer } = __nccwpck_require__(2409);
+
+const kByteLength = Symbol('kByteLength');
+const maskBuffer = Buffer.alloc(4);
+
+/**
+ * HyBi Sender implementation.
+ */
+class Sender {
+  /**
+   * Creates a Sender instance.
+   *
+   * @param {(net.Socket|tls.Socket)} socket The connection socket
+   * @param {Object} [extensions] An object containing the negotiated extensions
+   * @param {Function} [generateMask] The function used to generate the masking
+   *     key
+   */
+  constructor(socket, extensions, generateMask) {
+    this._extensions = extensions || {};
+
+    if (generateMask) {
+      this._generateMask = generateMask;
+      this._maskBuffer = Buffer.alloc(4);
+    }
+
+    this._socket = socket;
+
+    this._firstFragment = true;
+    this._compress = false;
+
+    this._bufferedBytes = 0;
+    this._deflating = false;
+    this._queue = [];
+  }
+
+  /**
+   * Frames a piece of data according to the HyBi WebSocket protocol.
+   *
+   * @param {(Buffer|String)} data The data to frame
+   * @param {Object} options Options object
+   * @param {Boolean} [options.fin=false] Specifies whether or not to set the
+   *     FIN bit
+   * @param {Function} [options.generateMask] The function used to generate the
+   *     masking key
+   * @param {Boolean} [options.mask=false] Specifies whether or not to mask
+   *     `data`
+   * @param {Buffer} [options.maskBuffer] The buffer used to store the masking
+   *     key
+   * @param {Number} options.opcode The opcode
+   * @param {Boolean} [options.readOnly=false] Specifies whether `data` can be
+   *     modified
+   * @param {Boolean} [options.rsv1=false] Specifies whether or not to set the
+   *     RSV1 bit
+   * @return {(Buffer|String)[]} The framed data
+   * @public
+   */
+  static frame(data, options) {
+    let mask;
+    let merge = false;
+    let offset = 2;
+    let skipMasking = false;
+
+    if (options.mask) {
+      mask = options.maskBuffer || maskBuffer;
+
+      if (options.generateMask) {
+        options.generateMask(mask);
+      } else {
+        randomFillSync(mask, 0, 4);
+      }
+
+      skipMasking = (mask[0] | mask[1] | mask[2] | mask[3]) === 0;
+      offset = 6;
+    }
+
+    let dataLength;
+
+    if (typeof data === 'string') {
+      if (
+        (!options.mask || skipMasking) &&
+        options[kByteLength] !== undefined
+      ) {
+        dataLength = options[kByteLength];
+      } else {
+        data = Buffer.from(data);
+        dataLength = data.length;
+      }
+    } else {
+      dataLength = data.length;
+      merge = options.mask && options.readOnly && !skipMasking;
+    }
+
+    let payloadLength = dataLength;
+
+    if (dataLength >= 65536) {
+      offset += 8;
+      payloadLength = 127;
+    } else if (dataLength > 125) {
+      offset += 2;
+      payloadLength = 126;
+    }
+
+    const target = Buffer.allocUnsafe(merge ? dataLength + offset : offset);
+
+    target[0] = options.fin ? options.opcode | 0x80 : options.opcode;
+    if (options.rsv1) target[0] |= 0x40;
+
+    target[1] = payloadLength;
+
+    if (payloadLength === 126) {
+      target.writeUInt16BE(dataLength, 2);
+    } else if (payloadLength === 127) {
+      target[2] = target[3] = 0;
+      target.writeUIntBE(dataLength, 4, 6);
+    }
+
+    if (!options.mask) return [target, data];
+
+    target[1] |= 0x80;
+    target[offset - 4] = mask[0];
+    target[offset - 3] = mask[1];
+    target[offset - 2] = mask[2];
+    target[offset - 1] = mask[3];
+
+    if (skipMasking) return [target, data];
+
+    if (merge) {
+      applyMask(data, mask, target, offset, dataLength);
+      return [target];
+    }
+
+    applyMask(data, mask, data, 0, dataLength);
+    return [target, data];
+  }
+
+  /**
+   * Sends a close message to the other peer.
+   *
+   * @param {Number} [code] The status code component of the body
+   * @param {(String|Buffer)} [data] The message component of the body
+   * @param {Boolean} [mask=false] Specifies whether or not to mask the message
+   * @param {Function} [cb] Callback
+   * @public
+   */
+  close(code, data, mask, cb) {
+    let buf;
+
+    if (code === undefined) {
+      buf = EMPTY_BUFFER;
+    } else if (typeof code !== 'number' || !isValidStatusCode(code)) {
+      throw new TypeError('First argument must be a valid error code number');
+    } else if (data === undefined || !data.length) {
+      buf = Buffer.allocUnsafe(2);
+      buf.writeUInt16BE(code, 0);
+    } else {
+      const length = Buffer.byteLength(data);
+
+      if (length > 123) {
+        throw new RangeError('The message must not be greater than 123 bytes');
+      }
+
+      buf = Buffer.allocUnsafe(2 + length);
+      buf.writeUInt16BE(code, 0);
+
+      if (typeof data === 'string') {
+        buf.write(data, 2);
+      } else {
+        buf.set(data, 2);
+      }
+    }
+
+    const options = {
+      [kByteLength]: buf.length,
+      fin: true,
+      generateMask: this._generateMask,
+      mask,
+      maskBuffer: this._maskBuffer,
+      opcode: 0x08,
+      readOnly: false,
+      rsv1: false
+    };
+
+    if (this._deflating) {
+      this.enqueue([this.dispatch, buf, false, options, cb]);
+    } else {
+      this.sendFrame(Sender.frame(buf, options), cb);
+    }
+  }
+
+  /**
+   * Sends a ping message to the other peer.
+   *
+   * @param {*} data The message to send
+   * @param {Boolean} [mask=false] Specifies whether or not to mask `data`
+   * @param {Function} [cb] Callback
+   * @public
+   */
+  ping(data, mask, cb) {
+    let byteLength;
+    let readOnly;
+
+    if (typeof data === 'string') {
+      byteLength = Buffer.byteLength(data);
+      readOnly = false;
+    } else {
+      data = toBuffer(data);
+      byteLength = data.length;
+      readOnly = toBuffer.readOnly;
+    }
+
+    if (byteLength > 125) {
+      throw new RangeError('The data size must not be greater than 125 bytes');
+    }
+
+    const options = {
+      [kByteLength]: byteLength,
+      fin: true,
+      generateMask: this._generateMask,
+      mask,
+      maskBuffer: this._maskBuffer,
+      opcode: 0x09,
+      readOnly,
+      rsv1: false
+    };
+
+    if (this._deflating) {
+      this.enqueue([this.dispatch, data, false, options, cb]);
+    } else {
+      this.sendFrame(Sender.frame(data, options), cb);
+    }
+  }
+
+  /**
+   * Sends a pong message to the other peer.
+   *
+   * @param {*} data The message to send
+   * @param {Boolean} [mask=false] Specifies whether or not to mask `data`
+   * @param {Function} [cb] Callback
+   * @public
+   */
+  pong(data, mask, cb) {
+    let byteLength;
+    let readOnly;
+
+    if (typeof data === 'string') {
+      byteLength = Buffer.byteLength(data);
+      readOnly = false;
+    } else {
+      data = toBuffer(data);
+      byteLength = data.length;
+      readOnly = toBuffer.readOnly;
+    }
+
+    if (byteLength > 125) {
+      throw new RangeError('The data size must not be greater than 125 bytes');
+    }
+
+    const options = {
+      [kByteLength]: byteLength,
+      fin: true,
+      generateMask: this._generateMask,
+      mask,
+      maskBuffer: this._maskBuffer,
+      opcode: 0x0a,
+      readOnly,
+      rsv1: false
+    };
+
+    if (this._deflating) {
+      this.enqueue([this.dispatch, data, false, options, cb]);
+    } else {
+      this.sendFrame(Sender.frame(data, options), cb);
+    }
+  }
+
+  /**
+   * Sends a data message to the other peer.
+   *
+   * @param {*} data The message to send
+   * @param {Object} options Options object
+   * @param {Boolean} [options.binary=false] Specifies whether `data` is binary
+   *     or text
+   * @param {Boolean} [options.compress=false] Specifies whether or not to
+   *     compress `data`
+   * @param {Boolean} [options.fin=false] Specifies whether the fragment is the
+   *     last one
+   * @param {Boolean} [options.mask=false] Specifies whether or not to mask
+   *     `data`
+   * @param {Function} [cb] Callback
+   * @public
+   */
+  send(data, options, cb) {
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];
+    let opcode = options.binary ? 2 : 1;
+    let rsv1 = options.compress;
+
+    let byteLength;
+    let readOnly;
+
+    if (typeof data === 'string') {
+      byteLength = Buffer.byteLength(data);
+      readOnly = false;
+    } else {
+      data = toBuffer(data);
+      byteLength = data.length;
+      readOnly = toBuffer.readOnly;
+    }
+
+    if (this._firstFragment) {
+      this._firstFragment = false;
+      if (
+        rsv1 &&
+        perMessageDeflate &&
+        perMessageDeflate.params[
+          perMessageDeflate._isServer
+            ? 'server_no_context_takeover'
+            : 'client_no_context_takeover'
+        ]
+      ) {
+        rsv1 = byteLength >= perMessageDeflate._threshold;
+      }
+      this._compress = rsv1;
+    } else {
+      rsv1 = false;
+      opcode = 0;
+    }
+
+    if (options.fin) this._firstFragment = true;
+
+    if (perMessageDeflate) {
+      const opts = {
+        [kByteLength]: byteLength,
+        fin: options.fin,
+        generateMask: this._generateMask,
+        mask: options.mask,
+        maskBuffer: this._maskBuffer,
+        opcode,
+        readOnly,
+        rsv1
+      };
+
+      if (this._deflating) {
+        this.enqueue([this.dispatch, data, this._compress, opts, cb]);
+      } else {
+        this.dispatch(data, this._compress, opts, cb);
+      }
+    } else {
+      this.sendFrame(
+        Sender.frame(data, {
+          [kByteLength]: byteLength,
+          fin: options.fin,
+          generateMask: this._generateMask,
+          mask: options.mask,
+          maskBuffer: this._maskBuffer,
+          opcode,
+          readOnly,
+          rsv1: false
+        }),
+        cb
+      );
+    }
+  }
+
+  /**
+   * Dispatches a message.
+   *
+   * @param {(Buffer|String)} data The message to send
+   * @param {Boolean} [compress=false] Specifies whether or not to compress
+   *     `data`
+   * @param {Object} options Options object
+   * @param {Boolean} [options.fin=false] Specifies whether or not to set the
+   *     FIN bit
+   * @param {Function} [options.generateMask] The function used to generate the
+   *     masking key
+   * @param {Boolean} [options.mask=false] Specifies whether or not to mask
+   *     `data`
+   * @param {Buffer} [options.maskBuffer] The buffer used to store the masking
+   *     key
+   * @param {Number} options.opcode The opcode
+   * @param {Boolean} [options.readOnly=false] Specifies whether `data` can be
+   *     modified
+   * @param {Boolean} [options.rsv1=false] Specifies whether or not to set the
+   *     RSV1 bit
+   * @param {Function} [cb] Callback
+   * @private
+   */
+  dispatch(data, compress, options, cb) {
+    if (!compress) {
+      this.sendFrame(Sender.frame(data, options), cb);
+      return;
+    }
+
+    const perMessageDeflate = this._extensions[PerMessageDeflate.extensionName];
+
+    this._bufferedBytes += options[kByteLength];
+    this._deflating = true;
+    perMessageDeflate.compress(data, options.fin, (_, buf) => {
+      if (this._socket.destroyed) {
+        const err = new Error(
+          'The socket was closed while data was being compressed'
+        );
+
+        if (typeof cb === 'function') cb(err);
+
+        for (let i = 0; i < this._queue.length; i++) {
+          const params = this._queue[i];
+          const callback = params[params.length - 1];
+
+          if (typeof callback === 'function') callback(err);
+        }
+
+        return;
+      }
+
+      this._bufferedBytes -= options[kByteLength];
+      this._deflating = false;
+      options.readOnly = false;
+      this.sendFrame(Sender.frame(buf, options), cb);
+      this.dequeue();
+    });
+  }
+
+  /**
+   * Executes queued send operations.
+   *
+   * @private
+   */
+  dequeue() {
+    while (!this._deflating && this._queue.length) {
+      const params = this._queue.shift();
+
+      this._bufferedBytes -= params[3][kByteLength];
+      Reflect.apply(params[0], this, params.slice(1));
+    }
+  }
+
+  /**
+   * Enqueues a send operation.
+   *
+   * @param {Array} params Send operation parameters.
+   * @private
+   */
+  enqueue(params) {
+    this._bufferedBytes += params[3][kByteLength];
+    this._queue.push(params);
+  }
+
+  /**
+   * Sends a frame.
+   *
+   * @param {Buffer[]} list The frame to send
+   * @param {Function} [cb] Callback
+   * @private
+   */
+  sendFrame(list, cb) {
+    if (list.length === 2) {
+      this._socket.cork();
+      this._socket.write(list[0]);
+      this._socket.write(list[1], cb);
+      this._socket.uncork();
+    } else {
+      this._socket.write(list[0], cb);
+    }
+  }
+}
+
+module.exports = Sender;
+
+
+/***/ }),
+
+/***/ 3442:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const { Duplex } = __nccwpck_require__(2413);
+
+/**
+ * Emits the `'close'` event on a stream.
+ *
+ * @param {Duplex} stream The stream.
+ * @private
+ */
+function emitClose(stream) {
+  stream.emit('close');
+}
+
+/**
+ * The listener of the `'end'` event.
+ *
+ * @private
+ */
+function duplexOnEnd() {
+  if (!this.destroyed && this._writableState.finished) {
+    this.destroy();
+  }
+}
+
+/**
+ * The listener of the `'error'` event.
+ *
+ * @param {Error} err The error
+ * @private
+ */
+function duplexOnError(err) {
+  this.removeListener('error', duplexOnError);
+  this.destroy();
+  if (this.listenerCount('error') === 0) {
+    // Do not suppress the throwing behavior.
+    this.emit('error', err);
+  }
+}
+
+/**
+ * Wraps a `WebSocket` in a duplex stream.
+ *
+ * @param {WebSocket} ws The `WebSocket` to wrap
+ * @param {Object} [options] The options for the `Duplex` constructor
+ * @return {Duplex} The duplex stream
+ * @public
+ */
+function createWebSocketStream(ws, options) {
+  let terminateOnDestroy = true;
+
+  const duplex = new Duplex({
+    ...options,
+    autoDestroy: false,
+    emitClose: false,
+    objectMode: false,
+    writableObjectMode: false
+  });
+
+  ws.on('message', function message(msg, isBinary) {
+    const data =
+      !isBinary && duplex._readableState.objectMode ? msg.toString() : msg;
+
+    if (!duplex.push(data)) ws.pause();
+  });
+
+  ws.once('error', function error(err) {
+    if (duplex.destroyed) return;
+
+    // Prevent `ws.terminate()` from being called by `duplex._destroy()`.
+    //
+    // - If the `'error'` event is emitted before the `'open'` event, then
+    //   `ws.terminate()` is a noop as no socket is assigned.
+    // - Otherwise, the error is re-emitted by the listener of the `'error'`
+    //   event of the `Receiver` object. The listener already closes the
+    //   connection by calling `ws.close()`. This allows a close frame to be
+    //   sent to the other peer. If `ws.terminate()` is called right after this,
+    //   then the close frame might not be sent.
+    terminateOnDestroy = false;
+    duplex.destroy(err);
+  });
+
+  ws.once('close', function close() {
+    if (duplex.destroyed) return;
+
+    duplex.push(null);
+  });
+
+  duplex._destroy = function (err, callback) {
+    if (ws.readyState === ws.CLOSED) {
+      callback(err);
+      process.nextTick(emitClose, duplex);
+      return;
+    }
+
+    let called = false;
+
+    ws.once('error', function error(err) {
+      called = true;
+      callback(err);
+    });
+
+    ws.once('close', function close() {
+      if (!called) callback(err);
+      process.nextTick(emitClose, duplex);
+    });
+
+    if (terminateOnDestroy) ws.terminate();
+  };
+
+  duplex._final = function (callback) {
+    if (ws.readyState === ws.CONNECTING) {
+      ws.once('open', function open() {
+        duplex._final(callback);
+      });
+      return;
+    }
+
+    // If the value of the `_socket` property is `null` it means that `ws` is a
+    // client websocket and the handshake failed. In fact, when this happens, a
+    // socket is never assigned to the websocket. Wait for the `'error'` event
+    // that will be emitted by the websocket.
+    if (ws._socket === null) return;
+
+    if (ws._socket._writableState.finished) {
+      callback();
+      if (duplex._readableState.endEmitted) duplex.destroy();
+    } else {
+      ws._socket.once('finish', function finish() {
+        // `duplex` is not destroyed here because the `'end'` event will be
+        // emitted on `duplex` after this `'finish'` event. The EOF signaling
+        // `null` chunk is, in fact, pushed when the websocket emits `'close'`.
+        callback();
+      });
+      ws.close();
+    }
+  };
+
+  duplex._read = function () {
+    if (ws.isPaused) ws.resume();
+  };
+
+  duplex._write = function (chunk, encoding, callback) {
+    if (ws.readyState === ws.CONNECTING) {
+      ws.once('open', function open() {
+        duplex._write(chunk, encoding, callback);
+      });
+      return;
+    }
+
+    ws.send(chunk, callback);
+  };
+
+  duplex.on('end', duplexOnEnd);
+  duplex.on('error', duplexOnError);
+  return duplex;
+}
+
+module.exports = createWebSocketStream;
+
+
+/***/ }),
+
+/***/ 6046:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const { tokenChars } = __nccwpck_require__(9052);
+
+/**
+ * Parses the `Sec-WebSocket-Protocol` header into a set of subprotocol names.
+ *
+ * @param {String} header The field value of the header
+ * @return {Set} The subprotocol names
+ * @public
+ */
+function parse(header) {
+  const protocols = new Set();
+  let start = -1;
+  let end = -1;
+  let i = 0;
+
+  for (i; i < header.length; i++) {
+    const code = header.charCodeAt(i);
+
+    if (end === -1 && tokenChars[code] === 1) {
+      if (start === -1) start = i;
+    } else if (
+      i !== 0 &&
+      (code === 0x20 /* ' ' */ || code === 0x09) /* '\t' */
+    ) {
+      if (end === -1 && start !== -1) end = i;
+    } else if (code === 0x2c /* ',' */) {
+      if (start === -1) {
+        throw new SyntaxError(`Unexpected character at index ${i}`);
+      }
+
+      if (end === -1) end = i;
+
+      const protocol = header.slice(start, end);
+
+      if (protocols.has(protocol)) {
+        throw new SyntaxError(`The "${protocol}" subprotocol is duplicated`);
+      }
+
+      protocols.add(protocol);
+      start = end = -1;
+    } else {
+      throw new SyntaxError(`Unexpected character at index ${i}`);
+    }
+  }
+
+  if (start === -1 || end !== -1) {
+    throw new SyntaxError('Unexpected end of input');
+  }
+
+  const protocol = header.slice(start, i);
+
+  if (protocols.has(protocol)) {
+    throw new SyntaxError(`The "${protocol}" subprotocol is duplicated`);
+  }
+
+  protocols.add(protocol);
+  return protocols;
+}
+
+module.exports = { parse };
+
+
+/***/ }),
+
+/***/ 9052:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+//
+// Allowed token characters:
+//
+// '!', '#', '$', '%', '&', ''', '*', '+', '-',
+// '.', 0-9, A-Z, '^', '_', '`', a-z, '|', '~'
+//
+// tokenChars[32] === 0 // ' '
+// tokenChars[33] === 1 // '!'
+// tokenChars[34] === 0 // '"'
+// ...
+//
+// prettier-ignore
+const tokenChars = [
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 0 - 15
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 16 - 31
+  0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, // 32 - 47
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, // 48 - 63
+  0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 64 - 79
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, // 80 - 95
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, // 96 - 111
+  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0 // 112 - 127
+];
+
+/**
+ * Checks if a status code is allowed in a close frame.
+ *
+ * @param {Number} code The status code
+ * @return {Boolean} `true` if the status code is valid, else `false`
+ * @public
+ */
+function isValidStatusCode(code) {
+  return (
+    (code >= 1000 &&
+      code <= 1014 &&
+      code !== 1004 &&
+      code !== 1005 &&
+      code !== 1006) ||
+    (code >= 3000 && code <= 4999)
+  );
+}
+
+/**
+ * Checks if a given buffer contains only correct UTF-8.
+ * Ported from https://www.cl.cam.ac.uk/%7Emgk25/ucs/utf8_check.c by
+ * Markus Kuhn.
+ *
+ * @param {Buffer} buf The buffer to check
+ * @return {Boolean} `true` if `buf` contains only correct UTF-8, else `false`
+ * @public
+ */
+function _isValidUTF8(buf) {
+  const len = buf.length;
+  let i = 0;
+
+  while (i < len) {
+    if ((buf[i] & 0x80) === 0) {
+      // 0xxxxxxx
+      i++;
+    } else if ((buf[i] & 0xe0) === 0xc0) {
+      // 110xxxxx 10xxxxxx
+      if (
+        i + 1 === len ||
+        (buf[i + 1] & 0xc0) !== 0x80 ||
+        (buf[i] & 0xfe) === 0xc0 // Overlong
+      ) {
+        return false;
+      }
+
+      i += 2;
+    } else if ((buf[i] & 0xf0) === 0xe0) {
+      // 1110xxxx 10xxxxxx 10xxxxxx
+      if (
+        i + 2 >= len ||
+        (buf[i + 1] & 0xc0) !== 0x80 ||
+        (buf[i + 2] & 0xc0) !== 0x80 ||
+        (buf[i] === 0xe0 && (buf[i + 1] & 0xe0) === 0x80) || // Overlong
+        (buf[i] === 0xed && (buf[i + 1] & 0xe0) === 0xa0) // Surrogate (U+D800 - U+DFFF)
+      ) {
+        return false;
+      }
+
+      i += 3;
+    } else if ((buf[i] & 0xf8) === 0xf0) {
+      // 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+      if (
+        i + 3 >= len ||
+        (buf[i + 1] & 0xc0) !== 0x80 ||
+        (buf[i + 2] & 0xc0) !== 0x80 ||
+        (buf[i + 3] & 0xc0) !== 0x80 ||
+        (buf[i] === 0xf0 && (buf[i + 1] & 0xf0) === 0x80) || // Overlong
+        (buf[i] === 0xf4 && buf[i + 1] > 0x8f) ||
+        buf[i] > 0xf4 // > U+10FFFF
+      ) {
+        return false;
+      }
+
+      i += 4;
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = {
+  isValidStatusCode,
+  isValidUTF8: _isValidUTF8,
+  tokenChars
+};
+
+/* istanbul ignore else  */
+if (!process.env.WS_NO_UTF_8_VALIDATE) {
+  try {
+    const isValidUTF8 = __nccwpck_require__(5161);
+
+    module.exports.isValidUTF8 = function (buf) {
+      return buf.length < 150 ? _isValidUTF8(buf) : isValidUTF8(buf);
+    };
+  } catch (e) {
+    // Continue regardless of the error.
+  }
+}
+
+
+/***/ }),
+
+/***/ 3000:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^net|tls|https$" }] */
+
+
+
+const EventEmitter = __nccwpck_require__(8614);
+const http = __nccwpck_require__(8605);
+const https = __nccwpck_require__(7211);
+const net = __nccwpck_require__(1631);
+const tls = __nccwpck_require__(4016);
+const { createHash } = __nccwpck_require__(6417);
+
+const extension = __nccwpck_require__(720);
+const PerMessageDeflate = __nccwpck_require__(2215);
+const subprotocol = __nccwpck_require__(6046);
+const WebSocket = __nccwpck_require__(1837);
+const { GUID, kWebSocket } = __nccwpck_require__(2104);
+
+const keyRegex = /^[+/0-9A-Za-z]{22}==$/;
+
+const RUNNING = 0;
+const CLOSING = 1;
+const CLOSED = 2;
+
+/**
+ * Class representing a WebSocket server.
+ *
+ * @extends EventEmitter
+ */
+class WebSocketServer extends EventEmitter {
+  /**
+   * Create a `WebSocketServer` instance.
+   *
+   * @param {Object} options Configuration options
+   * @param {Number} [options.backlog=511] The maximum length of the queue of
+   *     pending connections
+   * @param {Boolean} [options.clientTracking=true] Specifies whether or not to
+   *     track clients
+   * @param {Function} [options.handleProtocols] A hook to handle protocols
+   * @param {String} [options.host] The hostname where to bind the server
+   * @param {Number} [options.maxPayload=104857600] The maximum allowed message
+   *     size
+   * @param {Boolean} [options.noServer=false] Enable no server mode
+   * @param {String} [options.path] Accept only connections matching this path
+   * @param {(Boolean|Object)} [options.perMessageDeflate=false] Enable/disable
+   *     permessage-deflate
+   * @param {Number} [options.port] The port where to bind the server
+   * @param {(http.Server|https.Server)} [options.server] A pre-created HTTP/S
+   *     server to use
+   * @param {Boolean} [options.skipUTF8Validation=false] Specifies whether or
+   *     not to skip UTF-8 validation for text and close messages
+   * @param {Function} [options.verifyClient] A hook to reject connections
+   * @param {Function} [options.WebSocket=WebSocket] Specifies the `WebSocket`
+   *     class to use. It must be the `WebSocket` class or class that extends it
+   * @param {Function} [callback] A listener for the `listening` event
+   */
+  constructor(options, callback) {
+    super();
+
+    options = {
+      maxPayload: 100 * 1024 * 1024,
+      skipUTF8Validation: false,
+      perMessageDeflate: false,
+      handleProtocols: null,
+      clientTracking: true,
+      verifyClient: null,
+      noServer: false,
+      backlog: null, // use default (511 as implemented in net.js)
+      server: null,
+      host: null,
+      path: null,
+      port: null,
+      WebSocket,
+      ...options
+    };
+
+    if (
+      (options.port == null && !options.server && !options.noServer) ||
+      (options.port != null && (options.server || options.noServer)) ||
+      (options.server && options.noServer)
+    ) {
+      throw new TypeError(
+        'One and only one of the "port", "server", or "noServer" options ' +
+          'must be specified'
+      );
+    }
+
+    if (options.port != null) {
+      this._server = http.createServer((req, res) => {
+        const body = http.STATUS_CODES[426];
+
+        res.writeHead(426, {
+          'Content-Length': body.length,
+          'Content-Type': 'text/plain'
+        });
+        res.end(body);
+      });
+      this._server.listen(
+        options.port,
+        options.host,
+        options.backlog,
+        callback
+      );
+    } else if (options.server) {
+      this._server = options.server;
+    }
+
+    if (this._server) {
+      const emitConnection = this.emit.bind(this, 'connection');
+
+      this._removeListeners = addListeners(this._server, {
+        listening: this.emit.bind(this, 'listening'),
+        error: this.emit.bind(this, 'error'),
+        upgrade: (req, socket, head) => {
+          this.handleUpgrade(req, socket, head, emitConnection);
+        }
+      });
+    }
+
+    if (options.perMessageDeflate === true) options.perMessageDeflate = {};
+    if (options.clientTracking) {
+      this.clients = new Set();
+      this._shouldEmitClose = false;
+    }
+
+    this.options = options;
+    this._state = RUNNING;
+  }
+
+  /**
+   * Returns the bound address, the address family name, and port of the server
+   * as reported by the operating system if listening on an IP socket.
+   * If the server is listening on a pipe or UNIX domain socket, the name is
+   * returned as a string.
+   *
+   * @return {(Object|String|null)} The address of the server
+   * @public
+   */
+  address() {
+    if (this.options.noServer) {
+      throw new Error('The server is operating in "noServer" mode');
+    }
+
+    if (!this._server) return null;
+    return this._server.address();
+  }
+
+  /**
+   * Stop the server from accepting new connections and emit the `'close'` event
+   * when all existing connections are closed.
+   *
+   * @param {Function} [cb] A one-time listener for the `'close'` event
+   * @public
+   */
+  close(cb) {
+    if (this._state === CLOSED) {
+      if (cb) {
+        this.once('close', () => {
+          cb(new Error('The server is not running'));
+        });
+      }
+
+      process.nextTick(emitClose, this);
+      return;
+    }
+
+    if (cb) this.once('close', cb);
+
+    if (this._state === CLOSING) return;
+    this._state = CLOSING;
+
+    if (this.options.noServer || this.options.server) {
+      if (this._server) {
+        this._removeListeners();
+        this._removeListeners = this._server = null;
+      }
+
+      if (this.clients) {
+        if (!this.clients.size) {
+          process.nextTick(emitClose, this);
+        } else {
+          this._shouldEmitClose = true;
+        }
+      } else {
+        process.nextTick(emitClose, this);
+      }
+    } else {
+      const server = this._server;
+
+      this._removeListeners();
+      this._removeListeners = this._server = null;
+
+      //
+      // The HTTP/S server was created internally. Close it, and rely on its
+      // `'close'` event.
+      //
+      server.close(() => {
+        emitClose(this);
+      });
+    }
+  }
+
+  /**
+   * See if a given request should be handled by this server instance.
+   *
+   * @param {http.IncomingMessage} req Request object to inspect
+   * @return {Boolean} `true` if the request is valid, else `false`
+   * @public
+   */
+  shouldHandle(req) {
+    if (this.options.path) {
+      const index = req.url.indexOf('?');
+      const pathname = index !== -1 ? req.url.slice(0, index) : req.url;
+
+      if (pathname !== this.options.path) return false;
+    }
+
+    return true;
+  }
+
+  /**
+   * Handle a HTTP Upgrade request.
+   *
+   * @param {http.IncomingMessage} req The request object
+   * @param {(net.Socket|tls.Socket)} socket The network socket between the
+   *     server and client
+   * @param {Buffer} head The first packet of the upgraded stream
+   * @param {Function} cb Callback
+   * @public
+   */
+  handleUpgrade(req, socket, head, cb) {
+    socket.on('error', socketOnError);
+
+    const key = req.headers['sec-websocket-key'];
+    const version = +req.headers['sec-websocket-version'];
+
+    if (req.method !== 'GET') {
+      const message = 'Invalid HTTP method';
+      abortHandshakeOrEmitwsClientError(this, req, socket, 405, message);
+      return;
+    }
+
+    if (req.headers.upgrade.toLowerCase() !== 'websocket') {
+      const message = 'Invalid Upgrade header';
+      abortHandshakeOrEmitwsClientError(this, req, socket, 400, message);
+      return;
+    }
+
+    if (!key || !keyRegex.test(key)) {
+      const message = 'Missing or invalid Sec-WebSocket-Key header';
+      abortHandshakeOrEmitwsClientError(this, req, socket, 400, message);
+      return;
+    }
+
+    if (version !== 8 && version !== 13) {
+      const message = 'Missing or invalid Sec-WebSocket-Version header';
+      abortHandshakeOrEmitwsClientError(this, req, socket, 400, message);
+      return;
+    }
+
+    if (!this.shouldHandle(req)) {
+      abortHandshake(socket, 400);
+      return;
+    }
+
+    const secWebSocketProtocol = req.headers['sec-websocket-protocol'];
+    let protocols = new Set();
+
+    if (secWebSocketProtocol !== undefined) {
+      try {
+        protocols = subprotocol.parse(secWebSocketProtocol);
+      } catch (err) {
+        const message = 'Invalid Sec-WebSocket-Protocol header';
+        abortHandshakeOrEmitwsClientError(this, req, socket, 400, message);
+        return;
+      }
+    }
+
+    const secWebSocketExtensions = req.headers['sec-websocket-extensions'];
+    const extensions = {};
+
+    if (
+      this.options.perMessageDeflate &&
+      secWebSocketExtensions !== undefined
+    ) {
+      const perMessageDeflate = new PerMessageDeflate(
+        this.options.perMessageDeflate,
+        true,
+        this.options.maxPayload
+      );
+
+      try {
+        const offers = extension.parse(secWebSocketExtensions);
+
+        if (offers[PerMessageDeflate.extensionName]) {
+          perMessageDeflate.accept(offers[PerMessageDeflate.extensionName]);
+          extensions[PerMessageDeflate.extensionName] = perMessageDeflate;
+        }
+      } catch (err) {
+        const message =
+          'Invalid or unacceptable Sec-WebSocket-Extensions header';
+        abortHandshakeOrEmitwsClientError(this, req, socket, 400, message);
+        return;
+      }
+    }
+
+    //
+    // Optionally call external client verification handler.
+    //
+    if (this.options.verifyClient) {
+      const info = {
+        origin:
+          req.headers[`${version === 8 ? 'sec-websocket-origin' : 'origin'}`],
+        secure: !!(req.socket.authorized || req.socket.encrypted),
+        req
+      };
+
+      if (this.options.verifyClient.length === 2) {
+        this.options.verifyClient(info, (verified, code, message, headers) => {
+          if (!verified) {
+            return abortHandshake(socket, code || 401, message, headers);
+          }
+
+          this.completeUpgrade(
+            extensions,
+            key,
+            protocols,
+            req,
+            socket,
+            head,
+            cb
+          );
+        });
+        return;
+      }
+
+      if (!this.options.verifyClient(info)) return abortHandshake(socket, 401);
+    }
+
+    this.completeUpgrade(extensions, key, protocols, req, socket, head, cb);
+  }
+
+  /**
+   * Upgrade the connection to WebSocket.
+   *
+   * @param {Object} extensions The accepted extensions
+   * @param {String} key The value of the `Sec-WebSocket-Key` header
+   * @param {Set} protocols The subprotocols
+   * @param {http.IncomingMessage} req The request object
+   * @param {(net.Socket|tls.Socket)} socket The network socket between the
+   *     server and client
+   * @param {Buffer} head The first packet of the upgraded stream
+   * @param {Function} cb Callback
+   * @throws {Error} If called more than once with the same socket
+   * @private
+   */
+  completeUpgrade(extensions, key, protocols, req, socket, head, cb) {
+    //
+    // Destroy the socket if the client has already sent a FIN packet.
+    //
+    if (!socket.readable || !socket.writable) return socket.destroy();
+
+    if (socket[kWebSocket]) {
+      throw new Error(
+        'server.handleUpgrade() was called more than once with the same ' +
+          'socket, possibly due to a misconfiguration'
+      );
+    }
+
+    if (this._state > RUNNING) return abortHandshake(socket, 503);
+
+    const digest = createHash('sha1')
+      .update(key + GUID)
+      .digest('base64');
+
+    const headers = [
+      'HTTP/1.1 101 Switching Protocols',
+      'Upgrade: websocket',
+      'Connection: Upgrade',
+      `Sec-WebSocket-Accept: ${digest}`
+    ];
+
+    const ws = new this.options.WebSocket(null);
+
+    if (protocols.size) {
+      //
+      // Optionally call external protocol selection handler.
+      //
+      const protocol = this.options.handleProtocols
+        ? this.options.handleProtocols(protocols, req)
+        : protocols.values().next().value;
+
+      if (protocol) {
+        headers.push(`Sec-WebSocket-Protocol: ${protocol}`);
+        ws._protocol = protocol;
+      }
+    }
+
+    if (extensions[PerMessageDeflate.extensionName]) {
+      const params = extensions[PerMessageDeflate.extensionName].params;
+      const value = extension.format({
+        [PerMessageDeflate.extensionName]: [params]
+      });
+      headers.push(`Sec-WebSocket-Extensions: ${value}`);
+      ws._extensions = extensions;
+    }
+
+    //
+    // Allow external modification/inspection of handshake headers.
+    //
+    this.emit('headers', headers, req);
+
+    socket.write(headers.concat('\r\n').join('\r\n'));
+    socket.removeListener('error', socketOnError);
+
+    ws.setSocket(socket, head, {
+      maxPayload: this.options.maxPayload,
+      skipUTF8Validation: this.options.skipUTF8Validation
+    });
+
+    if (this.clients) {
+      this.clients.add(ws);
+      ws.on('close', () => {
+        this.clients.delete(ws);
+
+        if (this._shouldEmitClose && !this.clients.size) {
+          process.nextTick(emitClose, this);
+        }
+      });
+    }
+
+    cb(ws, req);
+  }
+}
+
+module.exports = WebSocketServer;
+
+/**
+ * Add event listeners on an `EventEmitter` using a map of <event, listener>
+ * pairs.
+ *
+ * @param {EventEmitter} server The event emitter
+ * @param {Object.<String, Function>} map The listeners to add
+ * @return {Function} A function that will remove the added listeners when
+ *     called
+ * @private
+ */
+function addListeners(server, map) {
+  for (const event of Object.keys(map)) server.on(event, map[event]);
+
+  return function removeListeners() {
+    for (const event of Object.keys(map)) {
+      server.removeListener(event, map[event]);
+    }
+  };
+}
+
+/**
+ * Emit a `'close'` event on an `EventEmitter`.
+ *
+ * @param {EventEmitter} server The event emitter
+ * @private
+ */
+function emitClose(server) {
+  server._state = CLOSED;
+  server.emit('close');
+}
+
+/**
+ * Handle socket errors.
+ *
+ * @private
+ */
+function socketOnError() {
+  this.destroy();
+}
+
+/**
+ * Close the connection when preconditions are not fulfilled.
+ *
+ * @param {(net.Socket|tls.Socket)} socket The socket of the upgrade request
+ * @param {Number} code The HTTP response status code
+ * @param {String} [message] The HTTP response body
+ * @param {Object} [headers] Additional HTTP response headers
+ * @private
+ */
+function abortHandshake(socket, code, message, headers) {
+  //
+  // The socket is writable unless the user destroyed or ended it before calling
+  // `server.handleUpgrade()` or in the `verifyClient` function, which is a user
+  // error. Handling this does not make much sense as the worst that can happen
+  // is that some of the data written by the user might be discarded due to the
+  // call to `socket.end()` below, which triggers an `'error'` event that in
+  // turn causes the socket to be destroyed.
+  //
+  message = message || http.STATUS_CODES[code];
+  headers = {
+    Connection: 'close',
+    'Content-Type': 'text/html',
+    'Content-Length': Buffer.byteLength(message),
+    ...headers
+  };
+
+  socket.once('finish', socket.destroy);
+
+  socket.end(
+    `HTTP/1.1 ${code} ${http.STATUS_CODES[code]}\r\n` +
+      Object.keys(headers)
+        .map((h) => `${h}: ${headers[h]}`)
+        .join('\r\n') +
+      '\r\n\r\n' +
+      message
+  );
+}
+
+/**
+ * Emit a `'wsClientError'` event on a `WebSocketServer` if there is at least
+ * one listener for it, otherwise call `abortHandshake()`.
+ *
+ * @param {WebSocketServer} server The WebSocket server
+ * @param {http.IncomingMessage} req The request object
+ * @param {(net.Socket|tls.Socket)} socket The socket of the upgrade request
+ * @param {Number} code The HTTP response status code
+ * @param {String} message The HTTP response body
+ * @private
+ */
+function abortHandshakeOrEmitwsClientError(server, req, socket, code, message) {
+  if (server.listenerCount('wsClientError')) {
+    const err = new Error(message);
+    Error.captureStackTrace(err, abortHandshakeOrEmitwsClientError);
+
+    server.emit('wsClientError', err, socket, req);
+  } else {
+    abortHandshake(socket, code, message);
+  }
+}
+
+
+/***/ }),
+
+/***/ 1837:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+/* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^Readable$" }] */
+
+
+
+const EventEmitter = __nccwpck_require__(8614);
+const https = __nccwpck_require__(7211);
+const http = __nccwpck_require__(8605);
+const net = __nccwpck_require__(1631);
+const tls = __nccwpck_require__(4016);
+const { randomBytes, createHash } = __nccwpck_require__(6417);
+const { Readable } = __nccwpck_require__(2413);
+const { URL } = __nccwpck_require__(8835);
+
+const PerMessageDeflate = __nccwpck_require__(2215);
+const Receiver = __nccwpck_require__(515);
+const Sender = __nccwpck_require__(4563);
+const {
+  BINARY_TYPES,
+  EMPTY_BUFFER,
+  GUID,
+  kForOnEventAttribute,
+  kListener,
+  kStatusCode,
+  kWebSocket,
+  NOOP
+} = __nccwpck_require__(2104);
+const {
+  EventTarget: { addEventListener, removeEventListener }
+} = __nccwpck_require__(907);
+const { format, parse } = __nccwpck_require__(720);
+const { toBuffer } = __nccwpck_require__(2409);
+
+const closeTimeout = 30 * 1000;
+const kAborted = Symbol('kAborted');
+const protocolVersions = [8, 13];
+const readyStates = ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED'];
+const subprotocolRegex = /^[!#$%&'*+\-.0-9A-Z^_`|a-z~]+$/;
+
+/**
+ * Class representing a WebSocket.
+ *
+ * @extends EventEmitter
+ */
+class WebSocket extends EventEmitter {
+  /**
+   * Create a new `WebSocket`.
+   *
+   * @param {(String|URL)} address The URL to which to connect
+   * @param {(String|String[])} [protocols] The subprotocols
+   * @param {Object} [options] Connection options
+   */
+  constructor(address, protocols, options) {
+    super();
+
+    this._binaryType = BINARY_TYPES[0];
+    this._closeCode = 1006;
+    this._closeFrameReceived = false;
+    this._closeFrameSent = false;
+    this._closeMessage = EMPTY_BUFFER;
+    this._closeTimer = null;
+    this._extensions = {};
+    this._paused = false;
+    this._protocol = '';
+    this._readyState = WebSocket.CONNECTING;
+    this._receiver = null;
+    this._sender = null;
+    this._socket = null;
+
+    if (address !== null) {
+      this._bufferedAmount = 0;
+      this._isServer = false;
+      this._redirects = 0;
+
+      if (protocols === undefined) {
+        protocols = [];
+      } else if (!Array.isArray(protocols)) {
+        if (typeof protocols === 'object' && protocols !== null) {
+          options = protocols;
+          protocols = [];
+        } else {
+          protocols = [protocols];
+        }
+      }
+
+      initAsClient(this, address, protocols, options);
+    } else {
+      this._isServer = true;
+    }
+  }
+
+  /**
+   * This deviates from the WHATWG interface since ws doesn't support the
+   * required default "blob" type (instead we define a custom "nodebuffer"
+   * type).
+   *
+   * @type {String}
+   */
+  get binaryType() {
+    return this._binaryType;
+  }
+
+  set binaryType(type) {
+    if (!BINARY_TYPES.includes(type)) return;
+
+    this._binaryType = type;
+
+    //
+    // Allow to change `binaryType` on the fly.
+    //
+    if (this._receiver) this._receiver._binaryType = type;
+  }
+
+  /**
+   * @type {Number}
+   */
+  get bufferedAmount() {
+    if (!this._socket) return this._bufferedAmount;
+
+    return this._socket._writableState.length + this._sender._bufferedBytes;
+  }
+
+  /**
+   * @type {String}
+   */
+  get extensions() {
+    return Object.keys(this._extensions).join();
+  }
+
+  /**
+   * @type {Boolean}
+   */
+  get isPaused() {
+    return this._paused;
+  }
+
+  /**
+   * @type {Function}
+   */
+  /* istanbul ignore next */
+  get onclose() {
+    return null;
+  }
+
+  /**
+   * @type {Function}
+   */
+  /* istanbul ignore next */
+  get onerror() {
+    return null;
+  }
+
+  /**
+   * @type {Function}
+   */
+  /* istanbul ignore next */
+  get onopen() {
+    return null;
+  }
+
+  /**
+   * @type {Function}
+   */
+  /* istanbul ignore next */
+  get onmessage() {
+    return null;
+  }
+
+  /**
+   * @type {String}
+   */
+  get protocol() {
+    return this._protocol;
+  }
+
+  /**
+   * @type {Number}
+   */
+  get readyState() {
+    return this._readyState;
+  }
+
+  /**
+   * @type {String}
+   */
+  get url() {
+    return this._url;
+  }
+
+  /**
+   * Set up the socket and the internal resources.
+   *
+   * @param {(net.Socket|tls.Socket)} socket The network socket between the
+   *     server and client
+   * @param {Buffer} head The first packet of the upgraded stream
+   * @param {Object} options Options object
+   * @param {Function} [options.generateMask] The function used to generate the
+   *     masking key
+   * @param {Number} [options.maxPayload=0] The maximum allowed message size
+   * @param {Boolean} [options.skipUTF8Validation=false] Specifies whether or
+   *     not to skip UTF-8 validation for text and close messages
+   * @private
+   */
+  setSocket(socket, head, options) {
+    const receiver = new Receiver({
+      binaryType: this.binaryType,
+      extensions: this._extensions,
+      isServer: this._isServer,
+      maxPayload: options.maxPayload,
+      skipUTF8Validation: options.skipUTF8Validation
+    });
+
+    this._sender = new Sender(socket, this._extensions, options.generateMask);
+    this._receiver = receiver;
+    this._socket = socket;
+
+    receiver[kWebSocket] = this;
+    socket[kWebSocket] = this;
+
+    receiver.on('conclude', receiverOnConclude);
+    receiver.on('drain', receiverOnDrain);
+    receiver.on('error', receiverOnError);
+    receiver.on('message', receiverOnMessage);
+    receiver.on('ping', receiverOnPing);
+    receiver.on('pong', receiverOnPong);
+
+    socket.setTimeout(0);
+    socket.setNoDelay();
+
+    if (head.length > 0) socket.unshift(head);
+
+    socket.on('close', socketOnClose);
+    socket.on('data', socketOnData);
+    socket.on('end', socketOnEnd);
+    socket.on('error', socketOnError);
+
+    this._readyState = WebSocket.OPEN;
+    this.emit('open');
+  }
+
+  /**
+   * Emit the `'close'` event.
+   *
+   * @private
+   */
+  emitClose() {
+    if (!this._socket) {
+      this._readyState = WebSocket.CLOSED;
+      this.emit('close', this._closeCode, this._closeMessage);
+      return;
+    }
+
+    if (this._extensions[PerMessageDeflate.extensionName]) {
+      this._extensions[PerMessageDeflate.extensionName].cleanup();
+    }
+
+    this._receiver.removeAllListeners();
+    this._readyState = WebSocket.CLOSED;
+    this.emit('close', this._closeCode, this._closeMessage);
+  }
+
+  /**
+   * Start a closing handshake.
+   *
+   *          +----------+   +-----------+   +----------+
+   *     - - -|ws.close()|-->|close frame|-->|ws.close()|- - -
+   *    |     +----------+   +-----------+   +----------+     |
+   *          +----------+   +-----------+         |
+   * CLOSING  |ws.close()|<--|close frame|<--+-----+       CLOSING
+   *          +----------+   +-----------+   |
+   *    |           |                        |   +---+        |
+   *                +------------------------+-->|fin| - - - -
+   *    |         +---+                      |   +---+
+   *     - - - - -|fin|<---------------------+
+   *              +---+
+   *
+   * @param {Number} [code] Status code explaining why the connection is closing
+   * @param {(String|Buffer)} [data] The reason why the connection is
+   *     closing
+   * @public
+   */
+  close(code, data) {
+    if (this.readyState === WebSocket.CLOSED) return;
+    if (this.readyState === WebSocket.CONNECTING) {
+      const msg = 'WebSocket was closed before the connection was established';
+      return abortHandshake(this, this._req, msg);
+    }
+
+    if (this.readyState === WebSocket.CLOSING) {
+      if (
+        this._closeFrameSent &&
+        (this._closeFrameReceived || this._receiver._writableState.errorEmitted)
+      ) {
+        this._socket.end();
+      }
+
+      return;
+    }
+
+    this._readyState = WebSocket.CLOSING;
+    this._sender.close(code, data, !this._isServer, (err) => {
+      //
+      // This error is handled by the `'error'` listener on the socket. We only
+      // want to know if the close frame has been sent here.
+      //
+      if (err) return;
+
+      this._closeFrameSent = true;
+
+      if (
+        this._closeFrameReceived ||
+        this._receiver._writableState.errorEmitted
+      ) {
+        this._socket.end();
+      }
+    });
+
+    //
+    // Specify a timeout for the closing handshake to complete.
+    //
+    this._closeTimer = setTimeout(
+      this._socket.destroy.bind(this._socket),
+      closeTimeout
+    );
+  }
+
+  /**
+   * Pause the socket.
+   *
+   * @public
+   */
+  pause() {
+    if (
+      this.readyState === WebSocket.CONNECTING ||
+      this.readyState === WebSocket.CLOSED
+    ) {
+      return;
+    }
+
+    this._paused = true;
+    this._socket.pause();
+  }
+
+  /**
+   * Send a ping.
+   *
+   * @param {*} [data] The data to send
+   * @param {Boolean} [mask] Indicates whether or not to mask `data`
+   * @param {Function} [cb] Callback which is executed when the ping is sent
+   * @public
+   */
+  ping(data, mask, cb) {
+    if (this.readyState === WebSocket.CONNECTING) {
+      throw new Error('WebSocket is not open: readyState 0 (CONNECTING)');
+    }
+
+    if (typeof data === 'function') {
+      cb = data;
+      data = mask = undefined;
+    } else if (typeof mask === 'function') {
+      cb = mask;
+      mask = undefined;
+    }
+
+    if (typeof data === 'number') data = data.toString();
+
+    if (this.readyState !== WebSocket.OPEN) {
+      sendAfterClose(this, data, cb);
+      return;
+    }
+
+    if (mask === undefined) mask = !this._isServer;
+    this._sender.ping(data || EMPTY_BUFFER, mask, cb);
+  }
+
+  /**
+   * Send a pong.
+   *
+   * @param {*} [data] The data to send
+   * @param {Boolean} [mask] Indicates whether or not to mask `data`
+   * @param {Function} [cb] Callback which is executed when the pong is sent
+   * @public
+   */
+  pong(data, mask, cb) {
+    if (this.readyState === WebSocket.CONNECTING) {
+      throw new Error('WebSocket is not open: readyState 0 (CONNECTING)');
+    }
+
+    if (typeof data === 'function') {
+      cb = data;
+      data = mask = undefined;
+    } else if (typeof mask === 'function') {
+      cb = mask;
+      mask = undefined;
+    }
+
+    if (typeof data === 'number') data = data.toString();
+
+    if (this.readyState !== WebSocket.OPEN) {
+      sendAfterClose(this, data, cb);
+      return;
+    }
+
+    if (mask === undefined) mask = !this._isServer;
+    this._sender.pong(data || EMPTY_BUFFER, mask, cb);
+  }
+
+  /**
+   * Resume the socket.
+   *
+   * @public
+   */
+  resume() {
+    if (
+      this.readyState === WebSocket.CONNECTING ||
+      this.readyState === WebSocket.CLOSED
+    ) {
+      return;
+    }
+
+    this._paused = false;
+    if (!this._receiver._writableState.needDrain) this._socket.resume();
+  }
+
+  /**
+   * Send a data message.
+   *
+   * @param {*} data The message to send
+   * @param {Object} [options] Options object
+   * @param {Boolean} [options.binary] Specifies whether `data` is binary or
+   *     text
+   * @param {Boolean} [options.compress] Specifies whether or not to compress
+   *     `data`
+   * @param {Boolean} [options.fin=true] Specifies whether the fragment is the
+   *     last one
+   * @param {Boolean} [options.mask] Specifies whether or not to mask `data`
+   * @param {Function} [cb] Callback which is executed when data is written out
+   * @public
+   */
+  send(data, options, cb) {
+    if (this.readyState === WebSocket.CONNECTING) {
+      throw new Error('WebSocket is not open: readyState 0 (CONNECTING)');
+    }
+
+    if (typeof options === 'function') {
+      cb = options;
+      options = {};
+    }
+
+    if (typeof data === 'number') data = data.toString();
+
+    if (this.readyState !== WebSocket.OPEN) {
+      sendAfterClose(this, data, cb);
+      return;
+    }
+
+    const opts = {
+      binary: typeof data !== 'string',
+      mask: !this._isServer,
+      compress: true,
+      fin: true,
+      ...options
+    };
+
+    if (!this._extensions[PerMessageDeflate.extensionName]) {
+      opts.compress = false;
+    }
+
+    this._sender.send(data || EMPTY_BUFFER, opts, cb);
+  }
+
+  /**
+   * Forcibly close the connection.
+   *
+   * @public
+   */
+  terminate() {
+    if (this.readyState === WebSocket.CLOSED) return;
+    if (this.readyState === WebSocket.CONNECTING) {
+      const msg = 'WebSocket was closed before the connection was established';
+      return abortHandshake(this, this._req, msg);
+    }
+
+    if (this._socket) {
+      this._readyState = WebSocket.CLOSING;
+      this._socket.destroy();
+    }
+  }
+}
+
+/**
+ * @constant {Number} CONNECTING
+ * @memberof WebSocket
+ */
+Object.defineProperty(WebSocket, 'CONNECTING', {
+  enumerable: true,
+  value: readyStates.indexOf('CONNECTING')
+});
+
+/**
+ * @constant {Number} CONNECTING
+ * @memberof WebSocket.prototype
+ */
+Object.defineProperty(WebSocket.prototype, 'CONNECTING', {
+  enumerable: true,
+  value: readyStates.indexOf('CONNECTING')
+});
+
+/**
+ * @constant {Number} OPEN
+ * @memberof WebSocket
+ */
+Object.defineProperty(WebSocket, 'OPEN', {
+  enumerable: true,
+  value: readyStates.indexOf('OPEN')
+});
+
+/**
+ * @constant {Number} OPEN
+ * @memberof WebSocket.prototype
+ */
+Object.defineProperty(WebSocket.prototype, 'OPEN', {
+  enumerable: true,
+  value: readyStates.indexOf('OPEN')
+});
+
+/**
+ * @constant {Number} CLOSING
+ * @memberof WebSocket
+ */
+Object.defineProperty(WebSocket, 'CLOSING', {
+  enumerable: true,
+  value: readyStates.indexOf('CLOSING')
+});
+
+/**
+ * @constant {Number} CLOSING
+ * @memberof WebSocket.prototype
+ */
+Object.defineProperty(WebSocket.prototype, 'CLOSING', {
+  enumerable: true,
+  value: readyStates.indexOf('CLOSING')
+});
+
+/**
+ * @constant {Number} CLOSED
+ * @memberof WebSocket
+ */
+Object.defineProperty(WebSocket, 'CLOSED', {
+  enumerable: true,
+  value: readyStates.indexOf('CLOSED')
+});
+
+/**
+ * @constant {Number} CLOSED
+ * @memberof WebSocket.prototype
+ */
+Object.defineProperty(WebSocket.prototype, 'CLOSED', {
+  enumerable: true,
+  value: readyStates.indexOf('CLOSED')
+});
+
+[
+  'binaryType',
+  'bufferedAmount',
+  'extensions',
+  'isPaused',
+  'protocol',
+  'readyState',
+  'url'
+].forEach((property) => {
+  Object.defineProperty(WebSocket.prototype, property, { enumerable: true });
+});
+
+//
+// Add the `onopen`, `onerror`, `onclose`, and `onmessage` attributes.
+// See https://html.spec.whatwg.org/multipage/comms.html#the-websocket-interface
+//
+['open', 'error', 'close', 'message'].forEach((method) => {
+  Object.defineProperty(WebSocket.prototype, `on${method}`, {
+    enumerable: true,
+    get() {
+      for (const listener of this.listeners(method)) {
+        if (listener[kForOnEventAttribute]) return listener[kListener];
+      }
+
+      return null;
+    },
+    set(handler) {
+      for (const listener of this.listeners(method)) {
+        if (listener[kForOnEventAttribute]) {
+          this.removeListener(method, listener);
+          break;
+        }
+      }
+
+      if (typeof handler !== 'function') return;
+
+      this.addEventListener(method, handler, {
+        [kForOnEventAttribute]: true
+      });
+    }
+  });
+});
+
+WebSocket.prototype.addEventListener = addEventListener;
+WebSocket.prototype.removeEventListener = removeEventListener;
+
+module.exports = WebSocket;
+
+/**
+ * Initialize a WebSocket client.
+ *
+ * @param {WebSocket} websocket The client to initialize
+ * @param {(String|URL)} address The URL to which to connect
+ * @param {Array} protocols The subprotocols
+ * @param {Object} [options] Connection options
+ * @param {Boolean} [options.followRedirects=false] Whether or not to follow
+ *     redirects
+ * @param {Function} [options.generateMask] The function used to generate the
+ *     masking key
+ * @param {Number} [options.handshakeTimeout] Timeout in milliseconds for the
+ *     handshake request
+ * @param {Number} [options.maxPayload=104857600] The maximum allowed message
+ *     size
+ * @param {Number} [options.maxRedirects=10] The maximum number of redirects
+ *     allowed
+ * @param {String} [options.origin] Value of the `Origin` or
+ *     `Sec-WebSocket-Origin` header
+ * @param {(Boolean|Object)} [options.perMessageDeflate=true] Enable/disable
+ *     permessage-deflate
+ * @param {Number} [options.protocolVersion=13] Value of the
+ *     `Sec-WebSocket-Version` header
+ * @param {Boolean} [options.skipUTF8Validation=false] Specifies whether or
+ *     not to skip UTF-8 validation for text and close messages
+ * @private
+ */
+function initAsClient(websocket, address, protocols, options) {
+  const opts = {
+    protocolVersion: protocolVersions[1],
+    maxPayload: 100 * 1024 * 1024,
+    skipUTF8Validation: false,
+    perMessageDeflate: true,
+    followRedirects: false,
+    maxRedirects: 10,
+    ...options,
+    createConnection: undefined,
+    socketPath: undefined,
+    hostname: undefined,
+    protocol: undefined,
+    timeout: undefined,
+    method: 'GET',
+    host: undefined,
+    path: undefined,
+    port: undefined
+  };
+
+  if (!protocolVersions.includes(opts.protocolVersion)) {
+    throw new RangeError(
+      `Unsupported protocol version: ${opts.protocolVersion} ` +
+        `(supported versions: ${protocolVersions.join(', ')})`
+    );
+  }
+
+  let parsedUrl;
+
+  if (address instanceof URL) {
+    parsedUrl = address;
+    websocket._url = address.href;
+  } else {
+    try {
+      parsedUrl = new URL(address);
+    } catch (e) {
+      throw new SyntaxError(`Invalid URL: ${address}`);
+    }
+
+    websocket._url = address;
+  }
+
+  const isSecure = parsedUrl.protocol === 'wss:';
+  const isIpcUrl = parsedUrl.protocol === 'ws+unix:';
+  let invalidUrlMessage;
+
+  if (parsedUrl.protocol !== 'ws:' && !isSecure && !isIpcUrl) {
+    invalidUrlMessage =
+      'The URL\'s protocol must be one of "ws:", "wss:", or "ws+unix:"';
+  } else if (isIpcUrl && !parsedUrl.pathname) {
+    invalidUrlMessage = "The URL's pathname is empty";
+  } else if (parsedUrl.hash) {
+    invalidUrlMessage = 'The URL contains a fragment identifier';
+  }
+
+  if (invalidUrlMessage) {
+    const err = new SyntaxError(invalidUrlMessage);
+
+    if (websocket._redirects === 0) {
+      throw err;
+    } else {
+      emitErrorAndClose(websocket, err);
+      return;
+    }
+  }
+
+  const defaultPort = isSecure ? 443 : 80;
+  const key = randomBytes(16).toString('base64');
+  const request = isSecure ? https.request : http.request;
+  const protocolSet = new Set();
+  let perMessageDeflate;
+
+  opts.createConnection = isSecure ? tlsConnect : netConnect;
+  opts.defaultPort = opts.defaultPort || defaultPort;
+  opts.port = parsedUrl.port || defaultPort;
+  opts.host = parsedUrl.hostname.startsWith('[')
+    ? parsedUrl.hostname.slice(1, -1)
+    : parsedUrl.hostname;
+  opts.headers = {
+    ...opts.headers,
+    'Sec-WebSocket-Version': opts.protocolVersion,
+    'Sec-WebSocket-Key': key,
+    Connection: 'Upgrade',
+    Upgrade: 'websocket'
+  };
+  opts.path = parsedUrl.pathname + parsedUrl.search;
+  opts.timeout = opts.handshakeTimeout;
+
+  if (opts.perMessageDeflate) {
+    perMessageDeflate = new PerMessageDeflate(
+      opts.perMessageDeflate !== true ? opts.perMessageDeflate : {},
+      false,
+      opts.maxPayload
+    );
+    opts.headers['Sec-WebSocket-Extensions'] = format({
+      [PerMessageDeflate.extensionName]: perMessageDeflate.offer()
+    });
+  }
+  if (protocols.length) {
+    for (const protocol of protocols) {
+      if (
+        typeof protocol !== 'string' ||
+        !subprotocolRegex.test(protocol) ||
+        protocolSet.has(protocol)
+      ) {
+        throw new SyntaxError(
+          'An invalid or duplicated subprotocol was specified'
+        );
+      }
+
+      protocolSet.add(protocol);
+    }
+
+    opts.headers['Sec-WebSocket-Protocol'] = protocols.join(',');
+  }
+  if (opts.origin) {
+    if (opts.protocolVersion < 13) {
+      opts.headers['Sec-WebSocket-Origin'] = opts.origin;
+    } else {
+      opts.headers.Origin = opts.origin;
+    }
+  }
+  if (parsedUrl.username || parsedUrl.password) {
+    opts.auth = `${parsedUrl.username}:${parsedUrl.password}`;
+  }
+
+  if (isIpcUrl) {
+    const parts = opts.path.split(':');
+
+    opts.socketPath = parts[0];
+    opts.path = parts[1];
+  }
+
+  let req;
+
+  if (opts.followRedirects) {
+    if (websocket._redirects === 0) {
+      websocket._originalIpc = isIpcUrl;
+      websocket._originalSecure = isSecure;
+      websocket._originalHostOrSocketPath = isIpcUrl
+        ? opts.socketPath
+        : parsedUrl.host;
+
+      const headers = options && options.headers;
+
+      //
+      // Shallow copy the user provided options so that headers can be changed
+      // without mutating the original object.
+      //
+      options = { ...options, headers: {} };
+
+      if (headers) {
+        for (const [key, value] of Object.entries(headers)) {
+          options.headers[key.toLowerCase()] = value;
+        }
+      }
+    } else if (websocket.listenerCount('redirect') === 0) {
+      const isSameHost = isIpcUrl
+        ? websocket._originalIpc
+          ? opts.socketPath === websocket._originalHostOrSocketPath
+          : false
+        : websocket._originalIpc
+        ? false
+        : parsedUrl.host === websocket._originalHostOrSocketPath;
+
+      if (!isSameHost || (websocket._originalSecure && !isSecure)) {
+        //
+        // Match curl 7.77.0 behavior and drop the following headers. These
+        // headers are also dropped when following a redirect to a subdomain.
+        //
+        delete opts.headers.authorization;
+        delete opts.headers.cookie;
+
+        if (!isSameHost) delete opts.headers.host;
+
+        opts.auth = undefined;
+      }
+    }
+
+    //
+    // Match curl 7.77.0 behavior and make the first `Authorization` header win.
+    // If the `Authorization` header is set, then there is nothing to do as it
+    // will take precedence.
+    //
+    if (opts.auth && !options.headers.authorization) {
+      options.headers.authorization =
+        'Basic ' + Buffer.from(opts.auth).toString('base64');
+    }
+
+    req = websocket._req = request(opts);
+
+    if (websocket._redirects) {
+      //
+      // Unlike what is done for the `'upgrade'` event, no early exit is
+      // triggered here if the user calls `websocket.close()` or
+      // `websocket.terminate()` from a listener of the `'redirect'` event. This
+      // is because the user can also call `request.destroy()` with an error
+      // before calling `websocket.close()` or `websocket.terminate()` and this
+      // would result in an error being emitted on the `request` object with no
+      // `'error'` event listeners attached.
+      //
+      websocket.emit('redirect', websocket.url, req);
+    }
+  } else {
+    req = websocket._req = request(opts);
+  }
+
+  if (opts.timeout) {
+    req.on('timeout', () => {
+      abortHandshake(websocket, req, 'Opening handshake has timed out');
+    });
+  }
+
+  req.on('error', (err) => {
+    if (req === null || req[kAborted]) return;
+
+    req = websocket._req = null;
+    emitErrorAndClose(websocket, err);
+  });
+
+  req.on('response', (res) => {
+    const location = res.headers.location;
+    const statusCode = res.statusCode;
+
+    if (
+      location &&
+      opts.followRedirects &&
+      statusCode >= 300 &&
+      statusCode < 400
+    ) {
+      if (++websocket._redirects > opts.maxRedirects) {
+        abortHandshake(websocket, req, 'Maximum redirects exceeded');
+        return;
+      }
+
+      req.abort();
+
+      let addr;
+
+      try {
+        addr = new URL(location, address);
+      } catch (e) {
+        const err = new SyntaxError(`Invalid URL: ${location}`);
+        emitErrorAndClose(websocket, err);
+        return;
+      }
+
+      initAsClient(websocket, addr, protocols, options);
+    } else if (!websocket.emit('unexpected-response', req, res)) {
+      abortHandshake(
+        websocket,
+        req,
+        `Unexpected server response: ${res.statusCode}`
+      );
+    }
+  });
+
+  req.on('upgrade', (res, socket, head) => {
+    websocket.emit('upgrade', res);
+
+    //
+    // The user may have closed the connection from a listener of the
+    // `'upgrade'` event.
+    //
+    if (websocket.readyState !== WebSocket.CONNECTING) return;
+
+    req = websocket._req = null;
+
+    if (res.headers.upgrade.toLowerCase() !== 'websocket') {
+      abortHandshake(websocket, socket, 'Invalid Upgrade header');
+      return;
+    }
+
+    const digest = createHash('sha1')
+      .update(key + GUID)
+      .digest('base64');
+
+    if (res.headers['sec-websocket-accept'] !== digest) {
+      abortHandshake(websocket, socket, 'Invalid Sec-WebSocket-Accept header');
+      return;
+    }
+
+    const serverProt = res.headers['sec-websocket-protocol'];
+    let protError;
+
+    if (serverProt !== undefined) {
+      if (!protocolSet.size) {
+        protError = 'Server sent a subprotocol but none was requested';
+      } else if (!protocolSet.has(serverProt)) {
+        protError = 'Server sent an invalid subprotocol';
+      }
+    } else if (protocolSet.size) {
+      protError = 'Server sent no subprotocol';
+    }
+
+    if (protError) {
+      abortHandshake(websocket, socket, protError);
+      return;
+    }
+
+    if (serverProt) websocket._protocol = serverProt;
+
+    const secWebSocketExtensions = res.headers['sec-websocket-extensions'];
+
+    if (secWebSocketExtensions !== undefined) {
+      if (!perMessageDeflate) {
+        const message =
+          'Server sent a Sec-WebSocket-Extensions header but no extension ' +
+          'was requested';
+        abortHandshake(websocket, socket, message);
+        return;
+      }
+
+      let extensions;
+
+      try {
+        extensions = parse(secWebSocketExtensions);
+      } catch (err) {
+        const message = 'Invalid Sec-WebSocket-Extensions header';
+        abortHandshake(websocket, socket, message);
+        return;
+      }
+
+      const extensionNames = Object.keys(extensions);
+
+      if (
+        extensionNames.length !== 1 ||
+        extensionNames[0] !== PerMessageDeflate.extensionName
+      ) {
+        const message = 'Server indicated an extension that was not requested';
+        abortHandshake(websocket, socket, message);
+        return;
+      }
+
+      try {
+        perMessageDeflate.accept(extensions[PerMessageDeflate.extensionName]);
+      } catch (err) {
+        const message = 'Invalid Sec-WebSocket-Extensions header';
+        abortHandshake(websocket, socket, message);
+        return;
+      }
+
+      websocket._extensions[PerMessageDeflate.extensionName] =
+        perMessageDeflate;
+    }
+
+    websocket.setSocket(socket, head, {
+      generateMask: opts.generateMask,
+      maxPayload: opts.maxPayload,
+      skipUTF8Validation: opts.skipUTF8Validation
+    });
+  });
+
+  req.end();
+}
+
+/**
+ * Emit the `'error'` and `'close'` events.
+ *
+ * @param {WebSocket} websocket The WebSocket instance
+ * @param {Error} The error to emit
+ * @private
+ */
+function emitErrorAndClose(websocket, err) {
+  websocket._readyState = WebSocket.CLOSING;
+  websocket.emit('error', err);
+  websocket.emitClose();
+}
+
+/**
+ * Create a `net.Socket` and initiate a connection.
+ *
+ * @param {Object} options Connection options
+ * @return {net.Socket} The newly created socket used to start the connection
+ * @private
+ */
+function netConnect(options) {
+  options.path = options.socketPath;
+  return net.connect(options);
+}
+
+/**
+ * Create a `tls.TLSSocket` and initiate a connection.
+ *
+ * @param {Object} options Connection options
+ * @return {tls.TLSSocket} The newly created socket used to start the connection
+ * @private
+ */
+function tlsConnect(options) {
+  options.path = undefined;
+
+  if (!options.servername && options.servername !== '') {
+    options.servername = net.isIP(options.host) ? '' : options.host;
+  }
+
+  return tls.connect(options);
+}
+
+/**
+ * Abort the handshake and emit an error.
+ *
+ * @param {WebSocket} websocket The WebSocket instance
+ * @param {(http.ClientRequest|net.Socket|tls.Socket)} stream The request to
+ *     abort or the socket to destroy
+ * @param {String} message The error message
+ * @private
+ */
+function abortHandshake(websocket, stream, message) {
+  websocket._readyState = WebSocket.CLOSING;
+
+  const err = new Error(message);
+  Error.captureStackTrace(err, abortHandshake);
+
+  if (stream.setHeader) {
+    stream[kAborted] = true;
+    stream.abort();
+
+    if (stream.socket && !stream.socket.destroyed) {
+      //
+      // On Node.js >= 14.3.0 `request.abort()` does not destroy the socket if
+      // called after the request completed. See
+      // https://github.com/websockets/ws/issues/1869.
+      //
+      stream.socket.destroy();
+    }
+
+    process.nextTick(emitErrorAndClose, websocket, err);
+  } else {
+    stream.destroy(err);
+    stream.once('error', websocket.emit.bind(websocket, 'error'));
+    stream.once('close', websocket.emitClose.bind(websocket));
+  }
+}
+
+/**
+ * Handle cases where the `ping()`, `pong()`, or `send()` methods are called
+ * when the `readyState` attribute is `CLOSING` or `CLOSED`.
+ *
+ * @param {WebSocket} websocket The WebSocket instance
+ * @param {*} [data] The data to send
+ * @param {Function} [cb] Callback
+ * @private
+ */
+function sendAfterClose(websocket, data, cb) {
+  if (data) {
+    const length = toBuffer(data).length;
+
+    //
+    // The `_bufferedAmount` property is used only when the peer is a client and
+    // the opening handshake fails. Under these circumstances, in fact, the
+    // `setSocket()` method is not called, so the `_socket` and `_sender`
+    // properties are set to `null`.
+    //
+    if (websocket._socket) websocket._sender._bufferedBytes += length;
+    else websocket._bufferedAmount += length;
+  }
+
+  if (cb) {
+    const err = new Error(
+      `WebSocket is not open: readyState ${websocket.readyState} ` +
+        `(${readyStates[websocket.readyState]})`
+    );
+    cb(err);
+  }
+}
+
+/**
+ * The listener of the `Receiver` `'conclude'` event.
+ *
+ * @param {Number} code The status code
+ * @param {Buffer} reason The reason for closing
+ * @private
+ */
+function receiverOnConclude(code, reason) {
+  const websocket = this[kWebSocket];
+
+  websocket._closeFrameReceived = true;
+  websocket._closeMessage = reason;
+  websocket._closeCode = code;
+
+  if (websocket._socket[kWebSocket] === undefined) return;
+
+  websocket._socket.removeListener('data', socketOnData);
+  process.nextTick(resume, websocket._socket);
+
+  if (code === 1005) websocket.close();
+  else websocket.close(code, reason);
+}
+
+/**
+ * The listener of the `Receiver` `'drain'` event.
+ *
+ * @private
+ */
+function receiverOnDrain() {
+  const websocket = this[kWebSocket];
+
+  if (!websocket.isPaused) websocket._socket.resume();
+}
+
+/**
+ * The listener of the `Receiver` `'error'` event.
+ *
+ * @param {(RangeError|Error)} err The emitted error
+ * @private
+ */
+function receiverOnError(err) {
+  const websocket = this[kWebSocket];
+
+  if (websocket._socket[kWebSocket] !== undefined) {
+    websocket._socket.removeListener('data', socketOnData);
+
+    //
+    // On Node.js < 14.0.0 the `'error'` event is emitted synchronously. See
+    // https://github.com/websockets/ws/issues/1940.
+    //
+    process.nextTick(resume, websocket._socket);
+
+    websocket.close(err[kStatusCode]);
+  }
+
+  websocket.emit('error', err);
+}
+
+/**
+ * The listener of the `Receiver` `'finish'` event.
+ *
+ * @private
+ */
+function receiverOnFinish() {
+  this[kWebSocket].emitClose();
+}
+
+/**
+ * The listener of the `Receiver` `'message'` event.
+ *
+ * @param {Buffer|ArrayBuffer|Buffer[])} data The message
+ * @param {Boolean} isBinary Specifies whether the message is binary or not
+ * @private
+ */
+function receiverOnMessage(data, isBinary) {
+  this[kWebSocket].emit('message', data, isBinary);
+}
+
+/**
+ * The listener of the `Receiver` `'ping'` event.
+ *
+ * @param {Buffer} data The data included in the ping frame
+ * @private
+ */
+function receiverOnPing(data) {
+  const websocket = this[kWebSocket];
+
+  websocket.pong(data, !websocket._isServer, NOOP);
+  websocket.emit('ping', data);
+}
+
+/**
+ * The listener of the `Receiver` `'pong'` event.
+ *
+ * @param {Buffer} data The data included in the pong frame
+ * @private
+ */
+function receiverOnPong(data) {
+  this[kWebSocket].emit('pong', data);
+}
+
+/**
+ * Resume a readable stream
+ *
+ * @param {Readable} stream The readable stream
+ * @private
+ */
+function resume(stream) {
+  stream.resume();
+}
+
+/**
+ * The listener of the `net.Socket` `'close'` event.
+ *
+ * @private
+ */
+function socketOnClose() {
+  const websocket = this[kWebSocket];
+
+  this.removeListener('close', socketOnClose);
+  this.removeListener('data', socketOnData);
+  this.removeListener('end', socketOnEnd);
+
+  websocket._readyState = WebSocket.CLOSING;
+
+  let chunk;
+
+  //
+  // The close frame might not have been received or the `'end'` event emitted,
+  // for example, if the socket was destroyed due to an error. Ensure that the
+  // `receiver` stream is closed after writing any remaining buffered data to
+  // it. If the readable side of the socket is in flowing mode then there is no
+  // buffered data as everything has been already written and `readable.read()`
+  // will return `null`. If instead, the socket is paused, any possible buffered
+  // data will be read as a single chunk.
+  //
+  if (
+    !this._readableState.endEmitted &&
+    !websocket._closeFrameReceived &&
+    !websocket._receiver._writableState.errorEmitted &&
+    (chunk = websocket._socket.read()) !== null
+  ) {
+    websocket._receiver.write(chunk);
+  }
+
+  websocket._receiver.end();
+
+  this[kWebSocket] = undefined;
+
+  clearTimeout(websocket._closeTimer);
+
+  if (
+    websocket._receiver._writableState.finished ||
+    websocket._receiver._writableState.errorEmitted
+  ) {
+    websocket.emitClose();
+  } else {
+    websocket._receiver.on('error', receiverOnFinish);
+    websocket._receiver.on('finish', receiverOnFinish);
+  }
+}
+
+/**
+ * The listener of the `net.Socket` `'data'` event.
+ *
+ * @param {Buffer} chunk A chunk of data
+ * @private
+ */
+function socketOnData(chunk) {
+  if (!this[kWebSocket]._receiver.write(chunk)) {
+    this.pause();
+  }
+}
+
+/**
+ * The listener of the `net.Socket` `'end'` event.
+ *
+ * @private
+ */
+function socketOnEnd() {
+  const websocket = this[kWebSocket];
+
+  websocket._readyState = WebSocket.CLOSING;
+  websocket._receiver.end();
+  this.end();
+}
+
+/**
+ * The listener of the `net.Socket` `'error'` event.
+ *
+ * @private
+ */
+function socketOnError() {
+  const websocket = this[kWebSocket];
+
+  this.removeListener('error', socketOnError);
+  this.on('error', NOOP);
+
+  if (websocket) {
+    websocket._readyState = WebSocket.CLOSING;
+    this.destroy();
+  }
+}
 
 
 /***/ }),
@@ -41356,7 +50765,17 @@ try {
 "use strict";
 
 
-const preserveCamelCase = string => {
+const UPPERCASE = /[\p{Lu}]/u;
+const LOWERCASE = /[\p{Ll}]/u;
+const LEADING_CAPITAL = /^[\p{Lu}](?![\p{Lu}])/gu;
+const IDENTIFIER = /([\p{Alpha}\p{N}_]|$)/u;
+const SEPARATORS = /[_.\- ]+/;
+
+const LEADING_SEPARATORS = new RegExp('^' + SEPARATORS.source);
+const SEPARATORS_AND_IDENTIFIER = new RegExp(SEPARATORS.source + IDENTIFIER.source, 'gu');
+const NUMBERS_AND_IDENTIFIER = new RegExp('\\d+' + IDENTIFIER.source, 'gu');
+
+const preserveCamelCase = (string, toLowerCase, toUpperCase) => {
 	let isLastCharLower = false;
 	let isLastCharUpper = false;
 	let isLastLastCharUpper = false;
@@ -41364,25 +50783,39 @@ const preserveCamelCase = string => {
 	for (let i = 0; i < string.length; i++) {
 		const character = string[i];
 
-		if (isLastCharLower && /[a-zA-Z]/.test(character) && character.toUpperCase() === character) {
+		if (isLastCharLower && UPPERCASE.test(character)) {
 			string = string.slice(0, i) + '-' + string.slice(i);
 			isLastCharLower = false;
 			isLastLastCharUpper = isLastCharUpper;
 			isLastCharUpper = true;
 			i++;
-		} else if (isLastCharUpper && isLastLastCharUpper && /[a-zA-Z]/.test(character) && character.toLowerCase() === character) {
+		} else if (isLastCharUpper && isLastLastCharUpper && LOWERCASE.test(character)) {
 			string = string.slice(0, i - 1) + '-' + string.slice(i - 1);
 			isLastLastCharUpper = isLastCharUpper;
 			isLastCharUpper = false;
 			isLastCharLower = true;
 		} else {
-			isLastCharLower = character.toLowerCase() === character && character.toUpperCase() !== character;
+			isLastCharLower = toLowerCase(character) === character && toUpperCase(character) !== character;
 			isLastLastCharUpper = isLastCharUpper;
-			isLastCharUpper = character.toUpperCase() === character && character.toLowerCase() !== character;
+			isLastCharUpper = toUpperCase(character) === character && toLowerCase(character) !== character;
 		}
 	}
 
 	return string;
+};
+
+const preserveConsecutiveUppercase = (input, toLowerCase) => {
+	LEADING_CAPITAL.lastIndex = 0;
+
+	return input.replace(LEADING_CAPITAL, m1 => toLowerCase(m1));
+};
+
+const postProcess = (input, toUpperCase) => {
+	SEPARATORS_AND_IDENTIFIER.lastIndex = 0;
+	NUMBERS_AND_IDENTIFIER.lastIndex = 0;
+
+	return input.replace(SEPARATORS_AND_IDENTIFIER, (_, identifier) => toUpperCase(identifier))
+		.replace(NUMBERS_AND_IDENTIFIER, m => toUpperCase(m));
 };
 
 const camelCase = (input, options) => {
@@ -41390,11 +50823,11 @@ const camelCase = (input, options) => {
 		throw new TypeError('Expected the input to be `string | string[]`');
 	}
 
-	options = Object.assign({
-		pascalCase: false
-	}, options);
-
-	const postProcess = x => options.pascalCase ? x.charAt(0).toUpperCase() + x.slice(1) : x;
+	options = {
+		pascalCase: false,
+		preserveConsecutiveUppercase: false,
+		...options
+	};
 
 	if (Array.isArray(input)) {
 		input = input.map(x => x.trim())
@@ -41408,23 +50841,36 @@ const camelCase = (input, options) => {
 		return '';
 	}
 
+	const toLowerCase = options.locale === false ?
+		string => string.toLowerCase() :
+		string => string.toLocaleLowerCase(options.locale);
+	const toUpperCase = options.locale === false ?
+		string => string.toUpperCase() :
+		string => string.toLocaleUpperCase(options.locale);
+
 	if (input.length === 1) {
-		return options.pascalCase ? input.toUpperCase() : input.toLowerCase();
+		return options.pascalCase ? toUpperCase(input) : toLowerCase(input);
 	}
 
-	const hasUpperCase = input !== input.toLowerCase();
+	const hasUpperCase = input !== toLowerCase(input);
 
 	if (hasUpperCase) {
-		input = preserveCamelCase(input);
+		input = preserveCamelCase(input, toLowerCase, toUpperCase);
 	}
 
-	input = input
-		.replace(/^[_.\- ]+/, '')
-		.toLowerCase()
-		.replace(/[_.\- ]+(\w|$)/g, (_, p1) => p1.toUpperCase())
-		.replace(/\d+(\w|$)/g, m => m.toUpperCase());
+	input = input.replace(LEADING_SEPARATORS, '');
 
-	return postProcess(input);
+	if (options.preserveConsecutiveUppercase) {
+		input = preserveConsecutiveUppercase(input, toLowerCase);
+	} else {
+		input = toLowerCase(input);
+	}
+
+	if (options.pascalCase) {
+		input = toUpperCase(input.charAt(0)) + input.slice(1);
+	}
+
+	return postProcess(input, toUpperCase);
 };
 
 module.exports = camelCase;
@@ -52367,7 +61813,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var Stream = _interopDefault(__nccwpck_require__(2413));
 var http = _interopDefault(__nccwpck_require__(8605));
 var Url = _interopDefault(__nccwpck_require__(8835));
-var whatwgUrl = _interopDefault(__nccwpck_require__(3323));
+var whatwgUrl = _interopDefault(__nccwpck_require__(8665));
 var https = _interopDefault(__nccwpck_require__(7211));
 var zlib = _interopDefault(__nccwpck_require__(8761));
 
@@ -54055,2168 +63501,6 @@ exports.Headers = Headers;
 exports.Request = Request;
 exports.Response = Response;
 exports.FetchError = FetchError;
-
-
-/***/ }),
-
-/***/ 2299:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-var punycode = __nccwpck_require__(4213);
-var mappingTable = __nccwpck_require__(8661);
-
-var PROCESSING_OPTIONS = {
-  TRANSITIONAL: 0,
-  NONTRANSITIONAL: 1
-};
-
-function normalize(str) { // fix bug in v8
-  return str.split('\u0000').map(function (s) { return s.normalize('NFC'); }).join('\u0000');
-}
-
-function findStatus(val) {
-  var start = 0;
-  var end = mappingTable.length - 1;
-
-  while (start <= end) {
-    var mid = Math.floor((start + end) / 2);
-
-    var target = mappingTable[mid];
-    if (target[0][0] <= val && target[0][1] >= val) {
-      return target;
-    } else if (target[0][0] > val) {
-      end = mid - 1;
-    } else {
-      start = mid + 1;
-    }
-  }
-
-  return null;
-}
-
-var regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
-
-function countSymbols(string) {
-  return string
-    // replace every surrogate pair with a BMP symbol
-    .replace(regexAstralSymbols, '_')
-    // then get the length
-    .length;
-}
-
-function mapChars(domain_name, useSTD3, processing_option) {
-  var hasError = false;
-  var processed = "";
-
-  var len = countSymbols(domain_name);
-  for (var i = 0; i < len; ++i) {
-    var codePoint = domain_name.codePointAt(i);
-    var status = findStatus(codePoint);
-
-    switch (status[1]) {
-      case "disallowed":
-        hasError = true;
-        processed += String.fromCodePoint(codePoint);
-        break;
-      case "ignored":
-        break;
-      case "mapped":
-        processed += String.fromCodePoint.apply(String, status[2]);
-        break;
-      case "deviation":
-        if (processing_option === PROCESSING_OPTIONS.TRANSITIONAL) {
-          processed += String.fromCodePoint.apply(String, status[2]);
-        } else {
-          processed += String.fromCodePoint(codePoint);
-        }
-        break;
-      case "valid":
-        processed += String.fromCodePoint(codePoint);
-        break;
-      case "disallowed_STD3_mapped":
-        if (useSTD3) {
-          hasError = true;
-          processed += String.fromCodePoint(codePoint);
-        } else {
-          processed += String.fromCodePoint.apply(String, status[2]);
-        }
-        break;
-      case "disallowed_STD3_valid":
-        if (useSTD3) {
-          hasError = true;
-        }
-
-        processed += String.fromCodePoint(codePoint);
-        break;
-    }
-  }
-
-  return {
-    string: processed,
-    error: hasError
-  };
-}
-
-var combiningMarksRegex = /[\u0300-\u036F\u0483-\u0489\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\u0711\u0730-\u074A\u07A6-\u07B0\u07EB-\u07F3\u0816-\u0819\u081B-\u0823\u0825-\u0827\u0829-\u082D\u0859-\u085B\u08E4-\u0903\u093A-\u093C\u093E-\u094F\u0951-\u0957\u0962\u0963\u0981-\u0983\u09BC\u09BE-\u09C4\u09C7\u09C8\u09CB-\u09CD\u09D7\u09E2\u09E3\u0A01-\u0A03\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A70\u0A71\u0A75\u0A81-\u0A83\u0ABC\u0ABE-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AE2\u0AE3\u0B01-\u0B03\u0B3C\u0B3E-\u0B44\u0B47\u0B48\u0B4B-\u0B4D\u0B56\u0B57\u0B62\u0B63\u0B82\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD7\u0C00-\u0C03\u0C3E-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C62\u0C63\u0C81-\u0C83\u0CBC\u0CBE-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CE2\u0CE3\u0D01-\u0D03\u0D3E-\u0D44\u0D46-\u0D48\u0D4A-\u0D4D\u0D57\u0D62\u0D63\u0D82\u0D83\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DF2\u0DF3\u0E31\u0E34-\u0E3A\u0E47-\u0E4E\u0EB1\u0EB4-\u0EB9\u0EBB\u0EBC\u0EC8-\u0ECD\u0F18\u0F19\u0F35\u0F37\u0F39\u0F3E\u0F3F\u0F71-\u0F84\u0F86\u0F87\u0F8D-\u0F97\u0F99-\u0FBC\u0FC6\u102B-\u103E\u1056-\u1059\u105E-\u1060\u1062-\u1064\u1067-\u106D\u1071-\u1074\u1082-\u108D\u108F\u109A-\u109D\u135D-\u135F\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17B4-\u17D3\u17DD\u180B-\u180D\u18A9\u1920-\u192B\u1930-\u193B\u19B0-\u19C0\u19C8\u19C9\u1A17-\u1A1B\u1A55-\u1A5E\u1A60-\u1A7C\u1A7F\u1AB0-\u1ABE\u1B00-\u1B04\u1B34-\u1B44\u1B6B-\u1B73\u1B80-\u1B82\u1BA1-\u1BAD\u1BE6-\u1BF3\u1C24-\u1C37\u1CD0-\u1CD2\u1CD4-\u1CE8\u1CED\u1CF2-\u1CF4\u1CF8\u1CF9\u1DC0-\u1DF5\u1DFC-\u1DFF\u20D0-\u20F0\u2CEF-\u2CF1\u2D7F\u2DE0-\u2DFF\u302A-\u302F\u3099\u309A\uA66F-\uA672\uA674-\uA67D\uA69F\uA6F0\uA6F1\uA802\uA806\uA80B\uA823-\uA827\uA880\uA881\uA8B4-\uA8C4\uA8E0-\uA8F1\uA926-\uA92D\uA947-\uA953\uA980-\uA983\uA9B3-\uA9C0\uA9E5\uAA29-\uAA36\uAA43\uAA4C\uAA4D\uAA7B-\uAA7D\uAAB0\uAAB2-\uAAB4\uAAB7\uAAB8\uAABE\uAABF\uAAC1\uAAEB-\uAAEF\uAAF5\uAAF6\uABE3-\uABEA\uABEC\uABED\uFB1E\uFE00-\uFE0F\uFE20-\uFE2D]|\uD800[\uDDFD\uDEE0\uDF76-\uDF7A]|\uD802[\uDE01-\uDE03\uDE05\uDE06\uDE0C-\uDE0F\uDE38-\uDE3A\uDE3F\uDEE5\uDEE6]|\uD804[\uDC00-\uDC02\uDC38-\uDC46\uDC7F-\uDC82\uDCB0-\uDCBA\uDD00-\uDD02\uDD27-\uDD34\uDD73\uDD80-\uDD82\uDDB3-\uDDC0\uDE2C-\uDE37\uDEDF-\uDEEA\uDF01-\uDF03\uDF3C\uDF3E-\uDF44\uDF47\uDF48\uDF4B-\uDF4D\uDF57\uDF62\uDF63\uDF66-\uDF6C\uDF70-\uDF74]|\uD805[\uDCB0-\uDCC3\uDDAF-\uDDB5\uDDB8-\uDDC0\uDE30-\uDE40\uDEAB-\uDEB7]|\uD81A[\uDEF0-\uDEF4\uDF30-\uDF36]|\uD81B[\uDF51-\uDF7E\uDF8F-\uDF92]|\uD82F[\uDC9D\uDC9E]|\uD834[\uDD65-\uDD69\uDD6D-\uDD72\uDD7B-\uDD82\uDD85-\uDD8B\uDDAA-\uDDAD\uDE42-\uDE44]|\uD83A[\uDCD0-\uDCD6]|\uDB40[\uDD00-\uDDEF]/;
-
-function validateLabel(label, processing_option) {
-  if (label.substr(0, 4) === "xn--") {
-    label = punycode.toUnicode(label);
-    processing_option = PROCESSING_OPTIONS.NONTRANSITIONAL;
-  }
-
-  var error = false;
-
-  if (normalize(label) !== label ||
-      (label[3] === "-" && label[4] === "-") ||
-      label[0] === "-" || label[label.length - 1] === "-" ||
-      label.indexOf(".") !== -1 ||
-      label.search(combiningMarksRegex) === 0) {
-    error = true;
-  }
-
-  var len = countSymbols(label);
-  for (var i = 0; i < len; ++i) {
-    var status = findStatus(label.codePointAt(i));
-    if ((processing === PROCESSING_OPTIONS.TRANSITIONAL && status[1] !== "valid") ||
-        (processing === PROCESSING_OPTIONS.NONTRANSITIONAL &&
-         status[1] !== "valid" && status[1] !== "deviation")) {
-      error = true;
-      break;
-    }
-  }
-
-  return {
-    label: label,
-    error: error
-  };
-}
-
-function processing(domain_name, useSTD3, processing_option) {
-  var result = mapChars(domain_name, useSTD3, processing_option);
-  result.string = normalize(result.string);
-
-  var labels = result.string.split(".");
-  for (var i = 0; i < labels.length; ++i) {
-    try {
-      var validation = validateLabel(labels[i]);
-      labels[i] = validation.label;
-      result.error = result.error || validation.error;
-    } catch(e) {
-      result.error = true;
-    }
-  }
-
-  return {
-    string: labels.join("."),
-    error: result.error
-  };
-}
-
-module.exports.toASCII = function(domain_name, useSTD3, processing_option, verifyDnsLength) {
-  var result = processing(domain_name, useSTD3, processing_option);
-  var labels = result.string.split(".");
-  labels = labels.map(function(l) {
-    try {
-      return punycode.toASCII(l);
-    } catch(e) {
-      result.error = true;
-      return l;
-    }
-  });
-
-  if (verifyDnsLength) {
-    var total = labels.slice(0, labels.length - 1).join(".").length;
-    if (total.length > 253 || total.length === 0) {
-      result.error = true;
-    }
-
-    for (var i=0; i < labels.length; ++i) {
-      if (labels.length > 63 || labels.length === 0) {
-        result.error = true;
-        break;
-      }
-    }
-  }
-
-  if (result.error) return null;
-  return labels.join(".");
-};
-
-module.exports.toUnicode = function(domain_name, useSTD3) {
-  var result = processing(domain_name, useSTD3, PROCESSING_OPTIONS.NONTRANSITIONAL);
-
-  return {
-    domain: result.string,
-    error: result.error
-  };
-};
-
-module.exports.PROCESSING_OPTIONS = PROCESSING_OPTIONS;
-
-
-/***/ }),
-
-/***/ 5871:
-/***/ ((module) => {
-
-"use strict";
-
-
-var conversions = {};
-module.exports = conversions;
-
-function sign(x) {
-    return x < 0 ? -1 : 1;
-}
-
-function evenRound(x) {
-    // Round x to the nearest integer, choosing the even integer if it lies halfway between two.
-    if ((x % 1) === 0.5 && (x & 1) === 0) { // [even number].5; round down (i.e. floor)
-        return Math.floor(x);
-    } else {
-        return Math.round(x);
-    }
-}
-
-function createNumberConversion(bitLength, typeOpts) {
-    if (!typeOpts.unsigned) {
-        --bitLength;
-    }
-    const lowerBound = typeOpts.unsigned ? 0 : -Math.pow(2, bitLength);
-    const upperBound = Math.pow(2, bitLength) - 1;
-
-    const moduloVal = typeOpts.moduloBitLength ? Math.pow(2, typeOpts.moduloBitLength) : Math.pow(2, bitLength);
-    const moduloBound = typeOpts.moduloBitLength ? Math.pow(2, typeOpts.moduloBitLength - 1) : Math.pow(2, bitLength - 1);
-
-    return function(V, opts) {
-        if (!opts) opts = {};
-
-        let x = +V;
-
-        if (opts.enforceRange) {
-            if (!Number.isFinite(x)) {
-                throw new TypeError("Argument is not a finite number");
-            }
-
-            x = sign(x) * Math.floor(Math.abs(x));
-            if (x < lowerBound || x > upperBound) {
-                throw new TypeError("Argument is not in byte range");
-            }
-
-            return x;
-        }
-
-        if (!isNaN(x) && opts.clamp) {
-            x = evenRound(x);
-
-            if (x < lowerBound) x = lowerBound;
-            if (x > upperBound) x = upperBound;
-            return x;
-        }
-
-        if (!Number.isFinite(x) || x === 0) {
-            return 0;
-        }
-
-        x = sign(x) * Math.floor(Math.abs(x));
-        x = x % moduloVal;
-
-        if (!typeOpts.unsigned && x >= moduloBound) {
-            return x - moduloVal;
-        } else if (typeOpts.unsigned) {
-            if (x < 0) {
-              x += moduloVal;
-            } else if (x === -0) { // don't return negative zero
-              return 0;
-            }
-        }
-
-        return x;
-    }
-}
-
-conversions["void"] = function () {
-    return undefined;
-};
-
-conversions["boolean"] = function (val) {
-    return !!val;
-};
-
-conversions["byte"] = createNumberConversion(8, { unsigned: false });
-conversions["octet"] = createNumberConversion(8, { unsigned: true });
-
-conversions["short"] = createNumberConversion(16, { unsigned: false });
-conversions["unsigned short"] = createNumberConversion(16, { unsigned: true });
-
-conversions["long"] = createNumberConversion(32, { unsigned: false });
-conversions["unsigned long"] = createNumberConversion(32, { unsigned: true });
-
-conversions["long long"] = createNumberConversion(32, { unsigned: false, moduloBitLength: 64 });
-conversions["unsigned long long"] = createNumberConversion(32, { unsigned: true, moduloBitLength: 64 });
-
-conversions["double"] = function (V) {
-    const x = +V;
-
-    if (!Number.isFinite(x)) {
-        throw new TypeError("Argument is not a finite floating-point value");
-    }
-
-    return x;
-};
-
-conversions["unrestricted double"] = function (V) {
-    const x = +V;
-
-    if (isNaN(x)) {
-        throw new TypeError("Argument is NaN");
-    }
-
-    return x;
-};
-
-// not quite valid, but good enough for JS
-conversions["float"] = conversions["double"];
-conversions["unrestricted float"] = conversions["unrestricted double"];
-
-conversions["DOMString"] = function (V, opts) {
-    if (!opts) opts = {};
-
-    if (opts.treatNullAsEmptyString && V === null) {
-        return "";
-    }
-
-    return String(V);
-};
-
-conversions["ByteString"] = function (V, opts) {
-    const x = String(V);
-    let c = undefined;
-    for (let i = 0; (c = x.codePointAt(i)) !== undefined; ++i) {
-        if (c > 255) {
-            throw new TypeError("Argument is not a valid bytestring");
-        }
-    }
-
-    return x;
-};
-
-conversions["USVString"] = function (V) {
-    const S = String(V);
-    const n = S.length;
-    const U = [];
-    for (let i = 0; i < n; ++i) {
-        const c = S.charCodeAt(i);
-        if (c < 0xD800 || c > 0xDFFF) {
-            U.push(String.fromCodePoint(c));
-        } else if (0xDC00 <= c && c <= 0xDFFF) {
-            U.push(String.fromCodePoint(0xFFFD));
-        } else {
-            if (i === n - 1) {
-                U.push(String.fromCodePoint(0xFFFD));
-            } else {
-                const d = S.charCodeAt(i + 1);
-                if (0xDC00 <= d && d <= 0xDFFF) {
-                    const a = c & 0x3FF;
-                    const b = d & 0x3FF;
-                    U.push(String.fromCodePoint((2 << 15) + (2 << 9) * a + b));
-                    ++i;
-                } else {
-                    U.push(String.fromCodePoint(0xFFFD));
-                }
-            }
-        }
-    }
-
-    return U.join('');
-};
-
-conversions["Date"] = function (V, opts) {
-    if (!(V instanceof Date)) {
-        throw new TypeError("Argument is not a Date object");
-    }
-    if (isNaN(V)) {
-        return undefined;
-    }
-
-    return V;
-};
-
-conversions["RegExp"] = function (V, opts) {
-    if (!(V instanceof RegExp)) {
-        V = new RegExp(V);
-    }
-
-    return V;
-};
-
-
-/***/ }),
-
-/***/ 8262:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-const usm = __nccwpck_require__(33);
-
-exports.implementation = class URLImpl {
-  constructor(constructorArgs) {
-    const url = constructorArgs[0];
-    const base = constructorArgs[1];
-
-    let parsedBase = null;
-    if (base !== undefined) {
-      parsedBase = usm.basicURLParse(base);
-      if (parsedBase === "failure") {
-        throw new TypeError("Invalid base URL");
-      }
-    }
-
-    const parsedURL = usm.basicURLParse(url, { baseURL: parsedBase });
-    if (parsedURL === "failure") {
-      throw new TypeError("Invalid URL");
-    }
-
-    this._url = parsedURL;
-
-    // TODO: query stuff
-  }
-
-  get href() {
-    return usm.serializeURL(this._url);
-  }
-
-  set href(v) {
-    const parsedURL = usm.basicURLParse(v);
-    if (parsedURL === "failure") {
-      throw new TypeError("Invalid URL");
-    }
-
-    this._url = parsedURL;
-  }
-
-  get origin() {
-    return usm.serializeURLOrigin(this._url);
-  }
-
-  get protocol() {
-    return this._url.scheme + ":";
-  }
-
-  set protocol(v) {
-    usm.basicURLParse(v + ":", { url: this._url, stateOverride: "scheme start" });
-  }
-
-  get username() {
-    return this._url.username;
-  }
-
-  set username(v) {
-    if (usm.cannotHaveAUsernamePasswordPort(this._url)) {
-      return;
-    }
-
-    usm.setTheUsername(this._url, v);
-  }
-
-  get password() {
-    return this._url.password;
-  }
-
-  set password(v) {
-    if (usm.cannotHaveAUsernamePasswordPort(this._url)) {
-      return;
-    }
-
-    usm.setThePassword(this._url, v);
-  }
-
-  get host() {
-    const url = this._url;
-
-    if (url.host === null) {
-      return "";
-    }
-
-    if (url.port === null) {
-      return usm.serializeHost(url.host);
-    }
-
-    return usm.serializeHost(url.host) + ":" + usm.serializeInteger(url.port);
-  }
-
-  set host(v) {
-    if (this._url.cannotBeABaseURL) {
-      return;
-    }
-
-    usm.basicURLParse(v, { url: this._url, stateOverride: "host" });
-  }
-
-  get hostname() {
-    if (this._url.host === null) {
-      return "";
-    }
-
-    return usm.serializeHost(this._url.host);
-  }
-
-  set hostname(v) {
-    if (this._url.cannotBeABaseURL) {
-      return;
-    }
-
-    usm.basicURLParse(v, { url: this._url, stateOverride: "hostname" });
-  }
-
-  get port() {
-    if (this._url.port === null) {
-      return "";
-    }
-
-    return usm.serializeInteger(this._url.port);
-  }
-
-  set port(v) {
-    if (usm.cannotHaveAUsernamePasswordPort(this._url)) {
-      return;
-    }
-
-    if (v === "") {
-      this._url.port = null;
-    } else {
-      usm.basicURLParse(v, { url: this._url, stateOverride: "port" });
-    }
-  }
-
-  get pathname() {
-    if (this._url.cannotBeABaseURL) {
-      return this._url.path[0];
-    }
-
-    if (this._url.path.length === 0) {
-      return "";
-    }
-
-    return "/" + this._url.path.join("/");
-  }
-
-  set pathname(v) {
-    if (this._url.cannotBeABaseURL) {
-      return;
-    }
-
-    this._url.path = [];
-    usm.basicURLParse(v, { url: this._url, stateOverride: "path start" });
-  }
-
-  get search() {
-    if (this._url.query === null || this._url.query === "") {
-      return "";
-    }
-
-    return "?" + this._url.query;
-  }
-
-  set search(v) {
-    // TODO: query stuff
-
-    const url = this._url;
-
-    if (v === "") {
-      url.query = null;
-      return;
-    }
-
-    const input = v[0] === "?" ? v.substring(1) : v;
-    url.query = "";
-    usm.basicURLParse(input, { url, stateOverride: "query" });
-  }
-
-  get hash() {
-    if (this._url.fragment === null || this._url.fragment === "") {
-      return "";
-    }
-
-    return "#" + this._url.fragment;
-  }
-
-  set hash(v) {
-    if (v === "") {
-      this._url.fragment = null;
-      return;
-    }
-
-    const input = v[0] === "#" ? v.substring(1) : v;
-    this._url.fragment = "";
-    usm.basicURLParse(input, { url: this._url, stateOverride: "fragment" });
-  }
-
-  toJSON() {
-    return this.href;
-  }
-};
-
-
-/***/ }),
-
-/***/ 653:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-const conversions = __nccwpck_require__(5871);
-const utils = __nccwpck_require__(276);
-const Impl = __nccwpck_require__(8262);
-
-const impl = utils.implSymbol;
-
-function URL(url) {
-  if (!this || this[impl] || !(this instanceof URL)) {
-    throw new TypeError("Failed to construct 'URL': Please use the 'new' operator, this DOM object constructor cannot be called as a function.");
-  }
-  if (arguments.length < 1) {
-    throw new TypeError("Failed to construct 'URL': 1 argument required, but only " + arguments.length + " present.");
-  }
-  const args = [];
-  for (let i = 0; i < arguments.length && i < 2; ++i) {
-    args[i] = arguments[i];
-  }
-  args[0] = conversions["USVString"](args[0]);
-  if (args[1] !== undefined) {
-  args[1] = conversions["USVString"](args[1]);
-  }
-
-  module.exports.setup(this, args);
-}
-
-URL.prototype.toJSON = function toJSON() {
-  if (!this || !module.exports.is(this)) {
-    throw new TypeError("Illegal invocation");
-  }
-  const args = [];
-  for (let i = 0; i < arguments.length && i < 0; ++i) {
-    args[i] = arguments[i];
-  }
-  return this[impl].toJSON.apply(this[impl], args);
-};
-Object.defineProperty(URL.prototype, "href", {
-  get() {
-    return this[impl].href;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].href = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-URL.prototype.toString = function () {
-  if (!this || !module.exports.is(this)) {
-    throw new TypeError("Illegal invocation");
-  }
-  return this.href;
-};
-
-Object.defineProperty(URL.prototype, "origin", {
-  get() {
-    return this[impl].origin;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "protocol", {
-  get() {
-    return this[impl].protocol;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].protocol = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "username", {
-  get() {
-    return this[impl].username;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].username = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "password", {
-  get() {
-    return this[impl].password;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].password = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "host", {
-  get() {
-    return this[impl].host;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].host = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "hostname", {
-  get() {
-    return this[impl].hostname;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].hostname = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "port", {
-  get() {
-    return this[impl].port;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].port = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "pathname", {
-  get() {
-    return this[impl].pathname;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].pathname = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "search", {
-  get() {
-    return this[impl].search;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].search = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-Object.defineProperty(URL.prototype, "hash", {
-  get() {
-    return this[impl].hash;
-  },
-  set(V) {
-    V = conversions["USVString"](V);
-    this[impl].hash = V;
-  },
-  enumerable: true,
-  configurable: true
-});
-
-
-module.exports = {
-  is(obj) {
-    return !!obj && obj[impl] instanceof Impl.implementation;
-  },
-  create(constructorArgs, privateData) {
-    let obj = Object.create(URL.prototype);
-    this.setup(obj, constructorArgs, privateData);
-    return obj;
-  },
-  setup(obj, constructorArgs, privateData) {
-    if (!privateData) privateData = {};
-    privateData.wrapper = obj;
-
-    obj[impl] = new Impl.implementation(constructorArgs, privateData);
-    obj[impl][utils.wrapperSymbol] = obj;
-  },
-  interface: URL,
-  expose: {
-    Window: { URL: URL },
-    Worker: { URL: URL }
-  }
-};
-
-
-
-/***/ }),
-
-/***/ 3323:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
-
-"use strict";
-
-
-exports.URL = __nccwpck_require__(653).interface;
-exports.serializeURL = __nccwpck_require__(33).serializeURL;
-exports.serializeURLOrigin = __nccwpck_require__(33).serializeURLOrigin;
-exports.basicURLParse = __nccwpck_require__(33).basicURLParse;
-exports.setTheUsername = __nccwpck_require__(33).setTheUsername;
-exports.setThePassword = __nccwpck_require__(33).setThePassword;
-exports.serializeHost = __nccwpck_require__(33).serializeHost;
-exports.serializeInteger = __nccwpck_require__(33).serializeInteger;
-exports.parseURL = __nccwpck_require__(33).parseURL;
-
-
-/***/ }),
-
-/***/ 33:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-"use strict";
-
-const punycode = __nccwpck_require__(4213);
-const tr46 = __nccwpck_require__(2299);
-
-const specialSchemes = {
-  ftp: 21,
-  file: null,
-  gopher: 70,
-  http: 80,
-  https: 443,
-  ws: 80,
-  wss: 443
-};
-
-const failure = Symbol("failure");
-
-function countSymbols(str) {
-  return punycode.ucs2.decode(str).length;
-}
-
-function at(input, idx) {
-  const c = input[idx];
-  return isNaN(c) ? undefined : String.fromCodePoint(c);
-}
-
-function isASCIIDigit(c) {
-  return c >= 0x30 && c <= 0x39;
-}
-
-function isASCIIAlpha(c) {
-  return (c >= 0x41 && c <= 0x5A) || (c >= 0x61 && c <= 0x7A);
-}
-
-function isASCIIAlphanumeric(c) {
-  return isASCIIAlpha(c) || isASCIIDigit(c);
-}
-
-function isASCIIHex(c) {
-  return isASCIIDigit(c) || (c >= 0x41 && c <= 0x46) || (c >= 0x61 && c <= 0x66);
-}
-
-function isSingleDot(buffer) {
-  return buffer === "." || buffer.toLowerCase() === "%2e";
-}
-
-function isDoubleDot(buffer) {
-  buffer = buffer.toLowerCase();
-  return buffer === ".." || buffer === "%2e." || buffer === ".%2e" || buffer === "%2e%2e";
-}
-
-function isWindowsDriveLetterCodePoints(cp1, cp2) {
-  return isASCIIAlpha(cp1) && (cp2 === 58 || cp2 === 124);
-}
-
-function isWindowsDriveLetterString(string) {
-  return string.length === 2 && isASCIIAlpha(string.codePointAt(0)) && (string[1] === ":" || string[1] === "|");
-}
-
-function isNormalizedWindowsDriveLetterString(string) {
-  return string.length === 2 && isASCIIAlpha(string.codePointAt(0)) && string[1] === ":";
-}
-
-function containsForbiddenHostCodePoint(string) {
-  return string.search(/\u0000|\u0009|\u000A|\u000D|\u0020|#|%|\/|:|\?|@|\[|\\|\]/) !== -1;
-}
-
-function containsForbiddenHostCodePointExcludingPercent(string) {
-  return string.search(/\u0000|\u0009|\u000A|\u000D|\u0020|#|\/|:|\?|@|\[|\\|\]/) !== -1;
-}
-
-function isSpecialScheme(scheme) {
-  return specialSchemes[scheme] !== undefined;
-}
-
-function isSpecial(url) {
-  return isSpecialScheme(url.scheme);
-}
-
-function defaultPort(scheme) {
-  return specialSchemes[scheme];
-}
-
-function percentEncode(c) {
-  let hex = c.toString(16).toUpperCase();
-  if (hex.length === 1) {
-    hex = "0" + hex;
-  }
-
-  return "%" + hex;
-}
-
-function utf8PercentEncode(c) {
-  const buf = new Buffer(c);
-
-  let str = "";
-
-  for (let i = 0; i < buf.length; ++i) {
-    str += percentEncode(buf[i]);
-  }
-
-  return str;
-}
-
-function utf8PercentDecode(str) {
-  const input = new Buffer(str);
-  const output = [];
-  for (let i = 0; i < input.length; ++i) {
-    if (input[i] !== 37) {
-      output.push(input[i]);
-    } else if (input[i] === 37 && isASCIIHex(input[i + 1]) && isASCIIHex(input[i + 2])) {
-      output.push(parseInt(input.slice(i + 1, i + 3).toString(), 16));
-      i += 2;
-    } else {
-      output.push(input[i]);
-    }
-  }
-  return new Buffer(output).toString();
-}
-
-function isC0ControlPercentEncode(c) {
-  return c <= 0x1F || c > 0x7E;
-}
-
-const extraPathPercentEncodeSet = new Set([32, 34, 35, 60, 62, 63, 96, 123, 125]);
-function isPathPercentEncode(c) {
-  return isC0ControlPercentEncode(c) || extraPathPercentEncodeSet.has(c);
-}
-
-const extraUserinfoPercentEncodeSet =
-  new Set([47, 58, 59, 61, 64, 91, 92, 93, 94, 124]);
-function isUserinfoPercentEncode(c) {
-  return isPathPercentEncode(c) || extraUserinfoPercentEncodeSet.has(c);
-}
-
-function percentEncodeChar(c, encodeSetPredicate) {
-  const cStr = String.fromCodePoint(c);
-
-  if (encodeSetPredicate(c)) {
-    return utf8PercentEncode(cStr);
-  }
-
-  return cStr;
-}
-
-function parseIPv4Number(input) {
-  let R = 10;
-
-  if (input.length >= 2 && input.charAt(0) === "0" && input.charAt(1).toLowerCase() === "x") {
-    input = input.substring(2);
-    R = 16;
-  } else if (input.length >= 2 && input.charAt(0) === "0") {
-    input = input.substring(1);
-    R = 8;
-  }
-
-  if (input === "") {
-    return 0;
-  }
-
-  const regex = R === 10 ? /[^0-9]/ : (R === 16 ? /[^0-9A-Fa-f]/ : /[^0-7]/);
-  if (regex.test(input)) {
-    return failure;
-  }
-
-  return parseInt(input, R);
-}
-
-function parseIPv4(input) {
-  const parts = input.split(".");
-  if (parts[parts.length - 1] === "") {
-    if (parts.length > 1) {
-      parts.pop();
-    }
-  }
-
-  if (parts.length > 4) {
-    return input;
-  }
-
-  const numbers = [];
-  for (const part of parts) {
-    if (part === "") {
-      return input;
-    }
-    const n = parseIPv4Number(part);
-    if (n === failure) {
-      return input;
-    }
-
-    numbers.push(n);
-  }
-
-  for (let i = 0; i < numbers.length - 1; ++i) {
-    if (numbers[i] > 255) {
-      return failure;
-    }
-  }
-  if (numbers[numbers.length - 1] >= Math.pow(256, 5 - numbers.length)) {
-    return failure;
-  }
-
-  let ipv4 = numbers.pop();
-  let counter = 0;
-
-  for (const n of numbers) {
-    ipv4 += n * Math.pow(256, 3 - counter);
-    ++counter;
-  }
-
-  return ipv4;
-}
-
-function serializeIPv4(address) {
-  let output = "";
-  let n = address;
-
-  for (let i = 1; i <= 4; ++i) {
-    output = String(n % 256) + output;
-    if (i !== 4) {
-      output = "." + output;
-    }
-    n = Math.floor(n / 256);
-  }
-
-  return output;
-}
-
-function parseIPv6(input) {
-  const address = [0, 0, 0, 0, 0, 0, 0, 0];
-  let pieceIndex = 0;
-  let compress = null;
-  let pointer = 0;
-
-  input = punycode.ucs2.decode(input);
-
-  if (input[pointer] === 58) {
-    if (input[pointer + 1] !== 58) {
-      return failure;
-    }
-
-    pointer += 2;
-    ++pieceIndex;
-    compress = pieceIndex;
-  }
-
-  while (pointer < input.length) {
-    if (pieceIndex === 8) {
-      return failure;
-    }
-
-    if (input[pointer] === 58) {
-      if (compress !== null) {
-        return failure;
-      }
-      ++pointer;
-      ++pieceIndex;
-      compress = pieceIndex;
-      continue;
-    }
-
-    let value = 0;
-    let length = 0;
-
-    while (length < 4 && isASCIIHex(input[pointer])) {
-      value = value * 0x10 + parseInt(at(input, pointer), 16);
-      ++pointer;
-      ++length;
-    }
-
-    if (input[pointer] === 46) {
-      if (length === 0) {
-        return failure;
-      }
-
-      pointer -= length;
-
-      if (pieceIndex > 6) {
-        return failure;
-      }
-
-      let numbersSeen = 0;
-
-      while (input[pointer] !== undefined) {
-        let ipv4Piece = null;
-
-        if (numbersSeen > 0) {
-          if (input[pointer] === 46 && numbersSeen < 4) {
-            ++pointer;
-          } else {
-            return failure;
-          }
-        }
-
-        if (!isASCIIDigit(input[pointer])) {
-          return failure;
-        }
-
-        while (isASCIIDigit(input[pointer])) {
-          const number = parseInt(at(input, pointer));
-          if (ipv4Piece === null) {
-            ipv4Piece = number;
-          } else if (ipv4Piece === 0) {
-            return failure;
-          } else {
-            ipv4Piece = ipv4Piece * 10 + number;
-          }
-          if (ipv4Piece > 255) {
-            return failure;
-          }
-          ++pointer;
-        }
-
-        address[pieceIndex] = address[pieceIndex] * 0x100 + ipv4Piece;
-
-        ++numbersSeen;
-
-        if (numbersSeen === 2 || numbersSeen === 4) {
-          ++pieceIndex;
-        }
-      }
-
-      if (numbersSeen !== 4) {
-        return failure;
-      }
-
-      break;
-    } else if (input[pointer] === 58) {
-      ++pointer;
-      if (input[pointer] === undefined) {
-        return failure;
-      }
-    } else if (input[pointer] !== undefined) {
-      return failure;
-    }
-
-    address[pieceIndex] = value;
-    ++pieceIndex;
-  }
-
-  if (compress !== null) {
-    let swaps = pieceIndex - compress;
-    pieceIndex = 7;
-    while (pieceIndex !== 0 && swaps > 0) {
-      const temp = address[compress + swaps - 1];
-      address[compress + swaps - 1] = address[pieceIndex];
-      address[pieceIndex] = temp;
-      --pieceIndex;
-      --swaps;
-    }
-  } else if (compress === null && pieceIndex !== 8) {
-    return failure;
-  }
-
-  return address;
-}
-
-function serializeIPv6(address) {
-  let output = "";
-  const seqResult = findLongestZeroSequence(address);
-  const compress = seqResult.idx;
-  let ignore0 = false;
-
-  for (let pieceIndex = 0; pieceIndex <= 7; ++pieceIndex) {
-    if (ignore0 && address[pieceIndex] === 0) {
-      continue;
-    } else if (ignore0) {
-      ignore0 = false;
-    }
-
-    if (compress === pieceIndex) {
-      const separator = pieceIndex === 0 ? "::" : ":";
-      output += separator;
-      ignore0 = true;
-      continue;
-    }
-
-    output += address[pieceIndex].toString(16);
-
-    if (pieceIndex !== 7) {
-      output += ":";
-    }
-  }
-
-  return output;
-}
-
-function parseHost(input, isSpecialArg) {
-  if (input[0] === "[") {
-    if (input[input.length - 1] !== "]") {
-      return failure;
-    }
-
-    return parseIPv6(input.substring(1, input.length - 1));
-  }
-
-  if (!isSpecialArg) {
-    return parseOpaqueHost(input);
-  }
-
-  const domain = utf8PercentDecode(input);
-  const asciiDomain = tr46.toASCII(domain, false, tr46.PROCESSING_OPTIONS.NONTRANSITIONAL, false);
-  if (asciiDomain === null) {
-    return failure;
-  }
-
-  if (containsForbiddenHostCodePoint(asciiDomain)) {
-    return failure;
-  }
-
-  const ipv4Host = parseIPv4(asciiDomain);
-  if (typeof ipv4Host === "number" || ipv4Host === failure) {
-    return ipv4Host;
-  }
-
-  return asciiDomain;
-}
-
-function parseOpaqueHost(input) {
-  if (containsForbiddenHostCodePointExcludingPercent(input)) {
-    return failure;
-  }
-
-  let output = "";
-  const decoded = punycode.ucs2.decode(input);
-  for (let i = 0; i < decoded.length; ++i) {
-    output += percentEncodeChar(decoded[i], isC0ControlPercentEncode);
-  }
-  return output;
-}
-
-function findLongestZeroSequence(arr) {
-  let maxIdx = null;
-  let maxLen = 1; // only find elements > 1
-  let currStart = null;
-  let currLen = 0;
-
-  for (let i = 0; i < arr.length; ++i) {
-    if (arr[i] !== 0) {
-      if (currLen > maxLen) {
-        maxIdx = currStart;
-        maxLen = currLen;
-      }
-
-      currStart = null;
-      currLen = 0;
-    } else {
-      if (currStart === null) {
-        currStart = i;
-      }
-      ++currLen;
-    }
-  }
-
-  // if trailing zeros
-  if (currLen > maxLen) {
-    maxIdx = currStart;
-    maxLen = currLen;
-  }
-
-  return {
-    idx: maxIdx,
-    len: maxLen
-  };
-}
-
-function serializeHost(host) {
-  if (typeof host === "number") {
-    return serializeIPv4(host);
-  }
-
-  // IPv6 serializer
-  if (host instanceof Array) {
-    return "[" + serializeIPv6(host) + "]";
-  }
-
-  return host;
-}
-
-function trimControlChars(url) {
-  return url.replace(/^[\u0000-\u001F\u0020]+|[\u0000-\u001F\u0020]+$/g, "");
-}
-
-function trimTabAndNewline(url) {
-  return url.replace(/\u0009|\u000A|\u000D/g, "");
-}
-
-function shortenPath(url) {
-  const path = url.path;
-  if (path.length === 0) {
-    return;
-  }
-  if (url.scheme === "file" && path.length === 1 && isNormalizedWindowsDriveLetter(path[0])) {
-    return;
-  }
-
-  path.pop();
-}
-
-function includesCredentials(url) {
-  return url.username !== "" || url.password !== "";
-}
-
-function cannotHaveAUsernamePasswordPort(url) {
-  return url.host === null || url.host === "" || url.cannotBeABaseURL || url.scheme === "file";
-}
-
-function isNormalizedWindowsDriveLetter(string) {
-  return /^[A-Za-z]:$/.test(string);
-}
-
-function URLStateMachine(input, base, encodingOverride, url, stateOverride) {
-  this.pointer = 0;
-  this.input = input;
-  this.base = base || null;
-  this.encodingOverride = encodingOverride || "utf-8";
-  this.stateOverride = stateOverride;
-  this.url = url;
-  this.failure = false;
-  this.parseError = false;
-
-  if (!this.url) {
-    this.url = {
-      scheme: "",
-      username: "",
-      password: "",
-      host: null,
-      port: null,
-      path: [],
-      query: null,
-      fragment: null,
-
-      cannotBeABaseURL: false
-    };
-
-    const res = trimControlChars(this.input);
-    if (res !== this.input) {
-      this.parseError = true;
-    }
-    this.input = res;
-  }
-
-  const res = trimTabAndNewline(this.input);
-  if (res !== this.input) {
-    this.parseError = true;
-  }
-  this.input = res;
-
-  this.state = stateOverride || "scheme start";
-
-  this.buffer = "";
-  this.atFlag = false;
-  this.arrFlag = false;
-  this.passwordTokenSeenFlag = false;
-
-  this.input = punycode.ucs2.decode(this.input);
-
-  for (; this.pointer <= this.input.length; ++this.pointer) {
-    const c = this.input[this.pointer];
-    const cStr = isNaN(c) ? undefined : String.fromCodePoint(c);
-
-    // exec state machine
-    const ret = this["parse " + this.state](c, cStr);
-    if (!ret) {
-      break; // terminate algorithm
-    } else if (ret === failure) {
-      this.failure = true;
-      break;
-    }
-  }
-}
-
-URLStateMachine.prototype["parse scheme start"] = function parseSchemeStart(c, cStr) {
-  if (isASCIIAlpha(c)) {
-    this.buffer += cStr.toLowerCase();
-    this.state = "scheme";
-  } else if (!this.stateOverride) {
-    this.state = "no scheme";
-    --this.pointer;
-  } else {
-    this.parseError = true;
-    return failure;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse scheme"] = function parseScheme(c, cStr) {
-  if (isASCIIAlphanumeric(c) || c === 43 || c === 45 || c === 46) {
-    this.buffer += cStr.toLowerCase();
-  } else if (c === 58) {
-    if (this.stateOverride) {
-      if (isSpecial(this.url) && !isSpecialScheme(this.buffer)) {
-        return false;
-      }
-
-      if (!isSpecial(this.url) && isSpecialScheme(this.buffer)) {
-        return false;
-      }
-
-      if ((includesCredentials(this.url) || this.url.port !== null) && this.buffer === "file") {
-        return false;
-      }
-
-      if (this.url.scheme === "file" && (this.url.host === "" || this.url.host === null)) {
-        return false;
-      }
-    }
-    this.url.scheme = this.buffer;
-    this.buffer = "";
-    if (this.stateOverride) {
-      return false;
-    }
-    if (this.url.scheme === "file") {
-      if (this.input[this.pointer + 1] !== 47 || this.input[this.pointer + 2] !== 47) {
-        this.parseError = true;
-      }
-      this.state = "file";
-    } else if (isSpecial(this.url) && this.base !== null && this.base.scheme === this.url.scheme) {
-      this.state = "special relative or authority";
-    } else if (isSpecial(this.url)) {
-      this.state = "special authority slashes";
-    } else if (this.input[this.pointer + 1] === 47) {
-      this.state = "path or authority";
-      ++this.pointer;
-    } else {
-      this.url.cannotBeABaseURL = true;
-      this.url.path.push("");
-      this.state = "cannot-be-a-base-URL path";
-    }
-  } else if (!this.stateOverride) {
-    this.buffer = "";
-    this.state = "no scheme";
-    this.pointer = -1;
-  } else {
-    this.parseError = true;
-    return failure;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse no scheme"] = function parseNoScheme(c) {
-  if (this.base === null || (this.base.cannotBeABaseURL && c !== 35)) {
-    return failure;
-  } else if (this.base.cannotBeABaseURL && c === 35) {
-    this.url.scheme = this.base.scheme;
-    this.url.path = this.base.path.slice();
-    this.url.query = this.base.query;
-    this.url.fragment = "";
-    this.url.cannotBeABaseURL = true;
-    this.state = "fragment";
-  } else if (this.base.scheme === "file") {
-    this.state = "file";
-    --this.pointer;
-  } else {
-    this.state = "relative";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse special relative or authority"] = function parseSpecialRelativeOrAuthority(c) {
-  if (c === 47 && this.input[this.pointer + 1] === 47) {
-    this.state = "special authority ignore slashes";
-    ++this.pointer;
-  } else {
-    this.parseError = true;
-    this.state = "relative";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse path or authority"] = function parsePathOrAuthority(c) {
-  if (c === 47) {
-    this.state = "authority";
-  } else {
-    this.state = "path";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse relative"] = function parseRelative(c) {
-  this.url.scheme = this.base.scheme;
-  if (isNaN(c)) {
-    this.url.username = this.base.username;
-    this.url.password = this.base.password;
-    this.url.host = this.base.host;
-    this.url.port = this.base.port;
-    this.url.path = this.base.path.slice();
-    this.url.query = this.base.query;
-  } else if (c === 47) {
-    this.state = "relative slash";
-  } else if (c === 63) {
-    this.url.username = this.base.username;
-    this.url.password = this.base.password;
-    this.url.host = this.base.host;
-    this.url.port = this.base.port;
-    this.url.path = this.base.path.slice();
-    this.url.query = "";
-    this.state = "query";
-  } else if (c === 35) {
-    this.url.username = this.base.username;
-    this.url.password = this.base.password;
-    this.url.host = this.base.host;
-    this.url.port = this.base.port;
-    this.url.path = this.base.path.slice();
-    this.url.query = this.base.query;
-    this.url.fragment = "";
-    this.state = "fragment";
-  } else if (isSpecial(this.url) && c === 92) {
-    this.parseError = true;
-    this.state = "relative slash";
-  } else {
-    this.url.username = this.base.username;
-    this.url.password = this.base.password;
-    this.url.host = this.base.host;
-    this.url.port = this.base.port;
-    this.url.path = this.base.path.slice(0, this.base.path.length - 1);
-
-    this.state = "path";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse relative slash"] = function parseRelativeSlash(c) {
-  if (isSpecial(this.url) && (c === 47 || c === 92)) {
-    if (c === 92) {
-      this.parseError = true;
-    }
-    this.state = "special authority ignore slashes";
-  } else if (c === 47) {
-    this.state = "authority";
-  } else {
-    this.url.username = this.base.username;
-    this.url.password = this.base.password;
-    this.url.host = this.base.host;
-    this.url.port = this.base.port;
-    this.state = "path";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse special authority slashes"] = function parseSpecialAuthoritySlashes(c) {
-  if (c === 47 && this.input[this.pointer + 1] === 47) {
-    this.state = "special authority ignore slashes";
-    ++this.pointer;
-  } else {
-    this.parseError = true;
-    this.state = "special authority ignore slashes";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse special authority ignore slashes"] = function parseSpecialAuthorityIgnoreSlashes(c) {
-  if (c !== 47 && c !== 92) {
-    this.state = "authority";
-    --this.pointer;
-  } else {
-    this.parseError = true;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse authority"] = function parseAuthority(c, cStr) {
-  if (c === 64) {
-    this.parseError = true;
-    if (this.atFlag) {
-      this.buffer = "%40" + this.buffer;
-    }
-    this.atFlag = true;
-
-    // careful, this is based on buffer and has its own pointer (this.pointer != pointer) and inner chars
-    const len = countSymbols(this.buffer);
-    for (let pointer = 0; pointer < len; ++pointer) {
-      const codePoint = this.buffer.codePointAt(pointer);
-
-      if (codePoint === 58 && !this.passwordTokenSeenFlag) {
-        this.passwordTokenSeenFlag = true;
-        continue;
-      }
-      const encodedCodePoints = percentEncodeChar(codePoint, isUserinfoPercentEncode);
-      if (this.passwordTokenSeenFlag) {
-        this.url.password += encodedCodePoints;
-      } else {
-        this.url.username += encodedCodePoints;
-      }
-    }
-    this.buffer = "";
-  } else if (isNaN(c) || c === 47 || c === 63 || c === 35 ||
-             (isSpecial(this.url) && c === 92)) {
-    if (this.atFlag && this.buffer === "") {
-      this.parseError = true;
-      return failure;
-    }
-    this.pointer -= countSymbols(this.buffer) + 1;
-    this.buffer = "";
-    this.state = "host";
-  } else {
-    this.buffer += cStr;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse hostname"] =
-URLStateMachine.prototype["parse host"] = function parseHostName(c, cStr) {
-  if (this.stateOverride && this.url.scheme === "file") {
-    --this.pointer;
-    this.state = "file host";
-  } else if (c === 58 && !this.arrFlag) {
-    if (this.buffer === "") {
-      this.parseError = true;
-      return failure;
-    }
-
-    const host = parseHost(this.buffer, isSpecial(this.url));
-    if (host === failure) {
-      return failure;
-    }
-
-    this.url.host = host;
-    this.buffer = "";
-    this.state = "port";
-    if (this.stateOverride === "hostname") {
-      return false;
-    }
-  } else if (isNaN(c) || c === 47 || c === 63 || c === 35 ||
-             (isSpecial(this.url) && c === 92)) {
-    --this.pointer;
-    if (isSpecial(this.url) && this.buffer === "") {
-      this.parseError = true;
-      return failure;
-    } else if (this.stateOverride && this.buffer === "" &&
-               (includesCredentials(this.url) || this.url.port !== null)) {
-      this.parseError = true;
-      return false;
-    }
-
-    const host = parseHost(this.buffer, isSpecial(this.url));
-    if (host === failure) {
-      return failure;
-    }
-
-    this.url.host = host;
-    this.buffer = "";
-    this.state = "path start";
-    if (this.stateOverride) {
-      return false;
-    }
-  } else {
-    if (c === 91) {
-      this.arrFlag = true;
-    } else if (c === 93) {
-      this.arrFlag = false;
-    }
-    this.buffer += cStr;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse port"] = function parsePort(c, cStr) {
-  if (isASCIIDigit(c)) {
-    this.buffer += cStr;
-  } else if (isNaN(c) || c === 47 || c === 63 || c === 35 ||
-             (isSpecial(this.url) && c === 92) ||
-             this.stateOverride) {
-    if (this.buffer !== "") {
-      const port = parseInt(this.buffer);
-      if (port > Math.pow(2, 16) - 1) {
-        this.parseError = true;
-        return failure;
-      }
-      this.url.port = port === defaultPort(this.url.scheme) ? null : port;
-      this.buffer = "";
-    }
-    if (this.stateOverride) {
-      return false;
-    }
-    this.state = "path start";
-    --this.pointer;
-  } else {
-    this.parseError = true;
-    return failure;
-  }
-
-  return true;
-};
-
-const fileOtherwiseCodePoints = new Set([47, 92, 63, 35]);
-
-URLStateMachine.prototype["parse file"] = function parseFile(c) {
-  this.url.scheme = "file";
-
-  if (c === 47 || c === 92) {
-    if (c === 92) {
-      this.parseError = true;
-    }
-    this.state = "file slash";
-  } else if (this.base !== null && this.base.scheme === "file") {
-    if (isNaN(c)) {
-      this.url.host = this.base.host;
-      this.url.path = this.base.path.slice();
-      this.url.query = this.base.query;
-    } else if (c === 63) {
-      this.url.host = this.base.host;
-      this.url.path = this.base.path.slice();
-      this.url.query = "";
-      this.state = "query";
-    } else if (c === 35) {
-      this.url.host = this.base.host;
-      this.url.path = this.base.path.slice();
-      this.url.query = this.base.query;
-      this.url.fragment = "";
-      this.state = "fragment";
-    } else {
-      if (this.input.length - this.pointer - 1 === 0 || // remaining consists of 0 code points
-          !isWindowsDriveLetterCodePoints(c, this.input[this.pointer + 1]) ||
-          (this.input.length - this.pointer - 1 >= 2 && // remaining has at least 2 code points
-           !fileOtherwiseCodePoints.has(this.input[this.pointer + 2]))) {
-        this.url.host = this.base.host;
-        this.url.path = this.base.path.slice();
-        shortenPath(this.url);
-      } else {
-        this.parseError = true;
-      }
-
-      this.state = "path";
-      --this.pointer;
-    }
-  } else {
-    this.state = "path";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse file slash"] = function parseFileSlash(c) {
-  if (c === 47 || c === 92) {
-    if (c === 92) {
-      this.parseError = true;
-    }
-    this.state = "file host";
-  } else {
-    if (this.base !== null && this.base.scheme === "file") {
-      if (isNormalizedWindowsDriveLetterString(this.base.path[0])) {
-        this.url.path.push(this.base.path[0]);
-      } else {
-        this.url.host = this.base.host;
-      }
-    }
-    this.state = "path";
-    --this.pointer;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse file host"] = function parseFileHost(c, cStr) {
-  if (isNaN(c) || c === 47 || c === 92 || c === 63 || c === 35) {
-    --this.pointer;
-    if (!this.stateOverride && isWindowsDriveLetterString(this.buffer)) {
-      this.parseError = true;
-      this.state = "path";
-    } else if (this.buffer === "") {
-      this.url.host = "";
-      if (this.stateOverride) {
-        return false;
-      }
-      this.state = "path start";
-    } else {
-      let host = parseHost(this.buffer, isSpecial(this.url));
-      if (host === failure) {
-        return failure;
-      }
-      if (host === "localhost") {
-        host = "";
-      }
-      this.url.host = host;
-
-      if (this.stateOverride) {
-        return false;
-      }
-
-      this.buffer = "";
-      this.state = "path start";
-    }
-  } else {
-    this.buffer += cStr;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse path start"] = function parsePathStart(c) {
-  if (isSpecial(this.url)) {
-    if (c === 92) {
-      this.parseError = true;
-    }
-    this.state = "path";
-
-    if (c !== 47 && c !== 92) {
-      --this.pointer;
-    }
-  } else if (!this.stateOverride && c === 63) {
-    this.url.query = "";
-    this.state = "query";
-  } else if (!this.stateOverride && c === 35) {
-    this.url.fragment = "";
-    this.state = "fragment";
-  } else if (c !== undefined) {
-    this.state = "path";
-    if (c !== 47) {
-      --this.pointer;
-    }
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse path"] = function parsePath(c) {
-  if (isNaN(c) || c === 47 || (isSpecial(this.url) && c === 92) ||
-      (!this.stateOverride && (c === 63 || c === 35))) {
-    if (isSpecial(this.url) && c === 92) {
-      this.parseError = true;
-    }
-
-    if (isDoubleDot(this.buffer)) {
-      shortenPath(this.url);
-      if (c !== 47 && !(isSpecial(this.url) && c === 92)) {
-        this.url.path.push("");
-      }
-    } else if (isSingleDot(this.buffer) && c !== 47 &&
-               !(isSpecial(this.url) && c === 92)) {
-      this.url.path.push("");
-    } else if (!isSingleDot(this.buffer)) {
-      if (this.url.scheme === "file" && this.url.path.length === 0 && isWindowsDriveLetterString(this.buffer)) {
-        if (this.url.host !== "" && this.url.host !== null) {
-          this.parseError = true;
-          this.url.host = "";
-        }
-        this.buffer = this.buffer[0] + ":";
-      }
-      this.url.path.push(this.buffer);
-    }
-    this.buffer = "";
-    if (this.url.scheme === "file" && (c === undefined || c === 63 || c === 35)) {
-      while (this.url.path.length > 1 && this.url.path[0] === "") {
-        this.parseError = true;
-        this.url.path.shift();
-      }
-    }
-    if (c === 63) {
-      this.url.query = "";
-      this.state = "query";
-    }
-    if (c === 35) {
-      this.url.fragment = "";
-      this.state = "fragment";
-    }
-  } else {
-    // TODO: If c is not a URL code point and not "%", parse error.
-
-    if (c === 37 &&
-      (!isASCIIHex(this.input[this.pointer + 1]) ||
-        !isASCIIHex(this.input[this.pointer + 2]))) {
-      this.parseError = true;
-    }
-
-    this.buffer += percentEncodeChar(c, isPathPercentEncode);
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse cannot-be-a-base-URL path"] = function parseCannotBeABaseURLPath(c) {
-  if (c === 63) {
-    this.url.query = "";
-    this.state = "query";
-  } else if (c === 35) {
-    this.url.fragment = "";
-    this.state = "fragment";
-  } else {
-    // TODO: Add: not a URL code point
-    if (!isNaN(c) && c !== 37) {
-      this.parseError = true;
-    }
-
-    if (c === 37 &&
-        (!isASCIIHex(this.input[this.pointer + 1]) ||
-         !isASCIIHex(this.input[this.pointer + 2]))) {
-      this.parseError = true;
-    }
-
-    if (!isNaN(c)) {
-      this.url.path[0] = this.url.path[0] + percentEncodeChar(c, isC0ControlPercentEncode);
-    }
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse query"] = function parseQuery(c, cStr) {
-  if (isNaN(c) || (!this.stateOverride && c === 35)) {
-    if (!isSpecial(this.url) || this.url.scheme === "ws" || this.url.scheme === "wss") {
-      this.encodingOverride = "utf-8";
-    }
-
-    const buffer = new Buffer(this.buffer); // TODO: Use encoding override instead
-    for (let i = 0; i < buffer.length; ++i) {
-      if (buffer[i] < 0x21 || buffer[i] > 0x7E || buffer[i] === 0x22 || buffer[i] === 0x23 ||
-          buffer[i] === 0x3C || buffer[i] === 0x3E) {
-        this.url.query += percentEncode(buffer[i]);
-      } else {
-        this.url.query += String.fromCodePoint(buffer[i]);
-      }
-    }
-
-    this.buffer = "";
-    if (c === 35) {
-      this.url.fragment = "";
-      this.state = "fragment";
-    }
-  } else {
-    // TODO: If c is not a URL code point and not "%", parse error.
-    if (c === 37 &&
-      (!isASCIIHex(this.input[this.pointer + 1]) ||
-        !isASCIIHex(this.input[this.pointer + 2]))) {
-      this.parseError = true;
-    }
-
-    this.buffer += cStr;
-  }
-
-  return true;
-};
-
-URLStateMachine.prototype["parse fragment"] = function parseFragment(c) {
-  if (isNaN(c)) { // do nothing
-  } else if (c === 0x0) {
-    this.parseError = true;
-  } else {
-    // TODO: If c is not a URL code point and not "%", parse error.
-    if (c === 37 &&
-      (!isASCIIHex(this.input[this.pointer + 1]) ||
-        !isASCIIHex(this.input[this.pointer + 2]))) {
-      this.parseError = true;
-    }
-
-    this.url.fragment += percentEncodeChar(c, isC0ControlPercentEncode);
-  }
-
-  return true;
-};
-
-function serializeURL(url, excludeFragment) {
-  let output = url.scheme + ":";
-  if (url.host !== null) {
-    output += "//";
-
-    if (url.username !== "" || url.password !== "") {
-      output += url.username;
-      if (url.password !== "") {
-        output += ":" + url.password;
-      }
-      output += "@";
-    }
-
-    output += serializeHost(url.host);
-
-    if (url.port !== null) {
-      output += ":" + url.port;
-    }
-  } else if (url.host === null && url.scheme === "file") {
-    output += "//";
-  }
-
-  if (url.cannotBeABaseURL) {
-    output += url.path[0];
-  } else {
-    for (const string of url.path) {
-      output += "/" + string;
-    }
-  }
-
-  if (url.query !== null) {
-    output += "?" + url.query;
-  }
-
-  if (!excludeFragment && url.fragment !== null) {
-    output += "#" + url.fragment;
-  }
-
-  return output;
-}
-
-function serializeOrigin(tuple) {
-  let result = tuple.scheme + "://";
-  result += serializeHost(tuple.host);
-
-  if (tuple.port !== null) {
-    result += ":" + tuple.port;
-  }
-
-  return result;
-}
-
-module.exports.serializeURL = serializeURL;
-
-module.exports.serializeURLOrigin = function (url) {
-  // https://url.spec.whatwg.org/#concept-url-origin
-  switch (url.scheme) {
-    case "blob":
-      try {
-        return module.exports.serializeURLOrigin(module.exports.parseURL(url.path[0]));
-      } catch (e) {
-        // serializing an opaque origin returns "null"
-        return "null";
-      }
-    case "ftp":
-    case "gopher":
-    case "http":
-    case "https":
-    case "ws":
-    case "wss":
-      return serializeOrigin({
-        scheme: url.scheme,
-        host: url.host,
-        port: url.port
-      });
-    case "file":
-      // spec says "exercise to the reader", chrome says "file://"
-      return "file://";
-    default:
-      // serializing an opaque origin returns "null"
-      return "null";
-  }
-};
-
-module.exports.basicURLParse = function (input, options) {
-  if (options === undefined) {
-    options = {};
-  }
-
-  const usm = new URLStateMachine(input, options.baseURL, options.encodingOverride, options.url, options.stateOverride);
-  if (usm.failure) {
-    return "failure";
-  }
-
-  return usm.url;
-};
-
-module.exports.setTheUsername = function (url, username) {
-  url.username = "";
-  const decoded = punycode.ucs2.decode(username);
-  for (let i = 0; i < decoded.length; ++i) {
-    url.username += percentEncodeChar(decoded[i], isUserinfoPercentEncode);
-  }
-};
-
-module.exports.setThePassword = function (url, password) {
-  url.password = "";
-  const decoded = punycode.ucs2.decode(password);
-  for (let i = 0; i < decoded.length; ++i) {
-    url.password += percentEncodeChar(decoded[i], isUserinfoPercentEncode);
-  }
-};
-
-module.exports.serializeHost = serializeHost;
-
-module.exports.cannotHaveAUsernamePasswordPort = cannotHaveAUsernamePasswordPort;
-
-module.exports.serializeInteger = function (integer) {
-  return String(integer);
-};
-
-module.exports.parseURL = function (input, options) {
-  if (options === undefined) {
-    options = {};
-  }
-
-  // We don't handle blobs, so this just delegates:
-  return module.exports.basicURLParse(input, { baseURL: options.baseURL, encodingOverride: options.encodingOverride });
-};
-
-
-/***/ }),
-
-/***/ 276:
-/***/ ((module) => {
-
-"use strict";
-
-
-module.exports.mixin = function mixin(target, source) {
-  const keys = Object.getOwnPropertyNames(source);
-  for (let i = 0; i < keys.length; ++i) {
-    Object.defineProperty(target, keys[i], Object.getOwnPropertyDescriptor(source, keys[i]));
-  }
-};
-
-module.exports.wrapperSymbol = Symbol("wrapper");
-module.exports.implSymbol = Symbol("impl");
-
-module.exports.wrapperForImpl = function (impl) {
-  return impl[module.exports.wrapperSymbol];
-};
-
-module.exports.implForWrapper = function (wrapper) {
-  return wrapper[module.exports.implSymbol];
-};
-
 
 
 /***/ }),
@@ -63250,7 +70534,7 @@ Object.defineProperty(exports, "Server", ({
   }
 }));
 
-var _createClass2 = _interopRequireDefault(__nccwpck_require__(2158));
+var _createClass2 = _interopRequireDefault(__nccwpck_require__(8755));
 
 var _classCallCheck2 = _interopRequireDefault(__nccwpck_require__(9346));
 
@@ -63347,7 +70631,7 @@ var _typeof2 = _interopRequireDefault(__nccwpck_require__(1042));
 
 var _classCallCheck2 = _interopRequireDefault(__nccwpck_require__(9346));
 
-var _createClass2 = _interopRequireDefault(__nccwpck_require__(2158));
+var _createClass2 = _interopRequireDefault(__nccwpck_require__(8755));
 
 var _inherits2 = _interopRequireDefault(__nccwpck_require__(5937));
 
@@ -63868,7 +71152,7 @@ var _toConsumableArray2 = _interopRequireDefault(__nccwpck_require__(9491));
 
 var _classCallCheck2 = _interopRequireDefault(__nccwpck_require__(9346));
 
-var _createClass2 = _interopRequireDefault(__nccwpck_require__(2158));
+var _createClass2 = _interopRequireDefault(__nccwpck_require__(8755));
 
 var _inherits2 = _interopRequireDefault(__nccwpck_require__(5937));
 
@@ -75112,6 +82396,207 @@ module.exports = (function() {
 
 /***/ }),
 
+/***/ 4256:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var punycode = __nccwpck_require__(4213);
+var mappingTable = __nccwpck_require__(68);
+
+var PROCESSING_OPTIONS = {
+  TRANSITIONAL: 0,
+  NONTRANSITIONAL: 1
+};
+
+function normalize(str) { // fix bug in v8
+  return str.split('\u0000').map(function (s) { return s.normalize('NFC'); }).join('\u0000');
+}
+
+function findStatus(val) {
+  var start = 0;
+  var end = mappingTable.length - 1;
+
+  while (start <= end) {
+    var mid = Math.floor((start + end) / 2);
+
+    var target = mappingTable[mid];
+    if (target[0][0] <= val && target[0][1] >= val) {
+      return target;
+    } else if (target[0][0] > val) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+
+  return null;
+}
+
+var regexAstralSymbols = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+
+function countSymbols(string) {
+  return string
+    // replace every surrogate pair with a BMP symbol
+    .replace(regexAstralSymbols, '_')
+    // then get the length
+    .length;
+}
+
+function mapChars(domain_name, useSTD3, processing_option) {
+  var hasError = false;
+  var processed = "";
+
+  var len = countSymbols(domain_name);
+  for (var i = 0; i < len; ++i) {
+    var codePoint = domain_name.codePointAt(i);
+    var status = findStatus(codePoint);
+
+    switch (status[1]) {
+      case "disallowed":
+        hasError = true;
+        processed += String.fromCodePoint(codePoint);
+        break;
+      case "ignored":
+        break;
+      case "mapped":
+        processed += String.fromCodePoint.apply(String, status[2]);
+        break;
+      case "deviation":
+        if (processing_option === PROCESSING_OPTIONS.TRANSITIONAL) {
+          processed += String.fromCodePoint.apply(String, status[2]);
+        } else {
+          processed += String.fromCodePoint(codePoint);
+        }
+        break;
+      case "valid":
+        processed += String.fromCodePoint(codePoint);
+        break;
+      case "disallowed_STD3_mapped":
+        if (useSTD3) {
+          hasError = true;
+          processed += String.fromCodePoint(codePoint);
+        } else {
+          processed += String.fromCodePoint.apply(String, status[2]);
+        }
+        break;
+      case "disallowed_STD3_valid":
+        if (useSTD3) {
+          hasError = true;
+        }
+
+        processed += String.fromCodePoint(codePoint);
+        break;
+    }
+  }
+
+  return {
+    string: processed,
+    error: hasError
+  };
+}
+
+var combiningMarksRegex = /[\u0300-\u036F\u0483-\u0489\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\u0711\u0730-\u074A\u07A6-\u07B0\u07EB-\u07F3\u0816-\u0819\u081B-\u0823\u0825-\u0827\u0829-\u082D\u0859-\u085B\u08E4-\u0903\u093A-\u093C\u093E-\u094F\u0951-\u0957\u0962\u0963\u0981-\u0983\u09BC\u09BE-\u09C4\u09C7\u09C8\u09CB-\u09CD\u09D7\u09E2\u09E3\u0A01-\u0A03\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A70\u0A71\u0A75\u0A81-\u0A83\u0ABC\u0ABE-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AE2\u0AE3\u0B01-\u0B03\u0B3C\u0B3E-\u0B44\u0B47\u0B48\u0B4B-\u0B4D\u0B56\u0B57\u0B62\u0B63\u0B82\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD7\u0C00-\u0C03\u0C3E-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C62\u0C63\u0C81-\u0C83\u0CBC\u0CBE-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CE2\u0CE3\u0D01-\u0D03\u0D3E-\u0D44\u0D46-\u0D48\u0D4A-\u0D4D\u0D57\u0D62\u0D63\u0D82\u0D83\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DF2\u0DF3\u0E31\u0E34-\u0E3A\u0E47-\u0E4E\u0EB1\u0EB4-\u0EB9\u0EBB\u0EBC\u0EC8-\u0ECD\u0F18\u0F19\u0F35\u0F37\u0F39\u0F3E\u0F3F\u0F71-\u0F84\u0F86\u0F87\u0F8D-\u0F97\u0F99-\u0FBC\u0FC6\u102B-\u103E\u1056-\u1059\u105E-\u1060\u1062-\u1064\u1067-\u106D\u1071-\u1074\u1082-\u108D\u108F\u109A-\u109D\u135D-\u135F\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17B4-\u17D3\u17DD\u180B-\u180D\u18A9\u1920-\u192B\u1930-\u193B\u19B0-\u19C0\u19C8\u19C9\u1A17-\u1A1B\u1A55-\u1A5E\u1A60-\u1A7C\u1A7F\u1AB0-\u1ABE\u1B00-\u1B04\u1B34-\u1B44\u1B6B-\u1B73\u1B80-\u1B82\u1BA1-\u1BAD\u1BE6-\u1BF3\u1C24-\u1C37\u1CD0-\u1CD2\u1CD4-\u1CE8\u1CED\u1CF2-\u1CF4\u1CF8\u1CF9\u1DC0-\u1DF5\u1DFC-\u1DFF\u20D0-\u20F0\u2CEF-\u2CF1\u2D7F\u2DE0-\u2DFF\u302A-\u302F\u3099\u309A\uA66F-\uA672\uA674-\uA67D\uA69F\uA6F0\uA6F1\uA802\uA806\uA80B\uA823-\uA827\uA880\uA881\uA8B4-\uA8C4\uA8E0-\uA8F1\uA926-\uA92D\uA947-\uA953\uA980-\uA983\uA9B3-\uA9C0\uA9E5\uAA29-\uAA36\uAA43\uAA4C\uAA4D\uAA7B-\uAA7D\uAAB0\uAAB2-\uAAB4\uAAB7\uAAB8\uAABE\uAABF\uAAC1\uAAEB-\uAAEF\uAAF5\uAAF6\uABE3-\uABEA\uABEC\uABED\uFB1E\uFE00-\uFE0F\uFE20-\uFE2D]|\uD800[\uDDFD\uDEE0\uDF76-\uDF7A]|\uD802[\uDE01-\uDE03\uDE05\uDE06\uDE0C-\uDE0F\uDE38-\uDE3A\uDE3F\uDEE5\uDEE6]|\uD804[\uDC00-\uDC02\uDC38-\uDC46\uDC7F-\uDC82\uDCB0-\uDCBA\uDD00-\uDD02\uDD27-\uDD34\uDD73\uDD80-\uDD82\uDDB3-\uDDC0\uDE2C-\uDE37\uDEDF-\uDEEA\uDF01-\uDF03\uDF3C\uDF3E-\uDF44\uDF47\uDF48\uDF4B-\uDF4D\uDF57\uDF62\uDF63\uDF66-\uDF6C\uDF70-\uDF74]|\uD805[\uDCB0-\uDCC3\uDDAF-\uDDB5\uDDB8-\uDDC0\uDE30-\uDE40\uDEAB-\uDEB7]|\uD81A[\uDEF0-\uDEF4\uDF30-\uDF36]|\uD81B[\uDF51-\uDF7E\uDF8F-\uDF92]|\uD82F[\uDC9D\uDC9E]|\uD834[\uDD65-\uDD69\uDD6D-\uDD72\uDD7B-\uDD82\uDD85-\uDD8B\uDDAA-\uDDAD\uDE42-\uDE44]|\uD83A[\uDCD0-\uDCD6]|\uDB40[\uDD00-\uDDEF]/;
+
+function validateLabel(label, processing_option) {
+  if (label.substr(0, 4) === "xn--") {
+    label = punycode.toUnicode(label);
+    processing_option = PROCESSING_OPTIONS.NONTRANSITIONAL;
+  }
+
+  var error = false;
+
+  if (normalize(label) !== label ||
+      (label[3] === "-" && label[4] === "-") ||
+      label[0] === "-" || label[label.length - 1] === "-" ||
+      label.indexOf(".") !== -1 ||
+      label.search(combiningMarksRegex) === 0) {
+    error = true;
+  }
+
+  var len = countSymbols(label);
+  for (var i = 0; i < len; ++i) {
+    var status = findStatus(label.codePointAt(i));
+    if ((processing === PROCESSING_OPTIONS.TRANSITIONAL && status[1] !== "valid") ||
+        (processing === PROCESSING_OPTIONS.NONTRANSITIONAL &&
+         status[1] !== "valid" && status[1] !== "deviation")) {
+      error = true;
+      break;
+    }
+  }
+
+  return {
+    label: label,
+    error: error
+  };
+}
+
+function processing(domain_name, useSTD3, processing_option) {
+  var result = mapChars(domain_name, useSTD3, processing_option);
+  result.string = normalize(result.string);
+
+  var labels = result.string.split(".");
+  for (var i = 0; i < labels.length; ++i) {
+    try {
+      var validation = validateLabel(labels[i]);
+      labels[i] = validation.label;
+      result.error = result.error || validation.error;
+    } catch(e) {
+      result.error = true;
+    }
+  }
+
+  return {
+    string: labels.join("."),
+    error: result.error
+  };
+}
+
+module.exports.toASCII = function(domain_name, useSTD3, processing_option, verifyDnsLength) {
+  var result = processing(domain_name, useSTD3, processing_option);
+  var labels = result.string.split(".");
+  labels = labels.map(function(l) {
+    try {
+      return punycode.toASCII(l);
+    } catch(e) {
+      result.error = true;
+      return l;
+    }
+  });
+
+  if (verifyDnsLength) {
+    var total = labels.slice(0, labels.length - 1).join(".").length;
+    if (total.length > 253 || total.length === 0) {
+      result.error = true;
+    }
+
+    for (var i=0; i < labels.length; ++i) {
+      if (labels.length > 63 || labels.length === 0) {
+        result.error = true;
+        break;
+      }
+    }
+  }
+
+  if (result.error) return null;
+  return labels.join(".");
+};
+
+module.exports.toUnicode = function(domain_name, useSTD3) {
+  var result = processing(domain_name, useSTD3, PROCESSING_OPTIONS.NONTRANSITIONAL);
+
+  return {
+    domain: result.string,
+    error: result.error
+  };
+};
+
+module.exports.PROCESSING_OPTIONS = PROCESSING_OPTIONS;
+
+
+/***/ }),
+
 /***/ 4351:
 /***/ ((module) => {
 
@@ -78845,10 +86330,4393 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ 7537:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+const usm = __nccwpck_require__(2158);
+
+exports.implementation = class URLImpl {
+  constructor(constructorArgs) {
+    const url = constructorArgs[0];
+    const base = constructorArgs[1];
+
+    let parsedBase = null;
+    if (base !== undefined) {
+      parsedBase = usm.basicURLParse(base);
+      if (parsedBase === "failure") {
+        throw new TypeError("Invalid base URL");
+      }
+    }
+
+    const parsedURL = usm.basicURLParse(url, { baseURL: parsedBase });
+    if (parsedURL === "failure") {
+      throw new TypeError("Invalid URL");
+    }
+
+    this._url = parsedURL;
+
+    // TODO: query stuff
+  }
+
+  get href() {
+    return usm.serializeURL(this._url);
+  }
+
+  set href(v) {
+    const parsedURL = usm.basicURLParse(v);
+    if (parsedURL === "failure") {
+      throw new TypeError("Invalid URL");
+    }
+
+    this._url = parsedURL;
+  }
+
+  get origin() {
+    return usm.serializeURLOrigin(this._url);
+  }
+
+  get protocol() {
+    return this._url.scheme + ":";
+  }
+
+  set protocol(v) {
+    usm.basicURLParse(v + ":", { url: this._url, stateOverride: "scheme start" });
+  }
+
+  get username() {
+    return this._url.username;
+  }
+
+  set username(v) {
+    if (usm.cannotHaveAUsernamePasswordPort(this._url)) {
+      return;
+    }
+
+    usm.setTheUsername(this._url, v);
+  }
+
+  get password() {
+    return this._url.password;
+  }
+
+  set password(v) {
+    if (usm.cannotHaveAUsernamePasswordPort(this._url)) {
+      return;
+    }
+
+    usm.setThePassword(this._url, v);
+  }
+
+  get host() {
+    const url = this._url;
+
+    if (url.host === null) {
+      return "";
+    }
+
+    if (url.port === null) {
+      return usm.serializeHost(url.host);
+    }
+
+    return usm.serializeHost(url.host) + ":" + usm.serializeInteger(url.port);
+  }
+
+  set host(v) {
+    if (this._url.cannotBeABaseURL) {
+      return;
+    }
+
+    usm.basicURLParse(v, { url: this._url, stateOverride: "host" });
+  }
+
+  get hostname() {
+    if (this._url.host === null) {
+      return "";
+    }
+
+    return usm.serializeHost(this._url.host);
+  }
+
+  set hostname(v) {
+    if (this._url.cannotBeABaseURL) {
+      return;
+    }
+
+    usm.basicURLParse(v, { url: this._url, stateOverride: "hostname" });
+  }
+
+  get port() {
+    if (this._url.port === null) {
+      return "";
+    }
+
+    return usm.serializeInteger(this._url.port);
+  }
+
+  set port(v) {
+    if (usm.cannotHaveAUsernamePasswordPort(this._url)) {
+      return;
+    }
+
+    if (v === "") {
+      this._url.port = null;
+    } else {
+      usm.basicURLParse(v, { url: this._url, stateOverride: "port" });
+    }
+  }
+
+  get pathname() {
+    if (this._url.cannotBeABaseURL) {
+      return this._url.path[0];
+    }
+
+    if (this._url.path.length === 0) {
+      return "";
+    }
+
+    return "/" + this._url.path.join("/");
+  }
+
+  set pathname(v) {
+    if (this._url.cannotBeABaseURL) {
+      return;
+    }
+
+    this._url.path = [];
+    usm.basicURLParse(v, { url: this._url, stateOverride: "path start" });
+  }
+
+  get search() {
+    if (this._url.query === null || this._url.query === "") {
+      return "";
+    }
+
+    return "?" + this._url.query;
+  }
+
+  set search(v) {
+    // TODO: query stuff
+
+    const url = this._url;
+
+    if (v === "") {
+      url.query = null;
+      return;
+    }
+
+    const input = v[0] === "?" ? v.substring(1) : v;
+    url.query = "";
+    usm.basicURLParse(input, { url, stateOverride: "query" });
+  }
+
+  get hash() {
+    if (this._url.fragment === null || this._url.fragment === "") {
+      return "";
+    }
+
+    return "#" + this._url.fragment;
+  }
+
+  set hash(v) {
+    if (v === "") {
+      this._url.fragment = null;
+      return;
+    }
+
+    const input = v[0] === "#" ? v.substring(1) : v;
+    this._url.fragment = "";
+    usm.basicURLParse(input, { url: this._url, stateOverride: "fragment" });
+  }
+
+  toJSON() {
+    return this.href;
+  }
+};
+
+
+/***/ }),
+
+/***/ 3394:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+const conversions = __nccwpck_require__(6059);
+const utils = __nccwpck_require__(3185);
+const Impl = __nccwpck_require__(7537);
+
+const impl = utils.implSymbol;
+
+function URL(url) {
+  if (!this || this[impl] || !(this instanceof URL)) {
+    throw new TypeError("Failed to construct 'URL': Please use the 'new' operator, this DOM object constructor cannot be called as a function.");
+  }
+  if (arguments.length < 1) {
+    throw new TypeError("Failed to construct 'URL': 1 argument required, but only " + arguments.length + " present.");
+  }
+  const args = [];
+  for (let i = 0; i < arguments.length && i < 2; ++i) {
+    args[i] = arguments[i];
+  }
+  args[0] = conversions["USVString"](args[0]);
+  if (args[1] !== undefined) {
+  args[1] = conversions["USVString"](args[1]);
+  }
+
+  module.exports.setup(this, args);
+}
+
+URL.prototype.toJSON = function toJSON() {
+  if (!this || !module.exports.is(this)) {
+    throw new TypeError("Illegal invocation");
+  }
+  const args = [];
+  for (let i = 0; i < arguments.length && i < 0; ++i) {
+    args[i] = arguments[i];
+  }
+  return this[impl].toJSON.apply(this[impl], args);
+};
+Object.defineProperty(URL.prototype, "href", {
+  get() {
+    return this[impl].href;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].href = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+URL.prototype.toString = function () {
+  if (!this || !module.exports.is(this)) {
+    throw new TypeError("Illegal invocation");
+  }
+  return this.href;
+};
+
+Object.defineProperty(URL.prototype, "origin", {
+  get() {
+    return this[impl].origin;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "protocol", {
+  get() {
+    return this[impl].protocol;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].protocol = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "username", {
+  get() {
+    return this[impl].username;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].username = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "password", {
+  get() {
+    return this[impl].password;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].password = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "host", {
+  get() {
+    return this[impl].host;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].host = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "hostname", {
+  get() {
+    return this[impl].hostname;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].hostname = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "port", {
+  get() {
+    return this[impl].port;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].port = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "pathname", {
+  get() {
+    return this[impl].pathname;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].pathname = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "search", {
+  get() {
+    return this[impl].search;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].search = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+Object.defineProperty(URL.prototype, "hash", {
+  get() {
+    return this[impl].hash;
+  },
+  set(V) {
+    V = conversions["USVString"](V);
+    this[impl].hash = V;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+
+module.exports = {
+  is(obj) {
+    return !!obj && obj[impl] instanceof Impl.implementation;
+  },
+  create(constructorArgs, privateData) {
+    let obj = Object.create(URL.prototype);
+    this.setup(obj, constructorArgs, privateData);
+    return obj;
+  },
+  setup(obj, constructorArgs, privateData) {
+    if (!privateData) privateData = {};
+    privateData.wrapper = obj;
+
+    obj[impl] = new Impl.implementation(constructorArgs, privateData);
+    obj[impl][utils.wrapperSymbol] = obj;
+  },
+  interface: URL,
+  expose: {
+    Window: { URL: URL },
+    Worker: { URL: URL }
+  }
+};
+
+
+
+/***/ }),
+
+/***/ 8665:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+exports.URL = __nccwpck_require__(3394).interface;
+exports.serializeURL = __nccwpck_require__(2158).serializeURL;
+exports.serializeURLOrigin = __nccwpck_require__(2158).serializeURLOrigin;
+exports.basicURLParse = __nccwpck_require__(2158).basicURLParse;
+exports.setTheUsername = __nccwpck_require__(2158).setTheUsername;
+exports.setThePassword = __nccwpck_require__(2158).setThePassword;
+exports.serializeHost = __nccwpck_require__(2158).serializeHost;
+exports.serializeInteger = __nccwpck_require__(2158).serializeInteger;
+exports.parseURL = __nccwpck_require__(2158).parseURL;
+
+
+/***/ }),
+
+/***/ 2158:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+const punycode = __nccwpck_require__(4213);
+const tr46 = __nccwpck_require__(4256);
+
+const specialSchemes = {
+  ftp: 21,
+  file: null,
+  gopher: 70,
+  http: 80,
+  https: 443,
+  ws: 80,
+  wss: 443
+};
+
+const failure = Symbol("failure");
+
+function countSymbols(str) {
+  return punycode.ucs2.decode(str).length;
+}
+
+function at(input, idx) {
+  const c = input[idx];
+  return isNaN(c) ? undefined : String.fromCodePoint(c);
+}
+
+function isASCIIDigit(c) {
+  return c >= 0x30 && c <= 0x39;
+}
+
+function isASCIIAlpha(c) {
+  return (c >= 0x41 && c <= 0x5A) || (c >= 0x61 && c <= 0x7A);
+}
+
+function isASCIIAlphanumeric(c) {
+  return isASCIIAlpha(c) || isASCIIDigit(c);
+}
+
+function isASCIIHex(c) {
+  return isASCIIDigit(c) || (c >= 0x41 && c <= 0x46) || (c >= 0x61 && c <= 0x66);
+}
+
+function isSingleDot(buffer) {
+  return buffer === "." || buffer.toLowerCase() === "%2e";
+}
+
+function isDoubleDot(buffer) {
+  buffer = buffer.toLowerCase();
+  return buffer === ".." || buffer === "%2e." || buffer === ".%2e" || buffer === "%2e%2e";
+}
+
+function isWindowsDriveLetterCodePoints(cp1, cp2) {
+  return isASCIIAlpha(cp1) && (cp2 === 58 || cp2 === 124);
+}
+
+function isWindowsDriveLetterString(string) {
+  return string.length === 2 && isASCIIAlpha(string.codePointAt(0)) && (string[1] === ":" || string[1] === "|");
+}
+
+function isNormalizedWindowsDriveLetterString(string) {
+  return string.length === 2 && isASCIIAlpha(string.codePointAt(0)) && string[1] === ":";
+}
+
+function containsForbiddenHostCodePoint(string) {
+  return string.search(/\u0000|\u0009|\u000A|\u000D|\u0020|#|%|\/|:|\?|@|\[|\\|\]/) !== -1;
+}
+
+function containsForbiddenHostCodePointExcludingPercent(string) {
+  return string.search(/\u0000|\u0009|\u000A|\u000D|\u0020|#|\/|:|\?|@|\[|\\|\]/) !== -1;
+}
+
+function isSpecialScheme(scheme) {
+  return specialSchemes[scheme] !== undefined;
+}
+
+function isSpecial(url) {
+  return isSpecialScheme(url.scheme);
+}
+
+function defaultPort(scheme) {
+  return specialSchemes[scheme];
+}
+
+function percentEncode(c) {
+  let hex = c.toString(16).toUpperCase();
+  if (hex.length === 1) {
+    hex = "0" + hex;
+  }
+
+  return "%" + hex;
+}
+
+function utf8PercentEncode(c) {
+  const buf = new Buffer(c);
+
+  let str = "";
+
+  for (let i = 0; i < buf.length; ++i) {
+    str += percentEncode(buf[i]);
+  }
+
+  return str;
+}
+
+function utf8PercentDecode(str) {
+  const input = new Buffer(str);
+  const output = [];
+  for (let i = 0; i < input.length; ++i) {
+    if (input[i] !== 37) {
+      output.push(input[i]);
+    } else if (input[i] === 37 && isASCIIHex(input[i + 1]) && isASCIIHex(input[i + 2])) {
+      output.push(parseInt(input.slice(i + 1, i + 3).toString(), 16));
+      i += 2;
+    } else {
+      output.push(input[i]);
+    }
+  }
+  return new Buffer(output).toString();
+}
+
+function isC0ControlPercentEncode(c) {
+  return c <= 0x1F || c > 0x7E;
+}
+
+const extraPathPercentEncodeSet = new Set([32, 34, 35, 60, 62, 63, 96, 123, 125]);
+function isPathPercentEncode(c) {
+  return isC0ControlPercentEncode(c) || extraPathPercentEncodeSet.has(c);
+}
+
+const extraUserinfoPercentEncodeSet =
+  new Set([47, 58, 59, 61, 64, 91, 92, 93, 94, 124]);
+function isUserinfoPercentEncode(c) {
+  return isPathPercentEncode(c) || extraUserinfoPercentEncodeSet.has(c);
+}
+
+function percentEncodeChar(c, encodeSetPredicate) {
+  const cStr = String.fromCodePoint(c);
+
+  if (encodeSetPredicate(c)) {
+    return utf8PercentEncode(cStr);
+  }
+
+  return cStr;
+}
+
+function parseIPv4Number(input) {
+  let R = 10;
+
+  if (input.length >= 2 && input.charAt(0) === "0" && input.charAt(1).toLowerCase() === "x") {
+    input = input.substring(2);
+    R = 16;
+  } else if (input.length >= 2 && input.charAt(0) === "0") {
+    input = input.substring(1);
+    R = 8;
+  }
+
+  if (input === "") {
+    return 0;
+  }
+
+  const regex = R === 10 ? /[^0-9]/ : (R === 16 ? /[^0-9A-Fa-f]/ : /[^0-7]/);
+  if (regex.test(input)) {
+    return failure;
+  }
+
+  return parseInt(input, R);
+}
+
+function parseIPv4(input) {
+  const parts = input.split(".");
+  if (parts[parts.length - 1] === "") {
+    if (parts.length > 1) {
+      parts.pop();
+    }
+  }
+
+  if (parts.length > 4) {
+    return input;
+  }
+
+  const numbers = [];
+  for (const part of parts) {
+    if (part === "") {
+      return input;
+    }
+    const n = parseIPv4Number(part);
+    if (n === failure) {
+      return input;
+    }
+
+    numbers.push(n);
+  }
+
+  for (let i = 0; i < numbers.length - 1; ++i) {
+    if (numbers[i] > 255) {
+      return failure;
+    }
+  }
+  if (numbers[numbers.length - 1] >= Math.pow(256, 5 - numbers.length)) {
+    return failure;
+  }
+
+  let ipv4 = numbers.pop();
+  let counter = 0;
+
+  for (const n of numbers) {
+    ipv4 += n * Math.pow(256, 3 - counter);
+    ++counter;
+  }
+
+  return ipv4;
+}
+
+function serializeIPv4(address) {
+  let output = "";
+  let n = address;
+
+  for (let i = 1; i <= 4; ++i) {
+    output = String(n % 256) + output;
+    if (i !== 4) {
+      output = "." + output;
+    }
+    n = Math.floor(n / 256);
+  }
+
+  return output;
+}
+
+function parseIPv6(input) {
+  const address = [0, 0, 0, 0, 0, 0, 0, 0];
+  let pieceIndex = 0;
+  let compress = null;
+  let pointer = 0;
+
+  input = punycode.ucs2.decode(input);
+
+  if (input[pointer] === 58) {
+    if (input[pointer + 1] !== 58) {
+      return failure;
+    }
+
+    pointer += 2;
+    ++pieceIndex;
+    compress = pieceIndex;
+  }
+
+  while (pointer < input.length) {
+    if (pieceIndex === 8) {
+      return failure;
+    }
+
+    if (input[pointer] === 58) {
+      if (compress !== null) {
+        return failure;
+      }
+      ++pointer;
+      ++pieceIndex;
+      compress = pieceIndex;
+      continue;
+    }
+
+    let value = 0;
+    let length = 0;
+
+    while (length < 4 && isASCIIHex(input[pointer])) {
+      value = value * 0x10 + parseInt(at(input, pointer), 16);
+      ++pointer;
+      ++length;
+    }
+
+    if (input[pointer] === 46) {
+      if (length === 0) {
+        return failure;
+      }
+
+      pointer -= length;
+
+      if (pieceIndex > 6) {
+        return failure;
+      }
+
+      let numbersSeen = 0;
+
+      while (input[pointer] !== undefined) {
+        let ipv4Piece = null;
+
+        if (numbersSeen > 0) {
+          if (input[pointer] === 46 && numbersSeen < 4) {
+            ++pointer;
+          } else {
+            return failure;
+          }
+        }
+
+        if (!isASCIIDigit(input[pointer])) {
+          return failure;
+        }
+
+        while (isASCIIDigit(input[pointer])) {
+          const number = parseInt(at(input, pointer));
+          if (ipv4Piece === null) {
+            ipv4Piece = number;
+          } else if (ipv4Piece === 0) {
+            return failure;
+          } else {
+            ipv4Piece = ipv4Piece * 10 + number;
+          }
+          if (ipv4Piece > 255) {
+            return failure;
+          }
+          ++pointer;
+        }
+
+        address[pieceIndex] = address[pieceIndex] * 0x100 + ipv4Piece;
+
+        ++numbersSeen;
+
+        if (numbersSeen === 2 || numbersSeen === 4) {
+          ++pieceIndex;
+        }
+      }
+
+      if (numbersSeen !== 4) {
+        return failure;
+      }
+
+      break;
+    } else if (input[pointer] === 58) {
+      ++pointer;
+      if (input[pointer] === undefined) {
+        return failure;
+      }
+    } else if (input[pointer] !== undefined) {
+      return failure;
+    }
+
+    address[pieceIndex] = value;
+    ++pieceIndex;
+  }
+
+  if (compress !== null) {
+    let swaps = pieceIndex - compress;
+    pieceIndex = 7;
+    while (pieceIndex !== 0 && swaps > 0) {
+      const temp = address[compress + swaps - 1];
+      address[compress + swaps - 1] = address[pieceIndex];
+      address[pieceIndex] = temp;
+      --pieceIndex;
+      --swaps;
+    }
+  } else if (compress === null && pieceIndex !== 8) {
+    return failure;
+  }
+
+  return address;
+}
+
+function serializeIPv6(address) {
+  let output = "";
+  const seqResult = findLongestZeroSequence(address);
+  const compress = seqResult.idx;
+  let ignore0 = false;
+
+  for (let pieceIndex = 0; pieceIndex <= 7; ++pieceIndex) {
+    if (ignore0 && address[pieceIndex] === 0) {
+      continue;
+    } else if (ignore0) {
+      ignore0 = false;
+    }
+
+    if (compress === pieceIndex) {
+      const separator = pieceIndex === 0 ? "::" : ":";
+      output += separator;
+      ignore0 = true;
+      continue;
+    }
+
+    output += address[pieceIndex].toString(16);
+
+    if (pieceIndex !== 7) {
+      output += ":";
+    }
+  }
+
+  return output;
+}
+
+function parseHost(input, isSpecialArg) {
+  if (input[0] === "[") {
+    if (input[input.length - 1] !== "]") {
+      return failure;
+    }
+
+    return parseIPv6(input.substring(1, input.length - 1));
+  }
+
+  if (!isSpecialArg) {
+    return parseOpaqueHost(input);
+  }
+
+  const domain = utf8PercentDecode(input);
+  const asciiDomain = tr46.toASCII(domain, false, tr46.PROCESSING_OPTIONS.NONTRANSITIONAL, false);
+  if (asciiDomain === null) {
+    return failure;
+  }
+
+  if (containsForbiddenHostCodePoint(asciiDomain)) {
+    return failure;
+  }
+
+  const ipv4Host = parseIPv4(asciiDomain);
+  if (typeof ipv4Host === "number" || ipv4Host === failure) {
+    return ipv4Host;
+  }
+
+  return asciiDomain;
+}
+
+function parseOpaqueHost(input) {
+  if (containsForbiddenHostCodePointExcludingPercent(input)) {
+    return failure;
+  }
+
+  let output = "";
+  const decoded = punycode.ucs2.decode(input);
+  for (let i = 0; i < decoded.length; ++i) {
+    output += percentEncodeChar(decoded[i], isC0ControlPercentEncode);
+  }
+  return output;
+}
+
+function findLongestZeroSequence(arr) {
+  let maxIdx = null;
+  let maxLen = 1; // only find elements > 1
+  let currStart = null;
+  let currLen = 0;
+
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] !== 0) {
+      if (currLen > maxLen) {
+        maxIdx = currStart;
+        maxLen = currLen;
+      }
+
+      currStart = null;
+      currLen = 0;
+    } else {
+      if (currStart === null) {
+        currStart = i;
+      }
+      ++currLen;
+    }
+  }
+
+  // if trailing zeros
+  if (currLen > maxLen) {
+    maxIdx = currStart;
+    maxLen = currLen;
+  }
+
+  return {
+    idx: maxIdx,
+    len: maxLen
+  };
+}
+
+function serializeHost(host) {
+  if (typeof host === "number") {
+    return serializeIPv4(host);
+  }
+
+  // IPv6 serializer
+  if (host instanceof Array) {
+    return "[" + serializeIPv6(host) + "]";
+  }
+
+  return host;
+}
+
+function trimControlChars(url) {
+  return url.replace(/^[\u0000-\u001F\u0020]+|[\u0000-\u001F\u0020]+$/g, "");
+}
+
+function trimTabAndNewline(url) {
+  return url.replace(/\u0009|\u000A|\u000D/g, "");
+}
+
+function shortenPath(url) {
+  const path = url.path;
+  if (path.length === 0) {
+    return;
+  }
+  if (url.scheme === "file" && path.length === 1 && isNormalizedWindowsDriveLetter(path[0])) {
+    return;
+  }
+
+  path.pop();
+}
+
+function includesCredentials(url) {
+  return url.username !== "" || url.password !== "";
+}
+
+function cannotHaveAUsernamePasswordPort(url) {
+  return url.host === null || url.host === "" || url.cannotBeABaseURL || url.scheme === "file";
+}
+
+function isNormalizedWindowsDriveLetter(string) {
+  return /^[A-Za-z]:$/.test(string);
+}
+
+function URLStateMachine(input, base, encodingOverride, url, stateOverride) {
+  this.pointer = 0;
+  this.input = input;
+  this.base = base || null;
+  this.encodingOverride = encodingOverride || "utf-8";
+  this.stateOverride = stateOverride;
+  this.url = url;
+  this.failure = false;
+  this.parseError = false;
+
+  if (!this.url) {
+    this.url = {
+      scheme: "",
+      username: "",
+      password: "",
+      host: null,
+      port: null,
+      path: [],
+      query: null,
+      fragment: null,
+
+      cannotBeABaseURL: false
+    };
+
+    const res = trimControlChars(this.input);
+    if (res !== this.input) {
+      this.parseError = true;
+    }
+    this.input = res;
+  }
+
+  const res = trimTabAndNewline(this.input);
+  if (res !== this.input) {
+    this.parseError = true;
+  }
+  this.input = res;
+
+  this.state = stateOverride || "scheme start";
+
+  this.buffer = "";
+  this.atFlag = false;
+  this.arrFlag = false;
+  this.passwordTokenSeenFlag = false;
+
+  this.input = punycode.ucs2.decode(this.input);
+
+  for (; this.pointer <= this.input.length; ++this.pointer) {
+    const c = this.input[this.pointer];
+    const cStr = isNaN(c) ? undefined : String.fromCodePoint(c);
+
+    // exec state machine
+    const ret = this["parse " + this.state](c, cStr);
+    if (!ret) {
+      break; // terminate algorithm
+    } else if (ret === failure) {
+      this.failure = true;
+      break;
+    }
+  }
+}
+
+URLStateMachine.prototype["parse scheme start"] = function parseSchemeStart(c, cStr) {
+  if (isASCIIAlpha(c)) {
+    this.buffer += cStr.toLowerCase();
+    this.state = "scheme";
+  } else if (!this.stateOverride) {
+    this.state = "no scheme";
+    --this.pointer;
+  } else {
+    this.parseError = true;
+    return failure;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse scheme"] = function parseScheme(c, cStr) {
+  if (isASCIIAlphanumeric(c) || c === 43 || c === 45 || c === 46) {
+    this.buffer += cStr.toLowerCase();
+  } else if (c === 58) {
+    if (this.stateOverride) {
+      if (isSpecial(this.url) && !isSpecialScheme(this.buffer)) {
+        return false;
+      }
+
+      if (!isSpecial(this.url) && isSpecialScheme(this.buffer)) {
+        return false;
+      }
+
+      if ((includesCredentials(this.url) || this.url.port !== null) && this.buffer === "file") {
+        return false;
+      }
+
+      if (this.url.scheme === "file" && (this.url.host === "" || this.url.host === null)) {
+        return false;
+      }
+    }
+    this.url.scheme = this.buffer;
+    this.buffer = "";
+    if (this.stateOverride) {
+      return false;
+    }
+    if (this.url.scheme === "file") {
+      if (this.input[this.pointer + 1] !== 47 || this.input[this.pointer + 2] !== 47) {
+        this.parseError = true;
+      }
+      this.state = "file";
+    } else if (isSpecial(this.url) && this.base !== null && this.base.scheme === this.url.scheme) {
+      this.state = "special relative or authority";
+    } else if (isSpecial(this.url)) {
+      this.state = "special authority slashes";
+    } else if (this.input[this.pointer + 1] === 47) {
+      this.state = "path or authority";
+      ++this.pointer;
+    } else {
+      this.url.cannotBeABaseURL = true;
+      this.url.path.push("");
+      this.state = "cannot-be-a-base-URL path";
+    }
+  } else if (!this.stateOverride) {
+    this.buffer = "";
+    this.state = "no scheme";
+    this.pointer = -1;
+  } else {
+    this.parseError = true;
+    return failure;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse no scheme"] = function parseNoScheme(c) {
+  if (this.base === null || (this.base.cannotBeABaseURL && c !== 35)) {
+    return failure;
+  } else if (this.base.cannotBeABaseURL && c === 35) {
+    this.url.scheme = this.base.scheme;
+    this.url.path = this.base.path.slice();
+    this.url.query = this.base.query;
+    this.url.fragment = "";
+    this.url.cannotBeABaseURL = true;
+    this.state = "fragment";
+  } else if (this.base.scheme === "file") {
+    this.state = "file";
+    --this.pointer;
+  } else {
+    this.state = "relative";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse special relative or authority"] = function parseSpecialRelativeOrAuthority(c) {
+  if (c === 47 && this.input[this.pointer + 1] === 47) {
+    this.state = "special authority ignore slashes";
+    ++this.pointer;
+  } else {
+    this.parseError = true;
+    this.state = "relative";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse path or authority"] = function parsePathOrAuthority(c) {
+  if (c === 47) {
+    this.state = "authority";
+  } else {
+    this.state = "path";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse relative"] = function parseRelative(c) {
+  this.url.scheme = this.base.scheme;
+  if (isNaN(c)) {
+    this.url.username = this.base.username;
+    this.url.password = this.base.password;
+    this.url.host = this.base.host;
+    this.url.port = this.base.port;
+    this.url.path = this.base.path.slice();
+    this.url.query = this.base.query;
+  } else if (c === 47) {
+    this.state = "relative slash";
+  } else if (c === 63) {
+    this.url.username = this.base.username;
+    this.url.password = this.base.password;
+    this.url.host = this.base.host;
+    this.url.port = this.base.port;
+    this.url.path = this.base.path.slice();
+    this.url.query = "";
+    this.state = "query";
+  } else if (c === 35) {
+    this.url.username = this.base.username;
+    this.url.password = this.base.password;
+    this.url.host = this.base.host;
+    this.url.port = this.base.port;
+    this.url.path = this.base.path.slice();
+    this.url.query = this.base.query;
+    this.url.fragment = "";
+    this.state = "fragment";
+  } else if (isSpecial(this.url) && c === 92) {
+    this.parseError = true;
+    this.state = "relative slash";
+  } else {
+    this.url.username = this.base.username;
+    this.url.password = this.base.password;
+    this.url.host = this.base.host;
+    this.url.port = this.base.port;
+    this.url.path = this.base.path.slice(0, this.base.path.length - 1);
+
+    this.state = "path";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse relative slash"] = function parseRelativeSlash(c) {
+  if (isSpecial(this.url) && (c === 47 || c === 92)) {
+    if (c === 92) {
+      this.parseError = true;
+    }
+    this.state = "special authority ignore slashes";
+  } else if (c === 47) {
+    this.state = "authority";
+  } else {
+    this.url.username = this.base.username;
+    this.url.password = this.base.password;
+    this.url.host = this.base.host;
+    this.url.port = this.base.port;
+    this.state = "path";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse special authority slashes"] = function parseSpecialAuthoritySlashes(c) {
+  if (c === 47 && this.input[this.pointer + 1] === 47) {
+    this.state = "special authority ignore slashes";
+    ++this.pointer;
+  } else {
+    this.parseError = true;
+    this.state = "special authority ignore slashes";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse special authority ignore slashes"] = function parseSpecialAuthorityIgnoreSlashes(c) {
+  if (c !== 47 && c !== 92) {
+    this.state = "authority";
+    --this.pointer;
+  } else {
+    this.parseError = true;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse authority"] = function parseAuthority(c, cStr) {
+  if (c === 64) {
+    this.parseError = true;
+    if (this.atFlag) {
+      this.buffer = "%40" + this.buffer;
+    }
+    this.atFlag = true;
+
+    // careful, this is based on buffer and has its own pointer (this.pointer != pointer) and inner chars
+    const len = countSymbols(this.buffer);
+    for (let pointer = 0; pointer < len; ++pointer) {
+      const codePoint = this.buffer.codePointAt(pointer);
+
+      if (codePoint === 58 && !this.passwordTokenSeenFlag) {
+        this.passwordTokenSeenFlag = true;
+        continue;
+      }
+      const encodedCodePoints = percentEncodeChar(codePoint, isUserinfoPercentEncode);
+      if (this.passwordTokenSeenFlag) {
+        this.url.password += encodedCodePoints;
+      } else {
+        this.url.username += encodedCodePoints;
+      }
+    }
+    this.buffer = "";
+  } else if (isNaN(c) || c === 47 || c === 63 || c === 35 ||
+             (isSpecial(this.url) && c === 92)) {
+    if (this.atFlag && this.buffer === "") {
+      this.parseError = true;
+      return failure;
+    }
+    this.pointer -= countSymbols(this.buffer) + 1;
+    this.buffer = "";
+    this.state = "host";
+  } else {
+    this.buffer += cStr;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse hostname"] =
+URLStateMachine.prototype["parse host"] = function parseHostName(c, cStr) {
+  if (this.stateOverride && this.url.scheme === "file") {
+    --this.pointer;
+    this.state = "file host";
+  } else if (c === 58 && !this.arrFlag) {
+    if (this.buffer === "") {
+      this.parseError = true;
+      return failure;
+    }
+
+    const host = parseHost(this.buffer, isSpecial(this.url));
+    if (host === failure) {
+      return failure;
+    }
+
+    this.url.host = host;
+    this.buffer = "";
+    this.state = "port";
+    if (this.stateOverride === "hostname") {
+      return false;
+    }
+  } else if (isNaN(c) || c === 47 || c === 63 || c === 35 ||
+             (isSpecial(this.url) && c === 92)) {
+    --this.pointer;
+    if (isSpecial(this.url) && this.buffer === "") {
+      this.parseError = true;
+      return failure;
+    } else if (this.stateOverride && this.buffer === "" &&
+               (includesCredentials(this.url) || this.url.port !== null)) {
+      this.parseError = true;
+      return false;
+    }
+
+    const host = parseHost(this.buffer, isSpecial(this.url));
+    if (host === failure) {
+      return failure;
+    }
+
+    this.url.host = host;
+    this.buffer = "";
+    this.state = "path start";
+    if (this.stateOverride) {
+      return false;
+    }
+  } else {
+    if (c === 91) {
+      this.arrFlag = true;
+    } else if (c === 93) {
+      this.arrFlag = false;
+    }
+    this.buffer += cStr;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse port"] = function parsePort(c, cStr) {
+  if (isASCIIDigit(c)) {
+    this.buffer += cStr;
+  } else if (isNaN(c) || c === 47 || c === 63 || c === 35 ||
+             (isSpecial(this.url) && c === 92) ||
+             this.stateOverride) {
+    if (this.buffer !== "") {
+      const port = parseInt(this.buffer);
+      if (port > Math.pow(2, 16) - 1) {
+        this.parseError = true;
+        return failure;
+      }
+      this.url.port = port === defaultPort(this.url.scheme) ? null : port;
+      this.buffer = "";
+    }
+    if (this.stateOverride) {
+      return false;
+    }
+    this.state = "path start";
+    --this.pointer;
+  } else {
+    this.parseError = true;
+    return failure;
+  }
+
+  return true;
+};
+
+const fileOtherwiseCodePoints = new Set([47, 92, 63, 35]);
+
+URLStateMachine.prototype["parse file"] = function parseFile(c) {
+  this.url.scheme = "file";
+
+  if (c === 47 || c === 92) {
+    if (c === 92) {
+      this.parseError = true;
+    }
+    this.state = "file slash";
+  } else if (this.base !== null && this.base.scheme === "file") {
+    if (isNaN(c)) {
+      this.url.host = this.base.host;
+      this.url.path = this.base.path.slice();
+      this.url.query = this.base.query;
+    } else if (c === 63) {
+      this.url.host = this.base.host;
+      this.url.path = this.base.path.slice();
+      this.url.query = "";
+      this.state = "query";
+    } else if (c === 35) {
+      this.url.host = this.base.host;
+      this.url.path = this.base.path.slice();
+      this.url.query = this.base.query;
+      this.url.fragment = "";
+      this.state = "fragment";
+    } else {
+      if (this.input.length - this.pointer - 1 === 0 || // remaining consists of 0 code points
+          !isWindowsDriveLetterCodePoints(c, this.input[this.pointer + 1]) ||
+          (this.input.length - this.pointer - 1 >= 2 && // remaining has at least 2 code points
+           !fileOtherwiseCodePoints.has(this.input[this.pointer + 2]))) {
+        this.url.host = this.base.host;
+        this.url.path = this.base.path.slice();
+        shortenPath(this.url);
+      } else {
+        this.parseError = true;
+      }
+
+      this.state = "path";
+      --this.pointer;
+    }
+  } else {
+    this.state = "path";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse file slash"] = function parseFileSlash(c) {
+  if (c === 47 || c === 92) {
+    if (c === 92) {
+      this.parseError = true;
+    }
+    this.state = "file host";
+  } else {
+    if (this.base !== null && this.base.scheme === "file") {
+      if (isNormalizedWindowsDriveLetterString(this.base.path[0])) {
+        this.url.path.push(this.base.path[0]);
+      } else {
+        this.url.host = this.base.host;
+      }
+    }
+    this.state = "path";
+    --this.pointer;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse file host"] = function parseFileHost(c, cStr) {
+  if (isNaN(c) || c === 47 || c === 92 || c === 63 || c === 35) {
+    --this.pointer;
+    if (!this.stateOverride && isWindowsDriveLetterString(this.buffer)) {
+      this.parseError = true;
+      this.state = "path";
+    } else if (this.buffer === "") {
+      this.url.host = "";
+      if (this.stateOverride) {
+        return false;
+      }
+      this.state = "path start";
+    } else {
+      let host = parseHost(this.buffer, isSpecial(this.url));
+      if (host === failure) {
+        return failure;
+      }
+      if (host === "localhost") {
+        host = "";
+      }
+      this.url.host = host;
+
+      if (this.stateOverride) {
+        return false;
+      }
+
+      this.buffer = "";
+      this.state = "path start";
+    }
+  } else {
+    this.buffer += cStr;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse path start"] = function parsePathStart(c) {
+  if (isSpecial(this.url)) {
+    if (c === 92) {
+      this.parseError = true;
+    }
+    this.state = "path";
+
+    if (c !== 47 && c !== 92) {
+      --this.pointer;
+    }
+  } else if (!this.stateOverride && c === 63) {
+    this.url.query = "";
+    this.state = "query";
+  } else if (!this.stateOverride && c === 35) {
+    this.url.fragment = "";
+    this.state = "fragment";
+  } else if (c !== undefined) {
+    this.state = "path";
+    if (c !== 47) {
+      --this.pointer;
+    }
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse path"] = function parsePath(c) {
+  if (isNaN(c) || c === 47 || (isSpecial(this.url) && c === 92) ||
+      (!this.stateOverride && (c === 63 || c === 35))) {
+    if (isSpecial(this.url) && c === 92) {
+      this.parseError = true;
+    }
+
+    if (isDoubleDot(this.buffer)) {
+      shortenPath(this.url);
+      if (c !== 47 && !(isSpecial(this.url) && c === 92)) {
+        this.url.path.push("");
+      }
+    } else if (isSingleDot(this.buffer) && c !== 47 &&
+               !(isSpecial(this.url) && c === 92)) {
+      this.url.path.push("");
+    } else if (!isSingleDot(this.buffer)) {
+      if (this.url.scheme === "file" && this.url.path.length === 0 && isWindowsDriveLetterString(this.buffer)) {
+        if (this.url.host !== "" && this.url.host !== null) {
+          this.parseError = true;
+          this.url.host = "";
+        }
+        this.buffer = this.buffer[0] + ":";
+      }
+      this.url.path.push(this.buffer);
+    }
+    this.buffer = "";
+    if (this.url.scheme === "file" && (c === undefined || c === 63 || c === 35)) {
+      while (this.url.path.length > 1 && this.url.path[0] === "") {
+        this.parseError = true;
+        this.url.path.shift();
+      }
+    }
+    if (c === 63) {
+      this.url.query = "";
+      this.state = "query";
+    }
+    if (c === 35) {
+      this.url.fragment = "";
+      this.state = "fragment";
+    }
+  } else {
+    // TODO: If c is not a URL code point and not "%", parse error.
+
+    if (c === 37 &&
+      (!isASCIIHex(this.input[this.pointer + 1]) ||
+        !isASCIIHex(this.input[this.pointer + 2]))) {
+      this.parseError = true;
+    }
+
+    this.buffer += percentEncodeChar(c, isPathPercentEncode);
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse cannot-be-a-base-URL path"] = function parseCannotBeABaseURLPath(c) {
+  if (c === 63) {
+    this.url.query = "";
+    this.state = "query";
+  } else if (c === 35) {
+    this.url.fragment = "";
+    this.state = "fragment";
+  } else {
+    // TODO: Add: not a URL code point
+    if (!isNaN(c) && c !== 37) {
+      this.parseError = true;
+    }
+
+    if (c === 37 &&
+        (!isASCIIHex(this.input[this.pointer + 1]) ||
+         !isASCIIHex(this.input[this.pointer + 2]))) {
+      this.parseError = true;
+    }
+
+    if (!isNaN(c)) {
+      this.url.path[0] = this.url.path[0] + percentEncodeChar(c, isC0ControlPercentEncode);
+    }
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse query"] = function parseQuery(c, cStr) {
+  if (isNaN(c) || (!this.stateOverride && c === 35)) {
+    if (!isSpecial(this.url) || this.url.scheme === "ws" || this.url.scheme === "wss") {
+      this.encodingOverride = "utf-8";
+    }
+
+    const buffer = new Buffer(this.buffer); // TODO: Use encoding override instead
+    for (let i = 0; i < buffer.length; ++i) {
+      if (buffer[i] < 0x21 || buffer[i] > 0x7E || buffer[i] === 0x22 || buffer[i] === 0x23 ||
+          buffer[i] === 0x3C || buffer[i] === 0x3E) {
+        this.url.query += percentEncode(buffer[i]);
+      } else {
+        this.url.query += String.fromCodePoint(buffer[i]);
+      }
+    }
+
+    this.buffer = "";
+    if (c === 35) {
+      this.url.fragment = "";
+      this.state = "fragment";
+    }
+  } else {
+    // TODO: If c is not a URL code point and not "%", parse error.
+    if (c === 37 &&
+      (!isASCIIHex(this.input[this.pointer + 1]) ||
+        !isASCIIHex(this.input[this.pointer + 2]))) {
+      this.parseError = true;
+    }
+
+    this.buffer += cStr;
+  }
+
+  return true;
+};
+
+URLStateMachine.prototype["parse fragment"] = function parseFragment(c) {
+  if (isNaN(c)) { // do nothing
+  } else if (c === 0x0) {
+    this.parseError = true;
+  } else {
+    // TODO: If c is not a URL code point and not "%", parse error.
+    if (c === 37 &&
+      (!isASCIIHex(this.input[this.pointer + 1]) ||
+        !isASCIIHex(this.input[this.pointer + 2]))) {
+      this.parseError = true;
+    }
+
+    this.url.fragment += percentEncodeChar(c, isC0ControlPercentEncode);
+  }
+
+  return true;
+};
+
+function serializeURL(url, excludeFragment) {
+  let output = url.scheme + ":";
+  if (url.host !== null) {
+    output += "//";
+
+    if (url.username !== "" || url.password !== "") {
+      output += url.username;
+      if (url.password !== "") {
+        output += ":" + url.password;
+      }
+      output += "@";
+    }
+
+    output += serializeHost(url.host);
+
+    if (url.port !== null) {
+      output += ":" + url.port;
+    }
+  } else if (url.host === null && url.scheme === "file") {
+    output += "//";
+  }
+
+  if (url.cannotBeABaseURL) {
+    output += url.path[0];
+  } else {
+    for (const string of url.path) {
+      output += "/" + string;
+    }
+  }
+
+  if (url.query !== null) {
+    output += "?" + url.query;
+  }
+
+  if (!excludeFragment && url.fragment !== null) {
+    output += "#" + url.fragment;
+  }
+
+  return output;
+}
+
+function serializeOrigin(tuple) {
+  let result = tuple.scheme + "://";
+  result += serializeHost(tuple.host);
+
+  if (tuple.port !== null) {
+    result += ":" + tuple.port;
+  }
+
+  return result;
+}
+
+module.exports.serializeURL = serializeURL;
+
+module.exports.serializeURLOrigin = function (url) {
+  // https://url.spec.whatwg.org/#concept-url-origin
+  switch (url.scheme) {
+    case "blob":
+      try {
+        return module.exports.serializeURLOrigin(module.exports.parseURL(url.path[0]));
+      } catch (e) {
+        // serializing an opaque origin returns "null"
+        return "null";
+      }
+    case "ftp":
+    case "gopher":
+    case "http":
+    case "https":
+    case "ws":
+    case "wss":
+      return serializeOrigin({
+        scheme: url.scheme,
+        host: url.host,
+        port: url.port
+      });
+    case "file":
+      // spec says "exercise to the reader", chrome says "file://"
+      return "file://";
+    default:
+      // serializing an opaque origin returns "null"
+      return "null";
+  }
+};
+
+module.exports.basicURLParse = function (input, options) {
+  if (options === undefined) {
+    options = {};
+  }
+
+  const usm = new URLStateMachine(input, options.baseURL, options.encodingOverride, options.url, options.stateOverride);
+  if (usm.failure) {
+    return "failure";
+  }
+
+  return usm.url;
+};
+
+module.exports.setTheUsername = function (url, username) {
+  url.username = "";
+  const decoded = punycode.ucs2.decode(username);
+  for (let i = 0; i < decoded.length; ++i) {
+    url.username += percentEncodeChar(decoded[i], isUserinfoPercentEncode);
+  }
+};
+
+module.exports.setThePassword = function (url, password) {
+  url.password = "";
+  const decoded = punycode.ucs2.decode(password);
+  for (let i = 0; i < decoded.length; ++i) {
+    url.password += percentEncodeChar(decoded[i], isUserinfoPercentEncode);
+  }
+};
+
+module.exports.serializeHost = serializeHost;
+
+module.exports.cannotHaveAUsernamePasswordPort = cannotHaveAUsernamePasswordPort;
+
+module.exports.serializeInteger = function (integer) {
+  return String(integer);
+};
+
+module.exports.parseURL = function (input, options) {
+  if (options === undefined) {
+    options = {};
+  }
+
+  // We don't handle blobs, so this just delegates:
+  return module.exports.basicURLParse(input, { baseURL: options.baseURL, encodingOverride: options.encodingOverride });
+};
+
+
+/***/ }),
+
+/***/ 3185:
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports.mixin = function mixin(target, source) {
+  const keys = Object.getOwnPropertyNames(source);
+  for (let i = 0; i < keys.length; ++i) {
+    Object.defineProperty(target, keys[i], Object.getOwnPropertyDescriptor(source, keys[i]));
+  }
+};
+
+module.exports.wrapperSymbol = Symbol("wrapper");
+module.exports.implSymbol = Symbol("impl");
+
+module.exports.wrapperForImpl = function (impl) {
+  return impl[module.exports.wrapperSymbol];
+};
+
+module.exports.implForWrapper = function (wrapper) {
+  return wrapper[module.exports.implSymbol];
+};
+
+
+
+/***/ }),
+
+/***/ 6059:
+/***/ ((module) => {
+
+"use strict";
+
+
+var conversions = {};
+module.exports = conversions;
+
+function sign(x) {
+    return x < 0 ? -1 : 1;
+}
+
+function evenRound(x) {
+    // Round x to the nearest integer, choosing the even integer if it lies halfway between two.
+    if ((x % 1) === 0.5 && (x & 1) === 0) { // [even number].5; round down (i.e. floor)
+        return Math.floor(x);
+    } else {
+        return Math.round(x);
+    }
+}
+
+function createNumberConversion(bitLength, typeOpts) {
+    if (!typeOpts.unsigned) {
+        --bitLength;
+    }
+    const lowerBound = typeOpts.unsigned ? 0 : -Math.pow(2, bitLength);
+    const upperBound = Math.pow(2, bitLength) - 1;
+
+    const moduloVal = typeOpts.moduloBitLength ? Math.pow(2, typeOpts.moduloBitLength) : Math.pow(2, bitLength);
+    const moduloBound = typeOpts.moduloBitLength ? Math.pow(2, typeOpts.moduloBitLength - 1) : Math.pow(2, bitLength - 1);
+
+    return function(V, opts) {
+        if (!opts) opts = {};
+
+        let x = +V;
+
+        if (opts.enforceRange) {
+            if (!Number.isFinite(x)) {
+                throw new TypeError("Argument is not a finite number");
+            }
+
+            x = sign(x) * Math.floor(Math.abs(x));
+            if (x < lowerBound || x > upperBound) {
+                throw new TypeError("Argument is not in byte range");
+            }
+
+            return x;
+        }
+
+        if (!isNaN(x) && opts.clamp) {
+            x = evenRound(x);
+
+            if (x < lowerBound) x = lowerBound;
+            if (x > upperBound) x = upperBound;
+            return x;
+        }
+
+        if (!Number.isFinite(x) || x === 0) {
+            return 0;
+        }
+
+        x = sign(x) * Math.floor(Math.abs(x));
+        x = x % moduloVal;
+
+        if (!typeOpts.unsigned && x >= moduloBound) {
+            return x - moduloVal;
+        } else if (typeOpts.unsigned) {
+            if (x < 0) {
+              x += moduloVal;
+            } else if (x === -0) { // don't return negative zero
+              return 0;
+            }
+        }
+
+        return x;
+    }
+}
+
+conversions["void"] = function () {
+    return undefined;
+};
+
+conversions["boolean"] = function (val) {
+    return !!val;
+};
+
+conversions["byte"] = createNumberConversion(8, { unsigned: false });
+conversions["octet"] = createNumberConversion(8, { unsigned: true });
+
+conversions["short"] = createNumberConversion(16, { unsigned: false });
+conversions["unsigned short"] = createNumberConversion(16, { unsigned: true });
+
+conversions["long"] = createNumberConversion(32, { unsigned: false });
+conversions["unsigned long"] = createNumberConversion(32, { unsigned: true });
+
+conversions["long long"] = createNumberConversion(32, { unsigned: false, moduloBitLength: 64 });
+conversions["unsigned long long"] = createNumberConversion(32, { unsigned: true, moduloBitLength: 64 });
+
+conversions["double"] = function (V) {
+    const x = +V;
+
+    if (!Number.isFinite(x)) {
+        throw new TypeError("Argument is not a finite floating-point value");
+    }
+
+    return x;
+};
+
+conversions["unrestricted double"] = function (V) {
+    const x = +V;
+
+    if (isNaN(x)) {
+        throw new TypeError("Argument is NaN");
+    }
+
+    return x;
+};
+
+// not quite valid, but good enough for JS
+conversions["float"] = conversions["double"];
+conversions["unrestricted float"] = conversions["unrestricted double"];
+
+conversions["DOMString"] = function (V, opts) {
+    if (!opts) opts = {};
+
+    if (opts.treatNullAsEmptyString && V === null) {
+        return "";
+    }
+
+    return String(V);
+};
+
+conversions["ByteString"] = function (V, opts) {
+    const x = String(V);
+    let c = undefined;
+    for (let i = 0; (c = x.codePointAt(i)) !== undefined; ++i) {
+        if (c > 255) {
+            throw new TypeError("Argument is not a valid bytestring");
+        }
+    }
+
+    return x;
+};
+
+conversions["USVString"] = function (V) {
+    const S = String(V);
+    const n = S.length;
+    const U = [];
+    for (let i = 0; i < n; ++i) {
+        const c = S.charCodeAt(i);
+        if (c < 0xD800 || c > 0xDFFF) {
+            U.push(String.fromCodePoint(c));
+        } else if (0xDC00 <= c && c <= 0xDFFF) {
+            U.push(String.fromCodePoint(0xFFFD));
+        } else {
+            if (i === n - 1) {
+                U.push(String.fromCodePoint(0xFFFD));
+            } else {
+                const d = S.charCodeAt(i + 1);
+                if (0xDC00 <= d && d <= 0xDFFF) {
+                    const a = c & 0x3FF;
+                    const b = d & 0x3FF;
+                    U.push(String.fromCodePoint((2 << 15) + (2 << 9) * a + b));
+                    ++i;
+                } else {
+                    U.push(String.fromCodePoint(0xFFFD));
+                }
+            }
+        }
+    }
+
+    return U.join('');
+};
+
+conversions["Date"] = function (V, opts) {
+    if (!(V instanceof Date)) {
+        throw new TypeError("Argument is not a Date object");
+    }
+    if (isNaN(V)) {
+        return undefined;
+    }
+
+    return V;
+};
+
+conversions["RegExp"] = function (V, opts) {
+    if (!(V instanceof RegExp)) {
+        V = new RegExp(V);
+    }
+
+    return V;
+};
+
+
+/***/ }),
+
 /***/ 2877:
 /***/ ((module) => {
 
 module.exports = eval("require")("encoding");
+
+
+/***/ }),
+
+/***/ 2278:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+/**
+ * A `StructFailure` represents a single specific failure in validation.
+ */
+
+/**
+ * `StructError` objects are thrown (or returned) when validation fails.
+ *
+ * Validation logic is design to exit early for maximum performance. The error
+ * represents the first error encountered during validation. For more detail,
+ * the `error.failures` property is a generator function that can be run to
+ * continue validation and receive all the failures in the data.
+ */
+class StructError extends TypeError {
+  constructor(failure, failures) {
+    let cached;
+    const {
+      message,
+      ...rest
+    } = failure;
+    const {
+      path
+    } = failure;
+    const msg = path.length === 0 ? message : "At path: " + path.join('.') + " -- " + message;
+    super(msg);
+    Object.assign(this, rest);
+    this.name = this.constructor.name;
+
+    this.failures = () => {
+      var _cached;
+
+      return (_cached = cached) != null ? _cached : cached = [failure, ...failures()];
+    };
+  }
+
+}
+
+/**
+ * Check if a value is an iterator.
+ */
+function isIterable(x) {
+  return isObject(x) && typeof x[Symbol.iterator] === 'function';
+}
+/**
+ * Check if a value is a plain object.
+ */
+
+
+function isObject(x) {
+  return typeof x === 'object' && x != null;
+}
+/**
+ * Check if a value is a plain object.
+ */
+
+function isPlainObject(x) {
+  if (Object.prototype.toString.call(x) !== '[object Object]') {
+    return false;
+  }
+
+  const prototype = Object.getPrototypeOf(x);
+  return prototype === null || prototype === Object.prototype;
+}
+/**
+ * Return a value as a printable string.
+ */
+
+function print(value) {
+  return typeof value === 'string' ? JSON.stringify(value) : "" + value;
+}
+/**
+ * Shifts (removes and returns) the first value from the `input` iterator.
+ * Like `Array.prototype.shift()` but for an `Iterator`.
+ */
+
+function shiftIterator(input) {
+  const {
+    done,
+    value
+  } = input.next();
+  return done ? undefined : value;
+}
+/**
+ * Convert a single validation result to a failure.
+ */
+
+function toFailure(result, context, struct, value) {
+  if (result === true) {
+    return;
+  } else if (result === false) {
+    result = {};
+  } else if (typeof result === 'string') {
+    result = {
+      message: result
+    };
+  }
+
+  const {
+    path,
+    branch
+  } = context;
+  const {
+    type
+  } = struct;
+  const {
+    refinement,
+    message = "Expected a value of type `" + type + "`" + (refinement ? " with refinement `" + refinement + "`" : '') + ", but received: `" + print(value) + "`"
+  } = result;
+  return {
+    value,
+    type,
+    refinement,
+    key: path[path.length - 1],
+    path,
+    branch,
+    ...result,
+    message
+  };
+}
+/**
+ * Convert a validation result to an iterable of failures.
+ */
+
+function* toFailures(result, context, struct, value) {
+  if (!isIterable(result)) {
+    result = [result];
+  }
+
+  for (const r of result) {
+    const failure = toFailure(r, context, struct, value);
+
+    if (failure) {
+      yield failure;
+    }
+  }
+}
+/**
+ * Check a value against a struct, traversing deeply into nested values, and
+ * returning an iterator of failures or success.
+ */
+
+function* run(value, struct, options = {}) {
+  const {
+    path = [],
+    branch = [value],
+    coerce = false,
+    mask = false
+  } = options;
+  const ctx = {
+    path,
+    branch
+  };
+
+  if (coerce) {
+    value = struct.coercer(value, ctx);
+
+    if (mask && struct.type !== 'type' && isObject(struct.schema) && isObject(value) && !Array.isArray(value)) {
+      for (const key in value) {
+        if (struct.schema[key] === undefined) {
+          delete value[key];
+        }
+      }
+    }
+  }
+
+  let valid = true;
+
+  for (const failure of struct.validator(value, ctx)) {
+    valid = false;
+    yield [failure, undefined];
+  }
+
+  for (let [k, v, s] of struct.entries(value, ctx)) {
+    const ts = run(v, s, {
+      path: k === undefined ? path : [...path, k],
+      branch: k === undefined ? branch : [...branch, v],
+      coerce,
+      mask
+    });
+
+    for (const t of ts) {
+      if (t[0]) {
+        valid = false;
+        yield [t[0], undefined];
+      } else if (coerce) {
+        v = t[1];
+
+        if (k === undefined) {
+          value = v;
+        } else if (value instanceof Map) {
+          value.set(k, v);
+        } else if (value instanceof Set) {
+          value.add(v);
+        } else if (isObject(value)) {
+          value[k] = v;
+        }
+      }
+    }
+  }
+
+  if (valid) {
+    for (const failure of struct.refiner(value, ctx)) {
+      valid = false;
+      yield [failure, undefined];
+    }
+  }
+
+  if (valid) {
+    yield [undefined, value];
+  }
+}
+
+/**
+ * `Struct` objects encapsulate the validation logic for a specific type of
+ * values. Once constructed, you use the `assert`, `is` or `validate` helpers to
+ * validate unknown input data against the struct.
+ */
+
+class Struct {
+  constructor(props) {
+    const {
+      type,
+      schema,
+      validator,
+      refiner,
+      coercer = value => value,
+      entries = function* () {}
+    } = props;
+    this.type = type;
+    this.schema = schema;
+    this.entries = entries;
+    this.coercer = coercer;
+
+    if (validator) {
+      this.validator = (value, context) => {
+        const result = validator(value, context);
+        return toFailures(result, context, this, value);
+      };
+    } else {
+      this.validator = () => [];
+    }
+
+    if (refiner) {
+      this.refiner = (value, context) => {
+        const result = refiner(value, context);
+        return toFailures(result, context, this, value);
+      };
+    } else {
+      this.refiner = () => [];
+    }
+  }
+  /**
+   * Assert that a value passes the struct's validation, throwing if it doesn't.
+   */
+
+
+  assert(value) {
+    return assert(value, this);
+  }
+  /**
+   * Create a value with the struct's coercion logic, then validate it.
+   */
+
+
+  create(value) {
+    return create(value, this);
+  }
+  /**
+   * Check if a value passes the struct's validation.
+   */
+
+
+  is(value) {
+    return is(value, this);
+  }
+  /**
+   * Mask a value, coercing and validating it, but returning only the subset of
+   * properties defined by the struct's schema.
+   */
+
+
+  mask(value) {
+    return mask(value, this);
+  }
+  /**
+   * Validate a value with the struct's validation logic, returning a tuple
+   * representing the result.
+   *
+   * You may optionally pass `true` for the `withCoercion` argument to coerce
+   * the value before attempting to validate it. If you do, the result will
+   * contain the coerced result when successful.
+   */
+
+
+  validate(value, options = {}) {
+    return validate(value, this, options);
+  }
+
+}
+/**
+ * Assert that a value passes a struct, throwing if it doesn't.
+ */
+
+function assert(value, struct) {
+  const result = validate(value, struct);
+
+  if (result[0]) {
+    throw result[0];
+  }
+}
+/**
+ * Create a value with the coercion logic of struct and validate it.
+ */
+
+function create(value, struct) {
+  const result = validate(value, struct, {
+    coerce: true
+  });
+
+  if (result[0]) {
+    throw result[0];
+  } else {
+    return result[1];
+  }
+}
+/**
+ * Mask a value, returning only the subset of properties defined by a struct.
+ */
+
+function mask(value, struct) {
+  const result = validate(value, struct, {
+    coerce: true,
+    mask: true
+  });
+
+  if (result[0]) {
+    throw result[0];
+  } else {
+    return result[1];
+  }
+}
+/**
+ * Check if a value passes a struct.
+ */
+
+function is(value, struct) {
+  const result = validate(value, struct);
+  return !result[0];
+}
+/**
+ * Validate a value against a struct, returning an error if invalid, or the
+ * value (with potential coercion) if valid.
+ */
+
+function validate(value, struct, options = {}) {
+  const tuples = run(value, struct, options);
+  const tuple = shiftIterator(tuples);
+
+  if (tuple[0]) {
+    const error = new StructError(tuple[0], function* () {
+      for (const t of tuples) {
+        if (t[0]) {
+          yield t[0];
+        }
+      }
+    });
+    return [error, undefined];
+  } else {
+    const v = tuple[1];
+    return [undefined, v];
+  }
+}
+
+function assign(...Structs) {
+  const schemas = Structs.map(s => s.schema);
+  const schema = Object.assign({}, ...schemas);
+  return object(schema);
+}
+/**
+ * Define a new struct type with a custom validation function.
+ */
+
+function define(name, validator) {
+  return new Struct({
+    type: name,
+    schema: null,
+    validator
+  });
+}
+/**
+ * Create a new struct based on an existing struct, but the value is allowed to
+ * be `undefined`. `log` will be called if the value is not `undefined`.
+ */
+
+function deprecated(struct, log) {
+  return new Struct({ ...struct,
+    refiner: (value, ctx) => value === undefined || struct.refiner(value, ctx),
+
+    validator(value, ctx) {
+      if (value === undefined) {
+        return true;
+      } else {
+        log(value, ctx);
+        return struct.validator(value, ctx);
+      }
+    }
+
+  });
+}
+/**
+ * Create a struct with dynamic validation logic.
+ *
+ * The callback will receive the value currently being validated, and must
+ * return a struct object to validate it with. This can be useful to model
+ * validation logic that changes based on its input.
+ */
+
+function dynamic(fn) {
+  return new Struct({
+    type: 'dynamic',
+    schema: null,
+
+    *entries(value, ctx) {
+      const struct = fn(value, ctx);
+      yield* struct.entries(value, ctx);
+    },
+
+    validator(value, ctx) {
+      const struct = fn(value, ctx);
+      return struct.validator(value, ctx);
+    },
+
+    coercer(value, ctx) {
+      const struct = fn(value, ctx);
+      return struct.coercer(value, ctx);
+    }
+
+  });
+}
+/**
+ * Create a struct with lazily evaluated validation logic.
+ *
+ * The first time validation is run with the struct, the callback will be called
+ * and must return a struct object to use. This is useful for cases where you
+ * want to have self-referential structs for nested data structures to avoid a
+ * circular definition problem.
+ */
+
+function lazy(fn) {
+  let struct;
+  return new Struct({
+    type: 'lazy',
+    schema: null,
+
+    *entries(value, ctx) {
+      var _struct;
+
+      (_struct = struct) != null ? _struct : struct = fn();
+      yield* struct.entries(value, ctx);
+    },
+
+    validator(value, ctx) {
+      var _struct2;
+
+      (_struct2 = struct) != null ? _struct2 : struct = fn();
+      return struct.validator(value, ctx);
+    },
+
+    coercer(value, ctx) {
+      var _struct3;
+
+      (_struct3 = struct) != null ? _struct3 : struct = fn();
+      return struct.coercer(value, ctx);
+    }
+
+  });
+}
+/**
+ * Create a new struct based on an existing object struct, but excluding
+ * specific properties.
+ *
+ * Like TypeScript's `Omit` utility.
+ */
+
+function omit(struct, keys) {
+  const {
+    schema
+  } = struct;
+  const subschema = { ...schema
+  };
+
+  for (const key of keys) {
+    delete subschema[key];
+  }
+
+  return object(subschema);
+}
+/**
+ * Create a new struct based on an existing object struct, but with all of its
+ * properties allowed to be `undefined`.
+ *
+ * Like TypeScript's `Partial` utility.
+ */
+
+function partial(struct) {
+  const schema = struct instanceof Struct ? { ...struct.schema
+  } : { ...struct
+  };
+
+  for (const key in schema) {
+    schema[key] = optional(schema[key]);
+  }
+
+  return object(schema);
+}
+/**
+ * Create a new struct based on an existing object struct, but only including
+ * specific properties.
+ *
+ * Like TypeScript's `Pick` utility.
+ */
+
+function pick(struct, keys) {
+  const {
+    schema
+  } = struct;
+  const subschema = {};
+
+  for (const key of keys) {
+    subschema[key] = schema[key];
+  }
+
+  return object(subschema);
+}
+/**
+ * Define a new struct type with a custom validation function.
+ *
+ * @deprecated This function has been renamed to `define`.
+ */
+
+function struct(name, validator) {
+  console.warn('superstruct@0.11 - The `struct` helper has been renamed to `define`.');
+  return define(name, validator);
+}
+
+/**
+ * Ensure that any value passes validation.
+ */
+
+function any() {
+  return define('any', () => true);
+}
+function array(Element) {
+  return new Struct({
+    type: 'array',
+    schema: Element,
+
+    *entries(value) {
+      if (Element && Array.isArray(value)) {
+        for (const [i, v] of value.entries()) {
+          yield [i, v, Element];
+        }
+      }
+    },
+
+    coercer(value) {
+      return Array.isArray(value) ? value.slice() : value;
+    },
+
+    validator(value) {
+      return Array.isArray(value) || "Expected an array value, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a boolean.
+ */
+
+function boolean() {
+  return define('boolean', value => {
+    return typeof value === 'boolean';
+  });
+}
+/**
+ * Ensure that a value is a valid `Date`.
+ *
+ * Note: this also ensures that the value is *not* an invalid `Date` object,
+ * which can occur when parsing a date fails but still returns a `Date`.
+ */
+
+function date() {
+  return define('date', value => {
+    return value instanceof Date && !isNaN(value.getTime()) || "Expected a valid `Date` object, but received: " + print(value);
+  });
+}
+function enums(values) {
+  const schema = {};
+  const description = values.map(v => print(v)).join();
+
+  for (const key of values) {
+    schema[key] = key;
+  }
+
+  return new Struct({
+    type: 'enums',
+    schema,
+
+    validator(value) {
+      return values.includes(value) || "Expected one of `" + description + "`, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a function.
+ */
+
+function func() {
+  return define('func', value => {
+    return typeof value === 'function' || "Expected a function, but received: " + print(value);
+  });
+}
+/**
+ * Ensure that a value is an instance of a specific class.
+ */
+
+function instance(Class) {
+  return define('instance', value => {
+    return value instanceof Class || "Expected a `" + Class.name + "` instance, but received: " + print(value);
+  });
+}
+/**
+ * Ensure that a value is an integer.
+ */
+
+function integer() {
+  return define('integer', value => {
+    return typeof value === 'number' && !isNaN(value) && Number.isInteger(value) || "Expected an integer, but received: " + print(value);
+  });
+}
+function intersection(Structs) {
+  return new Struct({
+    type: 'intersection',
+    schema: null,
+
+    *entries(value, ctx) {
+      for (const S of Structs) {
+        yield* S.entries(value, ctx);
+      }
+    },
+
+    *validator(value, ctx) {
+      for (const S of Structs) {
+        yield* S.validator(value, ctx);
+      }
+    },
+
+    *refiner(value, ctx) {
+      for (const S of Structs) {
+        yield* S.refiner(value, ctx);
+      }
+    }
+
+  });
+}
+function literal(constant) {
+  const description = print(constant);
+  const t = typeof constant;
+  return new Struct({
+    type: 'literal',
+    schema: t === 'string' || t === 'number' || t === 'boolean' ? constant : null,
+
+    validator(value) {
+      return value === constant || "Expected the literal `" + description + "`, but received: " + print(value);
+    }
+
+  });
+}
+function map(Key, Value) {
+  return new Struct({
+    type: 'map',
+    schema: null,
+
+    *entries(value) {
+      if (Key && Value && value instanceof Map) {
+        for (const [k, v] of value.entries()) {
+          yield [k, k, Key];
+          yield [k, v, Value];
+        }
+      }
+    },
+
+    coercer(value) {
+      return value instanceof Map ? new Map(value) : value;
+    },
+
+    validator(value) {
+      return value instanceof Map || "Expected a `Map` object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that no value ever passes validation.
+ */
+
+function never() {
+  return define('never', () => false);
+}
+/**
+ * Augment an existing struct to allow `null` values.
+ */
+
+function nullable(struct) {
+  return new Struct({ ...struct,
+    validator: (value, ctx) => value === null || struct.validator(value, ctx),
+    refiner: (value, ctx) => value === null || struct.refiner(value, ctx)
+  });
+}
+/**
+ * Ensure that a value is a number.
+ */
+
+function number() {
+  return define('number', value => {
+    return typeof value === 'number' && !isNaN(value) || "Expected a number, but received: " + print(value);
+  });
+}
+function object(schema) {
+  const knowns = schema ? Object.keys(schema) : [];
+  const Never = never();
+  return new Struct({
+    type: 'object',
+    schema: schema ? schema : null,
+
+    *entries(value) {
+      if (schema && isObject(value)) {
+        const unknowns = new Set(Object.keys(value));
+
+        for (const key of knowns) {
+          unknowns.delete(key);
+          yield [key, value[key], schema[key]];
+        }
+
+        for (const key of unknowns) {
+          yield [key, value[key], Never];
+        }
+      }
+    },
+
+    validator(value) {
+      return isObject(value) || "Expected an object, but received: " + print(value);
+    },
+
+    coercer(value) {
+      return isObject(value) ? { ...value
+      } : value;
+    }
+
+  });
+}
+/**
+ * Augment a struct to allow `undefined` values.
+ */
+
+function optional(struct) {
+  return new Struct({ ...struct,
+    validator: (value, ctx) => value === undefined || struct.validator(value, ctx),
+    refiner: (value, ctx) => value === undefined || struct.refiner(value, ctx)
+  });
+}
+/**
+ * Ensure that a value is an object with keys and values of specific types, but
+ * without ensuring any specific shape of properties.
+ *
+ * Like TypeScript's `Record` utility.
+ */
+
+function record(Key, Value) {
+  return new Struct({
+    type: 'record',
+    schema: null,
+
+    *entries(value) {
+      if (isObject(value)) {
+        for (const k in value) {
+          const v = value[k];
+          yield [k, k, Key];
+          yield [k, v, Value];
+        }
+      }
+    },
+
+    validator(value) {
+      return isObject(value) || "Expected an object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a `RegExp`.
+ *
+ * Note: this does not test the value against the regular expression! For that
+ * you need to use the `pattern()` refinement.
+ */
+
+function regexp() {
+  return define('regexp', value => {
+    return value instanceof RegExp;
+  });
+}
+function set(Element) {
+  return new Struct({
+    type: 'set',
+    schema: null,
+
+    *entries(value) {
+      if (Element && value instanceof Set) {
+        for (const v of value) {
+          yield [v, v, Element];
+        }
+      }
+    },
+
+    coercer(value) {
+      return value instanceof Set ? new Set(value) : value;
+    },
+
+    validator(value) {
+      return value instanceof Set || "Expected a `Set` object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a string.
+ */
+
+function string() {
+  return define('string', value => {
+    return typeof value === 'string' || "Expected a string, but received: " + print(value);
+  });
+}
+function tuple(Elements) {
+  const Never = never();
+  return new Struct({
+    type: 'tuple',
+    schema: null,
+
+    *entries(value) {
+      if (Array.isArray(value)) {
+        const length = Math.max(Elements.length, value.length);
+
+        for (let i = 0; i < length; i++) {
+          yield [i, value[i], Elements[i] || Never];
+        }
+      }
+    },
+
+    validator(value) {
+      return Array.isArray(value) || "Expected an array, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value has a set of known properties of specific types.
+ *
+ * Note: Unrecognized properties are allowed and untouched. This is similar to
+ * how TypeScript's structural typing works.
+ */
+
+function type(schema) {
+  const keys = Object.keys(schema);
+  return new Struct({
+    type: 'type',
+    schema,
+
+    *entries(value) {
+      if (isObject(value)) {
+        for (const k of keys) {
+          yield [k, value[k], schema[k]];
+        }
+      }
+    },
+
+    validator(value) {
+      return isObject(value) || "Expected an object, but received: " + print(value);
+    }
+
+  });
+}
+function union(Structs) {
+  const description = Structs.map(s => s.type).join(' | ');
+  return new Struct({
+    type: 'union',
+    schema: null,
+
+    validator(value, ctx) {
+      const failures = [];
+
+      for (const S of Structs) {
+        const [...tuples] = run(value, S, ctx);
+        const [first] = tuples;
+
+        if (!first[0]) {
+          return [];
+        } else {
+          for (const [failure] of tuples) {
+            if (failure) {
+              failures.push(failure);
+            }
+          }
+        }
+      }
+
+      return ["Expected the value to satisfy a union of `" + description + "`, but received: " + print(value), ...failures];
+    }
+
+  });
+}
+/**
+ * Ensure that any value passes validation, without widening its type to `any`.
+ */
+
+function unknown() {
+  return define('unknown', () => true);
+}
+
+/**
+ * Augment a `Struct` to add an additional coercion step to its input.
+ *
+ * This allows you to transform input data before validating it, to increase the
+ * likelihood that it passes validation—for example for default values, parsing
+ * different formats, etc.
+ *
+ * Note: You must use `create(value, Struct)` on the value to have the coercion
+ * take effect! Using simply `assert()` or `is()` will not use coercion.
+ */
+
+function coerce(struct, condition, coercer) {
+  return new Struct({ ...struct,
+    coercer: (value, ctx) => {
+      return is(value, condition) ? struct.coercer(coercer(value, ctx), ctx) : struct.coercer(value, ctx);
+    }
+  });
+}
+/**
+ * Augment a struct to replace `undefined` values with a default.
+ *
+ * Note: You must use `create(value, Struct)` on the value to have the coercion
+ * take effect! Using simply `assert()` or `is()` will not use coercion.
+ */
+
+function defaulted(struct, fallback, options = {}) {
+  return coerce(struct, unknown(), x => {
+    const f = typeof fallback === 'function' ? fallback() : fallback;
+
+    if (x === undefined) {
+      return f;
+    }
+
+    if (!options.strict && isPlainObject(x) && isPlainObject(f)) {
+      const ret = { ...x
+      };
+      let changed = false;
+
+      for (const key in f) {
+        if (ret[key] === undefined) {
+          ret[key] = f[key];
+          changed = true;
+        }
+      }
+
+      if (changed) {
+        return ret;
+      }
+    }
+
+    return x;
+  });
+}
+/**
+ * Augment a struct to trim string inputs.
+ *
+ * Note: You must use `create(value, Struct)` on the value to have the coercion
+ * take effect! Using simply `assert()` or `is()` will not use coercion.
+ */
+
+function trimmed(struct) {
+  return coerce(struct, string(), x => x.trim());
+}
+
+/**
+ * Ensure that a string, array, map, or set is empty.
+ */
+
+function empty(struct) {
+  const expected = "Expected an empty " + struct.type;
+  return refine(struct, 'empty', value => {
+    if (value instanceof Map || value instanceof Set) {
+      const {
+        size
+      } = value;
+      return size === 0 || expected + " but received one with a size of `" + size + "`";
+    } else {
+      const {
+        length
+      } = value;
+      return length === 0 || expected + " but received one with a length of `" + length + "`";
+    }
+  });
+}
+/**
+ * Ensure that a number or date is below a threshold.
+ */
+
+function max(struct, threshold, options = {}) {
+  const {
+    exclusive
+  } = options;
+  return refine(struct, 'max', value => {
+    return exclusive ? value < threshold : value <= threshold || "Expected a " + struct.type + " greater than " + (exclusive ? '' : 'or equal to ') + threshold + " but received `" + value + "`";
+  });
+}
+/**
+ * Ensure that a number or date is above a threshold.
+ */
+
+function min(struct, threshold, options = {}) {
+  const {
+    exclusive
+  } = options;
+  return refine(struct, 'min', value => {
+    return exclusive ? value > threshold : value >= threshold || "Expected a " + struct.type + " greater than " + (exclusive ? '' : 'or equal to ') + threshold + " but received `" + value + "`";
+  });
+}
+/**
+ * Ensure that a string matches a regular expression.
+ */
+
+function pattern(struct, regexp) {
+  return refine(struct, 'pattern', value => {
+    return regexp.test(value) || "Expected a " + struct.type + " matching `/" + regexp.source + "/` but received \"" + value + "\"";
+  });
+}
+/**
+ * Ensure that a string, array, number, date, map, or set has a size (or length, or time) between `min` and `max`.
+ */
+
+function size(struct, min, max = min) {
+  const expected = "Expected a " + struct.type;
+  const of = min === max ? "of `" + min + "`" : "between `" + min + "` and `" + max + "`";
+  return refine(struct, 'size', value => {
+    if (typeof value === 'number' || value instanceof Date) {
+      return min <= value && value <= max || expected + " " + of + " but received `" + value + "`";
+    } else if (value instanceof Map || value instanceof Set) {
+      const {
+        size
+      } = value;
+      return min <= size && size <= max || expected + " with a size " + of + " but received one with a size of `" + size + "`";
+    } else {
+      const {
+        length
+      } = value;
+      return min <= length && length <= max || expected + " with a length " + of + " but received one with a length of `" + length + "`";
+    }
+  });
+}
+/**
+ * Augment a `Struct` to add an additional refinement to the validation.
+ *
+ * The refiner function is guaranteed to receive a value of the struct's type,
+ * because the struct's existing validation will already have passed. This
+ * allows you to layer additional validation on top of existing structs.
+ */
+
+function refine(struct, name, refiner) {
+  return new Struct({ ...struct,
+
+    *refiner(value, ctx) {
+      yield* struct.refiner(value, ctx);
+      const result = refiner(value, ctx);
+      const failures = toFailures(result, ctx, struct, value);
+
+      for (const failure of failures) {
+        yield { ...failure,
+          refinement: name
+        };
+      }
+    }
+
+  });
+}
+
+exports.Struct = Struct;
+exports.StructError = StructError;
+exports.any = any;
+exports.array = array;
+exports.assert = assert;
+exports.assign = assign;
+exports.boolean = boolean;
+exports.coerce = coerce;
+exports.create = create;
+exports.date = date;
+exports.defaulted = defaulted;
+exports.define = define;
+exports.deprecated = deprecated;
+exports.dynamic = dynamic;
+exports.empty = empty;
+exports.enums = enums;
+exports.func = func;
+exports.instance = instance;
+exports.integer = integer;
+exports.intersection = intersection;
+exports.is = is;
+exports.lazy = lazy;
+exports.literal = literal;
+exports.map = map;
+exports.mask = mask;
+exports.max = max;
+exports.min = min;
+exports.never = never;
+exports.nullable = nullable;
+exports.number = number;
+exports.object = object;
+exports.omit = omit;
+exports.optional = optional;
+exports.partial = partial;
+exports.pattern = pattern;
+exports.pick = pick;
+exports.record = record;
+exports.refine = refine;
+exports.regexp = regexp;
+exports.set = set;
+exports.size = size;
+exports.string = string;
+exports.struct = struct;
+exports.trimmed = trimmed;
+exports.tuple = tuple;
+exports.type = type;
+exports.union = union;
+exports.unknown = unknown;
+exports.validate = validate;
+//# sourceMappingURL=index.cjs.map
+
+
+/***/ }),
+
+/***/ 6188:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+
+/**
+ * A `StructFailure` represents a single specific failure in validation.
+ */
+
+/**
+ * `StructError` objects are thrown (or returned) when validation fails.
+ *
+ * Validation logic is design to exit early for maximum performance. The error
+ * represents the first error encountered during validation. For more detail,
+ * the `error.failures` property is a generator function that can be run to
+ * continue validation and receive all the failures in the data.
+ */
+class StructError extends TypeError {
+  constructor(failure, failures) {
+    let cached;
+    const {
+      message,
+      ...rest
+    } = failure;
+    const {
+      path
+    } = failure;
+    const msg = path.length === 0 ? message : "At path: " + path.join('.') + " -- " + message;
+    super(msg);
+    this.value = void 0;
+    this.key = void 0;
+    this.type = void 0;
+    this.refinement = void 0;
+    this.path = void 0;
+    this.branch = void 0;
+    this.failures = void 0;
+    Object.assign(this, rest);
+    this.name = this.constructor.name;
+
+    this.failures = () => {
+      var _cached;
+
+      return (_cached = cached) != null ? _cached : cached = [failure, ...failures()];
+    };
+  }
+
+}
+
+/**
+ * Check if a value is an iterator.
+ */
+function isIterable(x) {
+  return isObject(x) && typeof x[Symbol.iterator] === 'function';
+}
+/**
+ * Check if a value is a plain object.
+ */
+
+
+function isObject(x) {
+  return typeof x === 'object' && x != null;
+}
+/**
+ * Check if a value is a plain object.
+ */
+
+function isPlainObject(x) {
+  if (Object.prototype.toString.call(x) !== '[object Object]') {
+    return false;
+  }
+
+  const prototype = Object.getPrototypeOf(x);
+  return prototype === null || prototype === Object.prototype;
+}
+/**
+ * Return a value as a printable string.
+ */
+
+function print(value) {
+  return typeof value === 'string' ? JSON.stringify(value) : "" + value;
+}
+/**
+ * Shifts (removes and returns) the first value from the `input` iterator.
+ * Like `Array.prototype.shift()` but for an `Iterator`.
+ */
+
+function shiftIterator(input) {
+  const {
+    done,
+    value
+  } = input.next();
+  return done ? undefined : value;
+}
+/**
+ * Convert a single validation result to a failure.
+ */
+
+function toFailure(result, context, struct, value) {
+  if (result === true) {
+    return;
+  } else if (result === false) {
+    result = {};
+  } else if (typeof result === 'string') {
+    result = {
+      message: result
+    };
+  }
+
+  const {
+    path,
+    branch
+  } = context;
+  const {
+    type
+  } = struct;
+  const {
+    refinement,
+    message = "Expected a value of type `" + type + "`" + (refinement ? " with refinement `" + refinement + "`" : '') + ", but received: `" + print(value) + "`"
+  } = result;
+  return {
+    value,
+    type,
+    refinement,
+    key: path[path.length - 1],
+    path,
+    branch,
+    ...result,
+    message
+  };
+}
+/**
+ * Convert a validation result to an iterable of failures.
+ */
+
+function* toFailures(result, context, struct, value) {
+  if (!isIterable(result)) {
+    result = [result];
+  }
+
+  for (const r of result) {
+    const failure = toFailure(r, context, struct, value);
+
+    if (failure) {
+      yield failure;
+    }
+  }
+}
+/**
+ * Check a value against a struct, traversing deeply into nested values, and
+ * returning an iterator of failures or success.
+ */
+
+function* run(value, struct, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  const {
+    path = [],
+    branch = [value],
+    coerce = false,
+    mask = false
+  } = options;
+  const ctx = {
+    path,
+    branch
+  };
+
+  if (coerce) {
+    value = struct.coercer(value, ctx);
+
+    if (mask && struct.type !== 'type' && isObject(struct.schema) && isObject(value) && !Array.isArray(value)) {
+      for (const key in value) {
+        if (struct.schema[key] === undefined) {
+          delete value[key];
+        }
+      }
+    }
+  }
+
+  let valid = true;
+
+  for (const failure of struct.validator(value, ctx)) {
+    valid = false;
+    yield [failure, undefined];
+  }
+
+  for (let [k, v, s] of struct.entries(value, ctx)) {
+    const ts = run(v, s, {
+      path: k === undefined ? path : [...path, k],
+      branch: k === undefined ? branch : [...branch, v],
+      coerce,
+      mask
+    });
+
+    for (const t of ts) {
+      if (t[0]) {
+        valid = false;
+        yield [t[0], undefined];
+      } else if (coerce) {
+        v = t[1];
+
+        if (k === undefined) {
+          value = v;
+        } else if (value instanceof Map) {
+          value.set(k, v);
+        } else if (value instanceof Set) {
+          value.add(v);
+        } else if (isObject(value)) {
+          value[k] = v;
+        }
+      }
+    }
+  }
+
+  if (valid) {
+    for (const failure of struct.refiner(value, ctx)) {
+      valid = false;
+      yield [failure, undefined];
+    }
+  }
+
+  if (valid) {
+    yield [undefined, value];
+  }
+}
+
+/**
+ * `Struct` objects encapsulate the validation logic for a specific type of
+ * values. Once constructed, you use the `assert`, `is` or `validate` helpers to
+ * validate unknown input data against the struct.
+ */
+
+class Struct {
+  constructor(props) {
+    this.TYPE = void 0;
+    this.type = void 0;
+    this.schema = void 0;
+    this.coercer = void 0;
+    this.validator = void 0;
+    this.refiner = void 0;
+    this.entries = void 0;
+    const {
+      type,
+      schema,
+      validator,
+      refiner,
+      coercer = value => value,
+      entries = function* () {}
+    } = props;
+    this.type = type;
+    this.schema = schema;
+    this.entries = entries;
+    this.coercer = coercer;
+
+    if (validator) {
+      this.validator = (value, context) => {
+        const result = validator(value, context);
+        return toFailures(result, context, this, value);
+      };
+    } else {
+      this.validator = () => [];
+    }
+
+    if (refiner) {
+      this.refiner = (value, context) => {
+        const result = refiner(value, context);
+        return toFailures(result, context, this, value);
+      };
+    } else {
+      this.refiner = () => [];
+    }
+  }
+  /**
+   * Assert that a value passes the struct's validation, throwing if it doesn't.
+   */
+
+
+  assert(value) {
+    return assert(value, this);
+  }
+  /**
+   * Create a value with the struct's coercion logic, then validate it.
+   */
+
+
+  create(value) {
+    return create(value, this);
+  }
+  /**
+   * Check if a value passes the struct's validation.
+   */
+
+
+  is(value) {
+    return is(value, this);
+  }
+  /**
+   * Mask a value, coercing and validating it, but returning only the subset of
+   * properties defined by the struct's schema.
+   */
+
+
+  mask(value) {
+    return mask(value, this);
+  }
+  /**
+   * Validate a value with the struct's validation logic, returning a tuple
+   * representing the result.
+   *
+   * You may optionally pass `true` for the `withCoercion` argument to coerce
+   * the value before attempting to validate it. If you do, the result will
+   * contain the coerced result when successful.
+   */
+
+
+  validate(value, options) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    return validate(value, this, options);
+  }
+
+}
+/**
+ * Assert that a value passes a struct, throwing if it doesn't.
+ */
+
+function assert(value, struct) {
+  const result = validate(value, struct);
+
+  if (result[0]) {
+    throw result[0];
+  }
+}
+/**
+ * Create a value with the coercion logic of struct and validate it.
+ */
+
+function create(value, struct) {
+  const result = validate(value, struct, {
+    coerce: true
+  });
+
+  if (result[0]) {
+    throw result[0];
+  } else {
+    return result[1];
+  }
+}
+/**
+ * Mask a value, returning only the subset of properties defined by a struct.
+ */
+
+function mask(value, struct) {
+  const result = validate(value, struct, {
+    coerce: true,
+    mask: true
+  });
+
+  if (result[0]) {
+    throw result[0];
+  } else {
+    return result[1];
+  }
+}
+/**
+ * Check if a value passes a struct.
+ */
+
+function is(value, struct) {
+  const result = validate(value, struct);
+  return !result[0];
+}
+/**
+ * Validate a value against a struct, returning an error if invalid, or the
+ * value (with potential coercion) if valid.
+ */
+
+function validate(value, struct, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  const tuples = run(value, struct, options);
+  const tuple = shiftIterator(tuples);
+
+  if (tuple[0]) {
+    const error = new StructError(tuple[0], function* () {
+      for (const t of tuples) {
+        if (t[0]) {
+          yield t[0];
+        }
+      }
+    });
+    return [error, undefined];
+  } else {
+    const v = tuple[1];
+    return [undefined, v];
+  }
+}
+
+function assign() {
+  for (var _len = arguments.length, Structs = new Array(_len), _key = 0; _key < _len; _key++) {
+    Structs[_key] = arguments[_key];
+  }
+
+  const isType = Structs[0].type === 'type';
+  const schemas = Structs.map(s => s.schema);
+  const schema = Object.assign({}, ...schemas);
+  return isType ? type(schema) : object(schema);
+}
+/**
+ * Define a new struct type with a custom validation function.
+ */
+
+function define(name, validator) {
+  return new Struct({
+    type: name,
+    schema: null,
+    validator
+  });
+}
+/**
+ * Create a new struct based on an existing struct, but the value is allowed to
+ * be `undefined`. `log` will be called if the value is not `undefined`.
+ */
+
+function deprecated(struct, log) {
+  return new Struct({ ...struct,
+    refiner: (value, ctx) => value === undefined || struct.refiner(value, ctx),
+
+    validator(value, ctx) {
+      if (value === undefined) {
+        return true;
+      } else {
+        log(value, ctx);
+        return struct.validator(value, ctx);
+      }
+    }
+
+  });
+}
+/**
+ * Create a struct with dynamic validation logic.
+ *
+ * The callback will receive the value currently being validated, and must
+ * return a struct object to validate it with. This can be useful to model
+ * validation logic that changes based on its input.
+ */
+
+function dynamic(fn) {
+  return new Struct({
+    type: 'dynamic',
+    schema: null,
+
+    *entries(value, ctx) {
+      const struct = fn(value, ctx);
+      yield* struct.entries(value, ctx);
+    },
+
+    validator(value, ctx) {
+      const struct = fn(value, ctx);
+      return struct.validator(value, ctx);
+    },
+
+    coercer(value, ctx) {
+      const struct = fn(value, ctx);
+      return struct.coercer(value, ctx);
+    },
+
+    refiner(value, ctx) {
+      const struct = fn(value, ctx);
+      return struct.refiner(value, ctx);
+    }
+
+  });
+}
+/**
+ * Create a struct with lazily evaluated validation logic.
+ *
+ * The first time validation is run with the struct, the callback will be called
+ * and must return a struct object to use. This is useful for cases where you
+ * want to have self-referential structs for nested data structures to avoid a
+ * circular definition problem.
+ */
+
+function lazy(fn) {
+  let struct;
+  return new Struct({
+    type: 'lazy',
+    schema: null,
+
+    *entries(value, ctx) {
+      var _struct;
+
+      (_struct = struct) != null ? _struct : struct = fn();
+      yield* struct.entries(value, ctx);
+    },
+
+    validator(value, ctx) {
+      var _struct2;
+
+      (_struct2 = struct) != null ? _struct2 : struct = fn();
+      return struct.validator(value, ctx);
+    },
+
+    coercer(value, ctx) {
+      var _struct3;
+
+      (_struct3 = struct) != null ? _struct3 : struct = fn();
+      return struct.coercer(value, ctx);
+    },
+
+    refiner(value, ctx) {
+      var _struct4;
+
+      (_struct4 = struct) != null ? _struct4 : struct = fn();
+      return struct.refiner(value, ctx);
+    }
+
+  });
+}
+/**
+ * Create a new struct based on an existing object struct, but excluding
+ * specific properties.
+ *
+ * Like TypeScript's `Omit` utility.
+ */
+
+function omit(struct, keys) {
+  const {
+    schema
+  } = struct;
+  const subschema = { ...schema
+  };
+
+  for (const key of keys) {
+    delete subschema[key];
+  }
+
+  switch (struct.type) {
+    case 'type':
+      return type(subschema);
+
+    default:
+      return object(subschema);
+  }
+}
+/**
+ * Create a new struct based on an existing object struct, but with all of its
+ * properties allowed to be `undefined`.
+ *
+ * Like TypeScript's `Partial` utility.
+ */
+
+function partial(struct) {
+  const schema = struct instanceof Struct ? { ...struct.schema
+  } : { ...struct
+  };
+
+  for (const key in schema) {
+    schema[key] = optional(schema[key]);
+  }
+
+  return object(schema);
+}
+/**
+ * Create a new struct based on an existing object struct, but only including
+ * specific properties.
+ *
+ * Like TypeScript's `Pick` utility.
+ */
+
+function pick(struct, keys) {
+  const {
+    schema
+  } = struct;
+  const subschema = {};
+
+  for (const key of keys) {
+    subschema[key] = schema[key];
+  }
+
+  return object(subschema);
+}
+/**
+ * Define a new struct type with a custom validation function.
+ *
+ * @deprecated This function has been renamed to `define`.
+ */
+
+function struct(name, validator) {
+  console.warn('superstruct@0.11 - The `struct` helper has been renamed to `define`.');
+  return define(name, validator);
+}
+
+/**
+ * Ensure that any value passes validation.
+ */
+
+function any() {
+  return define('any', () => true);
+}
+function array(Element) {
+  return new Struct({
+    type: 'array',
+    schema: Element,
+
+    *entries(value) {
+      if (Element && Array.isArray(value)) {
+        for (const [i, v] of value.entries()) {
+          yield [i, v, Element];
+        }
+      }
+    },
+
+    coercer(value) {
+      return Array.isArray(value) ? value.slice() : value;
+    },
+
+    validator(value) {
+      return Array.isArray(value) || "Expected an array value, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a bigint.
+ */
+
+function bigint() {
+  return define('bigint', value => {
+    return typeof value === 'bigint';
+  });
+}
+/**
+ * Ensure that a value is a boolean.
+ */
+
+function boolean() {
+  return define('boolean', value => {
+    return typeof value === 'boolean';
+  });
+}
+/**
+ * Ensure that a value is a valid `Date`.
+ *
+ * Note: this also ensures that the value is *not* an invalid `Date` object,
+ * which can occur when parsing a date fails but still returns a `Date`.
+ */
+
+function date() {
+  return define('date', value => {
+    return value instanceof Date && !isNaN(value.getTime()) || "Expected a valid `Date` object, but received: " + print(value);
+  });
+}
+function enums(values) {
+  const schema = {};
+  const description = values.map(v => print(v)).join();
+
+  for (const key of values) {
+    schema[key] = key;
+  }
+
+  return new Struct({
+    type: 'enums',
+    schema,
+
+    validator(value) {
+      return values.includes(value) || "Expected one of `" + description + "`, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a function.
+ */
+
+function func() {
+  return define('func', value => {
+    return typeof value === 'function' || "Expected a function, but received: " + print(value);
+  });
+}
+/**
+ * Ensure that a value is an instance of a specific class.
+ */
+
+function instance(Class) {
+  return define('instance', value => {
+    return value instanceof Class || "Expected a `" + Class.name + "` instance, but received: " + print(value);
+  });
+}
+/**
+ * Ensure that a value is an integer.
+ */
+
+function integer() {
+  return define('integer', value => {
+    return typeof value === 'number' && !isNaN(value) && Number.isInteger(value) || "Expected an integer, but received: " + print(value);
+  });
+}
+/**
+ * Ensure that a value matches all of a set of types.
+ */
+
+function intersection(Structs) {
+  return new Struct({
+    type: 'intersection',
+    schema: null,
+
+    *entries(value, ctx) {
+      for (const S of Structs) {
+        yield* S.entries(value, ctx);
+      }
+    },
+
+    *validator(value, ctx) {
+      for (const S of Structs) {
+        yield* S.validator(value, ctx);
+      }
+    },
+
+    *refiner(value, ctx) {
+      for (const S of Structs) {
+        yield* S.refiner(value, ctx);
+      }
+    }
+
+  });
+}
+function literal(constant) {
+  const description = print(constant);
+  const t = typeof constant;
+  return new Struct({
+    type: 'literal',
+    schema: t === 'string' || t === 'number' || t === 'boolean' ? constant : null,
+
+    validator(value) {
+      return value === constant || "Expected the literal `" + description + "`, but received: " + print(value);
+    }
+
+  });
+}
+function map(Key, Value) {
+  return new Struct({
+    type: 'map',
+    schema: null,
+
+    *entries(value) {
+      if (Key && Value && value instanceof Map) {
+        for (const [k, v] of value.entries()) {
+          yield [k, k, Key];
+          yield [k, v, Value];
+        }
+      }
+    },
+
+    coercer(value) {
+      return value instanceof Map ? new Map(value) : value;
+    },
+
+    validator(value) {
+      return value instanceof Map || "Expected a `Map` object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that no value ever passes validation.
+ */
+
+function never() {
+  return define('never', () => false);
+}
+/**
+ * Augment an existing struct to allow `null` values.
+ */
+
+function nullable(struct) {
+  return new Struct({ ...struct,
+    validator: (value, ctx) => value === null || struct.validator(value, ctx),
+    refiner: (value, ctx) => value === null || struct.refiner(value, ctx)
+  });
+}
+/**
+ * Ensure that a value is a number.
+ */
+
+function number() {
+  return define('number', value => {
+    return typeof value === 'number' && !isNaN(value) || "Expected a number, but received: " + print(value);
+  });
+}
+function object(schema) {
+  const knowns = schema ? Object.keys(schema) : [];
+  const Never = never();
+  return new Struct({
+    type: 'object',
+    schema: schema ? schema : null,
+
+    *entries(value) {
+      if (schema && isObject(value)) {
+        const unknowns = new Set(Object.keys(value));
+
+        for (const key of knowns) {
+          unknowns.delete(key);
+          yield [key, value[key], schema[key]];
+        }
+
+        for (const key of unknowns) {
+          yield [key, value[key], Never];
+        }
+      }
+    },
+
+    validator(value) {
+      return isObject(value) || "Expected an object, but received: " + print(value);
+    },
+
+    coercer(value) {
+      return isObject(value) ? { ...value
+      } : value;
+    }
+
+  });
+}
+/**
+ * Augment a struct to allow `undefined` values.
+ */
+
+function optional(struct) {
+  return new Struct({ ...struct,
+    validator: (value, ctx) => value === undefined || struct.validator(value, ctx),
+    refiner: (value, ctx) => value === undefined || struct.refiner(value, ctx)
+  });
+}
+/**
+ * Ensure that a value is an object with keys and values of specific types, but
+ * without ensuring any specific shape of properties.
+ *
+ * Like TypeScript's `Record` utility.
+ */
+
+function record(Key, Value) {
+  return new Struct({
+    type: 'record',
+    schema: null,
+
+    *entries(value) {
+      if (isObject(value)) {
+        for (const k in value) {
+          const v = value[k];
+          yield [k, k, Key];
+          yield [k, v, Value];
+        }
+      }
+    },
+
+    validator(value) {
+      return isObject(value) || "Expected an object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a `RegExp`.
+ *
+ * Note: this does not test the value against the regular expression! For that
+ * you need to use the `pattern()` refinement.
+ */
+
+function regexp() {
+  return define('regexp', value => {
+    return value instanceof RegExp;
+  });
+}
+function set(Element) {
+  return new Struct({
+    type: 'set',
+    schema: null,
+
+    *entries(value) {
+      if (Element && value instanceof Set) {
+        for (const v of value) {
+          yield [v, v, Element];
+        }
+      }
+    },
+
+    coercer(value) {
+      return value instanceof Set ? new Set(value) : value;
+    },
+
+    validator(value) {
+      return value instanceof Set || "Expected a `Set` object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value is a string.
+ */
+
+function string() {
+  return define('string', value => {
+    return typeof value === 'string' || "Expected a string, but received: " + print(value);
+  });
+}
+/**
+ * Ensure that a value is a tuple of a specific length, and that each of its
+ * elements is of a specific type.
+ */
+
+function tuple(Structs) {
+  const Never = never();
+  return new Struct({
+    type: 'tuple',
+    schema: null,
+
+    *entries(value) {
+      if (Array.isArray(value)) {
+        const length = Math.max(Structs.length, value.length);
+
+        for (let i = 0; i < length; i++) {
+          yield [i, value[i], Structs[i] || Never];
+        }
+      }
+    },
+
+    validator(value) {
+      return Array.isArray(value) || "Expected an array, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value has a set of known properties of specific types.
+ *
+ * Note: Unrecognized properties are allowed and untouched. This is similar to
+ * how TypeScript's structural typing works.
+ */
+
+function type(schema) {
+  const keys = Object.keys(schema);
+  return new Struct({
+    type: 'type',
+    schema,
+
+    *entries(value) {
+      if (isObject(value)) {
+        for (const k of keys) {
+          yield [k, value[k], schema[k]];
+        }
+      }
+    },
+
+    validator(value) {
+      return isObject(value) || "Expected an object, but received: " + print(value);
+    }
+
+  });
+}
+/**
+ * Ensure that a value matches one of a set of types.
+ */
+
+function union(Structs) {
+  const description = Structs.map(s => s.type).join(' | ');
+  return new Struct({
+    type: 'union',
+    schema: null,
+
+    coercer(value, ctx) {
+      const firstMatch = Structs.find(s => {
+        const [e] = s.validate(value, {
+          coerce: true
+        });
+        return !e;
+      }) || unknown();
+      return firstMatch.coercer(value, ctx);
+    },
+
+    validator(value, ctx) {
+      const failures = [];
+
+      for (const S of Structs) {
+        const [...tuples] = run(value, S, ctx);
+        const [first] = tuples;
+
+        if (!first[0]) {
+          return [];
+        } else {
+          for (const [failure] of tuples) {
+            if (failure) {
+              failures.push(failure);
+            }
+          }
+        }
+      }
+
+      return ["Expected the value to satisfy a union of `" + description + "`, but received: " + print(value), ...failures];
+    }
+
+  });
+}
+/**
+ * Ensure that any value passes validation, without widening its type to `any`.
+ */
+
+function unknown() {
+  return define('unknown', () => true);
+}
+
+/**
+ * Augment a `Struct` to add an additional coercion step to its input.
+ *
+ * This allows you to transform input data before validating it, to increase the
+ * likelihood that it passes validation—for example for default values, parsing
+ * different formats, etc.
+ *
+ * Note: You must use `create(value, Struct)` on the value to have the coercion
+ * take effect! Using simply `assert()` or `is()` will not use coercion.
+ */
+
+function coerce(struct, condition, coercer) {
+  return new Struct({ ...struct,
+    coercer: (value, ctx) => {
+      return is(value, condition) ? struct.coercer(coercer(value, ctx), ctx) : struct.coercer(value, ctx);
+    }
+  });
+}
+/**
+ * Augment a struct to replace `undefined` values with a default.
+ *
+ * Note: You must use `create(value, Struct)` on the value to have the coercion
+ * take effect! Using simply `assert()` or `is()` will not use coercion.
+ */
+
+function defaulted(struct, fallback, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  return coerce(struct, unknown(), x => {
+    const f = typeof fallback === 'function' ? fallback() : fallback;
+
+    if (x === undefined) {
+      return f;
+    }
+
+    if (!options.strict && isPlainObject(x) && isPlainObject(f)) {
+      const ret = { ...x
+      };
+      let changed = false;
+
+      for (const key in f) {
+        if (ret[key] === undefined) {
+          ret[key] = f[key];
+          changed = true;
+        }
+      }
+
+      if (changed) {
+        return ret;
+      }
+    }
+
+    return x;
+  });
+}
+/**
+ * Augment a struct to trim string inputs.
+ *
+ * Note: You must use `create(value, Struct)` on the value to have the coercion
+ * take effect! Using simply `assert()` or `is()` will not use coercion.
+ */
+
+function trimmed(struct) {
+  return coerce(struct, string(), x => x.trim());
+}
+
+/**
+ * Ensure that a string, array, map, or set is empty.
+ */
+
+function empty(struct) {
+  return refine(struct, 'empty', value => {
+    const size = getSize(value);
+    return size === 0 || "Expected an empty " + struct.type + " but received one with a size of `" + size + "`";
+  });
+}
+
+function getSize(value) {
+  if (value instanceof Map || value instanceof Set) {
+    return value.size;
+  } else {
+    return value.length;
+  }
+}
+/**
+ * Ensure that a number or date is below a threshold.
+ */
+
+
+function max(struct, threshold, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  const {
+    exclusive
+  } = options;
+  return refine(struct, 'max', value => {
+    return exclusive ? value < threshold : value <= threshold || "Expected a " + struct.type + " less than " + (exclusive ? '' : 'or equal to ') + threshold + " but received `" + value + "`";
+  });
+}
+/**
+ * Ensure that a number or date is above a threshold.
+ */
+
+function min(struct, threshold, options) {
+  if (options === void 0) {
+    options = {};
+  }
+
+  const {
+    exclusive
+  } = options;
+  return refine(struct, 'min', value => {
+    return exclusive ? value > threshold : value >= threshold || "Expected a " + struct.type + " greater than " + (exclusive ? '' : 'or equal to ') + threshold + " but received `" + value + "`";
+  });
+}
+/**
+ * Ensure that a string, array, map or set is not empty.
+ */
+
+function nonempty(struct) {
+  return refine(struct, 'nonempty', value => {
+    const size = getSize(value);
+    return size > 0 || "Expected a nonempty " + struct.type + " but received an empty one";
+  });
+}
+/**
+ * Ensure that a string matches a regular expression.
+ */
+
+function pattern(struct, regexp) {
+  return refine(struct, 'pattern', value => {
+    return regexp.test(value) || "Expected a " + struct.type + " matching `/" + regexp.source + "/` but received \"" + value + "\"";
+  });
+}
+/**
+ * Ensure that a string, array, number, date, map, or set has a size (or length, or time) between `min` and `max`.
+ */
+
+function size(struct, min, max) {
+  if (max === void 0) {
+    max = min;
+  }
+
+  const expected = "Expected a " + struct.type;
+  const of = min === max ? "of `" + min + "`" : "between `" + min + "` and `" + max + "`";
+  return refine(struct, 'size', value => {
+    if (typeof value === 'number' || value instanceof Date) {
+      return min <= value && value <= max || expected + " " + of + " but received `" + value + "`";
+    } else if (value instanceof Map || value instanceof Set) {
+      const {
+        size
+      } = value;
+      return min <= size && size <= max || expected + " with a size " + of + " but received one with a size of `" + size + "`";
+    } else {
+      const {
+        length
+      } = value;
+      return min <= length && length <= max || expected + " with a length " + of + " but received one with a length of `" + length + "`";
+    }
+  });
+}
+/**
+ * Augment a `Struct` to add an additional refinement to the validation.
+ *
+ * The refiner function is guaranteed to receive a value of the struct's type,
+ * because the struct's existing validation will already have passed. This
+ * allows you to layer additional validation on top of existing structs.
+ */
+
+function refine(struct, name, refiner) {
+  return new Struct({ ...struct,
+
+    *refiner(value, ctx) {
+      yield* struct.refiner(value, ctx);
+      const result = refiner(value, ctx);
+      const failures = toFailures(result, ctx, struct, value);
+
+      for (const failure of failures) {
+        yield { ...failure,
+          refinement: name
+        };
+      }
+    }
+
+  });
+}
+
+exports.Struct = Struct;
+exports.StructError = StructError;
+exports.any = any;
+exports.array = array;
+exports.assert = assert;
+exports.assign = assign;
+exports.bigint = bigint;
+exports.boolean = boolean;
+exports.coerce = coerce;
+exports.create = create;
+exports.date = date;
+exports.defaulted = defaulted;
+exports.define = define;
+exports.deprecated = deprecated;
+exports.dynamic = dynamic;
+exports.empty = empty;
+exports.enums = enums;
+exports.func = func;
+exports.instance = instance;
+exports.integer = integer;
+exports.intersection = intersection;
+exports.is = is;
+exports.lazy = lazy;
+exports.literal = literal;
+exports.map = map;
+exports.mask = mask;
+exports.max = max;
+exports.min = min;
+exports.never = never;
+exports.nonempty = nonempty;
+exports.nullable = nullable;
+exports.number = number;
+exports.object = object;
+exports.omit = omit;
+exports.optional = optional;
+exports.partial = partial;
+exports.pattern = pattern;
+exports.pick = pick;
+exports.record = record;
+exports.refine = refine;
+exports.regexp = regexp;
+exports.set = set;
+exports.size = size;
+exports.string = string;
+exports.struct = struct;
+exports.trimmed = trimmed;
+exports.tuple = tuple;
+exports.type = type;
+exports.union = union;
+exports.unknown = unknown;
+exports.validate = validate;
+//# sourceMappingURL=index.cjs.map
 
 
 /***/ }),
@@ -80018,7 +91886,7 @@ module.exports = {"i8":"6.5.4"};
 
 /***/ }),
 
-/***/ 8661:
+/***/ 68:
 /***/ ((module) => {
 
 "use strict";
@@ -80138,6 +92006,14 @@ module.exports = require("tls");
 
 /***/ }),
 
+/***/ 3867:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ 8835:
 /***/ ((module) => {
 
@@ -80223,8 +92099,9 @@ const tslib_1 = __nccwpck_require__(4351);
 const core = tslib_1.__importStar(__nccwpck_require__(2186));
 const createProgramUpgrade_1 = __nccwpck_require__(5300);
 const utils_1 = __nccwpck_require__(918);
+const createIdlUpgrade_1 = __nccwpck_require__(9333);
 async function run() {
-    var _a;
+    var _a, _b;
     try {
         const networkUrl = core.getInput('network-url');
         const programMultisig = core.getInput('program-multisig');
@@ -80235,6 +92112,8 @@ async function run() {
         const authority = core.getInput('authority');
         const name = core.getInput('name');
         const keypair = core.getInput('keypair');
+        const idlBuffer = core.getInput('idl-buffer');
+        const authorityIndex = core.getInput('authority-index');
         core.debug(`start: ${new Date().toLocaleString()}`);
         core.debug(`networkUrl: ${networkUrl}`);
         core.debug(`programMultisig: ${programMultisig}`);
@@ -80244,6 +92123,8 @@ async function run() {
         core.debug(`spillAddress: ${spillAddress}`);
         core.debug(`authority: ${authority}`);
         core.debug(`name: ${name}`);
+        core.debug(`idlBuffer: ${idlBuffer}`);
+        core.debug(`authorityIndex: ${authorityIndex}`);
         core.debug(`keypair: **********`);
         await (0, createProgramUpgrade_1.createProgramUpgrade)({
             multisig: (0, utils_1.publicKeyFrom)(programMultisig, 'programMultisig'),
@@ -80256,6 +92137,17 @@ async function run() {
             wallet: (0, utils_1.keypairFrom)(keypair, 'keypair'),
             networkUrl: networkUrl
         });
+        if (idlBuffer && idlBuffer.length > 0) {
+            await (0, createIdlUpgrade_1.createIdlUpgrade)({
+                multisig: (0, utils_1.publicKeyFrom)(programMultisig, 'programMultisig'),
+                programId: (0, utils_1.publicKeyFrom)(programId, 'programId'),
+                buffer: (0, utils_1.publicKeyFrom)(buffer, 'buffer'),
+                authority: (0, utils_1.publicKeyFrom)(authority, 'authority'),
+                wallet: (0, utils_1.keypairFrom)(keypair, 'keypair'),
+                networkUrl: networkUrl,
+                authorityIndex: (_b = parseInt(authorityIndex)) !== null && _b !== void 0 ? _b : 1
+            });
+        }
     }
     catch (error) {
         console.log(error);
