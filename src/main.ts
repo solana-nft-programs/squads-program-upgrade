@@ -15,6 +15,7 @@ async function run(): Promise<void> {
     const name: string = core.getInput('name')
     const keypair: string = core.getInput('keypair')
     const idlBuffer: string = core.getInput('idl-buffer')
+    const authorityIndex: string = core.getInput('authority-index')
     core.debug(`start: ${new Date().toLocaleString()}`)
     core.debug(`networkUrl: ${networkUrl}`)
     core.debug(`programMultisig: ${programMultisig}`)
@@ -25,6 +26,7 @@ async function run(): Promise<void> {
     core.debug(`authority: ${authority}`)
     core.debug(`name: ${name}`)
     core.debug(`idlBuffer: ${idlBuffer}`)
+    core.debug(`authorityIndex: ${authorityIndex}`)
     core.debug(`keypair: **********`)
 
     await createProgramUpgrade({
@@ -39,14 +41,15 @@ async function run(): Promise<void> {
       networkUrl: networkUrl
     })
 
-    if (idlBuffer) {
+    if (idlBuffer && idlBuffer.length > 0) {
       await createIdlUpgrade({
         multisig: publicKeyFrom(programMultisig, 'programMultisig'),
         programId: publicKeyFrom(programId, 'programId'),
         buffer: publicKeyFrom(buffer, 'buffer'),
         authority: publicKeyFrom(authority, 'authority'),
         wallet: keypairFrom(keypair, 'keypair'),
-        networkUrl: networkUrl
+        networkUrl: networkUrl,
+        authorityIndex: parseInt(authorityIndex) ?? 1
       })
     }
   } catch (error) {

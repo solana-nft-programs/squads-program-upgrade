@@ -9,7 +9,8 @@ import {
 } from '@solana/web3.js'
 import {msProgramId} from './constants'
 import {SquadsMpl} from './idl/squads_mpl'
-import {getIDLPDA, getIxPDA, getTxPDA} from './pda'
+import {getAuthorityPDA, getIDLPDA, getIxPDA, getTxPDA} from './pda'
+import {keypairFrom} from './utils'
 
 const SET_IDL_BUFFER_IX_DISCRIMINATOR = '40f4bc78a7e9690a03'
 export const createIdlUpgrade = async ({
@@ -18,7 +19,8 @@ export const createIdlUpgrade = async ({
   buffer,
   authority,
   wallet,
-  networkUrl
+  networkUrl,
+  authorityIndex = 1
 }: {
   multisig: PublicKey
   programId: PublicKey
@@ -26,6 +28,7 @@ export const createIdlUpgrade = async ({
   authority: PublicKey
   wallet: Keypair
   networkUrl: string
+  authorityIndex?: number
 }) => {
   const connection = new Connection(networkUrl)
   const program = new Program<SquadsMpl>(
@@ -48,8 +51,14 @@ export const createIdlUpgrade = async ({
   const transactionIndex = new BN(multisigData.transactionIndex + 1, 10)
   const [transactionPDA] = getTxPDA(multisig, transactionIndex, msProgramId)
 
-  // if its > 1 authority, use the derived authority seeds
-  const authorityIndex = 1
+  const [authorityPDA] = getAuthorityPDA(
+    multisig,
+    new BN(authorityIndex),
+    msProgramId
+  )
+  if (authorityPDA.toString() !== authority.toString()) {
+    throw 'Invalid authority index'
+  }
   const createTransactionIx = await program.methods
     .createTransaction(authorityIndex)
     .accountsStrict({
@@ -62,7 +71,7 @@ export const createIdlUpgrade = async ({
   tx.add(createTransactionIx)
 
   // first instruction
-  const instructionIndex = 0
+  const instructionIndex = 1
   const [instructionPDA] = getIxPDA(
     transactionPDA,
     new BN(instructionIndex, 10),

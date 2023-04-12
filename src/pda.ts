@@ -11,6 +11,21 @@ export const getMsPDA = (create_key: PublicKey, programId: PublicKey) =>
     programId
   )
 
+export const getAuthorityPDA = (
+  msPDA: PublicKey,
+  authorityIndexBN: BN,
+  programId: PublicKey
+) =>
+  PublicKey.findProgramAddressSync(
+    [
+      utils.bytes.utf8.encode('squad'),
+      msPDA.toBuffer(),
+      authorityIndexBN.toArrayLike(Buffer, 'le', 4), // note authority index is an u32 (4 byte)
+      utils.bytes.utf8.encode('authority')
+    ],
+    programId
+  )
+
 export const getProgramUpgradePDA = (
   managedProgramPDA: PublicKey,
   upgradeIndexBN: BN,
