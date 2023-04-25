@@ -1,11 +1,11 @@
-import {utils, BN} from '@project-serum/anchor'
+import {utils, BN} from '@coral-xyz/anchor'
 import {PublicKey} from '@solana/web3.js'
 
-export const getMsPDA = (create_key: PublicKey, programId: PublicKey) =>
+export const getMsPDA = (createKey: PublicKey, programId: PublicKey) =>
   PublicKey.findProgramAddressSync(
     [
       utils.bytes.utf8.encode('squad'),
-      create_key.toBuffer(),
+      createKey.toBuffer(),
       utils.bytes.utf8.encode('multisig')
     ],
     programId

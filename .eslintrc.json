@@ -8,9 +8,11 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "filenames/match-regex": 1,
+    "filenames/match-regex": 0,
     "filenames/match-exported": 1,
-    "filenames/no-index": 1
+    "filenames/no-index": 1,
+    "no-console": "off",
+    "no-throw-literal": "off"
   },
   "env": {
     "node": true,

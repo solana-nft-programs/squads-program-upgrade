@@ -1,4 +1,4 @@
-import {AnchorProvider, BN, Program, Wallet, utils} from '@project-serum/anchor'
+import {AnchorProvider, BN, Program, Wallet, utils} from '@coral-xyz/anchor'
 import squadsMpl from './idl/squads_mpl.json'
 import {
   Connection,

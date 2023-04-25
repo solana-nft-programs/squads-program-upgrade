@@ -1,4 +1,4 @@
-import {utils} from '@project-serum/anchor'
+import {utils} from '@coral-xyz/anchor'
 import {Keypair, PublicKey} from '@solana/web3.js'
 
 export const publicKeyFrom = (s: string, n?: string): PublicKey => {
@@ -36,7 +36,7 @@ export const keypairFrom = (s: string, n?: string): Keypair => {
           )
         )
       )
-    } catch (e) {
+    } catch (e2) {
       process.stdout.write(`${n ?? 'keypair'} is not valid keypair`)
       process.exit(1)
     }
