@@ -1,12 +1,4 @@
-# Cardinal X Squads Program Upgrade Github Action
-
-<p align="center">
-  <a href="https://github.com/actions/javascript-action/actions"><img alt="javscript-action status" src="https://github.com/actions/javascript-action/workflows/units-test/badge.svg"></a>
-</p>
-
-<div align="center">
-    <img src="./assets/banner.png" />
-</div>
+# Squads Program Upgrade Github Action
 
 Use this github action to automate Solana program deployments straight from Github to a governance proposal to upgrade via Squads multisig.
 
